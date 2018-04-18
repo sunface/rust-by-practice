@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"net"
-	"sync"
+	"time"
 )
 
 type Node struct {
@@ -26,20 +26,12 @@ type Node struct {
 	recv chan interface{}
 }
 
-type Request struct {
-	Command int
-	Data    interface{}
-}
-
-const (
-	NormalRequest  = 1 // 正常请求，发送数据报文
-	ServersRequest = 2 // 请求服务器列表
-	ServerResponse = 3 // 返回服务器列表
-	ServerPing     = 4 // 发送自己的监听地址
-)
-
-var lock = &sync.Mutex{}
-
+/*
+laddr: 本地节点监听地址
+saddr: 种子节点地址
+send: 本地节点发送数据通道
+recv: 本地节点接收数据通道
+*/
 func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 	// 若不传IP，则默认为本地Node
 	if laddr == "" {
@@ -48,25 +40,9 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 
 	node := &Node{
 		nodeAddr:    laddr,
-		seedAddr:    saddr,
 		downstreams: make(map[string]net.Conn),
 		send:        send,
 		recv:        recv,
-	}
-
-	// 连接种子节点
-	if saddr != "" {
-		conn, err := node.dialToNode(saddr)
-		if err != nil {
-			return err
-		}
-		node.seedConn = conn
-		node.save(saddr, node.seedConn)
-
-		// 定期同步服务器列表
-		node.sync()
-
-		go node.receiveFrom(node.seedConn)
 	}
 
 	// 开始监听TCP端口
@@ -75,83 +51,94 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 		return err
 	}
 
-	// 监听客户端建立的连接
-	for {
-		conn, err := l.Accept()
+	// 监听下游节点建立的连接
+	go func() {
+		for {
+			conn, err := l.Accept()
+			if err != nil {
+				fmt.Println("建立客户端连接错误：", err)
+				continue
+			}
+
+			go node.receiveFrom(conn, false)
+		}
+	}()
+
+	// 种子节点管理和连接
+	if saddr != "" {
+		err := node.connectSeed(saddr)
 		if err != nil {
-			fmt.Println("建立客户端连接错误：", err)
-			continue
+			fmt.Printf("连接种子节点失败%s：%v\n", saddr, err)
+			return err
 		}
 
-		go node.receiveFrom(conn)
+		// 种子节点连接断开，重新连接备用种子列表，直到成功
+		for {
+			for i, addr := range node.seedBackup {
+				if addr != "" {
+					err = node.connectSeed(addr)
+					if err != nil {
+						fmt.Printf("重新连接种子节点失败%s：%v\n", addr, err)
+					}
+					// 种子节点断开后，认为该种子已经失效，从备用种子列表删除
+					if i == len(node.seedBackup)-1 {
+						node.seedBackup = node.seedBackup[:i]
+					} else {
+						node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
+					}
+				}
+				time.Sleep(100 * time.Millisecond)
+			}
+		}
+
+	} else {
+		select {}
 	}
 }
 
-// 在本地缓存所有建立连接的节点,key是远程节点的地址
-func (node *Node) save(addr string, conn net.Conn) {
-	lock.Lock()
-	node.conns[addr] = conn
-	lock.Unlock()
-}
-
-func (node *Node) delete(conn net.Conn) {
-	lock.Lock()
-	delete(node.conns, conn.RemoteAddr().String())
-	lock.Unlock()
-}
-
 // 接收其它节点发来的数据
-func (node *Node) receiveFrom(conn net.Conn) {
+func (node *Node) receiveFrom(conn net.Conn, isSeed bool) {
+	var addr string
 	// 处理连接关闭
 	defer func() {
 		conn.Close()
+		// 若断开的是种子节点，则需要重新连接到一个种子节点
+		if isSeed {
+			// todo,重新连接
+			return
+		}
 
+		// 若是下游节点，则从下游列表中移除
+		if addr != "" {
+			node.delete(addr)
+		}
 	}()
 
 	for {
 		decoder := gob.NewDecoder(conn)
-		r := Request{}
+		r := &Request{}
 		err := decoder.Decode(r)
 		if err != nil {
 			fmt.Println("接收其它节点数据错误：", err)
 			break
 		}
-
-		switch r.Command {
-		case ServersRequest:
-			// 返回节点列表
-			addrs := make([]string, len(node.conns))
-			encoder := gob.NewEncoder(conn)
-			resp := Request{
-				Command: ServerResponse,
-				Data:    addrs,
-			}
-			encoder.Encode(resp)
-		case ServerResponse:
-			// 更新本地节点列表
-			remoteAddrs := r.Data.([]string)
-			// 判断远程节点地址在本地是否已经存在，存在则跳过，不存在则建立连接
-			for _, addr := range remoteAddrs {
-				exist := false
-				for addr1 := range node.conns {
-					if addr1 == addr {
-						exist = true
-						break
-					}
-				}
-
-				if !exist {
-					c, err := node.dialToNode(addr)
-					if err != nil {
-						fmt.Println("收到服务器列表后，建立连接错误：", err)
-						continue
-					}
-
-				}
-			}
+		a, err := r.handle(node, conn)
+		if err != nil {
+			fmt.Println("处理其它节点消息错误：", err)
+			break
+		}
+		// 获取conn对应的下游节点的监听地址
+		if a != "" {
+			addr = a
 		}
 	}
 
+}
+
+func (node *Node) delete(addr string) {
+	lock.Lock()
+	delete(node.downstreams, addr)
+	lock.Unlock()
 }
 
 // 跟远程节点建立连接
@@ -163,11 +150,38 @@ func (node *Node) dialToNode(addr string) (net.Conn, error) {
 	return conn, nil
 }
 
-// 通知seed节点，请求同步服务器列表
-func (node *Node) sync() {
+// 通知seed节点，请求获取备份种子列表
+func (node *Node) syncBackupSeed() {
 	r := &Request{
-		Command: ServersRequest,
+		Command: SyncBackupSeeds,
+		Data:    node.nodeAddr,
 	}
 	e := gob.NewEncoder(node.seedConn)
 	e.Encode(r)
+}
+
+func (node *Node) ping(conn net.Conn) {
+	r := &Request{
+		Command: ServerPing,
+		Data:    node.nodeAddr,
+	}
+	e := gob.NewEncoder(conn)
+	e.Encode(r)
+}
+
+func (node *Node) connectSeed(addr string) error {
+	conn, err := node.dialToNode(addr)
+	if err != nil {
+		return err
+	}
+	node.seedConn = conn
+	node.seedAddr = addr
+	// ping 种子节点
+	node.ping(node.seedConn)
+
+	// 请求获取备份种子列表
+	node.syncBackupSeed()
+
+	node.receiveFrom(node.seedConn, true)
+	return nil
 }
