@@ -28,22 +28,31 @@ func main() {
 }
 ```
 #### terminal
-###### open the first terminal
-`go run main.go -l localhost:2000`
+##### open the first terminal
+```
+go run main.go -l localhost:2000
+```
 
-###### open the second terminal
-`go run main.go -l localhost:2001 -s localhost:2000 ` 
+##### open the second terminal
+```
+go run main.go -l localhost:2001 -s localhost:2000 
+``` 
 
-###### the third
-`go run main.go -l localhost:2002 -s localhost:2001 -m -i 3`
+##### the third
+```
+go run main.go -l localhost:2002 -s localhost:2001 -m -i 3
+```
 
-###### the fourth
-`go run main.go -l localhost:2003 -s localhost:2002`
+##### the fourth
+```
+go run main.go -l localhost:2003 -s localhost:2002
+```
 
-###### the fifth
-`go run main.go -l localhost:2004 -s localhost:2002 -m -i 5`
+##### the fifth
+```go run main.go -l localhost:2004 -s localhost:2002 -m -i 5
+````
 
-######some explanation
+##### some explanation
 - `-l` means the node will listen on this address
 - `-s` means the node will first connect to this seed address
 - `-m` means the node will send message to the p2p network
