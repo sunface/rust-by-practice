@@ -13,6 +13,7 @@ so it's very suitable for simple blockchain project and teaching case.
 - resend when failed
 - ping and pong
 - Cluster Partition avoidance（Todo)
+- Nodes query for grpc or other actions(just query nodes info from p2p, the actions followed has noting to do with p2p).(Todo)
 - Detail docs and code comments
 
 ## How to use
