@@ -1,4 +1,5 @@
-# Dotray &nbsp;&nbsp;(http://dotray.io)
+# Dotray 
+### http://dotray.io
 A modern peer to peer(P2P) network library over TCP written in Go, there is no third party deps in dotray,so it's extremely easy to use in your project.
 
 We implemented  intelligent node discovery、data routing with DAG like algorithm, avoid data redundancy and connection redundancy.
