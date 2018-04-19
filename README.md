@@ -2,7 +2,7 @@
 ### http://dotray.io
 A modern peer to peer(P2P) network library over TCP written in Go, there is no third party deps in dotray,so it's extremely easy to use in your project.
 
-We implemented  intelligent node discovery、data routing with DAG like algorithm, avoid data redundancy and connection redundancy.
+We have implemented  intelligent node discovery、data routing with DAG like algorithm, avoid data redundancy and connection redundancy.
 
 so it's very suitable for simple blockchain project and teaching case.
 
@@ -39,7 +39,7 @@ func main() {
 	flag.Parse()
 
 	send := make(chan interface{}, 1)
-    recv := make(chan interface{}, 1)
+        recv := make(chan interface{}, 1)
     // start the p2p node
 	go func() {
 		err := dotray.StartNode(*laddr, *saddr, send, recv)
@@ -56,7 +56,7 @@ func main() {
 	addrs := dotray.QueryNodes(10)
 
 	// excute some actions with the nodes addresse
-    fmt.Println("query nodes:", addrs)
+        fmt.Println("query nodes:", addrs)
     
     // send message to other node
 	if *messaging {
