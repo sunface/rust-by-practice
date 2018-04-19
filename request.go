@@ -16,28 +16,24 @@ type Request struct {
 }
 
 const (
-	NormalRequest         = 0 // 正常请求，发送数据报文
-	NormalRequestReceived = 1 // 消息已经接收ack
-	ServersRequest        = 2 // 请求服务器列表
-	ServerResponse        = 3 // 返回服务器列表
-	ServerPing            = 4 // 发送节点的监听地址
-	ServerPong            = 5 // ping请求的ack
-	BackupSeeds           = 6 // 备用种子节点列表
-	SyncBackupSeeds       = 7 // 请求获取备用种子列表
+	NormalRequest         = 0 // outer application's data
+	NormalRequestReceived = 1 // ack
+	ServerPing            = 2 // ping to the seed
+	ServerPong            = 3 // pong to the ping
+	BackupSeeds           = 4 // return the backup seeds
+	SyncBackupSeeds       = 5 // query for the backup seeds
 )
 
 func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 	switch r.Command {
 	case NormalRequestReceived:
-		// 从待重发队列中，删除消息
+		// delete the message from resend queue
 		deleteResend(r.ID, r.From)
 	case NormalRequest:
-		// 接收到远程节点发来的消息
-		//发送给本地节点处理
-		//转发给种子节点和下游节点
+		// route the received message to other nodes and outer application
 		routeSend(node, r)
 
-		// 回复消息收到的ack
+		// response with ack
 		encoder := gob.NewEncoder(conn)
 		encoder.Encode(Request{
 			ID:      r.ID,
@@ -45,11 +41,11 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 			From:    node.nodeAddr,
 		})
 	case SyncBackupSeeds:
-		// 请求节点的地址
+		// the address of the requester
 		fromAddr := r.Data.(string)
-		// 请求获取备用种子列表
-		//从当前种子 + 下游列表中选出合适的种子节点(根据负载)
-		// 要避免互为种子的情况
+
+		// filter the adjacent nodes from current seed and the downstream nodes
+		// Avoid forming a dead loop, seed addr mustn't be equal to from addr
 		var addrs []string
 		if node.seedAddr != "" && node.seedAddr != fromAddr {
 			addrs = append(addrs, node.seedAddr)
@@ -68,14 +64,14 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 	case BackupSeeds:
 		addrs := r.Data.([]string)
 
-		// 当前种子节点发送备用种子节点
 		for _, addr1 := range addrs {
 			if addr1 == "" {
 				continue
 			}
-			// 种子更新策略
-			//1.备用节点数未达上限，添加到列表
-			//2.达到上限，替换重试次数超过seedMaxRetry,且从最高的开始替换
+			// the strategy of seeds update
+			// if the upper limit of the seedBackup is not reached, we can append the new addr to the seedBackup
+			// otherwise, we need to replace those nodes whose connection retries bigger than the maxRetry,
+			// with the new seed
 			exist := false
 			maxRetry := 0
 			for _, seed := range node.seedBackup {
@@ -87,14 +83,12 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 					break
 				}
 			}
-			// 新的种子在当前的备用列表中不存在
+
 			if !exist {
 				if len(node.seedBackup) >= maxBackupSeedLen {
-					// 若备用列表中的种子最大重试次数没有超过阀值，则不替换
 					if maxRetry <= seedMaxRetry {
 						break
 					}
-					// 替换第一个超过阀值的旧种子
 					for i, seed := range node.seedBackup {
 						if seed.retry > seedMaxRetry {
 							node.seedBackup[i] = &Seed{
@@ -104,7 +98,6 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 						}
 					}
 				} else {
-					// 添加新种子
 					node.seedBackup = append(node.seedBackup, &Seed{
 						addr:  addr1,
 						retry: 0,
@@ -113,17 +106,17 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 			}
 
 		}
-		// 打印当前种子、备份种子、下游节点
-		fmt.Printf("当前种子：%s,备份种子：%v,下游节点：%v\n", node.seedAddr, getSeedAddrs(node.seedBackup), node.downstreams)
+
+		fmt.Printf("source seed: %s,current seed：%s,backup seeds：%v,downsteam：%v\n", node.sourceAddr, node.seedAddr, getSeedAddrs(node.seedBackup), node.downstreams)
 	case ServerPing:
-		// 下游节点发送它的监听地址
+		// a downstream node sends its address to its seed node(our node)
 		addr, ok := r.Data.(string)
 		if ok {
-			// 添加进本节点下游节点列表
+			// we need to add the downstream node
 			lock.Lock()
 			node.downstreams[addr] = conn
 			lock.Unlock()
-			// 添加进下游节点后，目标节点不得在种子备份列表中存在
+			// a node can't appear in downstream and seedBackup at the same time
 			for i, seed := range node.seedBackup {
 				if seed.addr == addr {
 					node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
@@ -131,7 +124,6 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 				}
 			}
 
-			// 返回Pong
 			encoder := gob.NewEncoder(conn)
 			encoder.Encode(Request{
 				Command: ServerPong,
@@ -144,7 +136,7 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 	case ServerPong:
 		node.pinged = true
 	default:
-		fmt.Println("未识别的消息类型：", r.Command)
+		fmt.Println("unrecognized message type：", r.Command)
 	}
 
 	return "", nil

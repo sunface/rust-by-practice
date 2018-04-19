@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// the outer application send messages
 func localSend(node *Node) {
 	for {
 		select {
@@ -23,7 +24,7 @@ func localSend(node *Node) {
 			lock.Unlock()
 			n := 0
 			if node.seedAddr != "" {
-				// 发送给种子
+				// send to the seed
 				encoder := gob.NewEncoder(node.seedConn)
 				encoder.Encode(r)
 				lock.Lock()
@@ -34,7 +35,7 @@ func localSend(node *Node) {
 				n++
 			}
 
-			// 发送给下游
+			// send to the downstream
 			for addr, conn := range node.downstreams {
 				encoder := gob.NewEncoder(conn)
 				encoder.Encode(r)
@@ -46,7 +47,7 @@ func localSend(node *Node) {
 				n++
 			}
 
-			// 没有发送任何消息，删除待重发送列表
+			// nothing happend, do some sweeping work.
 			if n == 0 {
 				lock.Lock()
 				delete(sendPackets, r.ID)
@@ -57,8 +58,8 @@ func localSend(node *Node) {
 	}
 }
 
+// receive remote node's messages, and we will route to other nodes and the outer application
 func routeSend(node *Node, r *Request) {
-	//若当前种子节点和来源节点一致，则忽略
 	now := time.Now().UnixNano()
 	newR := Request{
 		ID:      now,
@@ -84,7 +85,6 @@ func routeSend(node *Node, r *Request) {
 		n++
 	}
 
-	// 转发给下游节点
 	for addr, conn := range node.downstreams {
 		if r.From != addr && addr != "" {
 			encoder := gob.NewEncoder(conn)
@@ -98,7 +98,7 @@ func routeSend(node *Node, r *Request) {
 		}
 	}
 
-	// 没有发送任何消息，删除待重发送列表
+	// nothing happend, do some sweeping work.
 	if n == 0 {
 		lock.Lock()
 		delete(sendPackets, newR.ID)
@@ -106,6 +106,6 @@ func routeSend(node *Node, r *Request) {
 		lock.Unlock()
 	}
 
-	// 发送给本地节点处理
+	// send to the outer application
 	node.recv <- r
 }

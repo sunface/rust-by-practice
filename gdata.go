@@ -16,3 +16,6 @@ const pingInterval = 30 // second
 const maxPingAllowed = 8
 
 const maxBackupSeedAlive = 240
+
+const maxResendStayTime = 120
+const minResendStayTime = 20

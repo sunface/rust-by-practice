@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// 待ACK数据包
 type Packet struct {
 	Addr   string
 	retrys int
@@ -42,31 +41,33 @@ func deleteResend(rid int64, from string) {
 	lock.Unlock()
 }
 
-// 定时重发队列消息
-// 大于10秒的重发，大于60秒的删除
+// periodically resend the messages
 func resend(node *Node) {
 	for {
 		now := time.Now().Unix()
 		lock.Lock()
 		for rid, ps := range sendPackets {
-			if now-(rid/1e9) > 120 {
+			// if the message stays too long,we will delete it directly
+			if now-(rid/1e9) > maxResendStayTime {
 				delete(sendPackets, rid)
 				delete(sendDatas, rid)
 				continue
 			}
-			if now-(rid/1e9) > 20 {
+			// the message must stays for some time to resend
+			if now-(rid/1e9) > minResendStayTime {
 				r, ok := sendDatas[rid]
 				if ok {
 					for i, p := range ps {
 						conn := getConnByAddr(p.Addr, node)
 						if conn == nil {
-							// 连接不存在，删除对应的包
+							// the conn is empty,delete the message
 							ps = append(ps[:i], ps[i+1:]...)
 							continue
 						}
 						encoder := gob.NewEncoder(conn)
 						err := encoder.Encode(r)
 						if err != nil {
+							// the conn is broken, delete the message
 							ps = append(ps[:i], ps[i+1:]...)
 							continue
 						}
