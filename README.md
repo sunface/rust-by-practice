@@ -55,7 +55,7 @@ func main() {
 	// query 10 nodes address from p2p network
 	addrs := dotray.QueryNodes(10)
 
-    // excute some actions with the nodes addresse,like downloads blockchain from these nodes
+    // excute some actions with the nodes address,like downloads blockchain from these nodes
     // all depends on yourself
     fmt.Println("query nodes:", addrs)
     
