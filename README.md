@@ -55,8 +55,9 @@ func main() {
 	// query 10 nodes address from p2p network
 	addrs := dotray.QueryNodes(10)
 
-	// excute some actions with the nodes addresse
-        fmt.Println("query nodes:", addrs)
+    // excute some actions with the nodes addresse,like downloads blockchain from these nodes
+    // all depends on yourself
+    fmt.Println("query nodes:", addrs)
     
     // send message to all the other nodes
 	if *messaging {
