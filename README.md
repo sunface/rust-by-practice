@@ -15,7 +15,7 @@ so it's very suitable for simple blockchain project and teaching case.
 - ping and pong
 - Cluster Partition avoidance（Todo)
 - Apis to outer application(e.g. Nodes query api, just query nodes info from p2p, the actions followed has noting to do with p2p)
-- Detail docs and code comments
+- Detail docs and code comments(Todo)
 
 ## How to use
 #### demo code
