@@ -114,7 +114,7 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 
 		}
 		// 打印当前种子、备份种子、下游节点
-		// fmt.Printf("当前种子：%s,备份种子：%v,下游节点：%v\n", node.seedAddr, getSeedAddrs(node.seedBackup), node.downstreams)
+		fmt.Printf("当前种子：%s,备份种子：%v,下游节点：%v\n", node.seedAddr, getSeedAddrs(node.seedBackup), node.downstreams)
 	case ServerPing:
 		// 下游节点发送它的监听地址
 		addr, ok := r.Data.(string)

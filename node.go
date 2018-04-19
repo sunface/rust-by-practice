@@ -73,7 +73,7 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 				continue
 			}
 
-			go node.receiveFrom(conn, false)
+			go node.receiveFrom(conn, false, false)
 		}
 	}()
 
@@ -96,7 +96,7 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 
 		// 请求获取备份种子列表
 		go node.syncBackupSeed()
-		node.receiveFrom(node.seedConn, true)
+		node.receiveFrom(node.seedConn, true, false)
 
 	SourceSeedTrye:
 		// 原始种子断开，先继续尝试连接原始种子，超过上限，则访问备份种子
@@ -112,7 +112,7 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 				n++
 				goto CONTINUE
 			}
-			node.receiveFrom(node.seedConn, true)
+			node.receiveFrom(node.seedConn, true, false)
 			// 之前的连接成功，又断开，重连计数归0
 			n = 0
 		CONTINUE:
@@ -125,39 +125,10 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 				fmt.Printf("备份种子列表已经为空%v\n", node.seedBackup)
 				break
 			}
-
-			for i, seed := range node.seedBackup {
-				// 备份节点不得在下游节点中存在，若存在则删除
-				exist := false
-				for addr := range node.downstreams {
-					if addr == seed.addr {
-						node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
-						exist = true
-					}
-				}
-
-				if exist {
-					fmt.Printf("备份节点和下游节点冲突，删除备份节点：%s\n", seed.addr)
-					continue
-				}
-				// 若种子的重试次数超过上限，则进行删除
-				if seed.retry > seedMaxRetry {
-					fmt.Printf("备份种子%s重连次数超过上限，从备份列表删除\n", seed.addr)
-					node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
-					goto CONTINUE1
-				}
-				err = node.connectSeed(seed.addr)
-				if err != nil {
-					// 种子重试+1
-					seed.retry++
-					fmt.Printf("重新连接种子节点失败%v：%v\n", seed, err)
-					goto CONTINUE1
-				}
-				node.receiveFrom(node.seedConn, true)
-				// 种子连接成功后再断开，重试归0
-				seed.retry = 0
-			CONTINUE1:
-				time.Sleep(3 * time.Second)
+			stepBack := node.connectBackSeeds()
+			if stepBack {
+				fmt.Println("回到原始种子，重新连接")
+				goto SourceSeedTrye
 			}
 		}
 
@@ -169,7 +140,7 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 }
 
 // 接收其它节点发来的数据
-func (node *Node) receiveFrom(conn net.Conn, isSeed bool) {
+func (node *Node) receiveFrom(conn net.Conn, isSeed bool, needStepBack bool) bool {
 	var addr string
 	// 处理连接关闭
 	defer func() {
@@ -187,7 +158,17 @@ func (node *Node) receiveFrom(conn net.Conn, isSeed bool) {
 		}
 	}()
 
+	// 为了防止脑裂，当前连接持续一段时间后，需要重新连接原始种子进行尝试
+	start := time.Now().Unix()
 	for {
+		if needStepBack {
+			now := time.Now().Unix()
+			if now-start > 60 {
+				fmt.Println("当前连接持续时间过长，需要重新连接原始种子")
+				return true
+			}
+		}
+
 		decoder := gob.NewDecoder(conn)
 		r := &Request{}
 		err := decoder.Decode(r)
@@ -208,6 +189,7 @@ func (node *Node) receiveFrom(conn net.Conn, isSeed bool) {
 		}
 	}
 
+	return false
 }
 
 func (node *Node) delete(addr string) {
@@ -285,4 +267,56 @@ func (node *Node) syncBackupSeed() {
 			time.Sleep(syncBackupSeedInterval * time.Second)
 		}
 	}()
+}
+
+func (node *Node) connectBackSeeds() bool {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("连接备份种子时，发生了错误：", err)
+		}
+	}()
+
+	for i, seed := range node.seedBackup {
+		// 备份节点不得在下游节点中存在，若存在则删除
+		exist := false
+		var err error
+		var stepBack bool
+
+		for addr := range node.downstreams {
+			if addr == seed.addr {
+				node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
+				exist = true
+			}
+		}
+
+		if exist {
+			fmt.Printf("备份节点和下游节点冲突，删除备份节点：%s\n", seed.addr)
+			continue
+		}
+		// 若种子的重试次数超过上限，则进行删除
+		if seed.retry > seedMaxRetry {
+			fmt.Printf("备份种子%s重连次数超过上限，从备份列表删除\n", seed.addr)
+			node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
+			goto CONTINUE1
+		}
+		err = node.connectSeed(seed.addr)
+		if err != nil {
+			// 种子重试+1
+			seed.retry++
+			fmt.Printf("重新连接种子节点失败%v：%v\n", seed, err)
+			goto CONTINUE1
+		}
+
+		stepBack = node.receiveFrom(node.seedConn, true, true)
+		// 返回原始种子重新尝试
+		if stepBack {
+			return true
+		}
+		// 种子连接成功后再断开，重试归0
+		seed.retry = 0
+	CONTINUE1:
+		time.Sleep(3 * time.Second)
+	}
+
+	return false
 }
