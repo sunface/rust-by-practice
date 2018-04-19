@@ -9,55 +9,44 @@ import (
 
 // Request 节点之间交换的数据结构
 type Request struct {
+	ID      int64
 	Command int
 	Data    interface{}
 	From    string
 }
 
 const (
-	NormalRequest   = 1 // 正常请求，发送数据报文
-	ServersRequest  = 2 // 请求服务器列表
-	ServerResponse  = 3 // 返回服务器列表
-	ServerPing      = 4 // 发送节点的监听地址
-	BackupSeeds     = 5 // 备用种子节点列表
-	SyncBackupSeeds = 6 // 请求获取备用种子列表
+	NormalRequest         = 0 // 正常请求，发送数据报文
+	NormalRequestReceived = 1 // 消息已经接收ack
+	ServersRequest        = 2 // 请求服务器列表
+	ServerResponse        = 3 // 返回服务器列表
+	ServerPing            = 4 // 发送节点的监听地址
+	ServerPong            = 5 // ping请求的ack
+	BackupSeeds           = 6 // 备用种子节点列表
+	SyncBackupSeeds       = 7 // 请求获取备用种子列表
 )
 
 func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 	switch r.Command {
+	case NormalRequestReceived:
+		// 从待重发队列中，删除消息
+		deleteResend(r.ID, r.From)
 	case NormalRequest:
-		fmt.Printf("接收到其它节点%s的数据:%v,\n", r.From, r.Data)
 		// 接收到远程节点发来的消息
 		//发送给本地节点处理
 		//转发给种子节点和下游节点
+		routeSend(node, r)
 
-		//若当前种子节点和来源节点一致，则忽略
-		newR := Request{
-			Command: NormalRequest,
-			Data:    r.Data,
+		// 回复消息收到的ack
+		encoder := gob.NewEncoder(conn)
+		encoder.Encode(Request{
+			ID:      r.ID,
+			Command: NormalRequestReceived,
 			From:    node.nodeAddr,
-		}
-
-		if r.From != node.seedAddr && node.seedAddr != "" {
-			encoder := gob.NewEncoder(node.seedConn)
-			encoder.Encode(newR)
-			fmt.Printf("发送数据%v给种子%s\n", r.Data, node.seedAddr)
-		}
-
-		// 转发给下游节点
-		for addr, conn := range node.downstreams {
-			if r.From != addr && addr != "" {
-				encoder := gob.NewEncoder(conn)
-				encoder.Encode(newR)
-				fmt.Printf("发送数据%v给下游%s\n", r.Data, addr)
-			}
-		}
-		// 发送给本地节点处理
-		node.recv <- r
+		})
 	case SyncBackupSeeds:
 		// 请求节点的地址
 		fromAddr := r.Data.(string)
-		fmt.Printf("收到远程节点：%s获取备份种子列表的请求\n", fromAddr)
 		// 请求获取备用种子列表
 		//从当前种子 + 下游列表中选出合适的种子节点(根据负载)
 		// 要避免互为种子的情况
@@ -71,7 +60,6 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 			}
 		}
 
-		fmt.Printf("处理完成远程节点：%s获取备份种子列表的请求，返回种子列表：%v\n", fromAddr, addrs)
 		encoder := gob.NewEncoder(conn)
 		encoder.Encode(Request{
 			Command: BackupSeeds,
@@ -79,7 +67,7 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 		})
 	case BackupSeeds:
 		addrs := r.Data.([]string)
-		fmt.Printf("收到之前请求的备份种子列表:%v\n", addrs)
+
 		// 当前种子节点发送备用种子节点
 		for _, addr1 := range addrs {
 			if addr1 == "" {
@@ -126,13 +114,10 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 
 		}
 		// 打印当前种子、备份种子、下游节点
-		fmt.Printf("当前种子：%s\n", node.seedAddr)
-		fmt.Printf("最新的备份种子:%v\n", getSeedAddrs(node.seedBackup))
-		fmt.Printf("下游节点：%v\n", node.downstreams)
+		// fmt.Printf("当前种子：%s,备份种子：%v,下游节点：%v\n", node.seedAddr, getSeedAddrs(node.seedBackup), node.downstreams)
 	case ServerPing:
 		// 下游节点发送它的监听地址
 		addr, ok := r.Data.(string)
-		fmt.Printf("收到下游节点%s的ping请求\n", addr)
 		if ok {
 			// 添加进本节点下游节点列表
 			lock.Lock()
@@ -145,9 +130,19 @@ func (r *Request) handle(node *Node, conn net.Conn) (string, error) {
 					break
 				}
 			}
+
+			// 返回Pong
+			encoder := gob.NewEncoder(conn)
+			encoder.Encode(Request{
+				Command: ServerPong,
+				From:    node.nodeAddr,
+			})
+
 			return addr, nil
 		}
-		fmt.Printf("最新的下游节点列表：%v\n", node.downstreams)
+
+	case ServerPong:
+		node.pinged = true
 	default:
 		fmt.Println("未识别的消息类型：", r.Command)
 	}

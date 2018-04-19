@@ -3,6 +3,7 @@ package dotray
 import "sync"
 
 var lock = &sync.Mutex{}
+var reqID int64 = 0
 
 const maxBackupSeedLen = 10
 
