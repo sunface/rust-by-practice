@@ -48,7 +48,7 @@ func main() {
 		}
 	}()
 
-    
+
 	// wait 1 second for p2p node started
 	time.Sleep(1 * time.Second)
 
@@ -81,6 +81,7 @@ func main() {
 
 }
 ```
+
 #### terminal
 ##### open the first terminal
 ```
