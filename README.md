@@ -19,11 +19,50 @@ so it's very suitable for simple blockchain project and teaching case.
 #### demo code
 ```go
 package main
+
 import (
-    "github.com/uulesson/dotray"
+	"flag"
+	"fmt"
+	"time"
+
+	"github.com/uulesson/dotray"
 )
 
+var laddr = flag.String("l", "", "")
+var saddr = flag.String("s", "", "")
+var messaging = flag.Bool("m", false, "")
+var id = flag.String("i", "", "")
+
 func main() {
+	flag.Parse()
+
+	send := make(chan interface{}, 1)
+	recv := make(chan interface{}, 1)
+	go func() {
+		err := dotray.StartNode(*laddr, *saddr, send, recv)
+		if err != nil {
+			panic("node start panic:" + err.Error())
+		}
+	}()
+
+	if *messaging {
+		data := "hello-" + *id
+		go func() {
+			for {
+				send <- data
+				time.Sleep(5 * time.Second)
+				fmt.Println("send message：", data)
+			}
+		}()
+	}
+
+	for {
+		select {
+		case r := <-recv:
+			res := r.(*dotray.Request)
+			fmt.Printf("receive message: %v from other node: \"%s\" \n", res.Data, res.From)
+		}
+	}
 
 }
 ```
