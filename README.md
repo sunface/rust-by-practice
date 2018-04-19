@@ -1,10 +1,16 @@
 # p2p
-一个全新的p2p网络实现，无外部依赖库，极其简单易用，实现了智能的节点发现和消息路由机制，节点之间完全单向连接，避免了大量的连接冗余和数据冗余。
+A modern peer to peer(P2P) network library over TCP written in Go, there is no third party deps in dotray,so it's extremely easy to use in your project.
 
-## 功能列表
-- TCP通信
-- 节点自动发现
-- 消息智能路由
-- 发包失败重试
-- 心跳检测
-- 脑裂处理（Todo)
+We implemented  intelligent node discovery、data routing with DAG like algorithm, avoid data redundancy and connection redundancy.
+
+so it's very suitable for simple blockchain project and teaching case.
+
+## Features
+- Based on TCP
+- Pure Go
+- Node discovery
+- Intelligent data routing
+- resend when failed
+- ping and pong
+- Cluster Partition avoidance（Todo)
+- Detail docs and code comments
