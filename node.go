@@ -9,45 +9,48 @@ import (
 	"time"
 )
 
-// Node 代表了本地的服务器节点
+// Node is the local server
 type Node struct {
-	// 节点地址
 	nodeAddr string
 
-	// 原始种子列表
+	// the source seed addr
 	sourceAddr string
 
-	// 当前种子
+	// the current seed
 	seedAddr string
 	seedConn net.Conn
-	pinged   bool // ping失败一定次数后，认为种子节点失败，重新连接
 
-	// 备用种子列表
+	// ping、pong status with the current seed
+	// when ping failed a few times, we need to connect to another seed node
+	pinged bool
+
+	// backup seeds list
+	// when failed to connect to source seed,will try backup seed
 	seedBackup []*Seed
 
-	// 下流节点列表
+	// the nodes which use our node as the current seed
 	downstreams map[string]net.Conn
 
+	// outer application channels
 	send chan interface{}
 	recv chan interface{}
 }
 
-// Seed 远程种子节点
+// Seed structure
 type Seed struct {
 	addr  string
 	retry int
 }
 
 /*
-laddr: 本地节点监听地址
-saddr: 种子节点地址
-send: 本地节点发送数据通道
-recv: 本地节点接收数据通道
+laddr: our node's listen addr
+saddr: the source seed addr
+send: outer application pushes messages to this channel
+recv: outer application receives messages from this channel
 */
 func StartNode(laddr, saddr string, send, recv chan interface{}) error {
-	// 若不传IP，则默认为本地Node
 	if laddr == "" {
-		return errors.New("请通过laddr参数输入监听地址")
+		return errors.New("please use -l to specify our node's listen addr")
 	}
 
 	node = &Node{
@@ -58,18 +61,18 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 		recv:        recv,
 	}
 
-	// 开始监听TCP端口
+	// start tcp listening
 	l, err := net.Listen("tcp", laddr)
 	if err != nil {
 		return err
 	}
 
-	// 监听下游节点建立的连接
+	// wait for downstream nodes to connect
 	go func() {
 		for {
 			conn, err := l.Accept()
 			if err != nil {
-				fmt.Println("建立客户端连接错误：", err)
+				fmt.Println("accept downstream node error：", err)
 				continue
 			}
 
@@ -77,29 +80,34 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 		}
 	}()
 
-	// 接收本地节点发来的消息，转发给种子节点和下游节点
+	// receive outer application's message,and route to the seed node and the downstream nodes
 	go localSend(node)
 
-	// 启动重新发送队列
+	// resend the unsent messages(these messages didn't receive a matched ack from target node)
 	go resend(node)
 
-	// 种子节点管理和连接
+	// the main logic of seed manage
 	if saddr != "" {
-		// ping 种子节点
+		// start to ping with the seed
+		//when ping failed a few times, we need to connect to another seed node
 		go node.ping()
 
 		err := node.connectSeed(saddr)
 		if err != nil {
-			fmt.Printf("连接种子节点失败%s：%v\n", saddr, err)
+			fmt.Printf("failed to connecto the seed%s：%v\n", saddr, err)
 			return err
 		}
 
-		// 请求获取备份种子列表
+		// start to sync the backup seed from current seed
+		//the backup seeds are those nodes who directly connected with the current seed
 		go node.syncBackupSeed()
+
+		// start to receive messages from the current seed
 		node.receiveFrom(node.seedConn, true, false)
 
 	SourceSeedTrye:
-		// 原始种子断开，先继续尝试连接原始种子，超过上限，则访问备份种子
+		// although we disconnected with the source seed
+		// but,here we want retry source seed for a few times(n) first
 		n := 0
 		for {
 			if n > seedMaxRetry {
@@ -108,63 +116,74 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 
 			err := node.connectSeed(saddr)
 			if err != nil {
-				// 重连次数+1
 				n++
 				goto CONTINUE
 			}
 			node.receiveFrom(node.seedConn, true, false)
-			// 之前的连接成功，又断开，重连计数归0
+			//when successfully connected, the counter will be reset to 0
 			n = 0
 		CONTINUE:
 			time.Sleep(3 * time.Second)
 		}
 
-		// 原始种子尝试彻底失败，连接备用种子列表
+		// after retry several times with the source seed,now we want connect with our backup seeds
 		for {
 			if len(node.seedBackup) <= 0 {
-				fmt.Printf("备份种子列表已经为空%v\n", node.seedBackup)
+				// if there is no backup seed,we will go back to the source seed
+				fmt.Printf("no backup seed exist now\n")
 				break
 			}
+
+			// here is one important thing to notice
+			//if stepBack is setted to 'true', we will go back to source seed retrys again
+
+			// why?
+			//because, at times, the big cluster will divided into few smaller clusters, the smaller
+			// ones will not perceive each other, so we need a way to combine smaller ones to a
+			// larger one, this is why we will go back to retry the source seed after some time.
+
+			//and this stepBack action only happend when we has connected to backup seeds
 			stepBack := node.connectBackSeeds()
 			if stepBack {
-				fmt.Println("回到原始种子，重新连接")
+				fmt.Println("step back to the source seed")
 				goto SourceSeedTrye
 			}
 		}
 
+		// go back to try source seed
 		goto SourceSeedTrye
 	}
 
-	// 创世节点
 	select {}
 }
 
-// 接收其它节点发来的数据
+// receive messages from remote node
 func (node *Node) receiveFrom(conn net.Conn, isSeed bool, needStepBack bool) bool {
 	var addr string
-	// 处理连接关闭
+	// close the connection
 	defer func() {
 		conn.Close()
-		// 若是下游节点，则从下游列表中移除
+		// if the node is in downstream, then remove
 		if addr != "" {
-			fmt.Printf("远程节点%s关闭了连接\n", addr)
+			fmt.Printf("remote downstream node %s close the connection\n", addr)
 			node.delete(addr)
 		}
 
+		// if the node is the seed, then reset
 		if isSeed {
-			fmt.Printf("远程种子节点%s关闭了连接\n", node.seedAddr)
+			fmt.Printf("remote seed node %s close the connection\n", node.seedAddr)
 			node.seedConn = nil
 			node.seedAddr = ""
 		}
 	}()
 
-	// 为了防止脑裂，当前连接持续一段时间后，需要重新连接原始种子进行尝试
+	// the step back has been mentioned above
 	start := time.Now().Unix()
 	for {
 		if needStepBack {
 			now := time.Now().Unix()
-			if now-start > 60 {
-				fmt.Println("当前连接持续时间过长，需要重新连接原始种子")
+			// A connection which connected to backup seed ,will maintain no more than 240 second
+			if now-start > maxBackupSeedAlive {
 				return true
 			}
 		}
@@ -174,16 +193,16 @@ func (node *Node) receiveFrom(conn net.Conn, isSeed bool, needStepBack bool) boo
 		err := decoder.Decode(r)
 		if err != nil {
 			if err != io.EOF {
-				fmt.Println("接收其它节点数据错误：", err)
+				fmt.Println("decode message error：", err)
 			}
 			break
 		}
 		a, err := r.handle(node, conn)
 		if err != nil {
-			fmt.Println("处理其它节点消息错误：", err)
+			fmt.Println("handle message error：", err)
 			break
 		}
-		// 获取conn对应的下游节点的监听地址
+		// update the downstream node's listen addr
 		if a != "" {
 			addr = a
 		}
@@ -192,13 +211,14 @@ func (node *Node) receiveFrom(conn net.Conn, isSeed bool, needStepBack bool) boo
 	return false
 }
 
+// delete node from downstream
 func (node *Node) delete(addr string) {
 	lock.Lock()
 	delete(node.downstreams, addr)
 	lock.Unlock()
 }
 
-// 跟远程节点建立连接
+// dial to remote node
 func (node *Node) dialToNode(addr string) (net.Conn, error) {
 	conn, err := net.Dial("tcp", addr)
 	if err != nil {
@@ -207,6 +227,7 @@ func (node *Node) dialToNode(addr string) (net.Conn, error) {
 	return conn, nil
 }
 
+// connect to the seed node
 func (node *Node) connectSeed(addr string) error {
 	conn, err := node.dialToNode(addr)
 	if err != nil {
@@ -215,7 +236,7 @@ func (node *Node) connectSeed(addr string) error {
 
 	node.seedConn = conn
 	node.seedAddr = addr
-	fmt.Printf("种子节点%s连接成功\n", addr)
+	fmt.Printf("connect to the seed %s successfully\n", addr)
 	return nil
 }
 
@@ -227,8 +248,8 @@ func (node *Node) ping() {
 			node.pinged = false
 			continue
 		}
-		if n >= 6 {
-			// 1分钟还ping不通，更换种子节点
+		if n >= maxPingAllowed {
+			// when the ping failed several times, we will choose another seed to connnect
 			if node.seedConn != nil {
 				node.seedConn.Close()
 				node.seedConn = nil
@@ -247,12 +268,14 @@ func (node *Node) ping() {
 			e.Encode(r)
 			n++
 		}
-		time.Sleep(15 * time.Second)
+		time.Sleep(pingInterval * time.Second)
 	}
 }
 
-// 通知seed节点，定时请求获取备份种子列表
+// sync backup seed from current seed
+// the backup seeds are those nodes who directly connected with the current seed
 func (node *Node) syncBackupSeed() {
+	// waiting for node's initialization
 	time.Sleep(100 * time.Millisecond)
 	go func() {
 		for {
@@ -272,47 +295,46 @@ func (node *Node) syncBackupSeed() {
 func (node *Node) connectBackSeeds() bool {
 	defer func() {
 		if err := recover(); err != nil {
-			fmt.Println("连接备份种子时，发生了错误：", err)
+			fmt.Println("a critical error happens when connecto to backup seed", err)
 		}
 	}()
 
 	for i, seed := range node.seedBackup {
-		// 备份节点不得在下游节点中存在，若存在则删除
 		exist := false
 		var err error
 		var stepBack bool
 
+		// a node can't  appear in seedBackup and downstream at the same time
 		for addr := range node.downstreams {
 			if addr == seed.addr {
 				node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
 				exist = true
 			}
 		}
-
 		if exist {
-			fmt.Printf("备份节点和下游节点冲突，删除备份节点：%s\n", seed.addr)
+			fmt.Printf("a conflict between backupSeeds and downstream,so the backup seed is deleted：%s\n", seed.addr)
 			continue
 		}
-		// 若种子的重试次数超过上限，则进行删除
+
+		// seed connection retries can't exceed the upper limit
 		if seed.retry > seedMaxRetry {
-			fmt.Printf("备份种子%s重连次数超过上限，从备份列表删除\n", seed.addr)
+			fmt.Printf("seed %sretries exceed the limit\n", seed.addr)
 			node.seedBackup = append(node.seedBackup[:i], node.seedBackup[i+1:]...)
 			goto CONTINUE1
 		}
 		err = node.connectSeed(seed.addr)
 		if err != nil {
-			// 种子重试+1
 			seed.retry++
-			fmt.Printf("重新连接种子节点失败%v：%v\n", seed, err)
+			fmt.Printf("reconnect to seed %v error: %v\n", seed, err)
 			goto CONTINUE1
 		}
 
 		stepBack = node.receiveFrom(node.seedConn, true, true)
-		// 返回原始种子重新尝试
+		// go back to source seed
 		if stepBack {
 			return true
 		}
-		// 种子连接成功后再断开，重试归0
+		// if a seed was successfully connected, the retry counter will be reset to 0
 		seed.retry = 0
 	CONTINUE1:
 		time.Sleep(3 * time.Second)

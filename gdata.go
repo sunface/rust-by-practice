@@ -4,10 +4,15 @@ import "sync"
 
 var node *Node
 var lock = &sync.Mutex{}
-var reqID int64 = 0
+var reqID int64
 
-const maxBackupSeedLen = 10
+const maxBackupSeedLen = 10 // the max length of the seed backups
 
-const seedMaxRetry = 3 // seed节点重试次数超过20的，在收到新的backupSeeds后，优先被替换
+const seedMaxRetry = 3 // the max retry times when a seed failed to connect
 
-const syncBackupSeedInterval = 30 // X秒同步一次备份种子信息
+const syncBackupSeedInterval = 30 // the seed backup interval
+
+const pingInterval = 30 // second
+const maxPingAllowed = 8
+
+const maxBackupSeedAlive = 240
