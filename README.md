@@ -37,7 +37,8 @@ func main() {
 	flag.Parse()
 
 	send := make(chan interface{}, 1)
-	recv := make(chan interface{}, 1)
+    recv := make(chan interface{}, 1)
+    // start the p2p node
 	go func() {
 		err := dotray.StartNode(*laddr, *saddr, send, recv)
 		if err != nil {
@@ -45,6 +46,7 @@ func main() {
 		}
 	}()
 
+    // send message to other node
 	if *messaging {
 		data := "hello-" + *id
 		go func() {
@@ -56,6 +58,7 @@ func main() {
 		}()
 	}
 
+    // receive message from other node
 	for {
 		select {
 		case r := <-recv:
