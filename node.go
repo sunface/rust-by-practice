@@ -50,7 +50,7 @@ func StartNode(laddr, saddr string, send, recv chan interface{}) error {
 		return errors.New("请通过laddr参数输入监听地址")
 	}
 
-	node := &Node{
+	node = &Node{
 		nodeAddr:    laddr,
 		sourceAddr:  saddr,
 		downstreams: make(map[string]net.Conn),

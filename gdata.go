@@ -2,6 +2,7 @@ package dotray
 
 import "sync"
 
+var node *Node
 var lock = &sync.Mutex{}
 var reqID int64 = 0
 

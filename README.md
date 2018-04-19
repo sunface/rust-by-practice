@@ -48,6 +48,16 @@ func main() {
 		}
 	}()
 
+    
+	// wait 1 second for p2p node started
+	time.Sleep(1 * time.Second)
+
+	// query 10 nodes address from p2p network
+	addrs := dotray.QueryNodes(10)
+
+	// excute some actions with the nodes addresse
+    fmt.Println("query nodes:", addrs)
+    
     // send message to other node
 	if *messaging {
 		data := "hello-" + *id
