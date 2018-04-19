@@ -2,7 +2,6 @@ package dotray
 
 import (
 	"encoding/gob"
-	"fmt"
 	"net"
 	"time"
 )
@@ -55,7 +54,6 @@ func resend(node *Node) {
 				delete(sendDatas, rid)
 				continue
 			}
-			fmt.Println("old ps:", ps)
 			if now-(rid/1e9) > 20 {
 				r, ok := sendDatas[rid]
 				if ok {
@@ -72,12 +70,10 @@ func resend(node *Node) {
 							ps = append(ps[:i], ps[i+1:]...)
 							continue
 						}
-						fmt.Println("here1111: ", p.Addr)
 					}
 				}
 			}
 
-			fmt.Println("new ps:", ps)
 			if len(ps) == 0 {
 				delete(sendPackets, rid)
 				delete(sendDatas, rid)
