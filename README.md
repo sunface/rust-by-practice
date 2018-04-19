@@ -58,7 +58,7 @@ func main() {
 	// excute some actions with the nodes addresse
         fmt.Println("query nodes:", addrs)
     
-    // send message to other node
+    // send message to all the other nodes
 	if *messaging {
 		data := "hello-" + *id
 		go func() {
@@ -70,7 +70,7 @@ func main() {
 		}()
 	}
 
-    // receive message from other node
+    // receive message from other nodes
 	for {
 		select {
 		case r := <-recv:
