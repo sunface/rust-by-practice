@@ -13,7 +13,7 @@ so it's very suitable for simple blockchain project and teaching case.
 - Intelligent data routing
 - resend when failed
 - ping and pong
-- Cluster Partition avoidance（Todo)
+- Cluster Partition avoidance
 - Apis to outer application(e.g. Nodes query api, just query nodes info from p2p, the actions followed has noting to do with p2p)
 - Detail docs and code comments(Todo)
 
