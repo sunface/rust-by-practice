@@ -13,7 +13,7 @@ Notice! This project is still under heavy development, for now,you can use it in
 - Based on TCP/TLS
 - Abstract Transport: Non-IP network
 - Encryption(todo)
-- NAT Tranversal(todo)
+- NAT Tranversal and Relay(todo)
 - Peer Discovery(to be optimized)
 - Resource Discovery(todo)
 - Intelligent message routing(to be optimized)
