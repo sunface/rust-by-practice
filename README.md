@@ -1,4 +1,4 @@
-# Dotray 
+# dotray
 ### http://dotray.io
 A modern peer to peer(P2P) network library over TCP written in Go, there is no third party deps in dotray,so it's extremely easy to use in your project.
 
@@ -7,9 +7,6 @@ We have implemented  intelligent node discovery、data routing with DAG like alg
 so it's very suitable for simple blockchain project and teaching case.
 
 Notice! This project is still under heavy development, for now,you can use it in simple blockchain or demos.
-
-## Users
-- [twinkling](https://github.com/uulesson/twinkling) 
 
 ## Features
 - Pure Go and Easy using
