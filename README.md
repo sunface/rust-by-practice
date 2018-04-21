@@ -12,7 +12,7 @@ Notice! This project is still under heavy development, for now,you can use it in
 - [twinkling](https://github.com/uulesson/twinkling) 
 
 ## Features
-- Pure Go
+- Pure Go and Easy using
 - Based on TCP
 - Encryption(todo)
 - NAT Tranversal(todo)
