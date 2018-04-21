@@ -13,12 +13,12 @@ Notice! This project is still under heavy development, for now,you can use it in
 - Based on TCP/TLS
 - Abstract Transport: Non-IP network
 - Encryption(todo)
-- NAT Tranversal and Relay(todo)
+- NAT Tranversal(todo)
 - Peer Discovery(to be optimized)
 - Resource Discovery(todo)
 - Intelligent message routing(to be optimized)
 - Cluster Partition avoidance(to be optimized)
-- Messaging by Multicast and pubsub etc  (todo)
+- Messaging by Multicast etc  (todo)
 - Detail docs and code comments(Todo docs)
 
 ## How to use
