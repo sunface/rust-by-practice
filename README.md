@@ -16,9 +16,11 @@ Notice! This project is still under heavy development, for now,you can use it in
 - Based on TCP
 - Encryption(todo)
 - NAT Tranversal(todo)
-- Node Discovery(to be optimized)
+- Peer Discovery(to be optimized)
+- Resource Discovery(todo)
 - Intelligent message routing(to be optimized)
 - Cluster Partition avoidance(to be optimized)
+- Messaging by Multicast and pubsub etc  (todo)
 - Detail docs and code comments(Todo docs)
 
 ## How to use
