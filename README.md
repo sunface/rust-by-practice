@@ -12,14 +12,13 @@ Notice! This project is still under heavy development, for now,you can use it in
 - [twinkling](https://github.com/uulesson/twinkling) 
 
 ## Features
-- Based on TCP
 - Pure Go
-- Node discovery
-- Intelligent data routing
-- resend when failed
-- ping and pong
-- Cluster Partition avoidance
-- Apis to outer application(e.g. Nodes query api, just query nodes info from p2p, the actions followed has noting to do with p2p)
+- Based on TCP
+- Encryption(todo)
+- NAT Tranversal(todo)
+- Node Discovery(to be optimized)
+- Intelligent message routing(to be optimized)
+- Cluster Partition avoidance(to be optimized)
 - Detail docs and code comments(Todo docs)
 
 ## How to use
