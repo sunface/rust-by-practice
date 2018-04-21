@@ -10,7 +10,7 @@ Notice! This project is still under heavy development, for now,you can use it in
 
 ## Features
 - Pure Go and Easy using
-- Based on TCP
+- Based on TCP/TLS
 - Abstract Transport: Non-IP network
 - Encryption(todo)
 - NAT Tranversal(todo)
