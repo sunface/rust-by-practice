@@ -31,7 +31,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dotray/dotray"
+	"github.com/uuchain/dotray"
 )
 
 var laddr = flag.String("l", "", "")
