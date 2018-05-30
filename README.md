@@ -1,6 +1,6 @@
 # dotray
 
-Dotray is a tool for building distributed applications.
+Dotray is a tool for building distributed applications, similar to a network composed with dot and ray 
 
 Dotray implements a [gossip protocol](https://en.wikipedia.org/wiki/Gossip_protocol)
 that provide membership, unicast, and broadcast functionality
