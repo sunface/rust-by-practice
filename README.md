@@ -1,4 +1,4 @@
-# dotray
+# dotray 
 
 Dotray is a tool for building distributed applications, similar to a network composed with dot and ray 
 
@@ -27,7 +27,7 @@ Dotray is currently distributed as a Rust package.
 
 
 ## Status
-Still under developing.
+Still under developing 
 
 ## Feedback
 Your feedback is always welcome!
