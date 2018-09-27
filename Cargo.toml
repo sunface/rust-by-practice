@@ -1,6 +1,0 @@
-[package]
-name = "dotray"
-version = "0.1.0"
-authors = ["sunfaces <cto@188.com>"]
-
-[dependencies]
