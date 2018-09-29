@@ -17,8 +17,8 @@ package cmd
 import (
 	"fmt"
 	"github.com/mafanr/g"
-	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/agent/agent"
+	"github.com/mafanr/vgo/agent/misc"
 	"go.uber.org/zap"
 	"os"
 	"os/signal"
@@ -41,20 +41,20 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-		Run: func(cmd *cobra.Command, args []string) {
-			misc.InitConfig("agent.conf")
-			g.InitLogger(misc.Conf.Common.LogLevel)
-			g.L.Info("Application version", zap.String("version", misc.Conf.Common.Version))
+	Run: func(cmd *cobra.Command, args []string) {
+		misc.InitConfig("agent.conf")
+		g.InitLogger(misc.Conf.Common.LogLevel)
+		g.L.Info("Application version", zap.String("version", misc.Conf.Common.Version))
 
-			a:= agent.New()
-			a.Start()
-			// 等待服务器停止信号
-			chSig := make(chan os.Signal)
-			signal.Notify(chSig, syscall.SIGINT, syscall.SIGTERM)
-			sig := <-chSig
-			g.L.Info("agent received signal", zap.Any("signal", sig))
-			a.Close()
-		},
+		a := agent.New()
+		a.Start()
+		// 等待服务器停止信号
+		chSig := make(chan os.Signal)
+		signal.Notify(chSig, syscall.SIGINT, syscall.SIGTERM)
+		sig := <-chSig
+		g.L.Info("agent received signal", zap.Any("signal", sig))
+		a.Close()
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

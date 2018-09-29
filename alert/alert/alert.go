@@ -2,14 +2,15 @@ package alert
 
 type Alert struct {
 }
-func New ()*Alert{
+
+func New() *Alert {
 	return &Alert{}
 }
 
-func (a*Alert)Start() error {
+func (a *Alert) Start() error {
 	return nil
 }
 
-func (a*Alert)Close() error {
+func (a *Alert) Close() error {
 	return nil
 }

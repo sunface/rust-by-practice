@@ -7,7 +7,6 @@ import (
 	"go.uber.org/zap"
 )
 
-
 func InitMysql() {
 	var err error
 

@@ -13,6 +13,9 @@ type Config struct {
 		LogLevel   string
 		AdminToken string
 	}
+	Agent struct {
+		VgoAddr string
+	}
 }
 
 var Conf *Config
@@ -29,4 +32,5 @@ func InitConfig(path string) {
 		log.Fatal("yaml decode error :", err)
 	}
 	Conf = conf
+	log.Println(Conf.Agent)
 }
