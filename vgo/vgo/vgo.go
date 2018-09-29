@@ -1,4 +1,4 @@
-package service
+package vgo
 
 type Vgo struct {
 }
