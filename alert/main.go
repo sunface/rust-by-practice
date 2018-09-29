@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/mafanr/vgo/analyze/cmd"
+import "github.com/mafanr/vgo/alert/cmd"
 
 func main() {
 	cmd.Execute()
