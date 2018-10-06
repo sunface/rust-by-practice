@@ -16,9 +16,9 @@ type Config struct {
 	Agent struct {
 		AlertAddr      string
 		ReportInterval int
+		TraceCacheLen  int
+		CmdCacheLen    int
 		ReportLen      int
-		ReportCacheLen int
-		SerCacheLen    int
 	}
 }
 
