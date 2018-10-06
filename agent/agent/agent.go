@@ -10,10 +10,10 @@ import (
 )
 
 type Agent struct {
-	quitC  chan bool
-	traceC chan *util.TracePacket
-	cmdC   chan *util.CMD
-	client *TcpClient
+	quitC     chan bool
+	pinpointC chan *util.PinpointData
+	cmdC      chan *util.CMD
+	client    *TcpClient
 	//repC   chan *util.APMPacket
 }
 
@@ -21,10 +21,10 @@ var gAgent *Agent
 
 func New() *Agent {
 	gAgent = &Agent{
-		quitC:  make(chan bool, 1),
-		traceC: make(chan *util.TracePacket, misc.Conf.Agent.TraceCacheLen),
-		cmdC:   make(chan *util.CMD, misc.Conf.Agent.CmdCacheLen),
-		client: NewTcpClient(),
+		quitC:     make(chan bool, 1),
+		pinpointC: make(chan *util.PinpointData, misc.Conf.Agent.PinpointCacheLen),
+		cmdC:      make(chan *util.CMD, misc.Conf.Agent.CmdCacheLen),
+		client:    NewTcpClient(),
 	}
 	return gAgent
 }
@@ -64,17 +64,17 @@ func (a *Agent) report() {
 
 	for {
 		select {
-		case t, ok := <-a.traceC:
+		case t, ok := <-a.pinpointC:
 			if ok {
-				apmPacket.Traces = append(apmPacket.Traces, t)
-				if apmPacket.Len()> misc.Conf.Agent.ReportLen{
+				apmPacket.Pinpoints = append(apmPacket.Pinpoints, t)
+				if apmPacket.Len() > misc.Conf.Agent.ReportLen {
 					// report
 					apmPacket.Clear()
 				}
 			}
 			break
 		case <-tc.C:
-			if apmPacket.Len()> misc.Conf.Agent.ReportLen{
+			if apmPacket.Len() > misc.Conf.Agent.ReportLen {
 				// report
 				apmPacket.Clear()
 			}
