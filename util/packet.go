@@ -34,7 +34,7 @@ type BatchAPMPacket struct {
 }
 
 // Encode encode
-func (b *BatchAPMPacket) Encode() ([]byte) {
+func (b *BatchAPMPacket) Encode() []byte {
 	b.Len = uint32(len(b.PayLoad))
 	buf := make([]byte, b.Len+5)
 	buf[0] = b.IsCompress

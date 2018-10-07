@@ -1,18 +1,20 @@
 package agent
 
 import (
+	"bufio"
 	"github.com/containous/traefik/log"
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/util"
 	"go.uber.org/zap"
+	"io"
 	"net"
 	"time"
 )
 
 // TcpClient tcp client
 type TcpClient struct {
-	con net.Conn
+	conn net.Conn
 }
 
 // NewTcpClient ...
@@ -22,12 +24,12 @@ func NewTcpClient() *TcpClient {
 
 // Init ...
 func (t *TcpClient) Init() error {
-	var con net.Conn
+	var conn net.Conn
 	var err error
 	isRestart := true
 	defer func() {
-		if con != nil {
-			con.Close()
+		if conn != nil {
+			conn.Close()
 		}
 		if err := recover(); err != nil {
 			g.L.Warn("server panic", zap.Stack("server"), zap.Any("err", err))
@@ -41,20 +43,20 @@ func (t *TcpClient) Init() error {
 
 	// connect alert
 	for {
-		con, err = net.Dial("tcp", misc.Conf.Agent.VgoAddr)
+		conn, err = net.Dial("tcp", misc.Conf.Agent.VgoAddr)
 		if err != nil {
 			g.L.Warn("Connect vgo", zap.String("err", err.Error()), zap.String("addr", misc.Conf.Agent.VgoAddr))
 			time.Sleep(5 * time.Second)
 			continue
 		}
-		t.con = con
+		t.conn = conn
 		break
 	}
 	// 启动心跳
 	go t.KeepLive()
-
+	reader := bufio.NewReaderSize(t.conn, util.MaxMessageSize)
 	for {
-		cmdPacket, err := t.ReadPacket()
+		cmdPacket, err := t.ReadPacket(reader)
 		if err != nil {
 			g.L.Warn("ReadPacket", zap.Error(err))
 			return err
@@ -75,8 +77,13 @@ func (t *TcpClient) KeepLive() {
 }
 
 // ReadPacket ...
-func (t *TcpClient) ReadPacket() (*util.CMD, error) {
-	return &util.CMD{}, nil
+func (t *TcpClient) ReadPacket(rdr io.Reader) (*util.CMD, error) {
+	cmd := util.NewCMD ()
+	if err:= cmd.Decode(rdr); err!=nil {
+		g.L.Warn("ReadPacket", zap.String("error", err.Error()))
+		return nil, err
+	}
+	return cmd, nil
 }
 
 // WritePacket ...
@@ -86,8 +93,8 @@ func (t *TcpClient) WritePacket(p *util.APMPacket) error {
 
 // Close ....
 func (t *TcpClient) Close() error {
-	if t.con != nil {
-		t.con.Close()
+	if t.conn != nil {
+		t.conn.Close()
 	}
 	return nil
 }

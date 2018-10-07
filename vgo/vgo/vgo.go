@@ -19,27 +19,40 @@ func New() *Vgo {
 }
 
 func (v *Vgo) Start() error {
-
-	// init vgo
-	go v.init()
-
+	if err := v.init(); err != nil {
+		g.L.Fatal("Start", zap.String("error", err.Error()))
+		return err
+	}
 	return nil
 }
 
 func (v *Vgo) init() error {
+	// start web ser
+
+	// start stats
+	// init vgo
+	v.acceptAgent()
+
+	return nil
+}
+
+func (v *Vgo) acceptAgent() error {
 	ln, err := net.Listen("tcp", misc.Conf.Vgo.ListenAddr)
 	if err != nil {
 		g.L.Fatal("init", zap.String("msg", err.Error()), zap.String("addr", misc.Conf.Vgo.ListenAddr))
 	}
-
-	for {
-		conn, err := ln.Accept()
-		if err != nil {
-			g.L.Fatal("Accept", zap.String("msg", err.Error()), zap.String("addr", misc.Conf.Vgo.ListenAddr))
+	go func() {
+		for {
+			conn, err := ln.Accept()
+			if err != nil {
+				g.L.Fatal("Accept", zap.String("msg", err.Error()), zap.String("addr", misc.Conf.Vgo.ListenAddr))
+			}
+			log.Println(conn.RemoteAddr())
+			conn.SetReadDeadline(time.Now().Add(time.Duration(10) * time.Second))
+			go v.agentWork(conn)
 		}
-		//con.SetReadDeadline(time.Now().Add(time.Duration(Conf.Listen.HeartTime) * time.Second))
-		go v.agentWork(conn)
-	}
+
+	}()
 
 	return nil
 }
@@ -87,8 +100,8 @@ func (v *Vgo) agentRead(conn net.Conn, msgC chan *util.BatchAPMPacket, quitC cha
 	}()
 	reader := bufio.NewReaderSize(conn, util.MaxMessageSize)
 	for {
-		msg:= &util.BatchAPMPacket{}
-		if err:= msg.Decode(reader); err!=nil {
+		msg := &util.BatchAPMPacket{}
+		if err := msg.Decode(reader); err != nil {
 			g.L.Warn("agentRead", zap.String("err", err.Error()))
 			return
 		}

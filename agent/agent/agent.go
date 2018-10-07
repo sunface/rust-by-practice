@@ -1,7 +1,6 @@
 package agent
 
 import (
-	"github.com/containous/traefik/log"
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/util"
@@ -78,7 +77,7 @@ func (a *Agent) report() {
 				// report
 				apmPacket.Clear()
 			}
-			log.Println("time", apmPacket)
+			g.L.Info("time", zap.Any("msg", apmPacket))
 		}
 	}
 }
@@ -88,7 +87,7 @@ func (a *Agent) dealCmdPacket() {
 		select {
 		case p, ok := <-a.cmdC:
 			if ok {
-				log.Println(p)
+				g.L.Info("cmd", zap.Any("msg", p))
 			}
 		case <-a.quitC:
 			return

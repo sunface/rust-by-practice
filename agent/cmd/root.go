@@ -19,12 +19,11 @@ import (
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/agent/agent"
 	"github.com/mafanr/vgo/agent/misc"
+	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 	"os"
 	"os/signal"
 	"syscall"
-
-	"github.com/spf13/cobra"
 )
 
 var cfgFile string
@@ -42,6 +41,7 @@ to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
+		//log.SetFlags(log.Lmicroseconds | log.Lshortfile | log.LstdFlags)
 		misc.InitConfig("agent.conf")
 		g.InitLogger(misc.Conf.Common.LogLevel)
 		g.L.Info("Application version", zap.String("version", misc.Conf.Common.Version))
