@@ -2,6 +2,7 @@ package agent
 
 import (
 	"bufio"
+	"github.com/golang/snappy"
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/util"
@@ -123,7 +124,8 @@ func (t *TcpClient) WritePacket(p *util.APMPacket, isCompress byte) error {
 	packet.IsCompress = isCompress
 	// 压缩
 	if isCompress == util.TypeOfCompressYes {
-		packet.PayLoad = payload
+		compressBuf := snappy.Encode(nil, payload)
+		packet.PayLoad = compressBuf
 	} else {
 		packet.PayLoad = payload
 	}
@@ -132,7 +134,7 @@ func (t *TcpClient) WritePacket(p *util.APMPacket, isCompress byte) error {
 	if t.conn != nil {
 		_, err := t.conn.Write(body)
 		if err != nil {
-			g.L.Warn("KeepLive", zap.String("error", err.Error()))
+			g.L.Warn("WritePacket", zap.String("error", err.Error()))
 			return err
 		}
 	}
