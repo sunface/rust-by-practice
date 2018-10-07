@@ -9,6 +9,7 @@ import (
 
 // Packet 通用报文
 type APMPacket struct {
+	Cmds      []*CMD          `msg:"cmd"`
 	Pinpoints []*PinpointData `msg:"tp"`
 	//Logs    []*LogPacket    `msg:"lp"`
 	//Systems []*SystemPacket `msg:"sp"`

@@ -2,10 +2,10 @@ package vgo
 
 import (
 	"bufio"
-	"github.com/containous/traefik/log"
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/util"
 	"github.com/mafanr/vgo/vgo/misc"
+	"github.com/shamaton/msgpack"
 	"go.uber.org/zap"
 	"net"
 	"time"
@@ -47,8 +47,7 @@ func (v *Vgo) acceptAgent() error {
 			if err != nil {
 				g.L.Fatal("Accept", zap.String("msg", err.Error()), zap.String("addr", misc.Conf.Vgo.ListenAddr))
 			}
-			log.Println(conn.RemoteAddr())
-			conn.SetReadDeadline(time.Now().Add(time.Duration(10) * time.Second))
+			conn.SetReadDeadline(time.Now().Add(time.Duration(misc.Conf.Vgo.AgentTimeout) * time.Second))
 			go v.agentWork(conn)
 		}
 
@@ -59,7 +58,6 @@ func (v *Vgo) acceptAgent() error {
 
 func (v *Vgo) agentWork(conn net.Conn) {
 	quitC := make(chan bool, 1)
-
 	msgC := make(chan *util.BatchAPMPacket, 1000)
 
 	defer func() {
@@ -72,6 +70,7 @@ func (v *Vgo) agentWork(conn net.Conn) {
 	defer func() {
 		close(quitC)
 		close(msgC)
+		conn.Close()
 	}()
 
 	go v.agentRead(conn, msgC, quitC)
@@ -83,7 +82,9 @@ func (v *Vgo) agentWork(conn net.Conn) {
 			return
 		case msg, ok := <-msgC:
 			if ok {
-				log.Println(msg)
+				p := util.NewAPMPacket()
+				msgpack.Decode(msg.PayLoad, p)
+				//log.Println("原始消息", p.Cmds[0])
 			}
 		}
 	}
@@ -95,6 +96,7 @@ func (v *Vgo) agentRead(conn net.Conn, msgC chan *util.BatchAPMPacket, quitC cha
 			return
 		}
 	}()
+
 	defer func() {
 		quitC <- true
 	}()
@@ -105,9 +107,10 @@ func (v *Vgo) agentRead(conn net.Conn, msgC chan *util.BatchAPMPacket, quitC cha
 			g.L.Warn("agentRead", zap.String("err", err.Error()))
 			return
 		}
+
 		msgC <- msg
 		// 设置超时时间
-		conn.SetReadDeadline(time.Now().Add(time.Duration(10) * time.Second))
+		conn.SetReadDeadline(time.Now().Add(time.Duration(misc.Conf.Vgo.AgentTimeout) * time.Second))
 	}
 }
 

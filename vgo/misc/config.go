@@ -15,7 +15,8 @@ type Config struct {
 	}
 
 	Vgo struct {
-		ListenAddr string
+		ListenAddr   string
+		AgentTimeout int
 	}
 
 	Mysql struct {

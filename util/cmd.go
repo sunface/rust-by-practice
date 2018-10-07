@@ -13,7 +13,7 @@ type CMD struct {
 	PayLoad []byte
 }
 
-func NewCMD ()*CMD{
+func NewCMD() *CMD {
 	return &CMD{}
 }
 

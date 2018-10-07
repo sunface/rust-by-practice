@@ -19,6 +19,7 @@ type Config struct {
 		PinpointCacheLen int
 		CmdCacheLen      int
 		ReportLen        int
+		KeepliveInterval int
 	}
 }
 

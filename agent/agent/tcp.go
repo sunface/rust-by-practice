@@ -2,10 +2,10 @@ package agent
 
 import (
 	"bufio"
-	"github.com/containous/traefik/log"
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/util"
+	"github.com/vmihailenco/msgpack"
 	"go.uber.org/zap"
 	"io"
 	"net"
@@ -24,13 +24,14 @@ func NewTcpClient() *TcpClient {
 
 // Init ...
 func (t *TcpClient) Init() error {
-	var conn net.Conn
+	//var conn net.Conn
 	var err error
 	isRestart := true
+	quitC := make(chan bool, 1)
+	// 定时器
+	tc := time.NewTicker(time.Duration(misc.Conf.Agent.KeepliveInterval) * time.Second)
+
 	defer func() {
-		if conn != nil {
-			conn.Close()
-		}
 		if err := recover(); err != nil {
 			g.L.Warn("server panic", zap.Stack("server"), zap.Any("err", err))
 		}
@@ -41,19 +42,34 @@ func (t *TcpClient) Init() error {
 		return
 	}()
 
+	defer func() {
+		close(quitC)
+		t.conn.Close()
+		tc.Stop()
+	}()
+
 	// connect alert
 	for {
-		conn, err = net.Dial("tcp", misc.Conf.Agent.VgoAddr)
+		t.conn, err = net.Dial("tcp", misc.Conf.Agent.VgoAddr)
 		if err != nil {
 			g.L.Warn("Connect vgo", zap.String("err", err.Error()), zap.String("addr", misc.Conf.Agent.VgoAddr))
 			time.Sleep(5 * time.Second)
 			continue
 		}
-		t.conn = conn
 		break
 	}
 	// 启动心跳
-	go t.KeepLive()
+	go func() {
+		for ; ;  {
+			select {
+			case <-tc.C:
+				t.KeepLive()
+			break
+			case <-quitC:
+				return
+			}
+		}
+	}()
 	reader := bufio.NewReaderSize(t.conn, util.MaxMessageSize)
 	for {
 		cmdPacket, err := t.ReadPacket(reader)
@@ -61,6 +77,7 @@ func (t *TcpClient) Init() error {
 			g.L.Warn("ReadPacket", zap.Error(err))
 			return err
 		}
+		g.L.Info("cmd", zap.Any("cmd", cmdPacket))
 		// 发给上层处理
 		gAgent.cmdC <- cmdPacket
 	}
@@ -69,17 +86,37 @@ func (t *TcpClient) Init() error {
 }
 
 // KeepLive ...
-func (t *TcpClient) KeepLive() {
-	for {
-		log.Println("I'm Ping !")
-		time.Sleep(time.Second * 10)
+func (t *TcpClient) KeepLive() error{
+	var packet util.BatchAPMPacket
+	ping:=util.NewCMD()
+	ping.Type = util.TypeOfPing
+
+	p := util.NewAPMPacket()
+	p.Cmds = []*util.CMD{ping}
+
+	payload, err:=msgpack.Marshal(p)
+	if err!=nil {
+		g.L.Warn("KeepLive", zap.String("error", err.Error()))
+		return err
 	}
+
+	packet.IsCompress = util.TypeOfCompressNo
+	packet.PayLoad = payload
+	body :=packet.Encode()
+	if t.conn != nil {
+		_, err:= t.conn.Write(body)
+		if err!=nil {
+			g.L.Warn("KeepLive", zap.String("error", err.Error()))
+			return err
+		}
+	}
+	return nil
 }
 
 // ReadPacket ...
 func (t *TcpClient) ReadPacket(rdr io.Reader) (*util.CMD, error) {
-	cmd := util.NewCMD ()
-	if err:= cmd.Decode(rdr); err!=nil {
+	cmd := util.NewCMD()
+	if err := cmd.Decode(rdr); err != nil {
 		g.L.Warn("ReadPacket", zap.String("error", err.Error()))
 		return nil, err
 	}
