@@ -49,35 +49,41 @@ func (a *Agent) Close() error {
 }
 
 func (a *Agent) report() {
+	// 定时器
+	tc := time.NewTicker(time.Duration(misc.Conf.Agent.ReportInterval) * time.Millisecond)
 	defer func() {
 		if err := recover(); err != nil {
 			g.L.Warn("collector panic", zap.Stack("server"), zap.Any("err", err))
 		}
+		tc.Stop()
 		return
 	}()
-	// 定时器
-	tc := time.NewTicker(time.Duration(misc.Conf.Agent.ReportInterval) * time.Second)
 
 	// 缓存
 	apmPacket := util.NewAPMPacket()
-
 	for {
 		select {
 		case t, ok := <-a.pinpointC:
 			if ok {
 				apmPacket.Pinpoints = append(apmPacket.Pinpoints, t)
-				if apmPacket.Len() > misc.Conf.Agent.ReportLen {
+				if apmPacket.Len() >= misc.Conf.Agent.ReportLen {
 					// report
+					if err := a.client.WritePacket(apmPacket, util.TypeOfCompressYes); err != nil {
+						g.L.Warn("report WritePacket", zap.String("error", err.Error()))
+					}
 					apmPacket.Clear()
 				}
 			}
 			break
 		case <-tc.C:
-			if apmPacket.Len() > misc.Conf.Agent.ReportLen {
+			if apmPacket.Len() > 0 {
 				// report
+				if err := a.client.WritePacket(apmPacket, util.TypeOfCompressYes); err != nil {
+					g.L.Warn("report WritePacket", zap.String("error", err.Error()))
+				}
 				apmPacket.Clear()
 			}
-			g.L.Info("time", zap.Any("msg", apmPacket))
+			break
 		}
 	}
 }

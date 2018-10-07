@@ -16,10 +16,11 @@ type APMPacket struct {
 }
 
 func (ap *APMPacket) Len() int {
-	return len(ap.Pinpoints)
+	return len(ap.Pinpoints) + len(ap.Cmds)
 }
 
 func (ap *APMPacket) Clear() {
+	ap.Cmds = ap.Cmds[:0]
 	ap.Pinpoints = ap.Pinpoints[:0]
 }
 

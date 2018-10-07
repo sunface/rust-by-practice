@@ -60,11 +60,13 @@ func (t *TcpClient) Init() error {
 	}
 	// 启动心跳
 	go func() {
-		for ; ;  {
+		for {
 			select {
 			case <-tc.C:
-				t.KeepLive()
-			break
+				if err:= t.KeepLive(); err!=nil {
+					g.L.Warn("Keeplive", zap.String("error", err.Error()))
+				}
+				break
 			case <-quitC:
 				return
 			}
@@ -86,29 +88,15 @@ func (t *TcpClient) Init() error {
 }
 
 // KeepLive ...
-func (t *TcpClient) KeepLive() error{
-	var packet util.BatchAPMPacket
-	ping:=util.NewCMD()
+func (t *TcpClient) KeepLive() error {
+	ping := util.NewCMD()
 	ping.Type = util.TypeOfPing
 
 	p := util.NewAPMPacket()
 	p.Cmds = []*util.CMD{ping}
-
-	payload, err:=msgpack.Marshal(p)
-	if err!=nil {
-		g.L.Warn("KeepLive", zap.String("error", err.Error()))
+	if err:= t.WritePacket(p, util.TypeOfCompressNo); err!=nil {
+		g.L.Warn("Keeplive", zap.String("error", err.Error()))
 		return err
-	}
-
-	packet.IsCompress = util.TypeOfCompressNo
-	packet.PayLoad = payload
-	body :=packet.Encode()
-	if t.conn != nil {
-		_, err:= t.conn.Write(body)
-		if err!=nil {
-			g.L.Warn("KeepLive", zap.String("error", err.Error()))
-			return err
-		}
 	}
 	return nil
 }
@@ -124,7 +112,30 @@ func (t *TcpClient) ReadPacket(rdr io.Reader) (*util.CMD, error) {
 }
 
 // WritePacket ...
-func (t *TcpClient) WritePacket(p *util.APMPacket) error {
+func (t *TcpClient) WritePacket(p *util.APMPacket, isCompress byte) error {
+	var packet util.BatchAPMPacket
+	payload, err := msgpack.Marshal(p)
+	if err != nil {
+		g.L.Warn("WritePacket", zap.String("error", err.Error()))
+		return err
+	}
+
+	packet.IsCompress = isCompress
+	// 压缩
+	if isCompress == util.TypeOfCompressYes {
+		packet.PayLoad = payload
+	} else {
+		packet.PayLoad = payload
+	}
+
+	body := packet.Encode()
+	if t.conn != nil {
+		_, err := t.conn.Write(body)
+		if err != nil {
+			g.L.Warn("KeepLive", zap.String("error", err.Error()))
+			return err
+		}
+	}
 	return nil
 }
 
