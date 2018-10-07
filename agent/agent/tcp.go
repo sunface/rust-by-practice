@@ -34,7 +34,7 @@ func (t *TcpClient) Init() error {
 
 	defer func() {
 		if err := recover(); err != nil {
-			g.L.Warn("server panic", zap.Stack("server"), zap.Any("err", err))
+			g.L.Warn("Init:.", zap.Stack("server"), zap.Any("err", err))
 		}
 		// 是否重启
 		if isRestart {
@@ -53,7 +53,7 @@ func (t *TcpClient) Init() error {
 	for {
 		t.conn, err = net.Dial("tcp", misc.Conf.Agent.VgoAddr)
 		if err != nil {
-			g.L.Warn("Connect vgo", zap.String("err", err.Error()), zap.String("addr", misc.Conf.Agent.VgoAddr))
+			g.L.Warn("Init:net.Dial", zap.String("err", err.Error()), zap.String("addr", misc.Conf.Agent.VgoAddr))
 			time.Sleep(5 * time.Second)
 			continue
 		}
@@ -64,8 +64,8 @@ func (t *TcpClient) Init() error {
 		for {
 			select {
 			case <-tc.C:
-				if err:= t.KeepLive(); err!=nil {
-					g.L.Warn("Keeplive", zap.String("error", err.Error()))
+				if err:= t.Keeplive(); err!=nil {
+					g.L.Warn("Init:t.KeepLive", zap.String("error", err.Error()))
 				}
 				break
 			case <-quitC:
@@ -77,7 +77,7 @@ func (t *TcpClient) Init() error {
 	for {
 		cmdPacket, err := t.ReadPacket(reader)
 		if err != nil {
-			g.L.Warn("ReadPacket", zap.Error(err))
+			g.L.Warn("Init:t.ReadPacket", zap.Error(err))
 			return err
 		}
 		g.L.Info("cmd", zap.Any("cmd", cmdPacket))
@@ -89,14 +89,14 @@ func (t *TcpClient) Init() error {
 }
 
 // KeepLive ...
-func (t *TcpClient) KeepLive() error {
+func (t *TcpClient) Keeplive() error {
 	ping := util.NewCMD()
 	ping.Type = util.TypeOfPing
 
 	p := util.NewAPMPacket()
 	p.Cmds = []*util.CMD{ping}
 	if err:= t.WritePacket(p, util.TypeOfCompressNo); err!=nil {
-		g.L.Warn("Keeplive", zap.String("error", err.Error()))
+		g.L.Warn("Keeplive:t.WritePacket", zap.String("error", err.Error()))
 		return err
 	}
 	return nil
@@ -106,7 +106,7 @@ func (t *TcpClient) KeepLive() error {
 func (t *TcpClient) ReadPacket(rdr io.Reader) (*util.CMD, error) {
 	cmd := util.NewCMD()
 	if err := cmd.Decode(rdr); err != nil {
-		g.L.Warn("ReadPacket", zap.String("error", err.Error()))
+		g.L.Warn("ReadPacket:cmd.Decode", zap.String("error", err.Error()))
 		return nil, err
 	}
 	return cmd, nil
@@ -117,7 +117,7 @@ func (t *TcpClient) WritePacket(p *util.APMPacket, isCompress byte) error {
 	var packet util.BatchAPMPacket
 	payload, err := msgpack.Marshal(p)
 	if err != nil {
-		g.L.Warn("WritePacket", zap.String("error", err.Error()))
+		g.L.Warn("WritePacket:msgpack.Marshal", zap.String("error", err.Error()))
 		return err
 	}
 
@@ -134,7 +134,7 @@ func (t *TcpClient) WritePacket(p *util.APMPacket, isCompress byte) error {
 	if t.conn != nil {
 		_, err := t.conn.Write(body)
 		if err != nil {
-			g.L.Warn("WritePacket", zap.String("error", err.Error()))
+			g.L.Warn("WritePacket:t.conn.Write", zap.String("error", err.Error()))
 			return err
 		}
 	}

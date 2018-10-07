@@ -29,12 +29,12 @@ func InitConfig(path string) {
 	conf := &Config{}
 	data, err := ioutil.ReadFile(path)
 	if err != nil {
-		log.Fatal("read config error :", err)
+		log.Fatal("InitConfig:ioutil.ReadFile", err)
 	}
 
 	err = yaml.Unmarshal(data, &conf)
 	if err != nil {
-		log.Fatal("yaml decode error :", err)
+		log.Fatal("InitConfig:yaml.Unmarshal", err)
 	}
 	Conf = conf
 	log.Println(Conf.Agent)

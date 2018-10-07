@@ -51,7 +51,7 @@ func (b *BatchAPMPacket) Encode() []byte {
 func (b *BatchAPMPacket) Decode(rdr io.Reader) error {
 	buf := make([]byte, 5)
 	if _, err := io.ReadFull(rdr, buf); err != nil {
-		g.L.Warn("Decode", zap.String("err", err.Error()))
+		g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
 		return err
 	}
 	b.IsCompress = buf[0]
@@ -61,41 +61,9 @@ func (b *BatchAPMPacket) Decode(rdr io.Reader) error {
 	if b.Len > 0 {
 		_, err := io.ReadFull(rdr, b.PayLoad)
 		if err != nil {
-			g.L.Warn("Decode", zap.String("err", err.Error()))
+			g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
 			return err
 		}
 	}
 	return nil
 }
-
-//
-//// DecodePacket decodes the packet from the provided reader.
-//func DecodePacket(rdr io.Reader) (*BatchAPMPacket, error) {
-//	b := &BatchAPMPacket{}
-//	messageType, sizeOf, err := b.Decode(rdr)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	// 数据长度异常
-//	if int(sizeOf) > MaxMessageSize {
-//		return nil, fmt.Errorf("Packet size is too large")
-//	}
-//
-//	buffer := make([]byte, sizeOf)
-//	_, err = io.ReadFull(rdr, buffer)
-//	if err != nil {
-//		return nil, err
-//	}
-//
-//	// Decode the body
-//	var msg Message
-//	switch messageType {
-//	case TypeOfConnect:
-//		msg, err = decodeConnect(buffer)
-//	default:
-//		return nil, fmt.Errorf("Invalid type packet with type %d", messageType)
-//	}
-//
-//	return msg, nil
-//}

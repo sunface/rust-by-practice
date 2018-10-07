@@ -43,7 +43,7 @@ func (c *CMD) Decode(rdr io.Reader) error {
 	if c.Len > 0 {
 		_, err := io.ReadFull(rdr, c.PayLoad)
 		if err != nil {
-			g.L.Warn("Decode", zap.String("err", err.Error()))
+			g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
 			return err
 		}
 	}

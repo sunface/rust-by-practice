@@ -53,7 +53,7 @@ func (a *Agent) report() {
 	tc := time.NewTicker(time.Duration(misc.Conf.Agent.ReportInterval) * time.Millisecond)
 	defer func() {
 		if err := recover(); err != nil {
-			g.L.Warn("collector panic", zap.Stack("server"), zap.Any("err", err))
+			g.L.Warn("report:.", zap.Stack("server"), zap.Any("err", err))
 		}
 		tc.Stop()
 		return
@@ -69,7 +69,7 @@ func (a *Agent) report() {
 				if apmPacket.Len() >= misc.Conf.Agent.ReportLen {
 					// report
 					if err := a.client.WritePacket(apmPacket, util.TypeOfCompressYes); err != nil {
-						g.L.Warn("report WritePacket", zap.String("error", err.Error()))
+						g.L.Warn("report:client.WritePacket", zap.String("error", err.Error()))
 					}
 					apmPacket.Clear()
 				}
@@ -79,7 +79,7 @@ func (a *Agent) report() {
 			if apmPacket.Len() > 0 {
 				// report
 				if err := a.client.WritePacket(apmPacket, util.TypeOfCompressYes); err != nil {
-					g.L.Warn("report WritePacket", zap.String("error", err.Error()))
+					g.L.Warn("report:client.WritePacket", zap.String("error", err.Error()))
 				}
 				apmPacket.Clear()
 			}
