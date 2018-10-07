@@ -41,9 +41,9 @@ func (t *TcpClient) Init() error {
 
 	// connect alert
 	for {
-		con, err = net.Dial("tcp", misc.Conf.Agent.AlertAddr)
+		con, err = net.Dial("tcp", misc.Conf.Agent.VgoAddr)
 		if err != nil {
-			g.L.Warn("Connect alert", zap.String("err", err.Error()), zap.String("addr", misc.Conf.Agent.AlertAddr))
+			g.L.Warn("Connect vgo", zap.String("err", err.Error()), zap.String("addr", misc.Conf.Agent.VgoAddr))
 			time.Sleep(5 * time.Second)
 			continue
 		}
@@ -56,7 +56,7 @@ func (t *TcpClient) Init() error {
 	for {
 		cmdPacket, err := t.ReadPacket()
 		if err != nil {
-			g.L.Warn("readAlert", zap.Error(err))
+			g.L.Warn("ReadPacket", zap.Error(err))
 			return err
 		}
 		// 发给上层处理

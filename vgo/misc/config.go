@@ -13,6 +13,11 @@ type Config struct {
 		LogLevel   string
 		AdminToken string
 	}
+
+	Vgo struct {
+		ListenAddr string
+	}
+
 	Mysql struct {
 		Addr     string
 		Port     string

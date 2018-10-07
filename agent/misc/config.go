@@ -14,7 +14,7 @@ type Config struct {
 		AdminToken string
 	}
 	Agent struct {
-		AlertAddr        string
+		VgoAddr          string
 		ReportInterval   int
 		PinpointCacheLen int
 		CmdCacheLen      int
