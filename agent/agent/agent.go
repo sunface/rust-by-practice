@@ -56,7 +56,6 @@ func (a *Agent) report() {
 			g.L.Warn("report:.", zap.Stack("server"), zap.Any("err", err))
 		}
 		tc.Stop()
-		return
 	}()
 
 	// 缓存

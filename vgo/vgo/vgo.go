@@ -7,6 +7,7 @@ import (
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/util"
 	"github.com/mafanr/vgo/vgo/misc"
+	"github.com/mafanr/vgo/vgo/stats"
 	"github.com/shamaton/msgpack"
 	"go.uber.org/zap"
 	"net"
@@ -14,10 +15,13 @@ import (
 )
 
 type Vgo struct {
+	stats *stats.Stats
 }
 
 func New() *Vgo {
-	return &Vgo{}
+	return &Vgo{
+		stats: stats.New(),
+	}
 }
 
 func (v *Vgo) Start() error {
@@ -32,6 +36,10 @@ func (v *Vgo) init() error {
 	// start web ser
 
 	// start stats
+	if err := v.stats.Start(); err != nil {
+		g.L.Warn("init:v.stats.Start", zap.String("error", err.Error()))
+		return err
+	}
 	// init vgo
 	v.acceptAgent()
 
@@ -87,16 +95,16 @@ func (v *Vgo) agentWork(conn net.Conn) {
 				p := util.NewAPMPacket()
 				var payload []byte
 				var err error
-				if msg.IsCompress == util.TypeOfCompressNo{
+				if msg.IsCompress == util.TypeOfCompressNo {
 					payload = msg.PayLoad
-				}else {
-					payload, err=snappy.Decode(nil, msg.PayLoad)
-					if err!=nil{
+				} else {
+					payload, err = snappy.Decode(nil, msg.PayLoad)
+					if err != nil {
 						g.L.Warn("agentWork:snappy.Decode", zap.String("error", err.Error()))
 						break
 					}
 				}
-				if err:= msgpack.Decode(payload, p); err!=nil{
+				if err := msgpack.Decode(payload, p); err != nil {
 					g.L.Warn("agentWork:msgpack.Decode", zap.String("error", err.Error()))
 					break
 				}
@@ -123,7 +131,6 @@ func (v *Vgo) agentRead(conn net.Conn, msgC chan *util.BatchAPMPacket, quitC cha
 			g.L.Warn("agentRead:msg.Decode", zap.String("err", err.Error()))
 			return
 		}
-
 		msgC <- msg
 		// 设置超时时间
 		conn.SetReadDeadline(time.Now().Add(time.Duration(misc.Conf.Vgo.AgentTimeout) * time.Second))

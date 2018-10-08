@@ -40,7 +40,6 @@ func (t *TcpClient) Init() error {
 		if isRestart {
 			t.Init()
 		}
-		return
 	}()
 
 	defer func() {
@@ -64,7 +63,7 @@ func (t *TcpClient) Init() error {
 		for {
 			select {
 			case <-tc.C:
-				if err:= t.Keeplive(); err!=nil {
+				if err := t.KeepLive(); err != nil {
 					g.L.Warn("Init:t.KeepLive", zap.String("error", err.Error()))
 				}
 				break
@@ -84,19 +83,18 @@ func (t *TcpClient) Init() error {
 		// 发给上层处理
 		gAgent.cmdC <- cmdPacket
 	}
-
 	return nil
 }
 
 // KeepLive ...
-func (t *TcpClient) Keeplive() error {
+func (t *TcpClient) KeepLive() error {
 	ping := util.NewCMD()
 	ping.Type = util.TypeOfPing
 
 	p := util.NewAPMPacket()
 	p.Cmds = []*util.CMD{ping}
-	if err:= t.WritePacket(p, util.TypeOfCompressNo); err!=nil {
-		g.L.Warn("Keeplive:t.WritePacket", zap.String("error", err.Error()))
+	if err := t.WritePacket(p, util.TypeOfCompressNo); err != nil {
+		g.L.Warn("KeepLive:t.WritePacket", zap.String("error", err.Error()))
 		return err
 	}
 	return nil
