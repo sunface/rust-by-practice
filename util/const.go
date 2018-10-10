@@ -8,7 +8,7 @@ const (
 
 const (
 	// MaxMessageSize max message size
-	MaxMessageSize    int  = 65536
+	MaxMessageSize    int  = 16 * 1024
 	TypeOfCompressYes byte = 1
 	TypeOfCompressNo  byte = 2
 )

@@ -30,7 +30,7 @@ func (t *TcpClient) Init() error {
 	isRestart := true
 	quitC := make(chan bool, 1)
 	// 定时器
-	tc := time.NewTicker(time.Duration(misc.Conf.Agent.KeepliveInterval) * time.Second)
+	keepLiveTc := time.NewTicker(time.Duration(misc.Conf.Agent.KeepLiveInterval) * time.Second)
 
 	defer func() {
 		if err := recover(); err != nil {
@@ -45,7 +45,7 @@ func (t *TcpClient) Init() error {
 	defer func() {
 		close(quitC)
 		t.conn.Close()
-		tc.Stop()
+		keepLiveTc.Stop()
 	}()
 
 	// connect alert
@@ -62,7 +62,7 @@ func (t *TcpClient) Init() error {
 	go func() {
 		for {
 			select {
-			case <-tc.C:
+			case <-keepLiveTc.C:
 				if err := t.KeepLive(); err != nil {
 					g.L.Warn("Init:t.KeepLive", zap.String("error", err.Error()))
 				}
@@ -92,7 +92,7 @@ func (t *TcpClient) KeepLive() error {
 	ping.Type = util.TypeOfPing
 
 	p := util.NewAPMPacket()
-	p.Cmds = []*util.CMD{ping}
+	p.Cmd = []*util.CMD{ping}
 	if err := t.WritePacket(p, util.TypeOfCompressNo); err != nil {
 		g.L.Warn("KeepLive:t.WritePacket", zap.String("error", err.Error()))
 		return err

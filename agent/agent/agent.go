@@ -2,6 +2,7 @@ package agent
 
 import (
 	"github.com/mafanr/g"
+	"github.com/mafanr/vgo/agent/agent/plugins"
 	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/util"
 	"go.uber.org/zap"
@@ -13,6 +14,7 @@ type Agent struct {
 	pinpointC chan *util.PinpointData
 	cmdC      chan *util.CMD
 	client    *TcpClient
+	pinpoint  *plugins.Pinpoint
 	//repC   chan *util.APMPacket
 }
 
@@ -24,6 +26,7 @@ func New() *Agent {
 		pinpointC: make(chan *util.PinpointData, misc.Conf.Agent.PinpointCacheLen),
 		cmdC:      make(chan *util.CMD, misc.Conf.Agent.CmdCacheLen),
 		client:    NewTcpClient(),
+		pinpoint:  plugins.NewPinpoint(),
 	}
 	return gAgent
 }
@@ -36,9 +39,10 @@ func (a *Agent) Start() error {
 	go a.dealCmdPacket()
 
 	// 初始化tcp client
-	a.client.Init()
+	go a.client.Init()
 
 	// 启动本地接收采集信息端口
+	a.pinpoint.Start()
 
 	return nil
 }

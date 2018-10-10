@@ -9,18 +9,19 @@ import (
 
 // Packet 通用报文
 type APMPacket struct {
-	Cmds      []*CMD          `msg:"cmd"`
+	Cmd       []*CMD          `msg:"cmd"`
 	Pinpoints []*PinpointData `msg:"tp"`
+	Other     []byte          `msg:"ot"`
 	//Logs    []*LogPacket    `msg:"lp"`
 	//Systems []*SystemPacket `msg:"sp"`
 }
 
 func (ap *APMPacket) Len() int {
-	return len(ap.Pinpoints) + len(ap.Cmds)
+	return len(ap.Pinpoints) + len(ap.Cmd)
 }
 
 func (ap *APMPacket) Clear() {
-	ap.Cmds = ap.Cmds[:0]
+	ap.Cmd = ap.Cmd[:0]
 	ap.Pinpoints = ap.Pinpoints[:0]
 }
 

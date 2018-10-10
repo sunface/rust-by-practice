@@ -19,7 +19,12 @@ type Config struct {
 		PinpointCacheLen int
 		CmdCacheLen      int
 		ReportLen        int
-		KeepliveInterval int
+		KeepLiveInterval int
+	}
+	Pinpoint struct {
+		JVMStateAddr   string
+		AgentInfoAddr  string
+		SpanStreamAddr string
 	}
 }
 
