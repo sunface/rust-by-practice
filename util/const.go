@@ -1,9 +1,10 @@
 package util
 
 const (
-	TypeOfPinpoint = uint16(iota + 1) // 	监控数据
-	TypeOfLog      = uint16(iota + 1) // 	日志数据
-	TypeOfPing     = uint16(iota + 1) // 	日志数据
+	TypeOfSkywalking = uint16(iota + 1) // 	Pinpoint 监控数据
+	TypeOfPinpoint                      // 	Skywalking 日志数据
+	TypeOfPing                          // 	日志数据
+	TypeOfLog                           // 	日志数据
 )
 
 const (

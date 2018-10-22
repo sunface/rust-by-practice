@@ -2,17 +2,20 @@ package util
 
 import (
 	"encoding/binary"
+	"io"
+
 	"github.com/mafanr/g"
 	"go.uber.org/zap"
-	"io"
 )
 
+// CMD ...
 type CMD struct {
 	Type    uint16
 	Len     uint32
 	PayLoad []byte
 }
 
+// NewCMD ...
 func NewCMD() *CMD {
 	return &CMD{}
 }

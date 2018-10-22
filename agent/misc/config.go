@@ -7,6 +7,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+// Config ...
 type Config struct {
 	Common struct {
 		Version    string
@@ -15,21 +16,14 @@ type Config struct {
 	}
 	Agent struct {
 		VgoAddr          string
-		ReportInterval   int
-		PinpointCacheLen int
-		CmdCacheLen      int
-		ReportLen        int
 		KeepLiveInterval int
-	}
-	Pinpoint struct {
-		JVMStateAddr   string
-		AgentInfoAddr  string
-		SpanStreamAddr string
 	}
 }
 
+// Conf ...
 var Conf *Config
 
+// InitConfig ...
 func InitConfig(path string) {
 	conf := &Config{}
 	data, err := ioutil.ReadFile(path)

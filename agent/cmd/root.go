@@ -16,14 +16,15 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/mafanr/g"
-	"github.com/mafanr/vgo/agent/agent"
-	"github.com/mafanr/vgo/agent/misc"
-	"github.com/spf13/cobra"
-	"go.uber.org/zap"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/mafanr/g"
+	"github.com/mafanr/vgo/agent/misc"
+	"github.com/mafanr/vgo/agent/service"
+	"github.com/spf13/cobra"
+	"go.uber.org/zap"
 )
 
 var cfgFile string
@@ -41,17 +42,18 @@ to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
-		//log.SetFlags(log.Lmicroseconds | log.Lshortfile | log.LstdFlags)
 		misc.InitConfig("agent.conf")
 		g.InitLogger(misc.Conf.Common.LogLevel)
 		g.L.Info("Application version", zap.String("version", misc.Conf.Common.Version))
 
-		a := agent.New()
+		a := service.New()
 		a.Start()
+
 		// 等待服务器停止信号
 		chSig := make(chan os.Signal)
 		signal.Notify(chSig, syscall.SIGINT, syscall.SIGTERM)
 		sig := <-chSig
+
 		g.L.Info("agent received signal", zap.Any("signal", sig))
 		a.Close()
 	},
