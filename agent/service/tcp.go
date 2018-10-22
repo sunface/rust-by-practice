@@ -9,6 +9,7 @@ import (
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/agent/misc"
 	"github.com/mafanr/vgo/util"
+	"github.com/vmihailenco/msgpack"
 	"go.uber.org/zap"
 )
 
@@ -24,8 +25,8 @@ func NewTcpClient() *TcpClient {
 
 // Init ...
 func (t *TcpClient) Init() error {
-	//var conn net.Conn
 	var err error
+
 	isRestart := true
 	quitC := make(chan bool, 1)
 	// 定时器
@@ -87,15 +88,37 @@ func (t *TcpClient) Init() error {
 
 // KeepLive ...
 func (t *TcpClient) KeepLive() error {
-	// ping := util.NewCMD()
-	// ping.Type = util.TypeOfPing
+	packet := util.NewVgoPacket()
+	packet.Type = util.TypeOfCmd
+	packet.IsCompress = util.TypeOfCompressNo
 
-	// p := util.NewAPMPacket()
-	// p.Cmd = []*util.CMD{ping}
-	// if err := t.WritePacket(p, util.TypeOfCompressNo); err != nil {
-	// 	g.L.Warn("KeepLive:t.WritePacket", zap.String("error", err.Error()))
-	// 	return err
-	// }
+	cmd := util.NewCMD()
+	cmd.Type = util.TypeOfPing
+
+	ping := util.NewPing()
+	b, err := msgpack.Marshal(ping)
+	if err != nil {
+		g.L.Warn("KeepLive:msgpack.Marshal", zap.String("error", err.Error()))
+		return err
+	}
+
+	cmd.PayLoad = b
+
+	buf, err := msgpack.Marshal(cmd)
+	if err != nil {
+		g.L.Warn("KeepLive:msgpack.Marshal", zap.String("error", err.Error()))
+		return err
+	}
+
+	//
+	packet.Len = uint32(len(buf))
+	packet.PayLoad = buf
+
+	if err := t.WritePacket(packet); err != nil {
+		g.L.Warn("KeepLive:t.WritePacket", zap.String("error", err.Error()))
+		return err
+	}
+
 	return nil
 }
 

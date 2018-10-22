@@ -74,6 +74,8 @@ func (v *VgoPacket) Decode(rdr io.Reader) error {
 				g.L.Warn("Decode:snappy.Decode", zap.String("error", err.Error()))
 				return err
 			}
+		} else {
+			v.PayLoad = payLoad
 		}
 		v.Len = uint32(len(v.PayLoad))
 	}

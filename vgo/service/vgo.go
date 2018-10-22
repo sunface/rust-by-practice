@@ -2,15 +2,16 @@ package service
 
 import (
 	"bufio"
+	"log"
 	"net"
 	"time"
 
-	"github.com/golang/snappy"
+	"github.com/vmihailenco/msgpack"
+
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/util"
 	"github.com/mafanr/vgo/vgo/misc"
 	"github.com/mafanr/vgo/vgo/stats"
-	"github.com/shamaton/msgpack"
 	"go.uber.org/zap"
 )
 
@@ -71,7 +72,7 @@ func (v *Vgo) acceptAgent() error {
 
 func (v *Vgo) agentWork(conn net.Conn) {
 	quitC := make(chan bool, 1)
-	packetC := make(chan *util.VgoPacket, 1000)
+	packetC := make(chan *util.VgoPacket, 100)
 
 	defer func() {
 		if err := recover(); err != nil {
@@ -93,28 +94,38 @@ func (v *Vgo) agentWork(conn net.Conn) {
 		case <-quitC:
 			g.L.Info("Quit")
 			return
-		case msg, ok := <-packetC:
+		case packet, ok := <-packetC:
 			if ok {
-				p := util.NewVgoPacket()
-				var payload []byte
-				var err error
-				if msg.IsCompress == util.TypeOfCompressNo {
-					payload = msg.PayLoad
-				} else {
-					payload, err = snappy.Decode(nil, msg.PayLoad)
-					if err != nil {
-						g.L.Warn("agentWork:snappy.Decode", zap.String("error", err.Error()))
-						break
+				switch packet.Type {
+				case util.TypeOfCmd:
+					if err := v.dealCmd(conn, packet); err != nil {
+						g.L.Warn("agentWork:v.dealCmd", zap.String("error", err.Error()))
+						return
 					}
-				}
-				if err := msgpack.Decode(payload, p); err != nil {
-					g.L.Warn("agentWork:msgpack.Decode", zap.String("error", err.Error()))
 					break
 				}
-				//log.Println("接收到到报文", p)
 			}
 		}
 	}
+}
+
+func (v *Vgo) dealCmd(conn net.Conn, packet *util.VgoPacket) error {
+	cmd := util.NewCMD()
+	if err := msgpack.Unmarshal(packet.PayLoad, cmd); err != nil {
+		g.L.Warn("dealCmd:msgpack.Unmarshal", zap.String("error", err.Error()))
+		return err
+	}
+	switch cmd.Type {
+	case util.TypeOfPing:
+		ping := util.NewPing()
+		if err := msgpack.Unmarshal(cmd.PayLoad, ping); err != nil {
+			g.L.Warn("dealCmd:msgpack.Unmarshal", zap.String("error", err.Error()))
+			return err
+		}
+		log.Println("ping", conn.RemoteAddr())
+		break
+	}
+	return nil
 }
 
 func (v *Vgo) agentRead(conn net.Conn, packetC chan *util.VgoPacket, quitC chan bool) {
