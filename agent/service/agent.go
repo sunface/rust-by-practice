@@ -1,6 +1,8 @@
 package service
 
 import (
+	"sync/atomic"
+
 	"github.com/mafanr/g"
 	"github.com/mafanr/vgo/util"
 
@@ -13,6 +15,8 @@ type Agent struct {
 	uploadC   chan *util.VgoPacket
 	downloadC chan *util.VgoPacket
 	client    *TCPClient
+	skyWalk   *SkyWalking
+	id        uint32
 }
 
 var gAgent *Agent
@@ -24,9 +28,15 @@ func New() *Agent {
 		uploadC:   make(chan *util.VgoPacket, 100),
 		downloadC: make(chan *util.VgoPacket, 100),
 		client:    NewTCPClient(),
+		skyWalk:   NewSkyWalking(),
 	}
 
 	return gAgent
+}
+
+// ID ...
+func (a *Agent) ID() uint32 {
+	return atomic.AddUint32(&a.id, 1)
 }
 
 // Start ...
@@ -42,7 +52,9 @@ func (a *Agent) Start() error {
 	go a.client.Init()
 
 	// 启动本地接收采集信息端口
-	//a.pinpoint.Start()
+	if err := a.skyWalk.Start(); err != nil {
+		g.L.Fatal("Start:a.skyWalk.Start", zap.Error(err))
+	}
 
 	return nil
 }

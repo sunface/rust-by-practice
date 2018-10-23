@@ -103,6 +103,12 @@ func (v *Vgo) agentWork(conn net.Conn) {
 						return
 					}
 					break
+				case util.TypeOfSkywalking:
+					if err := v.dealSkywalking(conn, packet); err != nil {
+						g.L.Warn("agentWork:v.dealSkywalking", zap.String("error", err.Error()))
+						return
+					}
+					break
 				}
 			}
 		}
@@ -153,5 +159,27 @@ func (v *Vgo) agentRead(conn net.Conn, packetC chan *util.VgoPacket, quitC chan 
 
 // Close ...
 func (v *Vgo) Close() error {
+	return nil
+}
+
+// dealSkywalking skywlking报文处理
+func (v *Vgo) dealSkywalking(conn net.Conn, packet *util.VgoPacket) error {
+	skypacker := &util.SkywalkingPacket{}
+	if err := msgpack.Unmarshal(packet.PayLoad, skypacker); err != nil {
+		g.L.Warn("dealSkywalking:msgpack.Unmarshal", zap.String("error", err.Error()))
+		return err
+	}
+	switch skypacker.Type {
+	case util.TypeOfAppRegister:
+		appRegister := &util.AppRegister{}
+		if err := msgpack.Unmarshal(skypacker.Payload, appRegister); err != nil {
+			g.L.Warn("dealSkywalking:msgpack.Unmarshal", zap.String("error", err.Error()))
+			return err
+		}
+		log.Println("appRegister", appRegister.Name)
+		log.Println("packet.IsSync", packet.IsSync)
+		log.Println("packet.ID", packet.ID)
+		break
+	}
 	return nil
 }
