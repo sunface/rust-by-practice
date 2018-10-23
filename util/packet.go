@@ -2,22 +2,35 @@ package util
 
 import (
 	"encoding/binary"
-
 	"io"
 
 	"github.com/golang/snappy"
 	"github.com/mafanr/g"
-
 	"go.uber.org/zap"
 )
 
-// VgoPacket ...
+// VgoPacket 通用报文
 type VgoPacket struct {
-	Type       uint16
-	Len        uint32
-	IsCompress byte
-	PayLoad    []byte
+	Type       byte   `msgp:"t"`  // 类型
+	Version    byte   `msgp:"v"`  // 版本
+	IsSync     byte   `msgp:"is"` // 是否同步
+	IsCompress byte   `msgp:"ic"` // 是否压缩
+	ID         uint32 `msgp:"i"`  // 报文ID
+	Len        uint32 `msgp:"l"`  // 长度
+	PayLoad    []byte `msgp:"p"`  // 数据
 }
+
+// // NewVgoPacket ...
+// func NewVgoPacket(pType byte, version byte, isSync byte, isCompress byte, id uint32, payload []byte) *VgoPacket {
+// 	return &VgoPacket{
+// 		Type:       pType,
+// 		Version:    version,
+// 		IsSync:     isSync,
+// 		IsCompress: isCompress,
+// 		ID:         id,
+// 		PayLoad:    payload,
+// 	}
+// }
 
 // NewVgoPacket ...
 func NewVgoPacket() *VgoPacket {
@@ -35,30 +48,37 @@ func (v *VgoPacket) Encode() []byte {
 	}
 
 	v.Len = uint32(len(v.PayLoad))
-	buf := make([]byte, v.Len+7)
+	buf := make([]byte, v.Len+12)
 
-	binary.BigEndian.PutUint16(buf[:2], v.Type)
-	buf[2] = v.IsCompress
-	binary.BigEndian.PutUint32(buf[3:7], v.Len)
+	buf[0] = v.Type
+	buf[1] = v.Version
+	buf[2] = v.IsSync
+	buf[3] = v.IsCompress
+	binary.BigEndian.PutUint32(buf[4:8], v.ID)
+	binary.BigEndian.PutUint32(buf[8:12], v.Len)
 
 	if v.Len > 0 {
-		copy(buf[7:], v.PayLoad)
+		copy(buf[12:], v.PayLoad)
 	}
 	return buf
+
 }
 
 // Decode decode
 func (v *VgoPacket) Decode(rdr io.Reader) error {
-	buf := make([]byte, 7)
+	buf := make([]byte, 12)
 	if _, err := io.ReadFull(rdr, buf); err != nil {
 		g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
 		return err
 	}
-	v.Type = binary.BigEndian.Uint16(buf[:2])
-	v.IsCompress = buf[2]
 
-	length := binary.BigEndian.Uint32(buf[3:7])
+	v.Type = buf[0]
+	v.Version = buf[1]
+	v.IsSync = buf[2]
+	v.IsCompress = buf[3]
+	v.ID = binary.BigEndian.Uint32(buf[4:8])
 
+	length := binary.BigEndian.Uint32(buf[8:12])
 	payLoad := make([]byte, length)
 	if length > 0 {
 		_, err := io.ReadFull(rdr, payLoad)
@@ -66,7 +86,6 @@ func (v *VgoPacket) Decode(rdr io.Reader) error {
 			g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
 			return err
 		}
-
 		// 解压
 		if v.IsCompress == TypeOfCompressYes {
 			v.PayLoad, err = snappy.Decode(nil, payLoad)
@@ -81,66 +100,3 @@ func (v *VgoPacket) Decode(rdr io.Reader) error {
 	}
 	return nil
 }
-
-//
-//// Packet 通用报文
-//type APMPacket struct {
-//	Cmd       []*CMD          `msg:"cmd"`
-//	Pinpoints []*PinpointData `msg:"tp"`
-//	Other     []byte          `msg:"ot"`
-//	//Logs    []*LogPacket    `msg:"lp"`
-//	//Systems []*SystemPacket `msg:"sp"`
-//}
-//
-//func (ap *APMPacket) Len() int {
-//	return len(ap.Pinpoints) + len(ap.Cmd)
-//}
-//
-//func (ap *APMPacket) Clear() {
-//	ap.Cmd = ap.Cmd[:0]
-//	ap.Pinpoints = ap.Pinpoints[:0]
-//}
-//
-//func NewAPMPacket() *APMPacket {
-//	return &APMPacket{}
-//}
-//
-//// BatchAPMPacket ... node transfer packet
-//type BatchAPMPacket struct {
-//	IsCompress byte
-//	Len        uint32
-//	PayLoad    []byte
-//}
-//
-//// Encode encode
-//func (b *BatchAPMPacket) Encode() []byte {
-//	b.Len = uint32(len(b.PayLoad))
-//	buf := make([]byte, b.Len+5)
-//	buf[0] = b.IsCompress
-//	binary.BigEndian.PutUint32(buf[1:5], b.Len)
-//	if b.Len > 0 {
-//		copy(buf[5:], b.PayLoad)
-//	}
-//	return buf
-//}
-//
-//// Decode decode
-//func (b *BatchAPMPacket) Decode(rdr io.Reader) error {
-//	buf := make([]byte, 5)
-//	if _, err := io.ReadFull(rdr, buf); err != nil {
-//		g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
-//		return err
-//	}
-//	b.IsCompress = buf[0]
-//	b.Len = binary.BigEndian.Uint32(buf[1:5])
-//
-//	b.PayLoad = make([]byte, b.Len)
-//	if b.Len > 0 {
-//		_, err := io.ReadFull(rdr, b.PayLoad)
-//		if err != nil {
-//			g.L.Warn("Decode:io.ReadFull", zap.String("err", err.Error()))
-//			return err
-//		}
-//	}
-//	return nil
-//}

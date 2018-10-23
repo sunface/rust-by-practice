@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.apache.skywalking.apm.network.proto";
+option csharp_namespace = "SkyWalking.NetworkProtocol";
+
+message KeyWithStringValue {
+    string key = 1;
+    string value = 2;
+}

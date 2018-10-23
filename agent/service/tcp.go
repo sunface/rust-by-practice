@@ -13,18 +13,18 @@ import (
 	"go.uber.org/zap"
 )
 
-// TcpClient tcp client
-type TcpClient struct {
+// TCPClient tcp client
+type TCPClient struct {
 	conn net.Conn
 }
 
-// NewTcpClient ...
-func NewTcpClient() *TcpClient {
-	return &TcpClient{}
+// NewTCPClient ...
+func NewTCPClient() *TCPClient {
+	return &TCPClient{}
 }
 
 // Init ...
-func (t *TcpClient) Init() error {
+func (t *TCPClient) Init() error {
 	var err error
 
 	isRestart := true
@@ -87,13 +87,7 @@ func (t *TcpClient) Init() error {
 }
 
 // KeepLive ...
-func (t *TcpClient) KeepLive() error {
-	packet := util.NewVgoPacket()
-	packet.Type = util.TypeOfCmd
-	packet.IsCompress = util.TypeOfCompressNo
-
-	cmd := util.NewCMD()
-	cmd.Type = util.TypeOfPing
+func (t *TCPClient) KeepLive() error {
 
 	ping := util.NewPing()
 	b, err := msgpack.Marshal(ping)
@@ -102,6 +96,8 @@ func (t *TcpClient) KeepLive() error {
 		return err
 	}
 
+	cmd := util.NewCMD()
+	cmd.Type = util.TypeOfPing
 	cmd.PayLoad = b
 
 	buf, err := msgpack.Marshal(cmd)
@@ -110,9 +106,15 @@ func (t *TcpClient) KeepLive() error {
 		return err
 	}
 
-	//
-	packet.Len = uint32(len(buf))
-	packet.PayLoad = buf
+	// packet := util.NewVgoPacket(util.TypeOfCmd, util.VersionOf01, util.TypeOfSyncNo, util.TypeOfCompressNo, 0, buf)
+	packet := &util.VgoPacket{
+		Type:       util.TypeOfCmd,
+		Version:    util.VersionOf01,
+		IsSync:     util.TypeOfSyncNo,
+		IsCompress: util.TypeOfCompressNo,
+		ID:         0,
+		PayLoad:    buf,
+	}
 
 	if err := t.WritePacket(packet); err != nil {
 		g.L.Warn("KeepLive:t.WritePacket", zap.String("error", err.Error()))
@@ -123,8 +125,8 @@ func (t *TcpClient) KeepLive() error {
 }
 
 // ReadPacket ...
-func (t *TcpClient) ReadPacket(rdr io.Reader) (*util.VgoPacket, error) {
-	packet := util.NewVgoPacket()
+func (t *TCPClient) ReadPacket(rdr io.Reader) (*util.VgoPacket, error) {
+	packet := &util.VgoPacket{}
 	if err := packet.Decode(rdr); err != nil {
 		g.L.Warn("ReadPacket:packet.Decode", zap.String("error", err.Error()))
 		return nil, err
@@ -133,7 +135,7 @@ func (t *TcpClient) ReadPacket(rdr io.Reader) (*util.VgoPacket, error) {
 }
 
 // WritePacket ...
-func (t *TcpClient) WritePacket(packet *util.VgoPacket) error {
+func (t *TCPClient) WritePacket(packet *util.VgoPacket) error {
 	body := packet.Encode()
 	if t.conn != nil {
 		_, err := t.conn.Write(body)
@@ -146,7 +148,7 @@ func (t *TcpClient) WritePacket(packet *util.VgoPacket) error {
 }
 
 // Close ....
-func (t *TcpClient) Close() error {
+func (t *TCPClient) Close() error {
 	if t.conn != nil {
 		t.conn.Close()
 	}

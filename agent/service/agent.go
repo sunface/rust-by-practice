@@ -12,7 +12,7 @@ type Agent struct {
 	quitC     chan bool
 	uploadC   chan *util.VgoPacket
 	downloadC chan *util.VgoPacket
-	client    *TcpClient
+	client    *TCPClient
 }
 
 var gAgent *Agent
@@ -21,15 +21,17 @@ var gAgent *Agent
 func New() *Agent {
 	gAgent = &Agent{
 		quitC:     make(chan bool, 1),
-		uploadC:   make(chan *util.VgoPacket, 1000),
+		uploadC:   make(chan *util.VgoPacket, 100),
 		downloadC: make(chan *util.VgoPacket, 100),
-		client:    NewTcpClient(),
+		client:    NewTCPClient(),
 	}
+
 	return gAgent
 }
 
 // Start ...
 func (a *Agent) Start() error {
+
 	// 启动upload
 	go a.upload()
 

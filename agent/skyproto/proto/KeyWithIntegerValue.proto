@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+
+message KeyWithIntegerValue {
+    string key = 1;
+    int32 value = 2;
+}

@@ -18,6 +18,10 @@ type Config struct {
 		VgoAddr          string
 		KeepLiveInterval int
 	}
+	SkyWalking struct {
+		HTTPAddr string
+		RPCAddr  string
+	}
 }
 
 // Conf ...
@@ -36,5 +40,5 @@ func InitConfig(path string) {
 		log.Fatal("InitConfig:yaml.Unmarshal", err)
 	}
 	Conf = conf
-	log.Println(Conf.Agent)
+	log.Println(Conf)
 }
