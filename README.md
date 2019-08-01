@@ -5,7 +5,7 @@
 # OpenTracing
 OpenTracing制定了一套平台无关、厂商无关的协议标准，使得开发人员能够方便的添加或更换底层APM的实现。
 
-在2016年11月的时候发生了一件里程碑事件，CNCF.io接受OpenTracing，同时这也是CNCF的第三个项目，前两个都已经鼎鼎大名了：Kubernetes，和Prometheus，由此可见开源世界对APM的重视，对统一标准的重视和渴望。
+在2016年11月的时候发生了一件里程碑事件，CNCF.io接受OpenTracing，同时这也是CNCF的第三个项目，前两个都已经鼎鼎大名了：Kubernetes，和Prometheus，由此可见开源世界对APM的重视，对统一标准的重视和渴望。 
 
 遵循OpenTracing协议的产品有Jaeger、Zipkin等等。
 
