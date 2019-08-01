@@ -22,11 +22,11 @@ OpenTracing制定了一套平台无关、厂商无关的协议标准，使得开
 
 # Tow Rounds PK
 先来看一张Round 1的PK图：
-![](./assets/opentracing-vs-opencensus.jpg)
+![](../assets/opentracing-vs-opencensus.jpg)
 
 可以看到，OpenTracing和OpenCensus从功能和特性上来看，各有优缺点。OpenTracing支持的语言更多、相对对其他系统的耦合性要更低；OpenCensus支持Metrics、分布式跟踪,同时从API层一直到基础设施层都进行了支持。
 
-![](./assets/opentracing-vs-opencensus2.jpg)
+![](../assets/opentracing-vs-opencensus2.jpg)
 
 难分胜负？再来对比下社区活跃，我去，好像还是半斤八两，你有更广的使用群众基础，我有谷歌和微软就足矣。
 
@@ -45,7 +45,7 @@ OpenTelemetry的核心工作目前主要集中在3个部分：
 
 由此可见，OpenTelemetry的自身定位很明确：数据采集和标准规范的统一，对于数据如何去使用、存储、展示、告警，官方是不涉及的，我们目前推荐使用Prometheus + Grafana做Metrics存储、展示，使用Jaeger做分布式跟踪的存储和展示。
 
-![](./assets/bio1.jpg)
+![](../assets/bio1.jpg)
 
 >首先，再补充一下背景知识，之前提到了APM的两种监控子类：分布式跟踪和Metrics，其实还有第三种，就是Logging日志，目前常见的日志收集平台有EFK、Fluentd.
 
@@ -79,7 +79,7 @@ OpenTelemetry的核心工作目前主要集中在3个部分：
 
 
 ### Roadmap
-![](./assets/opentelemetry-roadmap.jpg)
+![](../assets/opentelemetry-roadmap.jpg)
 
 几个预估的主要时间点
 - 2019年9月，发布主要语言版本的SDK，生产可用
