@@ -1,1 +1,1 @@
-:koala: Koala is a lighting fast and reliable search platform,  designed for cost-efficiency,  it will help you saving much cost than elasticsearch solutions, written in rust
+:koala: Koala is a extremely fast distributed searching service, it is written in rust. We have been building koala from scratch for cost-efficiency to help you saving lots of money than using elasticsearch stacks.
