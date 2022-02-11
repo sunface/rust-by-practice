@@ -1,0 +1,20 @@
+[book]
+title = "Rust Exercise"
+description = "A set of exercises and examples to pratice various aspects of Rust, also for the rust course (book) at https://course.rs"
+authors = ["course.rs"]
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html.playpen]
+editable = true
+editor = "ace"
+
+[output.html.fold]
+enable = true
+
+[output.html]
+git-repository-url = "https://github.com/course-rs/rust-exercise"
+
+[rust]
+edition = "2021"
