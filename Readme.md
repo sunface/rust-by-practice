@@ -5,7 +5,7 @@ Greetings and welcome to `exercise.rs`， I don't know whether you had the follo
 
 - After learning some rust knowledge, you want to take a step:  do some exercises, but found unchallenging ones
 - Found nothing about rust toolchains, std, ascyn/.await topics
-- Still have no idea of what to do next, maybe you tried writing a demo /project, but... failed or 
+- Still have no idea of what to do next, maybe you tried writing a demo /project, but... not that good or even worse: failed
 
 But now, you come here and everthing will change: here you can find bunch of easy to hard exercises to improve your Rust skills，this will help you fill the gap of easy-to-learn and hard-to-use.
 
