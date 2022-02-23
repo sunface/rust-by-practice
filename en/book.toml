@@ -1,0 +1,20 @@
+[book]
+title = "Rust Exercise"
+description = "A set of exercises and examples to pratice various aspects of Rust, also for the rust course (book) at https://course.rs"
+authors = ["sunface, https://im.dev"]
+language = "en"
+
+[output.html.playpen]
+editable = true
+editor = "ace"
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html]
+git-repository-url = "https://github.com/sunface/rust-exercise"
+edit-url-template = "https://github.com/sunface/rust-exercise/edit/master/en/{path}"
+
+[rust]
+edition = "2021"
