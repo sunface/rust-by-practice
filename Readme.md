@@ -3,7 +3,7 @@
 
 Greetings and welcome to `exercise.rs`， I don't know whether you had the following problems before you were here，but I do (in early days): 
 
-- After learning some rust knowledge, you want to take a step:  do some exercises, but found unchallenging ones, may not that intresting to
+- After learning some rust knowledge, you want to take a step:  do some exercises, but found unchallenging ones
 - Found nothing about rust toolchains, std, ascyn/.await topics
 - Still have no idea of what to do next, maybe you tried writing a demo /project, but... failed or 
 
