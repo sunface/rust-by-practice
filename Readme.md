@@ -1,4 +1,6 @@
 # Rust exercise
+> 中文 Readme [传送门](./zh-CN/Readme.md)。
+
 Greetings and welcome to `exercise.rs`， I don't know whether you had the following problems before you were here，but I do (in early days): 
 
 - After learning some rust knowledge, you want to take a step:  do some exercises, but found unchallenging ones, may not that intresting to
