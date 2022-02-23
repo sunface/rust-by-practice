@@ -1,10 +1,17 @@
 # Rust exercise
-Greetings and welcome to `exercise.rs`，here you can find bunch of easy to hard exercises to improve your Rust skills，this will help you fill the gap of easy-to-learn and hard-to-use.
+Greetings and welcome to `exercise.rs`， I don't know whether you had the following problems before you were here，but I do (in early days): 
+
+- After learning some rust knowledge, you want to take a step:  do some exercises, but found unchallenging ones, may not that intresting to
+- Found nothing about rust toolchains, std, ascyn/.await topics
+- Still have no idea of what to do next, maybe you tried writing a demo /project, but... failed or 
+
+But now, you come here and everthing will change: here you can find bunch of easy to hard exercises to improve your Rust skills，this will help you fill the gap of easy-to-learn and hard-to-use.
+
 
 ## Online Reading
 This book is written in English and Chinese, you can pick up the language you are familiar with:
 - English: [https://exercise.rs](https://exercise.rs)
-- 简体中文: [https://zh.exercise.rs](https://zh.=[exercise.rs)
+- 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
 
 ## Learning Rust
 If you are a first-time Rust learner, here are some high quality learning resources :
