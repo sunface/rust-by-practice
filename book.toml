@@ -12,7 +12,6 @@ editor = "ace"
 enable = true
 
 [output.html]
-additional-js = ["assets/lang.js"]
 git-repository-url = "https://github.com/sunface/rust-exercise"
 edit-url-template = "https://github.com/sunface/rust-exercise/edit/master/{path}"
 
