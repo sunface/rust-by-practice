@@ -15,8 +15,10 @@ This book is written in English and Chinese, you can pick up the language you ar
 - 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
 
 ## About exercises
+- Try your best to make exercise comipile with NO ERRORS!
 - difficulty level: easy: 🌟  medium: 🌟🌟 hard: 🌟🌟🌟  hell: 🌟🌟🌟🌟
 - Everything is online: reading, editing, testing 
+
 
 ## Contributing
 We welcome all kinds of contributors, especially ones who has precious exercises.

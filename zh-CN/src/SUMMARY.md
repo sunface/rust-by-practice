@@ -1,7 +1,7 @@
 # Summary
 
 - [关于 exercise.rs](why-exercise.md)
-- [变量绑定与解构 todo](variables.md)
+- [变量绑定与解构](variables.md)
 - [基本类型 todo](basic-types/intro.md)
   - [数值类型](basic-types/numbers.md)
   - [字符、布尔、单元类型](basic-types/char-bool-unit.md)
