@@ -2,7 +2,7 @@
 
 - [关于 exercise.rs](why-exercise.md)
 - [变量绑定与解构](variables.md)
-- [基本类型 todo](basic-types/intro.md)
+- [基本类型](basic-types/intro.md)
   - [数值类型](basic-types/numbers.md)
   - [字符、布尔、单元类型](basic-types/char-bool-unit.md)
   - [语句与表达式](basic-types/statements-expressions.md)

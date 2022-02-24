@@ -2,7 +2,7 @@
 
 - [About Exercise.rs](why-exercise.md)
 - [Variables](variables.md)
-- [Basic Types todo](basic-types/intro.md)
+- [Basic Types](basic-types/intro.md)
   - [Numbers](basic-types/numbers.md)
   - [Char, Bool and Unit](basic-types/char-bool-unit.md)
   - [Statements and Expressions](basic-types/statements-expressions.md)

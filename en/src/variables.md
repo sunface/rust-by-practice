@@ -1,7 +1,7 @@
 # Variables
 
 ### Binding and mutablity
-🌟 fix the error below with least change
+🌟 fix the error below with least modifying
 ```rust,editable
 
 fn main() {
@@ -24,7 +24,7 @@ fn main() {
 ```
 
 ### Scope
-🌟 fix the error below with least change
+🌟 fix the error below with least modifying
 ```rust,editable
 
 fn main() {
@@ -50,7 +50,7 @@ fn define_x() {
 ```
 
 ### Shadowing
-🌟🌟 only change `assert_eq!` to make the `println!` work(print `42` in terminal)
+🌟🌟 only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
 
 ```rust,editable
 
@@ -103,7 +103,7 @@ fn main() {
 ```
 
 ### Destructing
-🌟🌟 fix the error below with least change
+🌟🌟 fix the error below with least modifying
 
 > Tips: you can use Shadowing or Mutability
 
