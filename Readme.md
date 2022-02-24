@@ -9,11 +9,19 @@ Greetings and welcome to `exercise.rs`， If you have the following problems:
 
 Then you have come to a right place: here you can find a bunch of easy to hard exercises to improve your Rust skills，this will help you fill the gap of easy-to-learn and hard-to-use.
 
-
 ## Online Reading
 This book is written in English and Chinese, you can pick up the language you are familiar with:
 - English: [https://exercise.rs](https://exercise.rs)
 - 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
+
+## About exercises
+- difficulty level: easy: 🌟  medium: 🌟🌟 hard: 🌟🌟🌟  hell: 🌟🌟🌟🌟
+- Everything is online: reading, editing, testing 
+
+## Contributing
+We welcome all kinds of contributors, especially ones who has precious exercises.
+
+Every exercise you have contributed will be annotated with your nickname and personal link, it's time to show yourself to the world!
 
 ## Learning Rust
 If you are a first-time Rust learner, here are some high quality learning resources :
