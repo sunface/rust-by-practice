@@ -17,6 +17,13 @@ fn main() {
 }
 ```
 
+🌟 fill the blank
+```rust,editable
+
+fn main() {
+    let v: u16 = 38_u8 as __;
+}
+```
 
 🌟🌟🌟  modify `assert_eq!` to make it work
 
@@ -63,6 +70,7 @@ fn main() {
 }
 ```
 
+
 ### Floating-Point
 🌟 replace ? with your answer
 
@@ -82,5 +90,67 @@ fn main() {
 
 fn main() {
     assert!(0.1+0.2==0.3);
+}
+```
+
+### Range
+🌟🌟 two targets: 1. modify `assert!` to make it work 2. make `println!` output: 97 - 122
+
+> Tips: use `as u8` to convert a char to u8
+```rust,editable
+fn main() {
+    let mut sum = 0;
+    for i in -3..2 {
+        sum += i
+    }
+
+    assert!(sum == -3);
+
+    for c in 'a'..='Z' {
+        println!("{}",c);
+    }
+}
+```
+
+🌟🌟 fill the blanks
+```rust,editable
+
+use std::ops::{Range, RangeInclusive};
+fn main() {
+    assert_eq!((1..__), Range{ start: 1, end: 5 });
+    assert_eq!((1..__), RangeInclusive::new(1, 5));
+}
+```
+
+### Computations
+
+🌟 fill the blanks
+
+```rust,editable
+
+fn main() {
+    // Integer addition
+    assert!(1u32 + 2 == __);
+
+    // Integer subtraction
+    assert!(1i32 - 2 == __);
+    assert!(1u8 - 2 == -1); // change u8 to another type to make it work
+    
+    assert!(3 * 50 == __);
+
+    assert!(9.6 / 3.2 == 3.0); // error ! make it work
+
+    assert!(24 % 5 == __);
+    // Short-circuiting boolean logic
+    assert!(true && false == __);
+    assert!(true || false == __);
+    assert!(!true == __);
+
+    // Bitwise operations
+    println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
+    println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101);
+    println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101);
+    println!("1 << 5 is {}", 1u32 << 5);
+    println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 }
 ```
