@@ -1,7 +1,7 @@
 # Summary
 
-- [Why Exercise.rs](why-exercise.md)
-- [Variables todo](variables.md)
+- [About Exercise.rs](why-exercise.md)
+- [Variables](variables.md)
 - [Basic Types todo](basic-types/intro.md)
   - [Numbers](basic-types/numbers.md)
   - [Char, Bool and Unit](basic-types/char-bool-unit.md)

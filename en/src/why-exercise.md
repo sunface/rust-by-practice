@@ -1,4 +1,4 @@
-# Why Exercise.rs
+# About exercise.rs
 > 中文版 [传送门](https://zh.exercise.rs)
 
 Greetings and welcome to `exercise.rs`， If you have the following problems: 
