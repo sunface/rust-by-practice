@@ -1,4 +1,5 @@
-# Rust exercise
+# Rust exercise ([中文 Readme](./zh-CN/Readme.md))
+
 - English: [https://exercise.rs](https://exercise.rs)
 - 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
 
@@ -10,8 +11,6 @@ Greetings and welcome to `exercise.rs`， If you have the following problems:
 - Still have no idea of what to do next, maybe you tried writing a demo /project, but... not that good or even worse: failed
 
 Then you have come to a right place: here you can find a bunch of easy to hard exercises to improve your Rust skills which cover almost every topic in Rust，this will help you fill the gap of easy-to-learn and hard-to-use.
-
-> 中文 Readme [传送门](./zh-CN/Readme.md)。
 
 ## About exercises
 - You can edit exercise online and then run it online too
