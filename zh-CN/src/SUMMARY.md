@@ -7,7 +7,7 @@
   - [字符、布尔、单元类型](basic-types/char-bool-unit.md)
   - [语句与表达式](basic-types/statements-expressions.md)
   - [函数](basic-types/functions.md)
-- [所有权和借用 todo](ownership/intro.md)
+- [所有权和借用](ownership/intro.md)
   - [所有权](ownership/ownership.md)
   - [引用和借用](ownership/borrowing.md)
 - [复合类型 todo](compound-types/intro.md)
