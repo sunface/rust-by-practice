@@ -1,5 +1,7 @@
 # Rust exercise
-> 中文 Readme [传送门](./zh-CN/Readme.md)。
+- English: [https://exercise.rs](https://exercise.rs)
+- 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
+
 
 Greetings and welcome to `exercise.rs`， If you have the following problems: 
 
@@ -9,15 +11,12 @@ Greetings and welcome to `exercise.rs`， If you have the following problems:
 
 Then you have come to a right place: here you can find a bunch of easy to hard exercises to improve your Rust skills which cover almost every topic in Rust，this will help you fill the gap of easy-to-learn and hard-to-use.
 
-## Online Reading
-This book is written in English and Chinese, you can pick up the language you are familiar with:
-- English: [https://exercise.rs](https://exercise.rs)
-- 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
+> 中文 Readme [传送门](./zh-CN/Readme.md)。
 
 ## About exercises
-- The only correct way:  make exercise comipile with NO ERRORS!
+- You can edit exercise online and then run it online too
+- **Your only gola is make every exercise comipile with NO ERRORS!**
 - difficulty level: easy: 🌟  medium: 🌟🌟 hard: 🌟🌟🌟  hell: 🌟🌟🌟🌟
-- Everything is online: reading, editing, testing 
 
 
 ## Contributing

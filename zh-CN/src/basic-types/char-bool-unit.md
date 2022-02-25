@@ -27,7 +27,7 @@ fn print_char(c : char) {
 }
 ```
 
-### Bool
+### 布尔
 🌟
 ```rust, editable
 
@@ -53,7 +53,7 @@ fn main() {
 ```
 
 
-### Unit type
+### 单元类型
 🌟🌟
 ```rust,editable
 
