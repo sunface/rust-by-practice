@@ -7,7 +7,7 @@
   - [Char, Bool and Unit](basic-types/char-bool-unit.md)
   - [Statements and Expressions](basic-types/statements-expressions.md)
   - [Functions](basic-types/functions.md)
-- [Ownership and Borrowing todo](ownership/intro.md)
+- [Ownership and Borrowing](ownership/intro.md)
   - [Ownership](ownership/ownership.md)
   - [Reference and Borrowing](ownership/borrowing.md)
 - [Compound Types todo](compound-types/intro.md)
