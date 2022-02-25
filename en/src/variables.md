@@ -117,3 +117,22 @@ fn main() {
     assert_eq!(y, 2);
 }
 ```
+
+### Destructuring assignments
+🌟🌟 fix the code with two ways:
+
+- Shadowing with adding `let`
+- make types compatible
+
+
+> Note: the feature `Destructuring assignments` need 1.59 or higher Rust version
+
+```rust,editable
+
+fn main() {
+    let (mut x, mut y) = (1.0, 2.0);
+    (x,y) = (3, 4);
+
+    assert_eq!([x,y],[3, 4]);
+} 
+```
