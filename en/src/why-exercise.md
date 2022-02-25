@@ -1,5 +1,5 @@
 # About exercise.rs
-> 中文版 [传送门](https://zh.exercise.rs)
+> 中文版阅读地址 [传送门](https://zh.exercise.rs)
 
 Greetings and welcome to `exercise.rs`， If you have the following problems: 
 
@@ -10,9 +10,9 @@ Greetings and welcome to `exercise.rs`， If you have the following problems:
 Then you have come to a right place: here you can find a bunch of easy to hard exercises to improve your Rust skills which cover almost every topic in Rust，this will help you fill the gap of easy-to-learn and hard-to-use.
 
 ## About exercises
-- The only correct way:  make exercise comipile with NO ERRORS!
+- You can edit exercise online and then run it online too
+- **Your only gola is make every exercise comipile with NO ERRORS!**
 - difficulty level: easy: 🌟  medium: 🌟🌟 hard: 🌟🌟🌟  hell: 🌟🌟🌟🌟
-- Everything is online: reading, editing, testing 
   
 ## Contributing
 We welcome all kinds of contributors, especially ones who has precious exercises.
