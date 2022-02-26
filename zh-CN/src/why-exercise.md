@@ -1,4 +1,4 @@
-# 关于 exercise.rs
+# Rust By Practice
 > 英文版 [传送门](https://exercise.rs)
 
 欢迎大家来到 `exercise.rs`，在来到这里之前不知道你有没有碰到过以下问题:

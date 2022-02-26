@@ -1,4 +1,4 @@
-# Rust 练习题
+# Rust By Practice
 - English: [https://exercise.rs](https://exercise.rs)
 - 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
 

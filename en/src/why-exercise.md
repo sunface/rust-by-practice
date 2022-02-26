@@ -1,23 +1,29 @@
-# About exercise.rs
-> 中文版阅读地址 [传送门](https://zh.exercise.rs)
+# Rust By Practice
 
-Greetings and welcome to `exercise.rs`， If you have the following problems: 
+> 中文版[传送门](https://zh.exercise.rs)
 
-- After learning some rust knowledge, you want make further step:  do some exercises, but found unchallenging ones
-- Found nothing about rust toolchains, std, ascyn/.await topics
-- Still have no idea of what to do next, maybe you tried writing a demo /project, but... not that good or even worse: failed
+- Online Reading: [https://exercise.rs](https://exercise.rs)
 
-Then you have come to a right place: here you can find a bunch of easy to hard exercises to improve your Rust skills which cover almost every topic in Rust，this will help you fill the gap of easy-to-learn and hard-to-use.
+Greetings Rustaceans and welcome here， if you have the following problems: 
 
-## About exercises
-- You can edit exercise online and then run it online too
-- **Your only gola is make every exercise comipile with NO ERRORS!**
+- You have learned basics of Rust, and want to learn more, e.g do some exercises, but found easy ones
+- Practice Rust toolchains, std, ascyn/.await and more
+- Have no idea of what to do next, maybe you tried writing a demo /project, but... not that good or even worse: failed
+
+Maybe you have come to the right place. Here are lots of easy to hard exercises and practices to improve your Rust skills which cover almost every topic in Rust.
+
+In a word, this book will try to help you filling the gap between easy-to-learn and hard-to-use.
+
+## How to use
+- You can edit exercises online and also run it online
+- **Your only goal is make every exercise comipile with NO ERRORS!**
 - difficulty level: easy: 🌟  medium: 🌟🌟 hard: 🌟🌟🌟  hell: 🌟🌟🌟🌟
-  
-## Contributing
-We welcome all kinds of contributors, especially ones who has precious exercises.
 
-Every exercise you have contributed will be annotated with your nickname and personal link, it's time to show yourself to the world!
+
+## Contributing
+We welcome all kinds of contributors.
+
+Every exercise you have contributed will be annotated with your github name and personal link, it's time to show yourself to the world!
 
 ## Learning Rust
 If you are a first-time Rust learner, here are some high quality learning resources :
@@ -37,4 +43,7 @@ Another limit for rustlings is that you have to download rustlings to local mach
 - difficulty from easy to hard，it will minimize the gap between learning and using in projects
 - up-to-date, e.g features which added in Rust 1.58 also have the corresponding exercises in `exercise.rs`
 - Both `course.rs` and `exercise.rs` are designed according to the CS courses in college，so quliaty is the most important factor
+
+
+
 
