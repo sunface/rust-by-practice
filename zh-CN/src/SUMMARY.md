@@ -14,7 +14,7 @@
   - [字符串](compound-types/string.md)
   - [数组](compound-types/array.md)
   - [切片](compound-types/slice.md)
-  - [元组 undo](compound-types/tuple.md)
+  - [元组](compound-types/tuple.md)
   - [结构体 undo](compound-types/struct.md)
   - [枚举 undo](compound-types/enum.md)
 - [流程控制 todo](flow-control.md)
