@@ -12,7 +12,7 @@
   - [Reference and Borrowing](ownership/borrowing.md)
 - [Compound Types doing](compound-types/intro.md)
   - [string](compound-types/string.md)
-  - [array todo](compound-types/array.md)
+  - [array](compound-types/array.md)
   - [slice todo](compound-types/slice.md)
   - [tuple todo](compound-types/tuple.md)
   - [struct todo](compound-types/struct.md)
