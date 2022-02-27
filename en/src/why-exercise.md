@@ -1,8 +1,8 @@
 # Rust By Practice
 
-> 中文版[传送门](https://zh.exercise.rs)
+> 中文版[传送门](https://zh.practice.rs)
 
-- Online Reading: [https://exercise.rs](https://exercise.rs)
+- Online Reading: [https://practice.rs](https://practice.rs)
 
 Greetings Rustaceans and welcome here， if you have the following problems: 
 
@@ -37,13 +37,13 @@ If you are a first-time Rust learner, here are some high quality learning resour
 Another limit for rustlings is that you have to download rustlings to local machine and compile it first before starting to learn.
 
 ## difference to rust by example
-[Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) is an excellent online book for learning Rust，`exercise.rs` has some small advantages in :
+[Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) is an excellent online book for learning Rust，`practice.rs` has some small advantages in :
 
 - more topics and exercises，specially for the hard part of Rust，e.g lifetime、smart pointers、threads 、async/.await etc
 - difficulty from easy to hard，it will minimize the gap between learning and using in projects
-- up-to-date, e.g features which added in Rust 1.58 also have the corresponding exercises in `exercise.rs`
-- Both `course.rs` and `exercise.rs` are designed according to the CS courses in college，so quliaty is the most important factor
-
+- up-to-date, e.g features which added in Rust 1.58 also have the corresponding exercises in `practice.rs`
+- Both `course.rs` and `practice.rs` are designed according to the CS courses in college，so quliaty is the most important factor
+- real practice
 
 
 

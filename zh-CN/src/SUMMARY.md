@@ -1,6 +1,6 @@
 # Summary
 
-- [关于 exercise.rs](why-exercise.md)
+- [关于 pracitce.rs](why-exercise.md)
 - [变量绑定与解构](variables.md)
 - [基本类型](basic-types/intro.md)
   - [数值类型](basic-types/numbers.md)
@@ -11,11 +11,12 @@
   - [所有权](ownership/ownership.md)
   - [引用和借用](ownership/borrowing.md)
 - [复合类型 todo](compound-types/intro.md)
-  - [字符串与切片](compound-types/string-slice.md)
+  - [字符串](compound-types/string.md)
+  - [数组](compound-types/array.md)
+  - [切片](compound-types/slice.md)
   - [元组](compound-types/tuple.md)
   - [结构体](compound-types/struct.md)
   - [枚举](compound-types/enum.md)
-  - [数组](compound-types/array.md)
 - [流程控制 todo](flow-control.md)
 - [模式匹配 todo](pattern-match/intro.md)
   - [match 和 if let](pattern-match/match-iflet.md)

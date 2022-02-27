@@ -1,8 +1,8 @@
 # Rust By Practice
-- English: [https://exercise.rs](https://exercise.rs)
-- 简体中文: [https://zh.exercise.rs](https://zh.exercise.rs)
+- English: [https://practice.rs](https://practice.rs)
+- 简体中文: [https://zh.practice.rs](https://zh.practice.rs)
 
-欢迎大家来到 `exercise.rs`，在来到这里之前不知道你有没有碰到过以下问题:
+欢迎大家来到 `practice.rs`，在来到这里之前不知道你有没有碰到过以下问题:
 
 - 学完知识，想要针对性的练习，但是只能找到一些不痛不痒的习题
 - 一些 Rust 工具、标准库等相关的习题更是一个都找不到
@@ -21,7 +21,7 @@
 ## 学习 Rust 语言
 我们强烈推荐在开始做练习之前，先看看 [<<Rust语言圣经>>]((https://course.rs)) 这本书，它覆盖了从入门到精通所需的全部知识，相信我，里面绝对有你所需要的 Rust 知识。
 
-(悄咪咪的告诉咱中国用户， `exercise.rs` 章节目录和 <<Rust语言圣经>> 完全相同，大家猜猜为什么)
+(悄咪咪的告诉咱中国用户， `practice.rs` 章节目录和 <<Rust语言圣经>> 完全相同，大家猜猜为什么)
 
 
 
@@ -32,10 +32,10 @@
 另一个问题就是 rustlings 需要先下载到本地，然后编译运行，无法在线使用。
 
 ## 对比 Rust By Example
-[Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) 是相当不错的在线练习题，相比之前，`exercise.rs` 拥有以下优势 :
+[Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) 是相当不错的在线练习题，相比之前，`practice.rs` 拥有以下优势 :
 
 - 内容覆盖面更广，且练习题更多、针对性更强，充分满足大家做题的快乐
 - 难度从简单到困难都有，且更贴合实际
 - 跟随 Rust 版本实时更新,
-- `course.rs` 和 `exercise.rs` 看域名就知道，它非常有信心才敢使用这两个针对性如此之强的域名，而信心来源于**高质量**
-
+- `course.rs` 和 `practice.rs` 看域名就知道，它非常有信心才敢使用这两个针对性如此之强的域名，而信心来源于**高质量**
+- 实践应用
