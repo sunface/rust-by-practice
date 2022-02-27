@@ -13,7 +13,7 @@
 - [复合类型 doing](compound-types/intro.md)
   - [字符串](compound-types/string.md)
   - [数组](compound-types/array.md)
-  - [切片 undo](compound-types/slice.md)
+  - [切片](compound-types/slice.md)
   - [元组 undo](compound-types/tuple.md)
   - [结构体 undo](compound-types/struct.md)
   - [枚举 undo](compound-types/enum.md)

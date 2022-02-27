@@ -13,7 +13,7 @@
 - [Compound Types doing](compound-types/intro.md)
   - [string](compound-types/string.md)
   - [array](compound-types/array.md)
-  - [slice todo](compound-types/slice.md)
+  - [slice](compound-types/slice.md)
   - [tuple todo](compound-types/tuple.md)
   - [struct todo](compound-types/struct.md)
   - [enum todo](compound-types/enum.md)

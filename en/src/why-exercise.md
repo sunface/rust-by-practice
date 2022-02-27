@@ -39,11 +39,10 @@ Another limit for rustlings is that you have to download rustlings to local mach
 ## difference to rust by example
 [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) is an excellent online book for learning Rust，`practice.rs` has some small advantages in :
 
-- more topics and exercises，specially for the hard part of Rust，e.g lifetime、smart pointers、threads 、async/.await etc
+- more topics and exercises，specially for the hard part of Rust，e.g string, lifetime, smart pointers, threads and async/.await etc
 - difficulty from easy to hard，it will minimize the gap between learning and using in projects
-- up-to-date, e.g features which added in Rust 1.58 also have the corresponding exercises in `practice.rs`
-- Both `course.rs` and `practice.rs` are designed according to the CS courses in college，so quliaty is the most important factor
-- real practice
+- up-to-date, e.g features which added in Rust 1.59 also have the corresponding exercises in `practice.rs`
+- real practices
 
 
 
