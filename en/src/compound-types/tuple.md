@@ -31,7 +31,7 @@ fn main() {
 }
 ```
 
-🌟 Destructuring tuple with patter.
+🌟 Destructuring tuple with pattern.
 ```rust,editable
 
 fn main() {
@@ -51,6 +51,7 @@ fn main() {
 fn main() {
     let (x, y, z);
 
+    // fill the blank
     __ = (1, 2, 3);
     
     assert_eq!(x, 3);
@@ -63,7 +64,7 @@ fn main() {
 ```rust,editable
 
 fn main() {
-   // fill the blank to make it work
+   // fill the blank, need a few computations here.
    let (x, y) = sum_multiply(__);
 
    assert_eq!(x, 5);
