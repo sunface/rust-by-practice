@@ -140,26 +140,8 @@ fn main() {
 }
 ```
 
-🌟🌟 Sometimes there are just too many characters that need to be escaped or it's just much more convenient to write a string out as-is. This is where raw string literals come into play.
+🌟🌟🌟 Sometimes there are just too many characters that need to be escaped or it's just much more convenient to write a string out as-is. This is where raw string literals come into play.
 
-```rust,editable
-
-fn main() {
-    let raw_str = r"Escapes don't work here: \x3F \u{211D}";
-    println!("{}", raw_str);
-
-    // If you need quotes in a raw string, add a pair of #s
-    let quotes = r#"And then I said: "There is no escape!""#;
-    println!("{}", quotes);
-
-    // If you need "# in your string, just use more #s in the delimiter.
-    // You can use up to 65535 #s.
-    let longer_delimiter = r###"A string with "# in it. And even "##!"###;
-    println!("{}", longer_delimiter);
-}
-```
-
-🌟🌟🌟
 ```rust,editable
 
 fn main() {
@@ -254,18 +236,6 @@ fn main() {
     }
 }
 ```
-
-🌟🌟
-```rust,editable
-use utf8_slice;
-
-fn main() {
-   let s = "The 🚀 goes to the 🌑!";
-
-   let rocket = utf8_slice::slice(s, 4, 5);
-}
-```
-
 
 #### utf8_slice
 You can use [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.html) to slice UTF8 string, it can index chars instead of bytes.
