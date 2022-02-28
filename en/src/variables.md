@@ -25,9 +25,10 @@ fn main() {
 ```
 
 ### Scope
-🌟 A scope is the range within the program for which the item is valid.
-```rust,editable
+A scope is the range within the program for which the item is valid.
+```rust,editable.
 
+🌟 
 // fix the error below with least modifying
 fn main() {
     let x: i32 = 10;
@@ -53,8 +54,9 @@ fn define_x() {
 ```
 
 ### Shadowing
-🌟🌟 You can declare a new variable with the same name as a previous variable, here we can say **the first one is shadowed by the second one.
+You can declare a new variable with the same name as a previous variable, here we can say **the first one is shadowed by the second one.
 
+🌟🌟 
 ```rust,editable
 
 // only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
@@ -72,9 +74,10 @@ fn main() {
 }
 ```
 
-🌟🌟 remove a line in code to make it compile
+🌟🌟 
 ```rust,editable
 
+// remove a line in code to make it compile
 fn main() {
     let mut x: i32 = 1;
     x = 7;
@@ -106,13 +109,14 @@ fn main() {
 // warning: unused variable: `x`
 ```
 
-### Destructing
-🌟🌟 fix the error below with least modifying
+### Destructuring
+🌟🌟 We can use a pattern with `let` to destructure a tuple to separate variables.
 
 > Tips: you can use Shadowing or Mutability
 
 ```rust,editable
 
+// fix the error below with least modifying
 fn main() {
     let (x, y) = (1, 2);
     x += 2;
@@ -123,20 +127,19 @@ fn main() {
 ```
 
 ### Destructuring assignments
-🌟🌟 fix the code with two ways:
+Introducing in Rust 1.59: You can now use tuple, slice, and struct patterns as the left-hand side of an assignment.
 
-- Shadowing with adding `let`
-- make types compatible
-
+🌟
 
 > Note: the feature `Destructuring assignments` need 1.59 or higher Rust version
 
 ```rust,editable
 
 fn main() {
-    let (mut x, mut y) = (1.0, 2.0);
-    (x,y) = (3, 4);
-
-    assert_eq!([x,y],[3, 4]);
+    let (x, y);
+    (x,..) = (3, 4);
+    [.., y] = [1, 2];
+    // fill the blank to make the code work
+    assert_eq!([x,y], __);
 } 
 ```
