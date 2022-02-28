@@ -2,11 +2,13 @@
 
 ### Integer
 
-🌟 remove something to make it work
+🌟 
 
 > Tips: If we don't explicitly give one type to a varible, then the compiler will infer one for us
+
 ```rust,editable
 
+// remove something to make it work
 fn main() {
     let x: i32 = 5;
     let mut y: u32 = 5;
@@ -17,20 +19,22 @@ fn main() {
 }
 ```
 
-🌟 fill the blank
+🌟
 ```rust,editable
 
+//  fill the blank
 fn main() {
     let v: u16 = 38_u8 as __;
 }
 ```
 
-🌟🌟🌟  modify `assert_eq!` to make it work
+🌟🌟🌟  
 
 > Tips: If we don't explicitly give one type to a varible, then the compiler will infer one for us
 
 ```rust,editable
 
+// modify `assert_eq!` to make it work
 fn main() {
     let x = 5;
     assert_eq!("u32".to_string(), type_of(&x));
@@ -42,18 +46,20 @@ fn type_of<T>(_: &T) -> String {
 }
 ```
 
-🌟🌟 fill the blanks to make it work
+🌟🌟 
 ```rust,editable
 
+// fill the blanks to make it work
 fn main() {
     assert_eq!(i8::MAX, __); 
     assert_eq!(u8::MAX, __); 
 }
 ```
 
-🌟🌟 fix errors and panics to make it work
+🌟🌟 
 ```rust,editable
 
+// fix errors and panics to make it work
 fn main() {
    let v1 = 251_u8 + 8;
    let v2 = i8::checked_add(251, 8).unwrap();
@@ -61,9 +67,10 @@ fn main() {
 }
 ```
 
-🌟🌟🌟 modify `assert!` to make it work
+🌟🌟🌟 
 ```rust,editable
 
+// modify `assert!` to make it work
 fn main() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
     assert!(v == 1579);
@@ -72,10 +79,11 @@ fn main() {
 
 
 ### Floating-Point
-🌟 replace ? with your answer
+🌟
 
 ```rust,editable
 
+//  replace ? with your answer
 fn main() {
     let x = 1_000.000_1; // ?
     let y: f32 = 0.12; // f32
@@ -112,9 +120,10 @@ fn main() {
 }
 ```
 
-🌟🌟 fill the blanks
+🌟🌟 
 ```rust,editable
 
+// fill the blanks
 use std::ops::{Range, RangeInclusive};
 fn main() {
     assert_eq!((1..__), Range{ start: 1, end: 5 });
@@ -124,10 +133,10 @@ fn main() {
 
 ### Computations
 
-🌟 fill the blanks
-
+🌟 
 ```rust,editable
 
+// fill the blanks
 fn main() {
     // Integer addition
     assert!(1u32 + 2 == __);
