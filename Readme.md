@@ -9,11 +9,11 @@ Practice Rust with easy to hard examples, exercises and small projects.
   
 ## Why another?
 
-[Rustlings](https://github.com/rust-lang/rustlings) and [Rust By Example](https://github.com/rust-lang/rust-by-example) are absolutely very nice, but Rust By Practice provides a little more:  
+[Rustlings](https://github.com/rust-lang/rustlings) and [Rust By Example](https://github.com/rust-lang/rust-by-example) are absolutely very nice, but we provides a little more:  
 
 1. We have more exercises of which the difficulty is from easy to hard
 
-2. Covers more topics in Rust, such as **async/await, threads, sync primitives and stand libraries** etc
+2. Covers more topics in Rust, such as **async/await, threads, sync primitives, optimizing and stand libraries** etc
    
 3. Learning from small projects, for pratice
    
@@ -23,7 +23,7 @@ Practice Rust with easy to hard examples, exercises and small projects.
 
 - You can edit and run the exercises online
   
-- **The goal is to make each exercise comipile with NO ERRORS!**
+- **The goal is to make each exercise comipile with NO ERRORS and Panics !**
   
 - Difficulty level: easy: 🌟  medium: 🌟🌟 hard: 🌟🌟🌟  hell: 🌟🌟🌟🌟
 
@@ -33,3 +33,6 @@ Practice Rust with easy to hard examples, exercises and small projects.
 All kinds of contributions are welcomed, such as exercise proposing, typo and bug fixing.
 
 
+## Buy me a ... 🌟?
+
+Fo us, a github star will be better than a cup coffee, and it only costs you 0 cents :)
