@@ -1,9 +1,10 @@
 # Variables
 
 ### Binding and mutablity
-🌟 fix the error below with least modifying
+🌟 A variable can be used only if it has been initialized.
 ```rust,editable
 
+// fix the error below with least modifying
 fn main() {
     let x: i32; // uninitialized but using, ERROR !
     let y: i32; // uninitialized but also unusing, only warning
@@ -11,11 +12,11 @@ fn main() {
 }
 ```
 
-🌟🌟 fill the blanks in code to make it compile
+🌟 Use `mut` to mark a variable as mutable.
 ```rust,editable
 
+// fill the blanks in code to make it compile
 fn main() {
-    // replace __ with a variable name
     let __ =  1;
     __ += 2; 
     
@@ -24,9 +25,10 @@ fn main() {
 ```
 
 ### Scope
-🌟 fix the error below with least modifying
+🌟 A scope is the range within the program for which the item is valid.
 ```rust,editable
 
+// fix the error below with least modifying
 fn main() {
     let x: i32 = 10;
     {
@@ -37,9 +39,10 @@ fn main() {
 }
 ```
 
-🌟🌟 fix the error with the knowledge you grasped
+🌟🌟 
 ```rust,editable
 
+// fix the error
 fn main() {
     println!("{}, world", x); 
 }
@@ -50,10 +53,11 @@ fn define_x() {
 ```
 
 ### Shadowing
-🌟🌟 only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
+🌟🌟 You can declare a new variable with the same name as a previous variable, here we can say **the first one is shadowed by the second one.
 
 ```rust,editable
 
+// only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
 fn main() {
     let x: i32 = 5;
     {
