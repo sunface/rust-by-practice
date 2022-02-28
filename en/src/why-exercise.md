@@ -4,7 +4,7 @@
 
 - Online Reading: [https://practice.rs](https://practice.rs)
 
-Greetings Rustaceans and welcome here， if you have the following problems: 
+Greetings and welcome here， if you have the following problems: 
 
 - You have learned basics of Rust, and want to learn more, e.g do some exercises, but found easy ones
 - Practice Rust toolchains, std, ascyn/.await and more
