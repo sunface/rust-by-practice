@@ -14,7 +14,7 @@ level = 1
 
 [output.html]
 git-repository-url = "https://github.com/sunface/rust-by-practice"
-edit-url-template = "https://github.com/sunface/rust-by-practice/edit/master/en/{path}"
+edit-url-template = "https://github.com/sunface/rust-by-practice/edit/master/{path}"
 
 [rust]
 edition = "2021"

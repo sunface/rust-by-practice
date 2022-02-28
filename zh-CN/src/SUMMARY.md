@@ -16,7 +16,7 @@
   - [切片](compound-types/slice.md)
   - [元组](compound-types/tuple.md)
   - [结构体](compound-types/struct.md)
-  - [枚举 undo](compound-types/enum.md)
+  - [枚举](compound-types/enum.md)
 - [流程控制 todo](flow-control.md)
 - [模式匹配 todo](pattern-match/intro.md)
   - [match 和 if let](pattern-match/match-iflet.md)
