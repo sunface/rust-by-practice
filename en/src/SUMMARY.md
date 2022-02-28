@@ -15,7 +15,7 @@
   - [Array](compound-types/array.md)
   - [Slice](compound-types/slice.md)
   - [Tuple](compound-types/tuple.md)
-  - [Struct todo](compound-types/struct.md)
+  - [Struct](compound-types/struct.md)
   - [Enum todo](compound-types/enum.md)
 - [Flow Control todo](flow-control.md)
 - [Pattern Match todo](pattern-match/intro.md)
