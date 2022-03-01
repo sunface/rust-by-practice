@@ -27,11 +27,11 @@ fn main() {
 
     let big_n =
         if n < 10 && n > -10 {
-            println!(", and is a small number, increase ten-fold");
+            println!(" 数字太小，先增加 10 倍再说");
 
             10 * n
         } else {
-            println!(", and is a big number, halve the number");
+            println!("数字太大，我们得让它减半");
 
             n / 2.0 ;
         }
@@ -41,12 +41,12 @@ fn main() {
 ```
 
 ### for
-🌟 The `for in` construct can be used to iterate through an Iterator, e.g a range `a..b`.
+🌟 `for in` 可以用于迭代一个迭代器，例如序列 `a..b`.
 
 ```rust,editable
 
 fn main() {
-    for n in 1..=100 { // modify this line to make the code work
+    for n in 1..=100 { // 修改此行，让代码工作
         if n == 100 {
             panic!("NEVER LET THIS RUN")
         }
@@ -82,7 +82,7 @@ fn main() {
 fn main() {
     let a = [4,3,2,1];
 
-    // iterate the indexing and value in 'a'
+    // 通过索引和值的方式迭代数组 `a` 
     for (i,v) in a.__ {
         println!("第{}个元素是{}",i+1,v);
     }
@@ -90,16 +90,16 @@ fn main() {
 ```
 
 ### while
-The `while` keyword can be used to run a loop when a condition is true.
+当条件为 true 时，`while` 将一直循环
 
 ```rust,editable
 
-// fill in the blanks to make the last println! work !
+// 填空，让最后一行的  println! 工作 !
 fn main() {
-    // A counter variable
+    // 一个计数值
     let mut n = 1;
 
-    // Loop while the condition is true
+    // 当条件为真时，不停的循环
     while n __ 10 {
         if n % 15 == 0 {
             println!("fizzbuzz");
@@ -115,7 +115,7 @@ fn main() {
         __;
     }
 
-    println!("n reached {}, soloop is over",n);
+    println!("n 的值是 {}, 循环结束",n);
 }
 ```
 
@@ -168,14 +168,14 @@ fn main() {
 
     println!("Let's count until infinity!");
 
-    // Infinite loop
+    // 无限循环
     loop {
         count += 1;
 
         if count == 3 {
             println!("three");
 
-            // Skip the rest of this iteration
+            // 跳过当此循环的剩余代码
             __;
         }
 
@@ -192,10 +192,10 @@ fn main() {
 }
 ```
 
-🌟🌟 loop is an expression, so we can use it with `break` to return a value
+🌟🌟 loop 是一个表达式，因此我们可以配合 `break` 来返回一个值
 ```rust,editable
 
-// fill in the blank
+// 填空
 fn main() {
     let mut counter = 0;
 
@@ -211,7 +211,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟 It's possible to break or continue outer loops when dealing with nested loops. In these cases, the loops must be annotated with some 'label, and the label must be passed to the break/continue statement.
+🌟🌟🌟 当有多层循环时，你可以使用 `continue` 或 `break` 来控制外层的循环。要实现这一点，外部的循环必须拥有一个标签 `'label`, 然后在 `break` 或 `continue` 时指定该标签
 
 ```rust,editable
 
@@ -221,8 +221,8 @@ fn main() {
     'outer: loop {
         'inner1: loop {
             if count >= 20 {
-                // This would break only the inner1 loop
-                break 'inner1; // `break` is also ok 
+                // 这只会跳出 inner1 循环
+                break 'inner1; // 这里使用 `break` 也是一样的
             }
             count += 2;
         }
@@ -231,11 +231,9 @@ fn main() {
 
         'inner2: loop {
             if count >= 30 {
-                // This breaks the outer loop
                 break 'outer;
             }
 
-            // This will continue the outer loop
             continue 'outer;
         }
     }
