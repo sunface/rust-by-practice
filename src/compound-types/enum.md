@@ -48,7 +48,7 @@ fn main() {
 } 
 ```
 
-🌟🌟🌟 we can get the data which a enum variant is holding by pattern match
+🌟🌟 we can get the data which a enum variant is holding by pattern match
 ```rust,editable
 
 // 仅填空，不要修改其它代码！
@@ -63,14 +63,14 @@ fn main() {
     let msg = Message::Move{x: 1, y: 1};
 
     if let Message::Move{__} = msg {
-        assert_eq!(x, y);
+        assert_eq!(a, b);
+    } else {
+        panic!("NEVER LET THIS RUN！");
     }
-
-    panic!("NEVER LET THIS RUN！");
 } 
 ```
 
-🌟🌟🌟 使用枚举对类型进行同一化
+🌟🌟 使用枚举对类型进行同一化
 
 ```rust,editable
 
@@ -102,7 +102,8 @@ fn show_message(msg: Message) {
 🌟🌟 As there is no `null` in Rust, we have to use enum  `Option<T>`  to deal the cases when value is absent.
 ```rust,editable
 
-// Only fill in the blanks, DON'T change other code！
+// fill in the blank to make the `println` work.
+// also add some code to prevent the `panic` from running.
 fn main() {
     let five = Some(5);
     let six = plus_one(five);
@@ -110,8 +111,8 @@ fn main() {
 
     if let __ = six {
         println!("{}", n)
-    }
-
+    } 
+        
     panic!("NEVER LET THIS RUN！");
 } 
 

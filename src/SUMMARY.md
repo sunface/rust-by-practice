@@ -19,7 +19,7 @@
   - [Enum](compound-types/enum.md)
 - [Flow Control](flow-control.md)
 - [Pattern Match todo](pattern-match/intro.md)
-  - [match, if let](pattern-match/match-iflet.md)
+  - [match, matches! and if let](pattern-match/match-iflet.md)
   - [Option destructing](pattern-match/option.md)
   - [Patterns](pattern-match/patterns.md)
 - [Method todo](method.md)

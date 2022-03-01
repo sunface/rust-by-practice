@@ -1,5 +1,7 @@
 # Iterator
 
+https://doc.rust-lang.org/stable/rust-by-example/flow_control/for.html#for-and-iterators
+
 ```rust,editable
 // (all the type annotations are superfluous)
 // A reference to a string allocated in read only memory

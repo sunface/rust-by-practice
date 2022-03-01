@@ -19,7 +19,7 @@
   - [枚举](compound-types/enum.md)
 - [流程控制](flow-control.md)
 - [模式匹配 todo](pattern-match/intro.md)
-  - [match 和 if let](pattern-match/match-iflet.md)
+  - [match, matches! 和 if let](pattern-match/match-iflet.md)
   - [解构 Option](pattern-match/option.md)
   - [模式](pattern-match/patterns.md)
 - [方法 Method todo](method.md)
