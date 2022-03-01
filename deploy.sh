@@ -21,5 +21,5 @@ git remote add origin https://github.com/sunface/rust-by-practice
 git push -u -f origin gh-pages
 
 ## deploy zh-CN
-cd ./zh-CN
+cd ../zh-CN 
 ./deploy
