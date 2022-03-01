@@ -2,7 +2,7 @@
 
 ### Integer
 
-🌟 
+1. 🌟 
 
 > Tips: If we don't explicitly give one type to a varible, then the compiler will infer one for us
 
@@ -19,7 +19,7 @@ fn main() {
 }
 ```
 
-🌟
+2. 🌟
 ```rust,editable
 
 //  fill the blank
@@ -28,7 +28,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟  
+3. 🌟🌟🌟  
 
 > Tips: If we don't explicitly give one type to a varible, then the compiler will infer one for us
 
@@ -46,7 +46,7 @@ fn type_of<T>(_: &T) -> String {
 }
 ```
 
-🌟🌟 
+4. 🌟🌟 
 ```rust,editable
 
 // fill the blanks to make it work
@@ -56,7 +56,7 @@ fn main() {
 }
 ```
 
-🌟🌟 
+5. 🌟🌟 
 ```rust,editable
 
 // fix errors and panics to make it work
@@ -67,7 +67,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟 
+6. 🌟🌟
 ```rust,editable
 
 // modify `assert!` to make it work
@@ -79,7 +79,7 @@ fn main() {
 
 
 ### Floating-Point
-🌟
+7. 🌟
 
 ```rust,editable
 
@@ -90,9 +90,8 @@ fn main() {
     let z = 0.01_f64; // f64
 }
 ```
-🌟🌟🌟 use two ways to make it work
 
-> Tips: 1. abs 2. f32
+8. 🌟🌟 use two ways to make it work
 
 ```rust,editable
 
@@ -102,9 +101,8 @@ fn main() {
 ```
 
 ### Range
-🌟🌟 two targets: 1. modify `assert!` to make it work 2. make `println!` output: 97 - 122
+9. 🌟🌟 two targets: 1. modify `assert!` to make it work 2. make `println!` output: 97 - 122
 
-> Tips: use `as u8` to convert a char to u8
 ```rust,editable
 fn main() {
     let mut sum = 0;
@@ -114,13 +112,13 @@ fn main() {
 
     assert!(sum == -3);
 
-    for c in 'a'..='Z' {
+    for c in 'a'..='z' {
         println!("{}",c);
     }
 }
 ```
 
-🌟🌟 
+10. 🌟🌟 
 ```rust,editable
 
 // fill the blanks
@@ -133,17 +131,17 @@ fn main() {
 
 ### Computations
 
-🌟 
+11. 🌟 
 ```rust,editable
 
-// fill the blanks
+// fill the blanks and fix the errors
 fn main() {
     // Integer addition
     assert!(1u32 + 2 == __);
 
     // Integer subtraction
     assert!(1i32 - 2 == __);
-    assert!(1u8 - 2 == -1); // change u8 to another type to make it work
+    assert!(1u8 - 2 == -1); 
     
     assert!(3 * 50 == __);
 
