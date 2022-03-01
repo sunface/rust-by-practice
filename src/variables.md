@@ -1,7 +1,7 @@
 # Variables
 
 ### Binding and mutablity
-🌟 A variable can be used only if it has been initialized.
+1. 🌟 A variable can be used only if it has been initialized.
 ```rust,editable
 
 // fix the error below with least modifying
@@ -12,7 +12,7 @@ fn main() {
 }
 ```
 
-🌟 Use `mut` to mark a variable as mutable.
+2. 🌟 Use `mut` to mark a variable as mutable.
 ```rust,editable
 
 // fill the blanks in code to make it compile
@@ -26,9 +26,10 @@ fn main() {
 
 ### Scope
 A scope is the range within the program for which the item is valid.
+
+3. 🌟 
 ```rust,editable.
 
-🌟 
 // fix the error below with least modifying
 fn main() {
     let x: i32 = 10;
@@ -40,10 +41,10 @@ fn main() {
 }
 ```
 
-🌟🌟 
+4. 🌟🌟 
 ```rust,editable
 
-// fix the error
+// fix the error with using of define_x
 fn main() {
     println!("{}, world", x); 
 }
@@ -56,7 +57,7 @@ fn define_x() {
 ### Shadowing
 You can declare a new variable with the same name as a previous variable, here we can say **the first one is shadowed by the second one.
 
-🌟🌟 
+5. 🌟🌟 
 ```rust,editable
 
 // only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
@@ -74,7 +75,7 @@ fn main() {
 }
 ```
 
-🌟🌟 
+6. 🌟🌟 
 ```rust,editable
 
 // remove a line in code to make it compile
@@ -93,7 +94,7 @@ fn main() {
 ```
 
 ### Unused varibles
-fix the warning below with :
+7. fix the warning below with :
 
 - 🌟  one way
 - 🌟🌟  two ways
@@ -110,7 +111,7 @@ fn main() {
 ```
 
 ### Destructuring
-🌟🌟 We can use a pattern with `let` to destructure a tuple to separate variables.
+8. 🌟🌟 We can use a pattern with `let` to destructure a tuple to separate variables.
 
 > Tips: you can use Shadowing or Mutability
 
@@ -129,7 +130,7 @@ fn main() {
 ### Destructuring assignments
 Introducing in Rust 1.59: You can now use tuple, slice, and struct patterns as the left-hand side of an assignment.
 
-🌟
+9. 🌟🌟
 
 > Note: the feature `Destructuring assignments` need 1.59 or higher Rust version
 
