@@ -193,3 +193,6 @@ fn main() {
     }
  }
  ```
+
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it

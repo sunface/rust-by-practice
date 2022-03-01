@@ -75,3 +75,6 @@ fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
     (nums.0 + nums.1, nums.0 * nums.1)
 }
 ```
+
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 

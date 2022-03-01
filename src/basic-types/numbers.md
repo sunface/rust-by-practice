@@ -163,3 +163,5 @@ fn main() {
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 }
 ```
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it

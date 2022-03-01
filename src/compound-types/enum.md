@@ -70,7 +70,7 @@ fn main() {
 } 
 ```
 
-🌟🌟 使用枚举对类型进行同一化
+🌟🌟 
 
 ```rust,editable
 
@@ -199,3 +199,5 @@ fn main() {
     println!("{}", list.stringify());
 }
 ```
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it

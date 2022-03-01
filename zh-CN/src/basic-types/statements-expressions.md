@@ -57,3 +57,5 @@ fn sum(x: i32, y: i32) -> i32 {
     x + y;
 }
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 

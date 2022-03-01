@@ -142,3 +142,5 @@ fn main() {
     assert_eq!([x,y], __);
 } 
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 

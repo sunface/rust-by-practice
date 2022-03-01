@@ -163,3 +163,5 @@ fn main() {
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 }
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 
