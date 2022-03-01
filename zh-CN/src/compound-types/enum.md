@@ -123,59 +123,51 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 }
 ```
 
-### 示例
-使用枚举来实现链表.
+
+🌟🌟🌟🌟 使用枚举来实现链表.
 
 ```rust,editable
 
+// 填空，让代码运行
 use crate::List::*;
 
 enum List {
-    // Cons: Tuple struct that wraps an element and a pointer to the next node
+    // Cons: 链表中包含有值的节点，节点是元组类型，第一个元素是节点的值，第二个元素是指向下一个节点的指针
     Cons(u32, Box<List>),
-    // Nil: A node that signifies the end of the linked list
+    // Nil: 链表中的最后一个节点，用于说明链表的结束
     Nil,
 }
 
-// Methods can be attached to an enum
+// 为枚举实现一些方法
 impl List {
-    // Create an empty list
+    // 创建空的链表
     fn new() -> List {
-        // `Nil` has type `List`
+        // 因为没有节点，所以直接返回 Nil 节点
+        // 枚举成员 Nil 的类型是 List
         Nil
     }
 
-    // Consume a list, and return the same list with a new element at its front
-    fn prepend(self, elem: u32) -> List {
-        // `Cons` also has type List
+    // 在老的链表前面新增一个节点，并返回新的链表
+    fn prepend(self, elem: u32) -> __ {
         Cons(elem, Box::new(self))
     }
 
-    // Return the length of the list
+    // 返回链表的长度
     fn len(&self) -> u32 {
-        // `self` has to be matched, because the behavior of this method
-        // depends on the variant of `self`
-        // `self` has type `&List`, and `*self` has type `List`, matching on a
-        // concrete type `T` is preferred over a match on a reference `&T`
-        // after Rust 2018 you can use self here and tail (with no ref) below as well,
-        // rust will infer &s and ref tail. 
-        // See https://doc.rust-lang.org/edition-guide/rust-2018/ownership-and-lifetimes/default-match-bindings.html
         match *self {
-            // Can't take ownership of the tail, because `self` is borrowed;
-            // instead take a reference to the tail
-            Cons(_, ref tail) => 1 + tail.len(),
-            // Base Case: An empty list has zero length
+            // 这里我们不能拿走 tail 的所有权，因此需要获取它的引用
+            Cons(_, __ tail) => 1 + tail.len(),
+            // 空链表的长度为 0
             Nil => 0
         }
     }
 
-    // Return representation of the list as a (heap allocated) string
+    // 返回链表的字符串表现形式，用于打印输出
     fn stringify(&self) -> String {
         match *self {
             Cons(head, ref tail) => {
-                // `format!` is similar to `print!`, but returns a heap
-                // allocated string instead of printing to the console
-                format!("{}, {}", head, tail.stringify())
+                // 递归生成字符串
+                format!("{}, {}", head, tail.__())
             },
             Nil => {
                 format!("Nil")
@@ -185,16 +177,16 @@ impl List {
 }
 
 fn main() {
-    // Create an empty linked list
+    // 创建一个新的链表(也是空的)
     let mut list = List::new();
 
-    // Prepend some elements
+    // 添加一些元素
     list = list.prepend(1);
     list = list.prepend(2);
     list = list.prepend(3);
 
-    // Show the final state of the list
-    println!("linked list has length: {}", list.len());
+    // 打印列表的当前状态
+    println!("链表的长度是: {}", list.len());
     println!("{}", list.stringify());
 }
 ```
