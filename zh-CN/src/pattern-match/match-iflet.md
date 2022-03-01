@@ -166,11 +166,11 @@ fn main() {
 
     // 移除以下代码，使用 `match` 代替
     if let Foo::Bar = a {
-        println!("matches foo::bar")
+        println!("match foo::bar")
     } else if let Foo::Baz = a {
-        println!("matches foo::baz")
+        println!("match foo::baz")
     } else {
-        println!("matches others")
+        println!("match others")
     }
 }
 ```

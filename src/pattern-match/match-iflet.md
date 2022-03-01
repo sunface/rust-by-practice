@@ -65,7 +65,7 @@ fn main() {
 
 fn show_message(msg: Message) {
     match msg {
-        __ => { // matches  Message::Move
+        __ => { // match  Message::Move
             assert_eq!(a, 1);
             assert_eq!(b, 3);
         },
@@ -166,11 +166,11 @@ fn main() {
 
     // remove the codes below, using `match` instead 
     if let Foo::Bar = a {
-        println!("matches foo::bar")
+        println!("match foo::bar")
     } else if let Foo::Baz = a {
-        println!("matches foo::baz")
+        println!("match foo::baz")
     } else {
-        println!("matches others")
+        println!("match others")
     }
 }
 ```
