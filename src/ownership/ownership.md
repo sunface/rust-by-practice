@@ -1,17 +1,17 @@
 # Ownership
 
-🌟🌟 
+1. 🌟🌟 
 ```rust,editable
 
 fn main() {
-    // modify this line only! use as many approaches as you can
+    // use as many approaches as you can to make it work
     let x = String::from("hello, world");
     let y = x;
     println!("{},{}",x,y);
 }
 ```
 
-🌟🌟
+2. 🌟🌟
 ```rust,editable
 // Don't modify code in main!
 fn main() {
@@ -28,7 +28,7 @@ fn take_ownership(s: String) {
 ```
 
 
-🌟🌟
+3. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -45,9 +45,9 @@ fn give_ownership() -> String {
 }
 ```
 
-🌟🌟
+4. 🌟🌟
 ```rust,editable
-// use clone to fix it
+// fix the error without removing code line
 fn main() {
     let s = String::from("hello, world");
 
@@ -61,11 +61,11 @@ fn print_str(s: String)  {
 }
 ```
 
-🌟🌟 
+5. 🌟🌟 
 ```rust, editable
 // don't use clone ,use copy instead
 fn main() {
-    let x = (1, 2, (), "hello");
+    let x = (1, 2, (), "hello".to_string());
     let y = x.clone();
     println!("{:?}, {:?}", x, y);
 }
@@ -74,7 +74,7 @@ fn main() {
 #### Mutability
 Mutability can be changed when ownership is transferred.
 
-🌟
+6. 🌟
 ```rust,editable
 
 fn main() {
@@ -87,7 +87,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟
+7. 🌟🌟🌟
 ```rust,editable
 
 fn main() {
@@ -136,7 +136,7 @@ fn main() {
 
 #### Exercises
 
-🌟
+8. 🌟
 ```rust,editable
 
 fn main() {
@@ -149,16 +149,16 @@ fn main() {
 }
 ```
 
-🌟🌟
+9. 🌟🌟
 ```rust,editable
 
 fn main() {
    let t = (String::from("hello"), String::from("world"));
 
-   // fill the blanks
-   let (__, __) = t;
+    // fill the blanks
+    let (__, __) = __;
 
-   println!("{:?}, {:?}, {:?}", s1, s2, t);
+    println!("{:?}, {:?}, {:?}", s1, s2, t); // -> "hello", "world", ("hello", "world")
 }
 ```
 

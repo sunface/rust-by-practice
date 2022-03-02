@@ -4,7 +4,7 @@
 ```rust,editable
 
 fn main() {
-    // 只能修改下面这行代码！ 使用尽可能多的方法来通过编译
+    // 使用尽可能多的方法来通过编译
     let x = String::from("hello, world");
     let y = x;
     println!("{},{}",x,y);
@@ -48,7 +48,7 @@ fn give_ownership() -> String {
 
 🌟🌟
 ```rust,editable
-// 使用 clone 来让代码通过编译
+// 修复错误，不要删除任何代码行
 fn main() {
     let s = String::from("hello, world");
 
@@ -66,7 +66,7 @@ fn print_str(s: String)  {
 ```rust, editable
 // 不要使用 clone，使用 copy 的方式替代
 fn main() {
-    let x = (1, 2, (), "hello");
+    let x = (1, 2, (), "hello".to_string());
     let y = x.clone();
     println!("{:?}, {:?}", x, y);
 }
@@ -160,9 +160,9 @@ fn main() {
    let t = (String::from("hello"), String::from("world"));
 
    // 填空，不要修改其它代码
-   let (__, __) = t;
+   let (__, __) = __;
 
-   println!("{:?}, {:?}, {:?}", s1, s2, t);
+   println!("{:?}, {:?}, {:?}", s1, s2, t); // -> "hello", "world", ("hello", "world")
 }
 ```
 
