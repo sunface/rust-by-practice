@@ -94,12 +94,12 @@ fn main() {
 ```
 
 ### Unused varibles
-7. fix the warning below with :
+1. fix the warning below with :
 
-- 🌟  one way
-- 🌟🌟  two ways
+- 🌟  only one solution
+- 🌟🌟  two distinct solutions
 
-> Note: there are two ways you can use, but none of them is removing the line `let x = 1` 
+> Note: none of the solutions is to remove the line `let x = 1` 
 
 ```rust,editable
 

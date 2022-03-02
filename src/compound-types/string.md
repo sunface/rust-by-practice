@@ -18,7 +18,7 @@ fn main() {
 
 ```rust,editable
 
-// fix error with at least two ways
+// fix the error with at least two solutions
 fn main() {
    let s: Box<str> =  "hello, world".into();
    greetings(s)
@@ -94,7 +94,7 @@ Opsite to the seldom using of `str`, `&str` and `String` are used everywhere!
 🌟🌟 `&str` can be converted to `String` in two ways
 ```rust,editable
 
-// fix error with at lest two ways
+// fix error with at lest two solutions
 fn main() {
    let s =  "hello, world";
    greetings(s)
@@ -109,7 +109,7 @@ fn greetings(s: String) {
 
 ```rust,editable
 
-// use two ways to fix error and without adding new line
+// use two approaches to fix the error and without adding a new line
 fn main() {
    let s =  "hello, world".to_string();
    let s1: &str = s;
