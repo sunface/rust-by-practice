@@ -1,7 +1,7 @@
 # Flow control
 
 ### if/else
-🌟 
+1. 🌟 
 ```rust,editable
 
 // fill in the blanks
@@ -18,7 +18,7 @@ fn main() {
 } 
 ```
 
-🌟🌟 `if/else` expression can be used in assignments.
+2. 🌟🌟 `if/else` expression can be used in assignments.
 ```rust,editable
 
 // fix the errors
@@ -41,7 +41,7 @@ fn main() {
 ```
 
 ### for
-🌟 The `for in` construct can be used to iterate through an Iterator, e.g a range `a..b`.
+3. 🌟 The `for in` construct can be used to iterate through an Iterator, e.g a range `a..b`.
 
 ```rust,editable
 
@@ -55,7 +55,7 @@ fn main() {
 ```
 
 
-🌟🌟 
+4. 🌟🌟 
 ```rust,editable
 
 // fix the errors without adding or removing lines
@@ -77,7 +77,7 @@ fn main() {
 } 
 ```
 
-🌟
+5. 🌟
 ```rust,editable
 fn main() {
     let a = [4, 3, 2, 1];
@@ -90,7 +90,7 @@ fn main() {
 ```
 
 ### while
-The `while` keyword can be used to run a loop when a condition is true.
+6. 🌟🌟 The `while` keyword can be used to run a loop when a condition is true.
 
 ```rust,editable
 
@@ -120,7 +120,7 @@ fn main() {
 ```
 
 ### continue and break
-🌟 use `break` to break the loop.
+7. 🌟 use `break` to break the loop.
 ```rust,editable
 
 // fill in the blank
@@ -137,7 +137,7 @@ fn main() {
 }
 ```
 
-🌟🌟 `continue` will skip over the remaining code in current iteration and go to the next iteration.
+8. 🌟🌟 `continue` will skip over the remaining code in current iteration and go to the next iteration.
 ```rust,editable
 
 // fill in the blanks
@@ -158,7 +158,7 @@ fn main() {
 
 ### loop 
 
-🌟🌟 loop is usually used together with `break` or `continue`.
+9. 🌟🌟 loop is usually used together with `break` or `continue`.
 
 ```rust,editable
 
@@ -192,7 +192,7 @@ fn main() {
 }
 ```
 
-🌟🌟 loop is an expression, so we can use it with `break` to return a value
+10. 🌟🌟 loop is an expression, so we can use it with `break` to return a value
 ```rust,editable
 
 // fill in the blank
@@ -211,7 +211,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟 It's possible to break or continue outer loops when dealing with nested loops. In these cases, the loops must be annotated with some 'label, and the label must be passed to the break/continue statement.
+11. 🌟🌟🌟 It's possible to break or continue outer loops when dealing with nested loops. In these cases, the loops must be annotated with some 'label, and the label must be passed to the break/continue statement.
 
 ```rust,editable
 
