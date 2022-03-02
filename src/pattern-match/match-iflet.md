@@ -1,7 +1,7 @@
 # match, if let
 
 ### match
-🌟🌟
+1. 🌟🌟
 ```rust,editable
 
 // fill the blanks
@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-🌟🌟 match is an expression, so we can use it in assignments
+2. 🌟🌟 match is an expression, so we can use it in assignments
 ```rust,editable
 
 fn main() {
@@ -40,7 +40,7 @@ fn main() {
 }
 ```
 
-🌟🌟 using match to get the data an enum variant holds
+3. 🌟🌟 using match to get the data an enum variant holds
 ```rust,editable
 
 // fill in the blanks
@@ -81,7 +81,7 @@ fn show_message(msg: Message) {
 ### matches!
 [`matches!`](https://doc.rust-lang.org/stable/core/macro.matches.html) looks like `match`, but can do something different
 
-🌟🌟
+4. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -94,7 +94,7 @@ fn main() {
 } 
 ```
 
-🌟🌟
+5. 🌟🌟
 ```rust,editable
 
 enum MyEnum {
@@ -119,7 +119,7 @@ fn main() {
 ### if let
 For some cases, when matching enums, `match` is too heavy, we can use `if let` instead.
 
-🌟 
+6. 🌟 
 ```rust,editable
 
 fn main() {
@@ -135,7 +135,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+7. 🌟🌟
 ```rust,editable
 
 // fill in the blank
@@ -152,7 +152,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+8. 🌟🌟
 ```rust,editable
 
 enum Foo {
@@ -176,7 +176,7 @@ fn main() {
 ```
 
 ### Shadowing
-🌟🌟
+9. 🌟🌟
 ```rust,editable
 
 // fix the errors in-place
