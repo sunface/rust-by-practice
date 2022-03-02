@@ -3,7 +3,7 @@ The type of string literal `"hello, world"` is `&str`, e.g `let s: &str = "hello
 
 
 ### str and &str
-🌟 We can't use `str` type in normal ways, but we can use `&str`
+1. 🌟 We can't use `str` type in normal ways, but we can use `&str`
 
 ```rust,editable
 
@@ -14,7 +14,7 @@ fn main() {
 ```
 
 
-🌟🌟🌟 We can only use `str` by boxed it, `&` can be used to convert `Box<str>` to `&str` 
+2. 🌟🌟 We can only use `str` by boxed it, `&` can be used to convert `Box<str>` to `&str` 
 
 ```rust,editable
 
@@ -32,7 +32,7 @@ fn greetings(s: &str) {
 ### String
 `String` type is defined in std and stored as a vector of bytes (Vec<u8>), but guaranteed to always be a valid UTF-8 sequence. String is heap allocated, growable and not null terminated.
 
-🌟
+3. 🌟
 ```rust,editable
 
 // fill the blank
@@ -45,13 +45,13 @@ fn main() {
 }
 ```
 
-🌟🌟🌟
+4. 🌟🌟🌟
 ```rust,editable
 
 // fix all errors without adding newline
 fn main() {
    let  s =  String::from("hello");
-    s.push(',');`
+    s.push(',');
     s.push(" world");
     s += "!".to_string();
 
@@ -59,7 +59,7 @@ fn main() {
 }
 ```
 
-🌟🌟 `replace` can be used to replace substring
+5. 🌟🌟 `replace` can be used to replace substring
 ```rust,editable
 
 // fill the blank
@@ -74,11 +74,11 @@ fn main() {
 
 More `String` methods can be found under [String](https://doc.rust-lang.org/std/string/struct.String.html) module.
 
-🌟🌟 You can only concat a `String` with `&str`, and `String`'s ownership can be moved to another variable
+6. 🌟🌟 You can only concat a `String` with `&str`, and `String`'s ownership can be moved to another variable
 
 ```rust,editable
 
-// fix errors
+// fix errors without removing any line
 fn main() {
     let s1 = String::from("hello,");
     let s2 = String::from("world!");
@@ -91,7 +91,7 @@ fn main() {
 ### &str and String
 Opsite to the seldom using of `str`, `&str` and `String` are used everywhere!
 
-🌟🌟 `&str` can be converted to `String` in two ways
+7. 🌟🌟 `&str` can be converted to `String` in two ways
 ```rust,editable
 
 // fix error with at lest two solutions
@@ -105,7 +105,7 @@ fn greetings(s: String) {
 }
 ```
  
-🌟🌟 We can use `String::from` or `to_string` to convert a `&str` to `String`
+8. 🌟🌟 We can use `String::from` or `to_string` to convert a `&str` to `String`
 
 ```rust,editable
 
@@ -117,7 +117,7 @@ fn main() {
 ```
 
 ### string escapes
-🌟 
+9. 🌟 
 ```rust,editable
 fn main() {
     // You can use escapes to write bytes by their hexadecimal values
@@ -140,7 +140,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟 Sometimes there are just too many characters that need to be escaped or it's just much more convenient to write a string out as-is. This is where raw string literals come into play.
+10. 🌟🌟🌟 Sometimes there are just too many characters that need to be escaped or it's just much more convenient to write a string out as-is. This is where raw string literals come into play.
 
 ```rust,editable
 
@@ -211,7 +211,7 @@ fn main() {
 A more detailed listing of the ways to write string literals and escape characters is given in the ['Tokens' chapter](https://doc.rust-lang.org/reference/tokens.html) of the Rust Reference.
 
 ### string index
-🌟🌟 You can't use index to access a char in a string, but you can use slice `&s1[start..end]`.
+11. 🌟🌟🌟 You can't use index to access a char in a string, but you can use slice `&s1[start..end]`.
 
 ```rust,editable
 
@@ -226,7 +226,7 @@ fn main() {
 ```
 
 ### operate on UTF8 string
-🌟
+12. 🌟
 ```rust,editable
 
 fn main() {

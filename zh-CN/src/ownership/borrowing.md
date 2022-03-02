@@ -45,10 +45,12 @@ fn borrow_object(s: &String) {}
 fn main() {
     let mut s = String::from("hello, ");
 
-    borrow_object(&s)
+    push_str(s)
 }
 
-fn borrow_object(s: &mut String) {}
+fn push_str(s: &mut String) {
+    s.push_str("world")
+}
 ```
 
 🌟🌟
@@ -151,7 +153,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟
+🌟🌟
 ```rust,editable
 
 fn main() {

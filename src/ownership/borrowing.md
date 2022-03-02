@@ -1,7 +1,7 @@
 # Reference and Borrowing
 
 ### Reference
-🌟
+1. 🌟
 ```rust,editable
 
 fn main() {
@@ -9,11 +9,11 @@ fn main() {
    // fill the blank
    let p = __;
 
-   println!("the memory address of x is {:p}", p); // output: 0x16fa3ac84
+   println!("the memory address of x is {:p}", p); // one possible output: 0x16fa3ac84
 }
 ```
 
-🌟
+2. 🌟
 ```rust,editable
 
 fn main() {
@@ -25,7 +25,7 @@ fn main() {
 }
 ```
 
-🌟
+3. 🌟
 ```rust,editable
 
 // fix error
@@ -38,20 +38,22 @@ fn main() {
 fn borrow_object(s: &String) {}
 ```
 
-🌟
+4. 🌟
 ```rust,editable
 
 // fix error
 fn main() {
     let mut s = String::from("hello, ");
 
-    borrow_object(&s)
+    push_str(s)
 }
 
-fn borrow_object(s: &mut String) {}
+fn push_str(s: &mut String) {
+    s.push_str("world")
+}
 ```
 
-🌟🌟
+5. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -67,7 +69,7 @@ fn main() {
 #### ref
 `ref` can be used to take references to a value, similar to `&`.
 
-🌟🌟🌟
+6. 🌟🌟🌟
 ```rust,editable
 
 fn main() {
@@ -90,7 +92,7 @@ fn get_addr(r: &char) -> String {
 ```
 
 ### Borrowing rules
-🌟
+7. 🌟
 ```rust,editable
 
 // remove something to make it work
@@ -106,7 +108,7 @@ fn main() {
 ```
 
 #### Mutablity
-🌟 Error: Borrow a immutable object as mutable
+8. 🌟 Error: Borrow a immutable object as mutable
 ```rust,editable
 
 fn main() {
@@ -119,7 +121,7 @@ fn main() {
 fn borrow_object(s: &mut String) {}
 ```
 
-🌟🌟 Ok: Borrow a mutable object as immutable
+9. 🌟🌟 Ok: Borrow a mutable object as immutable
 ```rust,editable
 
 // this code has no errors!
@@ -135,7 +137,7 @@ fn borrow_object(s: &String) {}
 ```
 
 ### NLL
-🌟🌟
+10. 🌟🌟
 ```rust,editable
 
 // comment one line to make it work
@@ -151,7 +153,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟
+11. 🌟🌟
 ```rust,editable
 
 fn main() {
