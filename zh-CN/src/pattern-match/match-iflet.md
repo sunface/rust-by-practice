@@ -1,7 +1,7 @@
 # match, matches! 和 if let
 
 ### match
-🌟🌟
+1. 🌟🌟
 ```rust,editable
 
 // 填空
@@ -24,7 +24,7 @@ fn main() {
 }
 ```
 
-🌟🌟 `match` 是一个表达式，因此可以用在赋值语句中
+2. 🌟🌟 `match` 是一个表达式，因此可以用在赋值语句中
 ```rust,editable
 
 fn main() {
@@ -40,7 +40,7 @@ fn main() {
 }
 ```
 
-🌟🌟 使用 match 匹配出枚举成员持有的值
+3. 🌟🌟 使用 match 匹配出枚举成员持有的值
 ```rust,editable
 
 // 填空
@@ -81,7 +81,7 @@ fn show_message(msg: Message) {
 ### matches!
 [`matches!`](https://doc.rust-lang.org/stable/core/macro.matches.html) 看起来像 `match`, 但是它可以做一些特别的事情
 
-🌟🌟
+4. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -94,7 +94,7 @@ fn main() {
 } 
 ```
 
-🌟🌟
+5. 🌟🌟
 ```rust,editable
 
 enum MyEnum {
@@ -119,7 +119,7 @@ fn main() {
 ### if let
 在有些时候, 使用 `match` 匹配枚举有些太重了，此时 `if let` 就非常适合.
 
-🌟 
+6. 🌟 
 ```rust,editable
 
 fn main() {
@@ -135,7 +135,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+7. 🌟🌟
 ```rust,editable
 
 // 填空
@@ -152,7 +152,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+8. 🌟🌟
 ```rust,editable
 
 enum Foo {
@@ -176,7 +176,7 @@ fn main() {
 ```
 
 ### 变量遮蔽( Shadowing )
-🌟🌟
+9. 🌟🌟
 ```rust,editable
 
 // 就地修复错误

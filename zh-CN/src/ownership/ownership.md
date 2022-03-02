@@ -1,6 +1,6 @@
 # 所有权
 
-🌟🌟
+1. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -11,7 +11,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+2. 🌟🌟
 ```rust,editable
 // 不要修改 main 中的代码
 fn main() {
@@ -28,7 +28,7 @@ fn take_ownership(s: String) {
 ```
 
 
-🌟🌟
+3. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -46,7 +46,7 @@ fn give_ownership() -> String {
 }
 ```
 
-🌟🌟
+4. 🌟🌟
 ```rust,editable
 // 修复错误，不要删除任何代码行
 fn main() {
@@ -62,7 +62,7 @@ fn print_str(s: String)  {
 }
 ```
 
-🌟🌟 
+5. 🌟🌟 
 ```rust, editable
 // 不要使用 clone，使用 copy 的方式替代
 fn main() {
@@ -75,7 +75,7 @@ fn main() {
 #### 可变性
 当所有权转移时，可变性也可以随之改变。
 
-🌟
+6. 🌟
 ```rust,editable
 
 fn main() {
@@ -88,7 +88,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟
+7. 🌟🌟🌟
 ```rust,editable
 
 fn main() {
@@ -140,7 +140,7 @@ fn main() {
 
 #### 练习
 
-🌟
+8. 🌟
 ```rust,editable
 
 fn main() {
@@ -153,7 +153,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+9. 🌟🌟
 ```rust,editable
 
 fn main() {
