@@ -1,7 +1,7 @@
 # Char, Bool and Unit
 
 ### Char
-🌟
+1. 🌟
 ```rust, editable
 
 // make it work
@@ -15,7 +15,7 @@ fn main() {
 } 
 ```
 
-🌟
+2. 🌟
 ```rust, editable
 
 // make it work
@@ -30,7 +30,7 @@ fn print_char(c : char) {
 ```
 
 ### Bool
-🌟
+3. 🌟
 ```rust, editable
 
 // make the println! work
@@ -44,7 +44,7 @@ fn main() {
 } 
 ```
 
-🌟
+4. 🌟
 ```rust, editable
 
 // make it work
@@ -57,7 +57,7 @@ fn main() {
 
 
 ### Unit type
-🌟🌟
+5. 🌟🌟
 ```rust,editable
 
 // make it work, don't modify `implicitly_ret_unit` !
@@ -78,7 +78,7 @@ fn explicitly_ret_unit() -> () {
 }
 ```
 
-🌟🌟 what's the size of the unit type?
+6. 🌟🌟 what's the size of the unit type?
 ```rust,editable
 
 // modify `4` in assert to make it work

@@ -1,11 +1,11 @@
 # Functions
-🌟🌟🌟
+1. 🌟🌟🌟
 ```rust,editable
 
 fn main() {
     // don't modify the following two lines!
     let (x, y) = (1, 2);
-    let s = sum(1, 2);
+    let s = sum(x, y);
 
     assert_eq!(s, 3);
 }
@@ -16,7 +16,7 @@ fn sum(x, y: i32) {
 ```
 
 
-🌟🌟
+2. 🌟
 ```rust,editable
 fn main() {
    print();
@@ -29,15 +29,16 @@ fn print() -> i32 {
 ```
 
 
-🌟🌟
+3. 🌟🌟🌟
 
 ```rust,editable
+// solve it in two ways
 fn main() {
     never_return();
 }
 
 fn never_return() -> ! {
-    // implement this function, don't modify fn signatures
+    // implement this function, don't modify the fn signatures
     
 }
 ```

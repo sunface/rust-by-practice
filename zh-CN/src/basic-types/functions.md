@@ -5,7 +5,7 @@
 fn main() {
     // 不要修改下面两行代码!
     let (x, y) = (1, 2);
-    let s = sum(1, 2);
+    let s = sum(x, y);
 
     assert_eq!(s, 3);
 }
@@ -29,9 +29,10 @@ fn print() -> i32 {
 ```
 
 
-🌟🌟
+🌟🌟🌟
 
 ```rust,editable
+// 用两种方法求解
 fn main() {
     never_return();
 }

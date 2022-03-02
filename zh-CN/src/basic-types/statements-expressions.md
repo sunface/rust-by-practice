@@ -27,7 +27,7 @@ fn main() {
 ### 练习
 🌟🌟
 ```rust,editable
-// 使用两种方法修改内部的 {} 中的内容
+// 使用两种方法让代码工作起来
 fn main() {
    let v = {
        let mut x = 1;
@@ -51,7 +51,10 @@ fn main() {
 🌟
 ```rust,editable
 
-fn main() {}
+fn main() {
+    let s = sum(1 , 2);
+    assert_eq!(s, 3);
+}
 
 fn sum(x: i32, y: i32) -> i32 {
     x + y;

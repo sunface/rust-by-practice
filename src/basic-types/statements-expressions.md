@@ -25,9 +25,9 @@ fn main() {
 ```
 
 ### Exercises
-🌟🌟
+1. 🌟🌟
 ```rust,editable
-// make it work with two ways: both modify the inner {}
+// make it work with two ways
 fn main() {
    let v = {
        let mut x = 1;
@@ -38,7 +38,7 @@ fn main() {
 }
 ```
 
-🌟
+2. 🌟
 ```rust,editable
 
 fn main() {
@@ -48,10 +48,13 @@ fn main() {
 }
 ```
 
-🌟
+3. 🌟
 ```rust,editable
 
-fn main() {}
+fn main() {
+    let s = sum(1 , 2);
+    assert_eq!(s, 3);
+}
 
 fn sum(x: i32, y: i32) -> i32 {
     x + y;
