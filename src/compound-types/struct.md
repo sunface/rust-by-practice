@@ -1,7 +1,7 @@
 # Struct
 
 ### There types of structs
-🌟 We must specify concrete values for each of the fields in struct.
+1. 🌟 We must specify concrete values for each of the fields in struct.
 ```rust,editable
 
 // fix the error
@@ -20,7 +20,7 @@ fn main() {
 ```
 
 
-🌟 Unit struct don't have any fields. It can be useful when you need to implement a trait on some type but don’t have any data that you want to store in the type itself. 
+2. 🌟 Unit struct don't have any fields. It can be useful when you need to implement a trait on some type but don’t have any data that you want to store in the type itself. 
 ```rust,editable
 
 struct Unit;
@@ -40,7 +40,7 @@ fn main() {
 fn do_something_with_unit(u: __) {   }
 ```
 
-🌟🌟🌟 Tuple struct looks similar to tuples, it has added meaning the struct name provides but has no named fields. It's useful when you want give the whole tuple a name, but don't care the fields's names.
+3. 🌟🌟🌟 Tuple struct looks similar to tuples, it has added meaning the struct name provides but has no named fields. It's useful when you want give the whole tuple a name, but don't care the fields's names.
 
 ```rust,editable
 
@@ -62,7 +62,7 @@ fn check_color(p: Color) {
 
 ### Operate on structs
 
-🌟 You can make a whole struct mutable when instantiate it, but Rust doesn't allow us to mark only certain fields as mutable.
+4. 🌟 You can make a whole struct mutable when instantiate it, but Rust doesn't allow us to mark only certain fields as mutable.
 
 ```rust,editable
 
@@ -79,14 +79,14 @@ fn main() {
     };
 
     // how can you believe sunface is only 18? 
-    p.age = 30
+    p.age = 30;
 
     // fill the lank
     __ = String::from("sunfei");
 }
 ```
 
-🌟 Using *field init shorthand syntax* to reduct repetitions.
+5. 🌟 Using *field init shorthand syntax* to reduct repetitions.
 ```rust,editable
 
 // fill the blank
@@ -104,7 +104,7 @@ fn build_person(name: String, age: u8) -> Person {
 }
 ```
 
-🌟 You can create instance from other instance with *struct update syntax*
+6. 🌟 You can create instance from other instance with *struct update syntax*
 ```rust,editable
 
 // fill the blank to make the code work
@@ -134,7 +134,7 @@ fn set_email(u: User) -> User {
 ```
 
 ### Print the structs
-🌟🌟 We can use `#[derive(Debug)]` to [make a struct prinable](https://doc.rust-lang.org/book/ch05-02-example-structs.html?highlight=%23%5Bderive(Debug)%5D#adding-useful-functionality-with-derived-traits).
+7. 🌟🌟 We can use `#[derive(Debug)]` to [make a struct prinable](https://doc.rust-lang.org/book/ch05-02-example-structs.html?highlight=%23%5Bderive(Debug)%5D#adding-useful-functionality-with-derived-traits).
 
 ```rust,editable
 
@@ -194,7 +194,7 @@ fn main() {
 
 #### Exercises
 
-🌟🌟
+8. 🌟🌟
 ```rust,editable
 
 // fix errors to make it work
@@ -211,6 +211,7 @@ fn main() {
 
     let _name = f.name;
 
+    // ONLY modify this line
     println!("{}, {}, {:?}",f.name, f.data, f);
 } 
 ```

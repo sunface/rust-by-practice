@@ -78,7 +78,7 @@ fn main() {
     };
 
     // how can you believe sunface is only 18? 
-    p.age = 30
+    p.age = 30;
 
     // 填空
     __ = String::from("sunfei");
@@ -212,6 +212,7 @@ fn main() {
 
     let _name = f.name;
 
+    // 只能修改这一行
     println!("{}, {}, {:?}",f.name, f.data, f);
 } 
 ```
