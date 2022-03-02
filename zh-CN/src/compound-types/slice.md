@@ -50,7 +50,7 @@ fn main() {
     let s = String::from("hello");
 
     let slice1 = &s[0..2];
-    // 填空
+    // 填空，不要再使用 0..2
     let slice2 = &s[__];
 
     assert_eq!(slice1, slice2);
