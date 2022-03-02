@@ -10,7 +10,7 @@ fn init_arr(n: i32) {
 
 This will cause an error, because the compile have no idea of the exact size of the array in compile time.
 
-🌟 
+1. 🌟 
 ```rust,editable
 
 fn main() {
@@ -22,7 +22,7 @@ fn main() {
 }
 ```
 
-🌟🌟
+2. 🌟🌟
 ```rust,editable
 
 fn main() {
@@ -37,7 +37,7 @@ fn main() {
 }
 ```
 
-🌟 All elements in an array can be initialized to the same value at once.
+3. 🌟 All elements in an array can be initialized to the same value at once.
 
 ```rust,editable
 
@@ -50,7 +50,7 @@ fn main() {
 }
 ```
 
-🌟 All elements in an array must be of the same type
+4. 🌟 All elements in an array must be of the same type
 ```rust,editable
 
 fn main() {
@@ -59,7 +59,7 @@ fn main() {
 }
 ```
 
-🌟 Indexing starts at 0.
+5. 🌟 Indexing starts at 0.
 ```rust,editable
 
 fn main() {
@@ -71,7 +71,7 @@ fn main() {
 }
 ```
 
-🌟 Out of bounds indexing causes `panic`.
+6. 🌟 Out of bounds indexing causes `panic`.
 ```rust,editable
 
 // fix the error
