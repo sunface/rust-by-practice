@@ -1,5 +1,5 @@
 # Enum
-🌟🌟 Enums can be created with explicit discriminator.
+1. 🌟🌟 Enums can be created with explicit discriminator.
 
 ```rust,editable
 
@@ -31,7 +31,7 @@ fn main() {
 } 
 ```
 
-🌟 each enum variant can hold its own data.
+2. 🌟 each enum variant can hold its own data.
 ```rust,editable
 
 // fill in the blank
@@ -48,10 +48,10 @@ fn main() {
 } 
 ```
 
-🌟🌟 we can get the data which a enum variant is holding by pattern match
+3. 🌟🌟 we can get the data which a enum variant is holding by pattern match
 ```rust,editable
 
-// 仅填空，不要修改其它代码！
+// fill in the blank and fix the error
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
@@ -60,7 +60,7 @@ enum Message {
 }
 
 fn main() {
-    let msg = Message::Move{x: 1, y: 1};
+    let msg = Message::Move{x: 1, y: 2};
 
     if let Message::Move{__} = msg {
         assert_eq!(a, b);
@@ -70,7 +70,7 @@ fn main() {
 } 
 ```
 
-🌟🌟 
+4. 🌟🌟 
 
 ```rust,editable
 
@@ -99,7 +99,7 @@ fn show_message(msg: Message) {
 }
 ```
 
-🌟🌟 As there is no `null` in Rust, we have to use enum  `Option<T>`  to deal the cases when value is absent.
+5. 🌟🌟 As there is no `null` in Rust, we have to use enum  `Option<T>`  to deal the cases when value is absent.
 ```rust,editable
 
 // fill in the blank to make the `println` work.
@@ -125,7 +125,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 ```
 
 
-🌟🌟🌟🌟 implement a `linked-list` via enums.
+6. 🌟🌟🌟🌟 implement a `linked-list` via enums.
 
 ```rust,editable
 

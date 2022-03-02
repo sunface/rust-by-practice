@@ -51,7 +51,7 @@ fn main() {
 🌟🌟 枚举成员中的值可以使用模式匹配来获取
 ```rust,editable
 
-// 仅填空，不要修改其它代码！
+// 仅填空并修复错误
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
@@ -60,7 +60,7 @@ enum Message {
 }
 
 fn main() {
-    let msg = Message::Move{x: 1, y: 1};
+    let msg = Message::Move{x: 1, y: 2};
 
     if let Message::Move{__} = msg {
         assert_eq!(a, b);
