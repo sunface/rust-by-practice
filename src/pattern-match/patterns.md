@@ -1,6 +1,6 @@
 # Patterns
 
-🌟🌟 use `|` to match several values, use `..=` to match a inclusive range
+1. 🌟🌟 use `|` to match several values, use `..=` to match a inclusive range
 ```rust,editable
 
 fn main() {}
@@ -21,7 +21,7 @@ fn match_number(n: i32) {
 }
 ```
 
-🌟🌟🌟 The `@` operator lets us create a variable that holds a value at the same time we are testing that value to see whether it matches a pattern.
+2. 🌟🌟🌟 The `@` operator lets us create a variable that holds a value at the same time we are testing that value to see whether it matches a pattern.
 ```rust,editable
 
 struct Point {
@@ -42,7 +42,7 @@ fn main() {
 }
 ```
 
-🌟🌟🌟
+3. 🌟🌟🌟
 
 ```rust,editable
 
@@ -66,7 +66,7 @@ fn main() {
 }
 ```
 
-🌟🌟 A match guard is an additional if condition specified after the pattern in a match arm that must also match, along with the pattern matching, for that arm to be chosen.
+4. 🌟🌟 A match guard is an additional if condition specified after the pattern in a match arm that must also match, along with the pattern matching, for that arm to be chosen.
 ```rust,editable
 
 // fill in the blank to make the code work, `split` MUST be used
@@ -81,7 +81,7 @@ fn main() {
 }
 ```
 
-🌟🌟 Ignoring remaining parts of the value with `..`
+5. 🌟🌟 Ignoring remaining parts of the value with `..`
 ```rust,editable
 
 // fill the blank to make the code work
