@@ -9,7 +9,9 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 - Covering nearly all aspects of Rust, such as **async/await, threads, sync primitives, optimizing and stand libraries** etc
 - Solutions
 - Difficulty from easy to super hard: easy 🌟  medium 🌟🌟 hard 🌟🌟🌟  super hard 🌟🌟🌟🌟
-- Both English and Chinese are supported
+- Both [English](https://practice.rs) and [Chinsese](https://zh.practice.rs) are supported
+
+
 
 ## ToC
 - [Variables](src/variables.md)
