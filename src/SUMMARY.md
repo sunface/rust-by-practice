@@ -21,7 +21,7 @@
 - [Pattern Match](pattern-match/intro.md)
   - [match, matches! and if let](pattern-match/match-iflet.md)
   - [Patterns](pattern-match/patterns.md)
-- [Method todo](method.md)
+- [Associated function & Method](method.md)
 - [Generics and Traits todo](generics-traits/intro.md)
   - [Generics](generics-traits/generics.md)
   - [Traits](generics-traits/traits.md)
