@@ -1,11 +1,5 @@
 # Rust By Practice
 This book was designed for easily diving into Rust，and it's very easy to use: All you need to do is to make each exercise comipile without ERRORS and Panics !
-
-## Read it online
-
-- [English](https://practice.rs)
-- [Chinsese](https://zh.practice.rs)
-  
   
 ## Features
 
