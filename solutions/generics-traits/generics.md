@@ -1,10 +1,5 @@
-# Generics
-
-### Functions
-1. 🌟🌟🌟
-```rust,editable
-
-// fill in the blanks to make it work
+1.
+```rust
 struct A;          // Concrete type `A`.
 struct S(A);       // Concrete type `S`.
 struct SGen<T>(T); // Generic type `SGen`.
@@ -19,23 +14,23 @@ fn generic<T>(_s: SGen<T>) {}
 
 fn main() {
     // Using the non-generic functions
-    reg_fn(__);          // Concrete type.
-    gen_spec_t(__);   // Implicitly specified type parameter `A`.
-    gen_spec_i32(__); // Implicitly specified type parameter `i32`.
+    reg_fn(S(A));          // Concrete type.
+    gen_spec_t(SGen(A));   // Implicitly specified type parameter `A`.
+    gen_spec_i32(SGen(6)); // Implicitly specified type parameter `i32`.
 
     // Explicitly specified type parameter `char` to `generic()`.
-    generic::<char>(__);
+    generic::<char>(SGen('a'));
 
     // Implicitly specified type parameter `char` to `generic()`.
-    generic(__);
+    generic(SGen('c'));
 }
 ```
 
-2. 🌟🌟 A function call with explicitly specified type parameters looks like: `fun::<A, B, ...>()`.
-```rust,editable
-
-// implement a generic function
-fn sum
+2.
+```rust
+fn sum<T:std::ops::Add<Output = T>>(x: T, y: T) -> T {
+    x + y
+}
 
 fn main() {
     assert_eq!(5, sum(2i8, 3i8));
@@ -45,13 +40,12 @@ fn main() {
 ```
 
 
-### Struct and `impl`
-
-3. 🌟
-```rust,editable
-
-// implement struct Point to make it work
-
+3.
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
 
 fn main() {
     let integer = Point { x: 5, y: 10 };
@@ -59,13 +53,12 @@ fn main() {
 }
 ```
 
-4. 🌟🌟
-```rust,editable
-
+4.
+```rust
 // modify this struct to make the code work
-struct Point<T> {
+struct Point<T, U> {
     x: T,
-    y: T,
+    y: U,
 }
 
 fn main() {
@@ -74,16 +67,14 @@ fn main() {
 }
 ```
 
-5. 🌟🌟
-```rust,editable
-
-// add generic for Val to make the code work, DON'T modify the code in `main`
-struct Val {
-    val: f64,
+5.
+```rust
+struct Val<T> {
+    val: T,
 }
 
-impl Val {
-    fn value(&self) -> &f64 {
+impl<T> Val<T> {
+    fn value(&self) -> &T {
         &self.val
     }
 }
@@ -95,4 +86,3 @@ fn main() {
     println!("{}, {}", x.value(), y.value());
 }
 ```
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
