@@ -193,7 +193,7 @@ struct TrafficLight {
 impl TrafficLight {
     // 1. implement a assotiated function `new`,
     // 2. it will return a TrafficLight contains color "red"
-    // 3. must use `Self`, DONT use `TrafficLight`
+    // 3. must use `Self`, DONT use `TrafficLight` in fn signatures or body
     pub fn new() 
 
     pub fn get_state(&self) -> &str {
@@ -216,7 +216,7 @@ struct Rectangle {
     height: u32,
 }
 
-// rewrite Rectangle to use multiple `impl` blocks
+// using multiple `impl` blocks to rewrite the code below
 impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
