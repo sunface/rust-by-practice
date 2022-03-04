@@ -9,6 +9,8 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 - Difficulty from easy to super hard: easy 🌟  medium 🌟🌟 hard 🌟🌟🌟  super hard 🌟🌟🌟🌟
 - Both [English](https://practice.rs) and [Chinsese](https://zh.practice.rs) are supported
 
+> Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for the great works you have been doing!
+
 ## Some of our exercises
 
 🌟🌟🌟 Tuple struct looks similar to tuples, it has added meaning the struct name provides but has no named fields. It's useful when you want give the whole tuple a name, but don't care the fields's names.
