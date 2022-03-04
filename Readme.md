@@ -13,7 +13,7 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 - Both [English](https://practice.rs) and [Chinsese](https://zh.practice.rs) are supported
 
 
-> Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for the great works you have been doing!
+> Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for the great works you have been done!
 
 ## Some of our exercises
 
