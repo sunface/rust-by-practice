@@ -34,7 +34,7 @@ fn main() {
 2. 🌟🌟 A function call with explicitly specified type parameters looks like: `fun::<A, B, ...>()`.
 ```rust,editable
 
-// implement a generic function
+// implement the generic function below
 fn sum
 
 fn main() {
@@ -124,7 +124,7 @@ fn main() {
 7. 🌟🌟
 ```rust,editable
 
-// make the code work
+// fix the errors to make the code work
 struct Point<T> {
     x: T,
     y: T,

@@ -22,7 +22,7 @@
   - [match, matches! 和 if let](pattern-match/match-iflet.md)
   - [模式](pattern-match/patterns.md)
 - [方法和关联函数](method.md)
-- [泛型和特征 todo](generics-traits/intro.md)
+- [泛型和特征](generics-traits/intro.md)
   - [泛型 Generics](generics-traits/generics.md)
   - [特征 Traits](generics-traits/traits.md)
   - [特征对象](generics-traits/trait-object.md)
