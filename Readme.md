@@ -6,10 +6,15 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 ## Features
 
 - Read, Edit and Run the exercise ONLINE
+  
 - There are three parts in each chapter: examples, exercises and practices
+  
 - Covering nearly all aspects of Rust, such as **async/await, threads, sync primitives, optimizing and stand libraries** etc
+  
 - Solution for each exercise
+  
 - Difficulty from easy to super hard: easy 🌟  medium 🌟🌟 hard 🌟🌟🌟  super hard 🌟🌟🌟🌟
+  
 - Both [English](https://practice.rs) and [Chinsese](https://zh.practice.rs) are supported
 
 

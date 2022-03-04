@@ -4,9 +4,13 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 ## Features
 
 - There are three parts in each chapter: examples, exercises and practices
+  
 - Covering nearly all aspects of Rust, such as **async/await, threads, sync primitives, optimizing and stand libraries** etc
+  
 - Solution for each exercise
+  
 - Difficulty from easy to super hard: easy 🌟  medium 🌟🌟 hard 🌟🌟🌟  super hard 🌟🌟🌟🌟
+  
 - Both [English](https://practice.rs) and [Chinsese](https://zh.practice.rs) are supported
 
 > Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for the great works you have been doing!
