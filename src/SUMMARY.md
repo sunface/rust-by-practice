@@ -24,6 +24,7 @@
 - [Method & Associated function](method.md)
 - [Generics and Traits](generics-traits/intro.md)
   - [Generics](generics-traits/generics.md)
+  - [Const Generics](generics-traits/const-generics.md)
   - [Traits](generics-traits/traits.md)
   - [Trait Object](generics-traits/trait-object.md)
   - [Advance Traits](generics-traits/advance-traits.md)
