@@ -95,4 +95,52 @@ fn main() {
     println!("{}, {}", x.value(), y.value());
 }
 ```
+
+### Method
+6. 🌟🌟🌟 
+
+```rust,editable
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
+impl<T, U> Point<T, U> {
+    // implement mixup to make it work, DON'T modify other code
+    fn mixup
+}
+
+fn main() {
+    let p1 = Point { x: 5, y: 10 };
+    let p2 = Point { x: "Hello", y: '中'};
+
+    let p3 = p1.mixup(p2);
+
+    assert_eq!(p3.x, 5);
+    assert_eq!(p3.y, '中');
+}
+```
+
+7. 🌟🌟
+```rust,editable
+
+// make the code work
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl Point<f32> {
+    fn distance_from_origin(&self) -> f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
+fn main() {
+    let p = Point{x: 5, y: 10};
+    println!("{}",p.distance_from_origin())
+}
+```
+
 > You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
+
