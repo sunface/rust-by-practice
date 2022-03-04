@@ -28,7 +28,7 @@ fn main() {
 A scope is the range within the program for which the item is valid.
 
 3. 🌟 
-```rust,editable.
+```rust,editable
 
 // fix the error below with least modifying
 fn main() {
