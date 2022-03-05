@@ -24,7 +24,7 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 
 > Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works! 
 > 
-> BTW, we also has our own secret weapons :)
+> Although they are so awesome, we also has our own secret weapons :)
 
 ## Some of our exercises
 
