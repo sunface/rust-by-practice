@@ -22,7 +22,7 @@ Although they are so awesome, we have our own secret weapons :)
 
 - Every exercise has its own solutions
 
-- The overall difficulties are a bit higher, distributed from easy to super hard: easy 🌟 medium 🌟🌟 hard 🌟🌟🌟 super hard 🌟🌟🌟🌟
+- The overall difficulties are a bit higher and from easy to super hard: easy 🌟 medium 🌟🌟 hard 🌟🌟🌟 super hard 🌟🌟🌟🌟
 
 **What we want to do is fill in the gap between learning and getting started with real projects.**
 
