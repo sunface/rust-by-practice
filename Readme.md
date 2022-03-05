@@ -2,7 +2,7 @@
 
 This book was designed for easily diving into Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
-> 🎊 Updated on 2022-03-05: Add [Traits](https://practice.rs/generics-traits/traits.html)
+> 🎊 Updated on 2022-03-05: Add [Trait object](https://practice.rs/generics-traits/trait-object.html)
 
 ## Read online
 
