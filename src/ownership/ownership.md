@@ -83,7 +83,7 @@ fn main() {
     // modify this line only !
     let s1 = s;
 
-    s1.push_str("world")
+    s1.push_str("world");
 
     println!("Success!")
 }
