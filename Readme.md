@@ -2,7 +2,12 @@
 
 This book was designed for easily diving into Rust，and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
-> 🎊 Updated on 2022-03-05: Add [Traits chapter](https://practice.rs/generics-traits/traits.html) and solutions
+> 🎊 Updated on 2022-03-05: Add [Traits](https://practice.rs/generics-traits/traits.html)
+
+## Read online
+
+- [English](https://practice.rs) 
+- [Chinsese](https://zh.practice.rs) 
 
 ## Features
 
@@ -15,11 +20,11 @@ This book was designed for easily diving into Rust，and it's very easy to use: 
 - Solution for each exercise
   
 - Difficulty from easy to super hard: easy 🌟  medium 🌟🌟 hard 🌟🌟🌟  super hard 🌟🌟🌟🌟
-  
-- Both [English](https://practice.rs) and [Chinsese](https://zh.practice.rs) are supported
 
 
-> Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for the great works you have been done!
+> Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works! 
+> 
+> BTW, we also has our own secret weapons :)
 
 ## Some of our exercises
 
