@@ -116,7 +116,9 @@ fn main() {
     let none = plus_one(None);
 
     if let __ = six {
-        println!("{}", n)
+        println!("{}", n);
+
+        println!("Success!")
     } 
         
     panic!("NEVER LET THIS RUN！");
