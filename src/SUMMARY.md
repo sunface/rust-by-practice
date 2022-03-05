@@ -27,7 +27,7 @@
   - [Const Generics](generics-traits/const-generics.md)
   - [Traits](generics-traits/traits.md)
   - [Trait Object](generics-traits/trait-object.md)
-  - [Advance Traits](generics-traits/advanced-traits.md)
+  - [Advanced Traits](generics-traits/advanced-traits.md)
 - [Collection Types todo](collections/intro.md)
   - [String](collections/string.md)
   - [Vector](collections/vector.md)
