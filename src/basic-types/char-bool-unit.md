@@ -12,6 +12,8 @@ fn main() {
 
     let c2 = '中';
     assert_eq!(size_of_val(&c2),3); 
+
+    println!("Success!")
 } 
 ```
 
@@ -33,13 +35,13 @@ fn print_char(c : char) {
 3. 🌟
 ```rust, editable
 
-// make the println! work
+// make println! work
 fn main() {
     let _f: bool = false;
 
     let t = true;
     if !t {
-        println!("hello, world");
+        println!("Success!")
     }
 } 
 ```
@@ -52,6 +54,8 @@ fn main() {
     let f = true;
     let t = true && false;
     assert_eq!(t, f);
+
+    println!("Success!")
 }
 ```
 
@@ -66,6 +70,8 @@ fn main() {
 
     let v = (2, 3);
     assert_eq!(v, implicitly_ret_unit())
+
+    println!("Success!")
 }
 
 fn implicitly_ret_unit() {
@@ -86,6 +92,8 @@ use std::mem::size_of_val;
 fn main() {
     let unit: () = ();
     assert!(size_of_val(&unit) == 4);
+
+    println!("Success!")
 }
 ```
 

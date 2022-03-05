@@ -84,6 +84,8 @@ fn main() {
     let s1 = s;
 
     s1.push_str("world")
+
+    println!("Success!")
 }
 ```
 
@@ -98,6 +100,8 @@ fn main() {
     *y = 4;
     
     assert_eq!(*x, 5);
+
+    println!("Success!")
 }
 ```
 

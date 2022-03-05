@@ -51,6 +51,8 @@ fn main() {
             panic!("NEVER LET THIS RUN")
         }
     }
+
+    println!("Success!")
 } 
 ```
 
@@ -134,6 +136,8 @@ fn main() {
     }
 
     assert_eq!(n, 66);
+
+    println!("Success!")
 }
 ```
 
@@ -153,6 +157,8 @@ fn main() {
     }
 
     assert_eq!(n, 66);
+
+    println!("Success!")
 }
 ```
 
@@ -189,6 +195,8 @@ fn main() {
     }
 
     assert_eq!(count, 5);
+
+    println!("Success!")
 }
 ```
 
@@ -208,6 +216,8 @@ fn main() {
     };
 
     assert_eq!(result, 20);
+
+    println!("Success!")
 }
 ```
 
@@ -240,7 +250,9 @@ fn main() {
         }
     }
 
-    assert!(count == __)
+    assert!(count == __);
+
+    println!("Success!")
 }
 ```
 

@@ -16,6 +16,8 @@ fn main() {
         name: String::from("sunface"),
         age,
     };
+
+    println!("Success!")
 } 
 ```
 
@@ -34,6 +36,8 @@ impl SomeTrait for Unit {  }
 fn main() {
     let u = Unit;
     do_something_with_unit(u);
+
+    println!("Success!")
 } 
 
 // fill the blank to make the code work
@@ -50,6 +54,8 @@ struct Point(i32, i32, i32);
 fn main() {
     let v = Point(__, __, __);
     check_color(v);
+
+    println!("Success!")
 }   
 
 fn check_color(p: Color) {
@@ -83,6 +89,8 @@ fn main() {
 
     // fill the lank
     __ = String::from("sunfei");
+
+    println!("Success!")
 }
 ```
 
@@ -94,7 +102,9 @@ struct Person {
     name: String,
     age: u8,
 }
-fn main() {} 
+fn main() {
+    println!("Success!")
+} 
 
 fn build_person(name: String, age: u8) -> Person {
     Person {
@@ -123,6 +133,8 @@ fn main() {
     };
 
     let u2 = set_email(u1);
+
+    println!("Success!")
 } 
 
 fn set_email(u: User) -> User {

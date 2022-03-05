@@ -28,6 +28,8 @@ fn main() {
     // a enum variant can be converted to a integer by `as`
     assert_eq!(Number::One, Number1::One);
     assert_eq!(Number1::One, Number2::One);
+
+    println!("Success!")
 } 
 ```
 
@@ -45,6 +47,8 @@ enum Message {
 fn main() {
     let msg1 = Message::Move{__}; // instantiating with x = 1, y = 2 
     let msg2 = Message::Write(__); // instantiating with "hello, world!"
+
+    println!("Success!")
 } 
 ```
 
@@ -67,6 +71,8 @@ fn main() {
     } else {
         panic!("NEVER LET THIS RUN！");
     }
+
+    println!("Success!")
 } 
 ```
 

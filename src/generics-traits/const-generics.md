@@ -88,6 +88,8 @@ fn main() {
             data: [1, 2]
         }
     ];
+
+    println!("Success!")
 }
 ```
 
@@ -127,6 +129,8 @@ fn main() {
     check_size(["hello你好"; __]); // size of &str ?
     check_size(["hello你好".to_string(); __]);  // size of String?
     check_size(['中'; __]); // size of char ?
+
+    println!("Success!")
 }
 
 

@@ -8,6 +8,8 @@ fn main() {
     let s = sum(x, y);
 
     assert_eq!(s, 3);
+
+    println!("Success!")
 }
 
 fn sum(x, y: i32) {
@@ -24,7 +26,7 @@ fn main() {
 
 // replace i32 with another type
 fn print() -> i32 {
-   println!("hello,world");
+   println!("Success!")
 }
 ```
 
@@ -33,8 +35,11 @@ fn print() -> i32 {
 
 ```rust,editable
 // solve it in two ways
+// DON'T let `println!` works
 fn main() {
     never_return();
+
+    println!("Failed!")
 }
 
 fn never_return() -> ! {

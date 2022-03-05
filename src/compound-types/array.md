@@ -19,6 +19,8 @@ fn main() {
 
     // modify below to make it work
     assert!(arr.len() == 4);
+
+    println!("Success!")
 }
 ```
 
@@ -34,6 +36,8 @@ fn main() {
     // Arrays are stack allocated, `std::mem::size_of_val` return the bytes which array occupies
     // A char takes 4 byte in Rust: Unicode char
     assert!(std::mem::size_of_val(&arr) == __);
+
+    println!("Success!")
 }
 ```
 
@@ -47,6 +51,8 @@ fn main() {
 
     assert!(list[0] == 1);
     assert!(list.len() == 100);
+
+    println!("Success!")
 }
 ```
 
@@ -56,6 +62,8 @@ fn main() {
 fn main() {
     // fix the error
     let _arr = [1, 2, '3'];
+
+    println!("Success!")
 }
 ```
 
@@ -68,6 +76,8 @@ fn main() {
     let ele = arr[1]; // only modify this line to make the code work!
 
     assert!(ele == 'a');
+
+    println!("Success!")
 }
 ```
 
@@ -83,6 +93,8 @@ fn main() {
 
     // but indexing is not safe
     let _name1 = &names[2];
+
+    println!("Success!")
 }
 
 ```

@@ -78,6 +78,8 @@ fn main() {
         Some(x) => assert!(x >= split),
         None => (),
     }
+
+    println!("Success!")
 }
 ```
 
@@ -94,6 +96,8 @@ fn main() {
            assert_eq!(last, 2048);
         }
     }
+
+    println!("Success!")
 }
 ```
 

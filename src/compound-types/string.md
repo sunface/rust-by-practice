@@ -10,6 +10,8 @@ The type of string literal `"hello, world"` is `&str`, e.g `let s: &str = "hello
 // fix error without adding new line
 fn main() {
    let s: str = "hello, world";
+
+   println!("Success!")
 }
 ```
 
@@ -42,6 +44,8 @@ fn main() {
    s.push('!');
 
    assert_eq!(s, "hello, world!");
+
+   println!("Success!")
 }
 ```
 
@@ -68,7 +72,9 @@ fn main() {
    // Allocate new memory and store the modified string there
    let s1 = s.__("dogs", "cats");
 
-   assert_eq!(s1, "I like cats")
+   assert_eq!(s1, "I like cats");
+
+   println!("Success!")
 }
 ```
 
@@ -113,6 +119,8 @@ fn greetings(s: String) {
 fn main() {
    let s =  "hello, world".to_string();
    let s1: &str = s;
+
+   println!("Success!")
 }
 ```
 
@@ -222,6 +230,8 @@ fn main() {
 
     let h1 = &s1[3..5];//modify this line to fix the error, tips: `中`  takes 3 bytes in UTF8 format
     assert_eq!(h1, "中");
+
+    println!("Success!")
 }
 ```
 

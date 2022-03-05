@@ -8,6 +8,8 @@ fn main() {
     let _t1: (u8, (i16, u32)) = (0, (-1, 1));
     // fill the blanks to make the code work
     let t: (u8, __, i64, __, __) = (1u8, 2u16, 3i64, "hello", String::from(", world"));
+
+    println!("Success!")
 }
 ```
 
@@ -18,6 +20,8 @@ fn main() {
 fn main() {
    let t = ("i", "am", "sunface");
    assert_eq!(t.1, "sunface");
+
+   println!("Success!")
 }
 ```
 
@@ -43,6 +47,8 @@ fn main() {
     assert_eq!(x, 1);
     assert_eq!(y, "hello");
     assert_eq!(z, 6.4);
+
+    println!("Success!")
 }
 ```
 
@@ -57,6 +63,8 @@ fn main() {
     assert_eq!(x, 3);
     assert_eq!(y, 1);
     assert_eq!(z, 2);
+
+    println!("Success!")
 }
 ```
 
@@ -69,6 +77,8 @@ fn main() {
 
    assert_eq!(x, 5);
    assert_eq!(y, 6);
+
+   println!("Success!")
 }
 
 fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {

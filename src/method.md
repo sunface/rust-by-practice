@@ -132,6 +132,8 @@ fn main() {
     let rect1 = Rectangle { width: 30, height: 50 };
 
     assert_eq!(rect1.area(), 1500);
+
+    println!("Success!")
 }
 ```
 
@@ -176,7 +178,9 @@ impl TrafficLight {
         self.color = "green".to_string()
     }
 }
-fn main() {}
+fn main() {
+    println!("Success!")
+}
 ```
 
 
@@ -204,6 +208,8 @@ impl TrafficLight {
 fn main() {
     let light = TrafficLight::new();
     assert_eq!(light.get_state(), "red");
+
+    println!("Success!")
 }
 ```
 
@@ -228,7 +234,9 @@ impl Rectangle {
 }
 
 
-fn main() {}
+fn main() {
+    println!("Success!")
+}
 ```
 
 ### Enums

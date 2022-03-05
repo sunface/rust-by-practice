@@ -16,6 +16,8 @@ fn main() {
     y = x;
     
     let z = 10; // type of z ? 
+
+    println!("Success!")
 }
 ```
 
@@ -25,6 +27,8 @@ fn main() {
 //  fill the blank
 fn main() {
     let v: u16 = 38_u8 as __;
+
+    println!("Success!")
 }
 ```
 
@@ -38,6 +42,8 @@ fn main() {
 fn main() {
     let x = 5;
     assert_eq!("u32".to_string(), type_of(&x));
+
+    println!("Success!")
 }
 
 // get the type of given variable, return a string representation of the type  , e.g "i8", "u8", "i32", "u32"
@@ -53,6 +59,8 @@ fn type_of<T>(_: &T) -> String {
 fn main() {
     assert_eq!(i8::MAX, __); 
     assert_eq!(u8::MAX, __); 
+
+    println!("Success!")
 }
 ```
 
@@ -74,6 +82,8 @@ fn main() {
 fn main() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
     assert!(v == 1579);
+
+    println!("Success!")
 }
 ```
 
@@ -88,6 +98,8 @@ fn main() {
     let x = 1_000.000_1; // ?
     let y: f32 = 0.12; // f32
     let z = 0.01_f64; // f64
+
+    println!("Success!")
 }
 ```
 
@@ -97,6 +109,8 @@ fn main() {
 
 fn main() {
     assert!(0.1+0.2==0.3);
+
+    println!("Success!")
 }
 ```
 
@@ -126,6 +140,8 @@ use std::ops::{Range, RangeInclusive};
 fn main() {
     assert_eq!((1..__), Range{ start: 1, end: 5 });
     assert_eq!((1..__), RangeInclusive::new(1, 5));
+
+    println!("Success!")
 }
 ```
 

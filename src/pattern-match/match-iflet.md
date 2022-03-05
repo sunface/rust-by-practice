@@ -37,6 +37,8 @@ fn main() {
     let binary = __;
 
     assert_eq!(binary, 1);
+
+    println!("Success!")
 }
 ```
 
@@ -61,6 +63,8 @@ fn main() {
     for msg in msgs {
         show_message(msg)
     }
+
+    println!("Success!")
 } 
 
 fn show_message(msg: Message) {
@@ -91,6 +95,8 @@ fn main() {
     for ab in alphabets {
         assert!(__)
     }
+
+    println!("Success!")
 } 
 ```
 
@@ -113,6 +119,8 @@ fn main() {
     }
 
     assert_eq!(count, 2);
+
+    println!("Success!")
 }
 ```
 
@@ -129,6 +137,8 @@ fn main() {
     match o {
         Some(i) => {
             println!("This is a really long string and `{:?}`", i);
+
+            println!("Success!")
         }
         _ => {}
     };
@@ -148,6 +158,8 @@ fn main() {
 
     __ {
         println!("foobar holds the value: {}", i);
+
+        println!("Success!")
     }
 }
 ```

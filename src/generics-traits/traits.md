@@ -106,6 +106,8 @@ fn main() {
     let t = Teacher {};
     assert_eq!(t.say_hi(), "Hi, I'm your new teacher");
     assert_eq!(t.say_something(), "I'm not a bad teacher");
+
+    println!("Success!")
 }
 ```
 
@@ -177,6 +179,8 @@ fn multipl
 fn main() {
     assert_eq!(6, multiply(2u8, 3u8));
     assert_eq!(5.0, multiply(1.0, 5.0));
+
+    println!("Success!")
 }
 ```
 
@@ -217,6 +221,8 @@ fn main() {
     // you need to derive some trait for FooBar to make it comparable
     assert_eq!(Foo + Bar, FooBar);
     assert_eq!(Foo - Bar, BarFoo);
+
+    println!("Success!")
 }
 ```
 
@@ -456,5 +462,7 @@ fn example2() {
 fn main() {
     example1();
     example2();
+
+    println!("Success!")
 }
 ```

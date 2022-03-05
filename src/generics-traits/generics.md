@@ -28,6 +28,8 @@ fn main() {
 
     // Implicitly specified type parameter `char` to `generic()`.
     generic(__);
+
+    println!("Success!")
 }
 ```
 
@@ -41,6 +43,8 @@ fn main() {
     assert_eq!(5, sum(2i8, 3i8));
     assert_eq!(50, sum(20, 30));
     assert_eq!(2.46, sum(1.23, 1.23));
+
+    println!("Success!")
 }
 ```
 
@@ -56,6 +60,8 @@ fn main() {
 fn main() {
     let integer = Point { x: 5, y: 10 };
     let float = Point { x: 1.0, y: 4.0 };
+
+    println!("Success!")
 }
 ```
 
@@ -71,6 +77,8 @@ struct Point<T> {
 fn main() {
     // DON'T modify here
     let p = Point{x: 5, y : "hello".to_string()};
+
+    println!("Success!")
 }
 ```
 
@@ -118,6 +126,8 @@ fn main() {
 
     assert_eq!(p3.x, 5);
     assert_eq!(p3.y, '中');
+
+    println!("Success!")
 }
 ```
 

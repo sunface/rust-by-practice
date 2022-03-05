@@ -22,6 +22,8 @@ fn main() {
 
     // modify this line only
     assert_eq!(5, y);
+
+    println!("Success!")
 }
 ```
 
@@ -45,7 +47,9 @@ fn borrow_object(s: &String) {}
 fn main() {
     let mut s = String::from("hello, ");
 
-    push_str(s)
+    push_str(s);
+
+    println!("Success!")
 }
 
 fn push_str(s: &mut String) {
@@ -63,6 +67,8 @@ fn main() {
     let p = __;
     
     p.push_str("world");
+
+    println!("Success!")
 }
 ```
 
@@ -83,6 +89,8 @@ fn main() {
     
     // check the equality of the two address strings
     assert_eq!(get_addr(r1),get_addr(r2));
+
+    println!("Success!")
 }
 
 // get memory address string
@@ -104,6 +112,8 @@ fn main() {
     let r2 = &mut s;
 
     println!("{}, {}", r1, r2);
+
+    println!("Success!")
 }
 ```
 
@@ -116,6 +126,8 @@ fn main() {
     let  s = String::from("hello, ");
 
     borrow_object(&mut s)
+
+    println!("Success!")
 }
 
 fn borrow_object(s: &mut String) {}
@@ -131,6 +143,8 @@ fn main() {
     borrow_object(&s);
     
     s.push_str("world");
+
+    println!("Success!")
 }
 
 fn borrow_object(s: &String) {}
