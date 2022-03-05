@@ -27,7 +27,7 @@
   - [Const 泛型](generics-traits/const-generics.md)
   - [特征 Traits](generics-traits/traits.md)
   - [特征对象](generics-traits/trait-object.md)
-  - [进一步深入特征](generics-traits/advance-traits.md)
+  - [进一步深入特征](generics-traits/advanced-traits.md)
 - [集合类型 todo](collections/intro.md)
   - [动态数组 Vector](collections/vector.md)
   - [KV 存储 HashMap](collections/hashmap.md)
