@@ -9,6 +9,7 @@ This book was designed for easily diving into Rust, and it's very easy to use: A
 - [https://practice.rs](https://practice.rs)
 
 ## Features
+
 Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works!
 
 Although they are so awesome, we have our own secret weapons :)
