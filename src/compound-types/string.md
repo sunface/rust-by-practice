@@ -168,7 +168,9 @@ fn main() {
 
     // fill the blank
     let long_delimiter = __;
-    assert_eq!(long_delimiter, "Hello, \"##\"")
+    assert_eq!(long_delimiter, "Hello, \"##\"");
+
+    println!("Success!")
 }
 ```
 
