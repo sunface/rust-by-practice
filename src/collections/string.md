@@ -172,7 +172,38 @@ fn main() {
 }
 ```
 
+7. 🌟🌟🌟
+```rust,editable
+
+// FILL in the blanks
+use std::mem;
+
+fn main() {
+    let story = String::from("Rust By Practice");
+
+    // Prevent automatically dropping the String's data
+    let mut story = mem::ManuallyDrop::new(story);
+
+    let ptr = story.__();
+    let len = story.__();
+    let capacity = story.__();
+
+    // story has nineteen bytes
+    assert_eq!(16, len);
+
+    // We can re-build a String out of ptr, len, and capacity. This is all
+    // unsafe because we are responsible for making sure the components are
+    // valid:
+    let s = unsafe { String::from_raw_parts(ptr, len, capacity) };
+
+    assert_eq!(*story, s);
+
+    println!("Success!")
+}
+```
 
 
 ### Common methods
+More exercises of String methods can be found [here](../std/String.md).
 
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it

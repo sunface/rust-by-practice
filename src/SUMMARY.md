@@ -80,4 +80,5 @@
   - [Pin and Unpin](async/pin-unpin.md)
   - [Stream](async/stream.md)
   
-- [Stand Library todo](std/intro.md)
+- [Standard Library todo](std/intro.md)
+  - [String](std/String.md)
