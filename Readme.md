@@ -18,7 +18,7 @@ Although they are so awesome, we have our own secret weapons :)
 
 - Besides examples, we have `a lot of exercises`, you can Read, Edit and Run them ONLINE
 
-- Covering nearly all aspects of Rust, such as async/await, threads, sync primitives, optimizing and standard libraries** etc.
+- Covering nearly all aspects of Rust, such as async/await, threads, sync primitives, optimizing and standard libraries etc.
 
 - Every exercise has its own solutions
 
