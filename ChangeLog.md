@@ -3,7 +3,7 @@
 ### 2022-03-07
 
 - Add [Strings](https://practice.rs/collections/string.html)
-
+- Add [Vectors](https://practice.rs/collections/vector.html)
 
 ### 2022-03-06
 
