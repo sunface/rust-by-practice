@@ -75,12 +75,12 @@ fn main() {
 }
 
 fn implicitly_ret_unit() {
-    println!("I will returen a ()")
+    println!("I will return a ()")
 }
 
 // don't use this one
 fn explicitly_ret_unit() -> () {
-    println!("I will returen a ()")
+    println!("I will return a ()")
 }
 ```
 
