@@ -51,6 +51,28 @@ fn main() {
 }
 ```
 
+3. 🌟🌟
+```rust,editable
+
+// Question: how many heap allocations are happend here ?
+// Your answer: 
+fn main() {  
+    // Create a String type based on `&str`
+    // the type of string literals is `&str`
+   let s: String = String::from("hello, world!");
+
+   // create a slice point to String `s`
+   let slice: &str = &s;
+
+   // create a String type based on the recently created slice
+   let s: String = slice.to_string();
+
+   assert_eq!(s, "hello, world!");
+
+   println!("Success!")
+}
+```
+
 ### UTF-8 & Indexing
 Strings are always valid UTF-8. This has a few implications:
 
@@ -59,11 +81,11 @@ Strings are always valid UTF-8. This has a few implications:
 
 Indexing is intended to be a constant-time operation, but UTF-8 encoding does not allow us to do this. Furthermore, it’s not clear what sort of thing the index should return: a byte, a codepoint, or a grapheme cluster. The bytes and chars methods return iterators over the first two, respectively.
 
-2. 🌟🌟🌟 You can't use index to access a char in a string, but you can use slice `&s1[start..end]`.
+4. 🌟🌟🌟 You can't use index to access a char in a string, but you can use slice `&s1[start..end]`.
 
 ```rust,editable
 
-// FIX errors
+// FILL in the blank and FIX errors
 fn main() {
     let s = String::from("hello, 世界");
     let slice1 = s[0]; //tips: `h` only takes 1 byte in UTF8 format
@@ -71,13 +93,35 @@ fn main() {
 
     let slice2 = &s[3..5];// tips: `中`  takes 3 bytes in UTF8 format
     assert_eq!(slice2, "世");
+    
+    // iterate all chars in s
+    for (i, c) in s.__ {
+        if i == 7 {
+            assert_eq!(c, '世')
+        }
+    }
 
     println!("Success!")
 }
 ```
 
 
-3. 🌟🌟🌟
+#### utf8_slice
+You can use [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.html) to slice UTF8 string, it can index chars instead of bytes.
+
+**Example**
+```rust
+use utf_slice;
+fn main() {
+   let s = "The 🚀 goes to the 🌑!";
+
+   let rocket = utf8_slice::slice(s, 4, 5);
+   // Will equal "🚀"
+}
+```
+
+
+5. 🌟🌟🌟
 > Tips: maybe you need `from_utf8` method
 
 ```rust,editable
@@ -102,8 +146,31 @@ fn main() {
 ```
 
 ### Representation
+A String is made up of three components: a pointer to some bytes, a length, and a capacity. 
 
+The pointer points to an internal buffer String uses to store its data. The length is the number of bytes currently stored in the buffer( always stored on the heap ), and the capacity is the size of the buffer in bytes. As such, the length will always be less than or equal to the capacity.
 
+6. 🌟🌟 If a String has enough capacity, adding elements to it will not re-allocate
+```rust,editable
+
+// modify the code below to print out: 
+// 25
+// 25
+// 25
+// Here, there’s no need to allocate more memory inside the loop.
+fn main() {
+    let mut s = String::new();
+
+    println!("{}", s.capacity());
+
+    for _ in 0..2 {
+        s.push_str("hello");
+        println!("{}", s.capacity());
+    }
+
+    println!("Success!")
+}
+```
 
 
 

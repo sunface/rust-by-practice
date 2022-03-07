@@ -78,7 +78,10 @@ fn main() {
 }
 ```
 
-2.
+3. 2
+
+
+4.
 ```rust
 fn main() {
     let s = String::from("hello, 世界");
@@ -88,11 +91,17 @@ fn main() {
     let slice2 = &s[7..10];//modify this line to fix the error, tips: `中`  takes 3 bytes in UTF8 format
     assert_eq!(slice2, "世");
 
+    for (i, c) in s.chars().enumerate() {
+        if i == 7 {
+            assert_eq!(c, '世')
+        }
+    }
+
     println!("Success!")
 }
 ```
 
-3.
+5.
 ```rust
 // FILL in the blanks
 fn main() {
@@ -108,6 +117,22 @@ fn main() {
     
     
     assert_eq!(s, s1);
+
+    println!("Success!")
+}
+```
+
+6.
+```rust
+fn main() {
+    let mut s = String::with_capacity(25);
+
+    println!("{}", s.capacity());
+
+    for _ in 0..2 {
+        s.push_str("hello");
+        println!("{}", s.capacity());
+    }
 
     println!("Success!")
 }
