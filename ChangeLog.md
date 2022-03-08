@@ -1,5 +1,10 @@
 # ChangeLog
 
+### 2022-03-08
+
+- Add [HashMap](https://practice.rs/collections/hashmap.html)
+
+
 ### 2022-03-07
 
 - Add [Strings](https://practice.rs/collections/string.html)
