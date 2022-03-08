@@ -145,19 +145,19 @@ fn main() {
 }
 ```
 
-### Representation
-A String is made up of three components: a pointer to some bytes, a length, and a capacity. 
+### 内部表示
+事实上 `String` 是一个智能指针，它作为一个结构体存储在栈上，然后指向存储在堆上的字符串底层数据。
 
-The pointer points to an internal buffer String uses to store its data. The length is the number of bytes currently stored in the buffer( always stored on the heap ), and the capacity is the size of the buffer in bytes. As such, the length will always be less than or equal to the capacity.
+存储在栈上的智能指针结构体由三部分组成：一个指针只指向堆上的字节数组，已使用的长度以及已分配的容量 capacity (已使用的长度小于等于已分配的容量，当容量不够时，会重新分配内存空间)。
 
-6. 🌟🌟 If a String has enough capacity, adding elements to it will not re-allocate
+1. 🌟🌟 如果 String 的当前容量足够，那么添加字符将不会导致新的内存分配
 ```rust,editable
 
-// modify the code below to print out: 
+// 修改下面的代码以打印如下内容: 
 // 25
 // 25
 // 25
-// Here, there’s no need to allocate more memory inside the loop.
+// 循环中不会发生任何内存分配
 fn main() {
     let mut s = String::new();
 
@@ -175,25 +175,23 @@ fn main() {
 7. 🌟🌟🌟
 ```rust,editable
 
-// FILL in the blanks
+// 填空
 use std::mem;
 
 fn main() {
     let story = String::from("Rust By Practice");
 
-    // Prevent automatically dropping the String's data
+    // 阻止 String 的数据被自动 drop
     let mut story = mem::ManuallyDrop::new(story);
 
     let ptr = story.__();
     let len = story.__();
     let capacity = story.__();
 
-    // story has nineteen bytes
     assert_eq!(16, len);
 
-    // We can re-build a String out of ptr, len, and capacity. This is all
-    // unsafe because we are responsible for making sure the components are
-    // valid:
+    // 我们可以基于 ptr 指针、长度和容量来重新构建 String. 
+    // 这种操作必须标记为 unsafe，因为我们需要自己来确保这里的操作是安全的
     let s = unsafe { String::from_raw_parts(ptr, len, capacity) };
 
     assert_eq!(*story, s);
@@ -203,7 +201,7 @@ fn main() {
 ```
 
 
-### Common methods
-More exercises of String methods can be found [here](../std/String.md).
+### 常用方法
+关于 String 的常用方法练习，可以查看[这里](../std/String.md).
 
 > You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it

@@ -186,7 +186,6 @@ fn main() {
     let len = story.__();
     let capacity = story.__();
 
-    // story has nineteen bytes
     assert_eq!(16, len);
 
     // We can re-build a String out of ptr, len, and capacity. This is all
