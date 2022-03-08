@@ -94,7 +94,7 @@ fn main() {
 ```
 
 ## Fully Qualified Syntax
-othing in Rust prevents a trait from having a method with the same name as another trait’s method, nor does Rust prevent you from implementing both traits on one type. It’s also possible to implement a method directly on the type with the same name as methods from traits.
+Nothing in Rust prevents a trait from having a method with the same name as another trait’s method, nor does Rust prevent you from implementing both traits on one type. It’s also possible to implement a method directly on the type with the same name as methods from traits.
 
 When calling methods with the same name, we have to use  Fully Qualified Syntax.
 

@@ -58,10 +58,10 @@ fn main() {
 }
 ```
 
-## Default Generic Type Parameters
-When we use generic type parameters, we can specify a default concrete type for the generic type. This eliminates the need for implementors of the trait to specify a concrete type if the default type works.
+## 定义默认的泛型类型参数
+当我们使用泛型类型参数时，可以为该泛型参数指定一个具体的默认类型，这样当实现该特征时，如果该默认类型可以使用，那用户再无需手动指定具体的类型。
 
-2. 🌟🌟
+1. 🌟🌟
 ```rust,editable
 
 use std::ops::Sub;
@@ -72,8 +72,7 @@ struct Point<T> {
     y: T,
 }
 
-// FILL in the blank in three ways: two of them use the default generic  parameters, the other one not.
-// Notice that the implementation uses the associated type `Output`.
+// 用三种方法填空: 其中两种使用默认的泛型参数，另外一种不使用
 impl __ {
     type Output = Self;
 
@@ -93,8 +92,8 @@ fn main() {
 }
 ```
 
-## Fully Qualified Syntax
-othing in Rust prevents a trait from having a method with the same name as another trait’s method, nor does Rust prevent you from implementing both traits on one type. It’s also possible to implement a method directly on the type with the same name as methods from traits.
+## 完全限定语法
+Nothing in Rust prevents a trait from having a method with the same name as another trait’s method, nor does Rust prevent you from implementing both traits on one type. It’s also possible to implement a method directly on the type with the same name as methods from traits.
 
 When calling methods with the same name, we have to use  Fully Qualified Syntax.
 
