@@ -3,7 +3,7 @@
 ### 2022-03-08
 
 - Add [HashMap](https://practice.rs/collections/hashmap.html)
-
+- Translate several English chapters to Chinese
 
 ### 2022-03-07
 
