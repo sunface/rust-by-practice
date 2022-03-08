@@ -93,23 +93,18 @@ fn main() {
 ```
 
 ## 完全限定语法
-Nothing in Rust prevents a trait from having a method with the same name as another trait’s method, nor does Rust prevent you from implementing both traits on one type. It’s also possible to implement a method directly on the type with the same name as methods from traits.
+在 Rust 中，两个不同特征的方法完全可以同名，且你可以为同一个类型同时实现这两个特征。这种情况下，就出现了一个问题：该如何调用这两个特征上定义的同名方法。为了解决这个问题，我们需要使用完全限定语法( Fully Qualified Syntax )。
 
-When calling methods with the same name, we have to use  Fully Qualified Syntax.
 
-#### Example
+#### 示例
 ```rust,editable
 trait UsernameWidget {
-    // Get the selected username out of this widget
     fn get(&self) -> String;
 }
 
-trait AgeWidget {
-    // Get the selected age out of this widget
     fn get(&self) -> u8;
 }
 
-// A form with both a UsernameWidget and an AgeWidget
 struct Form {
     username: String,
     age: u8,
@@ -133,21 +128,21 @@ fn main() {
         age: 28,
     };
 
-    // If you uncomment this line, you'll get an error saying 
-    // "multiple `get` found". Because, after all, there are multiple methods
-    // named `get`.
+    // 如果你反注释下面一行代码，将看到一个错误: Fully Qualified Syntax
+    // 毕竟，这里有好几个同名的 `get` 方法
+    // 
     // println!("{}", form.get());
     
     let username = UsernameWidget::get(&form);
     assert_eq!("rustacean".to_owned(), username);
-    let age = AgeWidget::get(&form); // you can also use `<Form as AgeWidget>::get`
+    let age = AgeWidget::get(&form); // 你还可以使用以下语法 `<Form as AgeWidget>::get`
     assert_eq!(28, age);
 
     println!("Success!")
 }
 ```
 
-#### Exercise
+#### 练习题
 3. 🌟🌟
 ```rust,editable
 trait Pilot {
@@ -191,17 +186,17 @@ fn main() {
 ```
 
 ## Supertraits
-Sometimes, you might need one trait to use another trait’s functionality( like the "inheritance" in other languages ). In this case, you need to rely on the dependent trait also being implemented. The trait you rely on is a `supertrait` of the trait you’re implementing.
+有些时候我们希望在特征上实现类似继承的特性，例如让一个特征 `A` 使用另一个特征 `B` 的功能。这种情况下，一个类型要实现特征 `A` 首先要实现特征 `B`， 特征 `B` 就被称为 `supertrait`
 
-4. 🌟🌟🌟
+1. 🌟🌟🌟
 ```rust,editable
 
 trait Person {
     fn name(&self) -> String;
 }
 
-// Person is a supertrait of Student.
-// Implementing Student requires you to also impl Person.
+// Person 是 Student 的 supertrait .
+// 实现 Student 需要同时实现 Person.
 trait Student: Person {
     fn university(&self) -> String;
 }
@@ -210,8 +205,8 @@ trait Programmer {
     fn fav_language(&self) -> String;
 }
 
-// CompSciStudent (computer science student) is a subtrait of both Programmer 
-// and Student. Implementing CompSciStudent requires you to impl both supertraits.
+// CompSciStudent (computer science student) 是 Programmer 
+// 和 Student 的 subtrait. 实现 CompSciStudent 需要先实现这两个 supertraits.
 trait CompSciStudent: Programmer + Student {
     fn git_username(&self) -> String;
 }
@@ -233,7 +228,7 @@ struct CSStudent {
     git_username: String
 }
 
-// IMPLEMENT the necessary traits for CSStudent to make the code work
+// 为 CSStudent 实现所需的特征
 impl ...
 
 fn main() {
@@ -244,23 +239,20 @@ fn main() {
         git_username: "sunface".to_string()
     };
 
-    // FILL in the blank
+    // 填空
     println!("{}", comp_sci_student_greeting(__));
 }
 ```
 
-## Orphan Rules
-We can’t implement external traits on external types. For example, we can’t implement the `Display` trait on `Vec<T>` within our own crate, because `Display` and `Vec<T>` are defined in the standard library and aren’t local to our crate. 
+## 孤儿原则
+关于孤儿原则的详细介绍请参见[特征定义与实现的位置孤儿规则](https://course.rs/basic/trait/trait#特征定义与实现的位置孤儿规则) 和 [在外部类型上实现外部特征](https://course.rs/basic/trait/advance-trait.html#在外部类型上实现外部特征newtype)。
 
-This restriction is often called as the orphan rule, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. 
 
-It’s possible to get around this restriction using the newtype pattern, which involves creating a new type in a tuple struct.
-
-5. 🌟🌟
+1. 🌟🌟
 ```rust
 use std::fmt;
 
-// DEFINE a newtype `Pretty` here
+// 定义一个 newtype `Pretty`
 
 
 impl fmt::Display for Pretty {
