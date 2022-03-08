@@ -188,7 +188,7 @@ fn main() {
 4. 🌟🌟🌟
 ```rust,editable
 
-// 修复错误，不要修改 `main` 中的代码!fix the errors, DON'T modify the code in `main`
+// 修复错误，不要修改 `main` 中的代码!
 use std::ops;
 
 struct Foo;
@@ -198,9 +198,7 @@ struct FooBar;
 
 struct BarFoo;
 
-// The `std::ops::Add` trait is used to specify the functionality of `+`.
-// Here, we make `Add<Bar>` - the trait for addition with a RHS of type `Bar`.
-// The following block implements the operation: Foo + Bar = FooBar
+// 下面的代码实现了自定义类型的相加： Foo + Bar = FooBar
 impl ops::Add<Bar> for Foo {
     type Output = FooBar;
 
@@ -218,8 +216,8 @@ impl ops::Sub<Foo> for Bar {
 }
 
 fn main() {
-    // DON'T modify the below code
-    // you need to derive some trait for FooBar to make it comparable
+    // 不要修改下面代码
+    // 你需要为 FooBar 派生一些特征来让代码工作
     assert_eq!(Foo + Bar, FooBar);
     assert_eq!(Foo - Bar, BarFoo);
 
@@ -227,14 +225,14 @@ fn main() {
 }
 ```
 
-### Use trait as function parameters
-Instead of a concrete type for the item parameter, we specify the impl keyword and the trait name. This parameter accepts any type that implements the specified trait. 
+### 使用特征作为函数参数
+除了使用具体类型来作为函数参数，我们还能通过 `impl Trait` 的方式来指定实现了该特征的参数：该参数能接受的类型必须要实现指定的特征。
 
 5. 🌟🌟🌟
 ```rust,editable
 
-// implement `fn summary` to make the code work
-// fix the errors without removing any code line
+// 实现 `fn summary` 
+// 修复错误且不要移除任何代码行
 trait Summary {
     fn summarize(&self) -> String;
 }
@@ -282,14 +280,13 @@ fn main() {
     println!("{:?}", weibo);
 }
 
-// implement `fn summary` below
+// 在下面实现 `fn summary` 函数
 
 ```
 
-### Returning Types that Implement Traits
-We can also use the impl Trait syntax in the return position to return a value of some type that implements a trait.
+### 使用特征作为函数返回值
+我们还可以在函数的返回值中使用 `impl Trait` 语法。然后只有在返回值是同一个类型时，才能这么使用，如果返回值是不同的类型，你可能更需要特征对象。
 
-However, you can only use impl Trait if you’re returning a single type, using Trait Objects instead when you really need to return serveral types.
 
 6. 🌟🌟
 ```rust,editable
@@ -313,8 +310,8 @@ impl Animal for Cow {
     }
 }
 
-// Returns some struct that implements Animal, but we don't know which one at compile time.
-// FIX the erros here, you can make a fake random, or you can use trait object
+// 返回一个类型，该类型实现了 Animal 特征，但是我们并不能在编译期获知具体返回了哪个类型
+// 修复这里的错误，你可以使用虚假的随机，也可以使用特征对象
 fn random_animal(random_number: f64) -> impl Animal {
     if random_number < 0.5 {
         Sheep {}
@@ -330,10 +327,10 @@ fn main() {
 }
 ```
 
-### Trait bound
-The `impl Trait` syntax works for straightforward cases but is actually syntax sugar for a longer form, which is called a trait bound.
+### 特征约束
+`impl Trait` 语法非常直观简洁，但它实际上是特征约束的语法糖。
 
-When working with generics, the type parameters often must use traits as bounds to stipulate what functionality a type implements. 
+当使用泛型参数时，我们往往需要为该参数指定特定的行为，这种指定方式就是通过特征约束来实现的。
 
 7. 🌟🌟
 ```rust, editable
@@ -341,13 +338,15 @@ fn main() {
     assert_eq!(sum(1, 2), 3);
 }
 
-// implement `fn sum` with trait bound in two ways
-fn sum<T: std::ops::Add<Output = T>>(x: T, y: T) -> T {
+// 通过两种方法使用特征约束来实现 `fn sum`
+fn sum<T>(x: T, y: T) -> T {
     x + y
 }
 ```
+
 8. 🌟🌟
 ```rust,editable
+// 修复代码中的错误
 struct Pair<T> {
     x: T,
     y: T,
@@ -387,10 +386,10 @@ fn main() {
 9. 🌟🌟🌟
 ```rust,editable
 
-// fill in the blanks to make it work
+// 填空
 fn example1() {
-    // `T: Trait` is the commonly used way
-    // `T: Fn(u32) -> u32` specifies that we can only pass a closure to `T`
+    // `T: Trait` 是最常使用的方式
+    // `T: Fn(u32) -> u32` 说明 `T` 只能接收闭包类型的参数
     struct Cacher<T: Fn(u32) -> u32> {
         calculation: T,
         value: Option<u32>,
@@ -423,7 +422,7 @@ fn example1() {
 
 
 fn example2() {
-    // We can also use `where` to constrain `T`
+    // 还可以使用 `where` 来约束 T
     struct Cacher<T>
         where T: Fn(u32) -> u32,
     {

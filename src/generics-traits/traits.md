@@ -341,12 +341,14 @@ fn main() {
 }
 
 // implement `fn sum` with trait bound in two ways
-fn sum<T: std::ops::Add<Output = T>>(x: T, y: T) -> T {
+fn sum<T>(x: T, y: T) -> T {
     x + y
 }
 ```
 8. 🌟🌟
 ```rust,editable
+
+// FIX the errors
 struct Pair<T> {
     x: T,
     y: T,
