@@ -1,7 +1,7 @@
-# Advance Traits
+# 进一步深入特征
 
-## Associated types
-The use of "Associated types" improves the overall readability of code by moving inner types locally into a trait as output types. For example :
+## 关联类型
+关联类型主要用于提升代码的可读性，例如以下代码 :
 ```rust
 pub trait CacheableItem: Clone + Default + fmt::Debug + Decodable + Encodable {
   type Address: AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash;
@@ -9,15 +9,15 @@ pub trait CacheableItem: Clone + Default + fmt::Debug + Decodable + Encodable {
 }
 ```
 
-Using of `Address` is much more clearable and convenient than `AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash`.
+相比 `AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash`， `Address` 的使用可以极大的极少其它类型在实现该特征时所需的模版代码.
 
 1. 🌟🌟🌟
 ```rust,editable
 
 struct Container(i32, i32);
 
-// USING associated types to re-implement trait Contains.
-// trait Container {
+// 使用关联类型实现重新实现以下特征
+// trait Contains {
 //    type A;
 //    type B;
 

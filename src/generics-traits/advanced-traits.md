@@ -17,7 +17,7 @@ Using of `Address` is much more clearable and convenient than `AsRef<[u8]> + Clo
 struct Container(i32, i32);
 
 // USING associated types to re-implement trait Contains.
-// trait Container {
+// trait Contains {
 //    type A;
 //    type B;
 
