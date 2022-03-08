@@ -56,17 +56,17 @@ fn main() {
 3. 🌟🌟
 ```rust,editable
 
-// Question: how many heap allocations are happend here ?
-// Your answer: 
+// 问题:  我们的代码中发生了多少次堆内存分配？
+// 你的回答: 
 fn main() {  
-    // Create a String type based on `&str`
-    // the type of string literals is `&str`
+    // 基于 `&str` 类型创建一个 String,
+    // 字符串字面量的类型是 `&str`
    let s: String = String::from("hello, world!");
 
-   // create a slice point to String `s`
+   // 创建一个切片引用指向 String `s`
    let slice: &str = &s;
 
-   // create a String type based on the recently created slice
+   // 基于刚创建的切片来创建一个 String
    let s: String = slice.to_string();
 
    assert_eq!(s, "hello, world!");
@@ -75,28 +75,28 @@ fn main() {
 }
 ```
 
-### UTF-8 & Indexing
-Strings are always valid UTF-8. This has a few implications:
+### UTF-8 & 索引
+由于 String 都是 UTF-8 编码的，这会带来几个影响:
 
-- the first of which is that if you need a non-UTF-8 string, consider [OsString](https://doc.rust-lang.org/stable/std/ffi/struct.OsString.html). It is similar, but without the UTF-8 constraint. 
-- The second implication is that you cannot index into a String
+- 如果你需要的是非 UTF-8 字符串，可以考虑 [OsString](https://doc.rust-lang.org/stable/std/ffi/struct.OsString.html) 
+- 无法通过索引的方式访问一个 String
 
-Indexing is intended to be a constant-time operation, but UTF-8 encoding does not allow us to do this. Furthermore, it’s not clear what sort of thing the index should return: a byte, a codepoint, or a grapheme cluster. The bytes and chars methods return iterators over the first two, respectively.
+具体请看[字符串索引](https://course.rs/basic/compound-type/string-slice.html#字符串索引)。
 
-4. 🌟🌟🌟 You can't use index to access a char in a string, but you can use slice `&s1[start..end]`.
+4. 🌟🌟🌟 我们无法通过索引的方式访问字符串中的某个字符，但是可以通过切片的方式来获取字符串的某一部分 `&s1[start..end]`
 
 ```rust,editable
 
-// FILL in the blank and FIX errors
+// 填空并修复错误
 fn main() {
     let s = String::from("hello, 世界");
-    let slice1 = s[0]; //tips: `h` only takes 1 byte in UTF8 format
+    let slice1 = s[0]; //提示: `h` 在 UTF-8 编码中只占用 1 个字节
     assert_eq!(slice1, "h");
 
-    let slice2 = &s[3..5];// tips: `中`  takes 3 bytes in UTF8 format
+    let slice2 = &s[3..5];// 提示: `中` 在 UTF-8 编码中占用 3 个字节
     assert_eq!(slice2, "世");
     
-    // iterate all chars in s
+    // 迭代 s 中的所有字符
     for (i, c) in s.__ {
         if i == 7 {
             assert_eq!(c, '世')
@@ -109,9 +109,9 @@ fn main() {
 
 
 #### utf8_slice
-You can use [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.html) to slice UTF8 string, it can index chars instead of bytes.
+我们可以使用 [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.html) 来按照字符的自然索引方式对 UTF-8 字符串进行切片访问，与之前的切片方式相比，它索引的是字符，而之前的方式索引的是字节.
 
-**Example**
+**示例**
 ```rust
 use utf_slice;
 fn main() {
@@ -124,20 +124,18 @@ fn main() {
 
 
 5. 🌟🌟🌟
-> Tips: maybe you need `from_utf8` method
+> 提示: 也许你需要使用 `from_utf8` 方法
 
 ```rust,editable
 
-// FILL in the blanks
+// 填空
 fn main() {
     let mut s = String::new();
     __;
 
-    // some bytes, in a vector
     let v = vec![104, 101, 108, 108, 111];
 
-    // Turn a bytes vector into a String
-    // We know these bytes are valid, so we'll use `unwrap()`.
+    // 将字节数组转换成 String
     let s1 = __;
     
     

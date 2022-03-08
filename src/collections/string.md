@@ -134,7 +134,6 @@ fn main() {
     let v = vec![104, 101, 108, 108, 111];
 
     // Turn a bytes vector into a String
-    // We know these bytes are valid, so we'll use `unwrap()`.
     let s1 = __;
     
     
