@@ -32,7 +32,6 @@
   - [String](collections/string.md)
   - [Vector](collections/vector.md)
   - [HashMap](collections/hashmap.md)
-  - [HashSet](collections/hashset.md)
 - [Type Conversion todo](type-conversion.md)
 - [Result and panic todo](result-panic/intro.md)
   - [panic!](result-panic/panic.md)
