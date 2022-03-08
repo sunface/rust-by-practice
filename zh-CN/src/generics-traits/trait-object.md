@@ -1,10 +1,11 @@
-# Trait Object
-In [traits chapter](https://practice.rs/generics-traits/traits.html#returning-types-that-implement-traits) we have seen that we can't use `impl Trait` when returning multiple types.
+# 特征对象
+在[特征练习中](https://practice.rs/generics-traits/traits.html#returning-types-that-implement-traits) 我们已经知道当函数返回多个类型时，`impl Trait` 是无法使用的。
 
-Also one limitation of arrays is that they can only store elements of one type, yeah, enum is a not bad solution when our items are a fixed set of types in compile time, but trait object are more flexible and powerful here.
+对于数组而言，其中一个限制就是无法存储不同类型的元素，但是通过之前的学习，大家应该知道枚举可以在部分场景解决这种问题，但是这种方法局限性较大。此时就需要我们的主角登场了。
 
-## Returning Traits with dyn
-The Rust compiler needs to know how much space a function's return type requires. Because the different implementations of a trait probably will need different amounts of memoery, this means function need to return a concrete type or the same type when using  `impl Trait`, or it can return a trait object with `dyn`.
+## 使用 `dyn` 返回特征
+Rust 编译器需要知道一个函数的返回类型占用多少内存空间。由于特征的不同实现类型可能会占用不同的内存，因此通过 `impl Trait` 返回多个类型是不被允许的，但是我们可以返回一个 `dyn` 特征对象来解决问题。
+
 
 1. 🌟🌟🌟
 ```rust,editable
@@ -39,30 +40,30 @@ impl Bird for Swan {
 }
 
 fn main() {
-    // FILL in the blank
+    // 填空
     let duck = __;
     duck.swim();
 
     let bird = hatch_a_bird(2);
-    // this bird has forgotten how to swim, so below line will cause an error
+    // 变成鸟儿后，它忘记了如何游，因此以下代码会报错
     // bird.swim();
-    // but it can quak
+    // 但它依然可以叫唤
     assert_eq!(bird.quack(), "duck duck");
 
     let bird = hatch_a_bird(1);
-    // this bird has forgotten how to fly, so below line will cause an error
+    // 这只鸟儿忘了如何飞翔，因此以下代码会报错
     // bird.fly();
-    // but it can quak too
+    // 但它也可以叫唤
     assert_eq!(bird.quack(), "swan swan");
 
     println!("Success!")
 }   
 
-// IMPLEMENT this function
+// 实现以下函数
 fn hatch_a_bird...
 
 ```
-## Array with trait objects
+## 在数组中使用特征对象
 2. 🌟🌟
 ```rust,editable 
 trait Bird {
@@ -95,13 +96,13 @@ impl Bird for Swan {
 }
 
 fn main() {
-    // FILL in the blank to make the code work
+    // 填空
     let birds __;
 
     for bird in birds {
         bird.quack();
-        // when duck and swan turns into Bird, they all forgot how to fly, only remeber how to quack
-        // so, the below code will cause an error
+        // 当 duck 和 swan 变成 bird 后，它们都忘了如何翱翔于天际，只记得该怎么叫唤了。。
+        // 因此，以下代码会报错
         // bird.fly();
     }
 }
@@ -113,7 +114,7 @@ fn main() {
 3. 🌟🌟
 ```rust,editable
 
-// FILL in the blanks
+// 填空
 trait Draw {
     fn draw(&self) -> String;
 }
@@ -152,12 +153,8 @@ fn draw_with_ref(x: __) {
 }
 ```
 
-## Static and Dynamic dispatch
-when we use trait bounds on generics: the compiler generates nongeneric implementations of functions and methods for each concrete type that we use in place of a generic type parameter. The code that results from monomorphization is doing static dispatch, which is when the compiler knows what method you’re calling at compile time. 
-
-When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that is using trait objects, so it doesn’t know which method implemented on which type to call. Instead, at runtime, Rust uses the pointers inside the trait object to know which method to call. There is a runtime cost when this lookup happens that doesn’t occur with static dispatch. Dynamic dispatch also prevents the compiler from choosing to inline a method’s code, which in turn prevents some optimizations. 
-
-However, we did get extra flexibility when using dynamic dispatch.
+## 静态分发和动态分发Static and Dynamic dispatch
+关于这块内容的解析介绍，请参见 [Rust语言圣经](https://course.rs/basic/trait/trait-object.html#特征对象的动态分发)。
 
 4. 🌟🌟
 ```rust,editable
@@ -174,10 +171,10 @@ impl Foo for String {
     fn method(&self) -> String { format!("string: {}", *self) }
 }
 
-// IMPLEMENT below with generics
+// 通过泛型实现以下函数
 fn static_dispatch...
 
-// implement below with trait objects
+// 通过特征对象实现以下函数
 fn dynamic_dispatch...
 
 fn main() {
@@ -191,17 +188,17 @@ fn main() {
 }
 ```
 
-## Object safe
-You can only make object-safe traits into trait objects. A trait is object safe if all the methods defined in the trait have the following properties:
+## 对象安全
+一个特征能变成特征对象，首先该特征必须是对象安全的，即该特征的所有方法都必须拥有以下特点：
 
-- The return type isn’t `Self`.
-- There are no generic type parameters.
+- 返回类型不能是 `Self`.
+- 不能使用泛型参数
 
 5. 🌟🌟🌟🌟
 ```rust,editable
 
-// Use at least two approaches to make it work
-// DON'T add/remove any code line
+// 使用至少两种方法让代码工作
+// 不要添加/删除任何代码行
 trait MyTrait {
     fn f(&self) -> Self;
 }
