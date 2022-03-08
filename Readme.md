@@ -1,6 +1,6 @@
 # Rust By Practice
 
-This book was designed for easily diving into Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
+This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
 > 🎊 Updated on 2022-03-07: Add [Vectors](https://practice.rs/collections/vector.html)
 
