@@ -1,13 +1,13 @@
 # String
-`std::string::String` is a UTF-8 encoded, growable string. It is the most common string type we used in daily dev, it also has ownership over the string contents.
+`std::string::String` 是 UTF-8 编码、可增长的动态字符串. 它也是我们日常开发中最常用的字符串类型，同时对于它所拥有的内容拥有所有权。
 
-### Basic operations
+### 基本操作
 1. 🌟🌟
 ```rust,editable
 
-// FILL in the blanks and FIX errors
-// 1. Don't use `to_string()`
-// 2. Dont't add/remove any code line
+// 填空并修复错误
+// 1. 不要使用 `to_string()`
+// 2. 不要添加/删除任何代码行
 fn main() {
     let mut s: String = "hello, ";
     s.push_str("world".to_string());
@@ -26,18 +26,20 @@ fn move_ownership(s: String) {
 ```
 
 ### String and &str
-A `String` is stored as a vector of bytes (`Vec<u8>`), but guaranteed to always be a valid UTF-8 sequence. `String` is heap allocated, growable and not null terminated.
+虽然 `String` 的底层是 `Vec<u8>` 也就是字节数组的形式存储的，但是它是基于 UTF-8 编码的字符序列。`String` 分配在堆上、可增长且不是以 `null` 结尾。
 
-`&str` is a slice (`&[u8]`) that always points to a valid UTF-8 sequence, and can be used to view into a String, just like `&[T]` is a view into `Vec<T>`.
+而 `&str` 是[切片引用](https://course.rs/confonding/slice.html)类型( `&[u8]` )，指向一个合法的 UTF-8 字符序列，总之，`&str` 和 `String` 的关系类似于 `&[T]` 和 `Vec<T>` 。
+
+如果大家想了解更多，可以看看[易混淆概念解析 - &str 和 String](https://course.rs/confonding/string.html)。
+
 
 2. 🌟🌟
 ```rust,editable
-// FILL in the blanks
+// 填空
 fn main() {  
-   // get a slice of String with reference: String -> &str 
    let mut s = String::from("hello, world");
 
-   let slice1: &str = __; // in two ways
+   let slice1: &str = __; // 使用两种方法
    assert_eq!(slice1, "hello, world");
 
    let slice2 = __;

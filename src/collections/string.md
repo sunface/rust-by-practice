@@ -34,7 +34,6 @@ A `String` is stored as a vector of bytes (`Vec<u8>`), but guaranteed to always 
 ```rust,editable
 // FILL in the blanks
 fn main() {  
-   // get a slice of String with reference: String -> &str 
    let mut s = String::from("hello, world");
 
    let slice1: &str = __; // in two ways
