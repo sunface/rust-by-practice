@@ -1,6 +1,6 @@
 # Summary
 
-- [Rust By Practice](why-exercise.md)
+- [Rust By Practice](about.md)
 - [Variables](variables.md)
 - [Basic Types](basic-types/intro.md)
   - [Numbers](basic-types/numbers.md)

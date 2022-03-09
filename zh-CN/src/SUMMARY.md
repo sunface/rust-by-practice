@@ -1,6 +1,6 @@
 # Summary
 
-- [关于 pracitce.rs](why-exercise.md)
+- [关于 pracitce.rs](about.md)
 - [变量绑定与解构](variables.md)
 - [基本类型](basic-types/intro.md)
   - [数值类型](basic-types/numbers.md)
