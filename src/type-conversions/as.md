@@ -1,4 +1,4 @@
-# Type Conversions
+# Convert by `as`
 Rust provides no implicit type conversion(coercion) between primitive types. But explicit type conversions can be performed using the `as` keyword.
 
 1. 🌟
@@ -89,7 +89,7 @@ fn main() {
 ```
 
 
-5. 🌟🌟🌟
+5. 🌟🌟🌟 
 ```rust,editable
 fn main() {
     let arr :[u64; 13] = [0; 13];
