@@ -1,16 +1,13 @@
 # HashMap
-Where vectors store values by an integer index, HashMaps store values by key. It is a hash map implemented with quadratic probing and SIMD lookup. By default, `HashMap` uses a hashing algorithm selected to provide resistance against HashDoS attacks.
+`HashMap` 默认使用 `SipHash 1-3` 哈希算法，该算法对于抵抗 `HashDos` 攻击非常有效。在性能方面，如果你的 key 是中型大小的，那该算法非常不错，但是如果是小型的 key( 例如整数 )亦或是大型的 key ( 例如字符串 )，那你需要采用社区提供的其它算法来提高性能。
 
-The default hashing algorithm is currently `SipHash 1-3`, though this is subject to change at any point in the future. While its performance is very competitive for medium sized keys, other hashing algorithms will outperform it for small keys such as integers as well as large keys such as long strings, though those algorithms will typically not protect against attacks such as HashDoS.
+哈希表的算法是基于 Google 的 [SwissTable](https://abseil.io/blog/20180927-swisstables)，你可以在[这里](https://github.com/abseil/abseil-cpp/blob/master/absl/container/internal/raw_hash_set.h)找到 C++ 的实现，同时在 [CppCon talk](https://www.youtube.com/watch?v=ncHmEUmJZf4) 上也有关于算法如何工作的演讲。
 
-The hash table implementation is a Rust port of Google’s [SwissTable](https://abseil.io/blog/20180927-swisstables). The original C++ version of SwissTable can be found [here](https://github.com/abseil/abseil-cpp/blob/master/absl/container/internal/raw_hash_set.h), and this [CppCon talk](https://www.youtube.com/watch?v=ncHmEUmJZf4) gives an overview of how the algorithm works.
-
-
-### Basic Operations
+### 基本操作
 1. 🌟🌟
 
 ```rust,editbale
-// FILL in the blanks and FIX the erros
+// 填空并修复错误
 use std::collections::HashMap;
 fn main() {
     let mut scores = HashMap::new();
@@ -19,12 +16,12 @@ fn main() {
     scores.insert("Ashley", 69.0);
     scores.insert("Katie", "58");
 
-    // get returns a Option<&V>
+    // get 返回一个 Option<&V> 枚举值
     let score = scores.get("Sunface");
     assert_eq!(score, Some(98));
 
     if scores.contains_key("Daniel") {
-        // indexing return a value V
+        // 索引返回一个值 V
         let score = scores["Daniel"];
         assert_eq!(score, __);
         scores.remove("Daniel");
@@ -54,8 +51,8 @@ fn main() {
         teams_map1.insert(team.0, team.1);
     }
 
-    // IMPLEMENT team_map2 in two ways
-    // tips: one of the approaches is to use `collect` method
+    // 使用两种方法实现 team_map2
+    // 提示:其中一种方法是使用 `collect` 方法
     let teams_map2...
 
     assert_eq!(teams_map1, teams_map2);
@@ -67,25 +64,21 @@ fn main() {
 3. 🌟🌟
 ```rust,editable
 
-// FILL in the blanks
+// 填空
 use std::collections::HashMap;
 fn main() {
-    // type inference lets us omit an explicit type signature (which
-    // would be `HashMap<&str, u8>` in this example).
+    // 编译器可以根据后续的使用情况帮我自动推断出 HashMap 的类型，当然你也可以显式地标注类型：HashMap<&str, u8>
     let mut player_stats = HashMap::new();
 
-    // insert a key only if it doesn't already exist
+    // 查询指定的 key, 若不存在时，则插入新的 kv 值
     player_stats.entry("health").or_insert(100);
 
     assert_eq!(player_stats["health"], __);
 
-    // insert a key using a function that provides a new value only if it
-    // doesn't already exist
+    // 通过函数来返回新的值
     player_stats.entry("health").or_insert_with(random_stat_buff);
     assert_eq!(player_stats["health"], __);
 
-    // Ensures a value is in the entry by inserting the default if empty, and returns
-    // a mutable reference to the value in the entry.
     let health = player_stats.entry("health").or_insert(50);
     assert_eq!(health, __);
     *health -= 50;
@@ -95,28 +88,28 @@ fn main() {
 }
 
 fn random_stat_buff() -> u8 {
-    // could actually return some random value here - let's just return
-    // some fixed value for now
+    // 为了简单，我们没有使用随机，而是返回一个固定的值
     42
 }
 ```
 
-### Requirements of HashMap key
-Any type that implements the `Eq` and `Hash` traits can be a key in `HashMap`. This includes:
+### HashMap key 的限制
+任何实现了 `Eq` 和 `Hash` 特征的类型都可以用于 `HashMap` 的 key，包括:
 
-- `bool` (though not very useful since there is only two possible keys)
-- `int`, `uint`, and all variations thereof
-- `String` and `&str` (tips: you can have a `HashMap` keyed by `String` and call `.get()` with an `&str`)
+- `bool` (虽然很少用到，因为它只能表达两种 key)
+- `int`, `uint` 以及它们的变体，例如 `u8`、`i32` 等
+- `String` 和 `&str` (提示: `HashMap` 的 key 是 `String` 类型时，你其实可以使用 `&str` 配合 `get` 方法进行查询
   
-Note that `f32` and `f64` do not implement `Hash`, likely because [floating-point precision](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems) errors would make using them as hashmap keys horribly error-prone.
+需要注意的是，`f32` 和 `f64` 并没有实现 `Hash`，原因是 [浮点数精度](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems) 的问题会导致它们无法进行相等比较。
 
-All collection classes implement `Eq` and `Hash` if their contained type also respectively implements `Eq` and `Hash`. For example, `Vec<T>` will implement `Hash` if `T`implements `Hash`.
+如果一个集合类型的所有字段都实现了 `Eq` 和 `Hash`,那该集合类型会自动实现 `Eq` 和 `Hash`。例如 `Vect<T>` 要实现 `Hash`，那么首先需要 `T` 实现 `Hash`。
 
-4. 🌟🌟
+
+1. 🌟🌟
 ```rust,editable
 
-// FIX the errors
-// Tips: `derive` is usually a good way to implement some common used traits
+// 修复错误
+// 提示: `derive` 是实现一些常用特征的好办法
 use std::collections::HashMap;
 
 struct Viking {
@@ -125,7 +118,6 @@ struct Viking {
 }
 
 impl Viking {
-    /// Creates a new Viking.
     fn new(name: &str, country: &str) -> Viking {
         Viking {
             name: name.to_string(),
@@ -135,24 +127,24 @@ impl Viking {
 }
 
 fn main() {
-    // Use a HashMap to store the vikings' health points.
+    // 使用 HashMap 来存储 viking 的生命值
     let vikings = HashMap::from([
         (Viking::new("Einar", "Norway"), 25),
         (Viking::new("Olaf", "Denmark"), 24),
         (Viking::new("Harald", "Iceland"), 12),
     ]);
 
-    // Use derived implementation to print the status of the vikings.
+    // 使用 derive 的方式来打印 vikong 的当前状态
     for (viking, health) in &vikings {
         println!("{:?} has {} hp", viking, health);
     }
 }
 ```
 
-### Capacity
-Like vectors, HashMaps are growable, but HashMaps can also shrink themselves when they have excess space. You can create a `HashMap` with a certain starting capacity using `HashMap::with_capacity(uint)`, or use `HashMap::new()` to get a HashMap with a default initial capacity (recommended).
+### 容量
+关于容量，我们在之前的 [Vector](https://zh.practice.rs/collections/vector.html#容量) 中有详细的介绍，而 `HashMap` 也可以调整容量: 你可以通过 `HashMap::with_capacity(uint)` 使用指定的容量来初始化，或者使用 `HashMap::new()` ，后者会提供一个默认的初始化容量。
 
-#### Example
+#### 示例
 ```rust,editable
 
 use std::collections::HashMap;
@@ -160,32 +152,29 @@ fn main() {
     let mut map: HashMap<i32, i32> = HashMap::with_capacity(100);
     map.insert(1, 2);
     map.insert(3, 4);
-    // indeed ,the capacity of HashMap is not 100, so we can't compare the equality here.
+    // 事实上，虽然我们使用了 100 容量来初始化，但是 map 的容量很可能会比 100 更多
     assert!(map.capacity() >= 100);
 
-    // Shrinks the capacity of the map with a lower limit. It will drop
-    // down no lower than the supplied limit while maintaining the internal rules
-    // and possibly leaving some space in accordance with the resize policy.
+    // 对容量进行收缩，你提供的值仅仅是一个允许的最小值，实际上，Rust 会根据当前存储的数据量进行自动设置，当然，这个值会尽量靠近你提供的值，同时还可能会预留一些调整空间
 
     map.shrink_to(50);
     assert!(map.capacity() >= 50);
 
-    // Shrinks the capacity of the map as much as possible. It will drop
-    // down as much as possible while maintaining the internal rules
-    // and possibly leaving some space in accordance with the resize policy.
+    // 让 Rust  自行调整到一个合适的值，剩余策略同上
     map.shrink_to_fit();
     assert!(map.capacity() >= 2);
     println!("Success!")
 }
 ```
 
-### Ownership
-For types that implement the `Copy` trait, like `i32` , the values are copied into `HashMap`. For owned values like `String`, the values will be moved and `HashMap` will be the owner of those values.
+### 所有权
+对于实现了 `Copy` 特征的类型，例如 `i32`，那类型的值会被拷贝到 `HashMap` 中。而对于有所有权的类型，例如 `String`，它们的值的所有权将被转移到 `HashMap` 中。
 
-5. 🌟🌟
+
+1. 🌟🌟
 ```rust,editable
-// FIX the errors with least changes
-// DON'T remove any code line
+// 修复错误，尽可能少的去修改代码
+// 不要移除任何代码行！
 use std::collections::HashMap;
 fn main() {
   let v1 = 10;
@@ -195,21 +184,22 @@ fn main() {
 
   let v2 = "hello".to_string();
   let mut m2 = HashMap::new();
-  // ownership moved here
+  // 所有权在这里发生了转移
   m2.insert(v2, v1);
     
   assert_eq!(v2, "hello");
 }
 ```
 
-### Third-party Hash libs
-If the performance of `SipHash 1-3` doesn't meet your requirements, you can find replacements in crates.io or github.com.
+### 三方库 Hash 库
+在开头，我们提到过如果现有的 `SipHash 1-3` 的性能无法满足你的需求，那么可以使用社区提供的替代算法。
 
-The usage of third-party hash looks like this:
+例如其中一个社区库的使用方式如下：
+
 ```rust
 use std::hash::BuildHasherDefault;
 use std::collections::HashMap;
-// introduce a third party hash function
+// 引入第三方的哈希函数
 use twox_hash::XxHash64;
 
 
@@ -218,3 +208,4 @@ hash.insert(42, "the answer");
 assert_eq!(hash.get(&42), Some(&"the answer"));
 ```
 
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
