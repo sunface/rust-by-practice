@@ -254,7 +254,7 @@ You can use [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.ht
 
 **Example**
 ```rust
-use utf_slice;
+use utf8_slice;
 fn main() {
    let s = "The 🚀 goes to the 🌑!";
 

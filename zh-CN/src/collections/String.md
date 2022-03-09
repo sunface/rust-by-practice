@@ -113,7 +113,7 @@ fn main() {
 
 **示例**
 ```rust
-use utf_slice;
+use utf8_slice;
 fn main() {
    let s = "The 🚀 goes to the 🌑!";
 
