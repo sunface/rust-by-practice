@@ -199,6 +199,8 @@ fn main() {
   m2.insert(v2, v1);
     
   assert_eq!(v2, "hello");
+
+  println!("Success!")
 }
 ```
 
