@@ -1,7 +1,7 @@
 # Vector
-Vectors are re-sizable arrays. Like slices, their size is not known at compile time, but they can grow or shrink at any time. 
+相比 `[T; N]` 形式的数组， `Vector` 最大的特点就是可以动态调整长度。
 
-### Basic Operations
+### 基本操作
 1. 🌟🌟🌟
 ```rust,editable
 
@@ -14,12 +14,12 @@ fn main() {
     let v = vec![1, 2, 3];
     is_vec(v);
 
-    // vec!(..) and vec![..] are same macros, so
+    // vec!(..) 和 vec![..] 是同样的宏，宏可以使用 []、()、{}三种形式，因此...
     let v = vec!(1, 2, 3);
     is_vec(v);
     
-    // in code below, v is Vec<[u8; 3]> , not Vec<u8>
-    // USE Vec::new and `for` to rewrite the below code 
+    // ...在下面的代码中, v 是 Vec<[u8; 3]> , 而不是 Vec<u8>
+    // 使用 Vec::new 和 `for` 来重写下面这段代码
     let v1 = vec!(arr);
     is_vec(v1);
  
@@ -33,10 +33,10 @@ fn is_vec(v: Vec<u8>) {}
 
 
 
-2. 🌟🌟 a Vec can be extended with `extend` method
+2. 🌟🌟 `Vec` 可以使用 `extend` 方法进行扩展
 ```rust,editable
 
-// FILL in the blank
+// 填空
 fn main() {
     let mut v1 = Vec::from([1, 2, 4]);
     v1.pop();
@@ -51,11 +51,13 @@ fn main() {
 }
 ```
 
-### Turn X Into Vec
+### 将 X 类型转换(From/Into 特征)成 Vec
+只要为 `Vec` 实现了 `From<T>` 特征，那么 `T` 就可以被转换成 `Vec`。
+
 3. 🌟🌟🌟
 ```rust,editable
 
-// FILL in the blanks
+// 填空
 fn main() {
     // array -> Vec
     // impl From<[T; N]> for Vec
@@ -80,7 +82,7 @@ fn main() {
     let v3 = Vec::__(s);
     assert_eq!(v2, v3);
 
-    // Iterators can be collected into vectors
+    // 迭代器 Iterators 可以通过 collect 变成 Vec
     let v4: Vec<i32> = [0; 10].into_iter().collect();
     assert_eq!(v4, vec![0; 10]);
 
@@ -88,11 +90,11 @@ fn main() {
  }
 ```
 
-### Indexing
+### 索引
 4. 🌟🌟🌟
 ```rust,editable
 
-// FIX the error and IMPLEMENT the code
+// 修复错误并实现缺失的代码
 fn main() {
     let mut v = Vec::from([1, 2, 3]);
     for i in 0..5 {
@@ -100,7 +102,7 @@ fn main() {
     }
 
     for i in 0..5 {
-       // IMPLEMENT the code here...
+       // 实现这里的代码...
     }
     
     assert_eq!(v, vec![2, 3, 4, 5, 6]);
@@ -110,27 +112,28 @@ fn main() {
 ```
 
 
-### Slicing
-A Vec can be mutable. On the other hand, slices are read-only objects. To get a slice, use `&`. 
+### 切片
+与 `String` 的切片类似， `Vec` 也可以使用切片。如果说 `Vec` 是可变的，那它的切片就是不可变或者说只读的，我们可以通过 `&` 来获取切片。
 
-In Rust, it’s more common to pass slices as arguments rather than vectors when you just want to provide read access. The same goes for `String` and `&str`.
+在 Rust 中，将切片作为参数进行传递是更常见的使用方式，例如当一个函数只需要可读性时，那传递 `Vec` 或 `String` 的切片 `&[T]` / `&str` 会更加适合。
+
 
 5. 🌟🌟
 ```rust,editable
 
-// FIX the errors
+// 修复错误
 fn main() {
     let mut v = vec![1, 2, 3];
 
     let slice1 = &v[..];
-    // out of bounds will cause a panic
-    // You must use `v.len` here
+    // 越界访问将导致 panic.
+    // 修改时必须使用 `v.len`
     let slice2 = &v[0..4];
     
     assert_eq!(slice1, slice2);
     
-    // slice are read only
-    // Note: slice and &Vec are different
+    // 切片是只读的
+    // 注意：切片和 `&Vec` 是不同的类型，后者仅仅是 `Vec` 的引用，并可以通过解引用直接获取 `Vec`
     let vec_ref: &mut Vec<i32> = &mut v;
     (*vec_ref).push(4);
     let slice3 = &mut v[0..3];
@@ -141,35 +144,35 @@ fn main() {
     println!("Success!")
 }
 ```
-### Capacity
-The capacity of a vector is the amount of space allocated for any future elements that will be added onto the vector. This is not to be confused with the length of a vector, which specifies the number of actual elements within the vector. If a vector’s length exceeds its capacity, its capacity will automatically be increased, but its elements will have to be reallocated.
+### 容量
+容量 `capacity` 是已经分配好的内存空间，用于存储未来添加到 `Vec` 中的元素。而长度 `len` 则是当前 `Vec` 中已经存储的元素数量。如果要添加新元素时，长度将要超过已有的容量，那容量会自动进行增长：Rust 会重新分配一块更大的内存空间，然后将之前的 `Vec` 拷贝过去，因此，这里就会发生新的内存分配( 目前 Rust 的容量调整策略是加倍，例如 2 -> 4 -> 8 ..)。
 
-For example, a vector with capacity 10 and length 0 would be an empty vector with space for 10 more elements. Pushing 10 or fewer elements onto the vector will not change its capacity or cause reallocation to occur. However, if the vector’s length is increased to 11, it will have to reallocate, which can be slow. For this reason, it is recommended to use `Vec::with_capacity `whenever possible to specify how big the vector is expected to get.
+若这段代码会频繁发生，那频繁的内存分配会大幅影响我们系统的性能，最好的办法就是提前分配好足够的容量，尽量减少内存分配。
+
 
 6. 🌟🌟
 ```rust,editable
-// FIX the errors
+// 修复错误
 fn main() {
     let mut vec = Vec::with_capacity(10);
 
-    // The vector contains no items, even though it has capacity for more
     assert_eq!(vec.len(), __);
     assert_eq!(vec.capacity(), 10);
 
-    // These are all done without reallocating...
+    // 由于提前设置了足够的容量，这里的循环不会造成任何内存分配...
     for i in 0..10 {
         vec.push(i);
     }
     assert_eq!(vec.len(), __);
     assert_eq!(vec.capacity(), __);
 
-    // ...but this may make the vector reallocate
+    // ...但是下面的代码会造成新的内存分配
     vec.push(11);
     assert_eq!(vec.len(), 11);
     assert!(vec.capacity() >= 11);
 
 
-    // fill in an appropriate value to make the `for` done without reallocating 
+    // 填写一个合适的值，在 `for` 循环运行的过程中，不会造成任何内存分配
     let mut vec = Vec::with_capacity(__);
     for i in 0..100 {
         vec.push(i);
@@ -182,15 +185,14 @@ fn main() {
 }
 ```
 
-### Store distinct types in Vector
-The elements in a vector mush be the same type, for example , the code below will cause an error:
+### 在 Vec 中存储不同类型的元素
+`Vec` 中的元素必须是相同的类型，例如以下代码会发生错误:
 ```rust
 fn main() {
    let v = vec![1, 2.0, 3];
 }
 ```
-
-But we can use enums or trait objects to store distinct types.
+但是我们可以使用枚举或特征对象来存储不同的类型.
 
 7. 🌟🌟
 ```rust,editable
@@ -200,10 +202,10 @@ enum IpAddr {
     V6(String),
 }
 fn main() {
-    // FILL in the blank
+    // 填空
     let v : Vec<IpAddr>= __;
     
-    // Comparing two enums need to derive the PartialEq trait
+    // 枚举的比较需要派生 PartialEq 特征
     assert_eq!(v[0], IpAddr::V4("127.0.0.1".to_string()));
     assert_eq!(v[1], IpAddr::V6("::1".to_string()));
 
@@ -231,7 +233,7 @@ impl IpAddr for V6 {
 }
 
 fn main() {
-    // FILL in the blank
+    // 填空
     let v: __= vec![
         Box::new(V4("127.0.0.1".to_string())),
         Box::new(V6("::1".to_string())),
@@ -242,3 +244,5 @@ fn main() {
     }
 }
 ```
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
