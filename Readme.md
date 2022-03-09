@@ -7,7 +7,6 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 ## Read online
 
 - [https://practice.rs](https://practice.rs)
-- [中文阅读地址](https://zh.practice.rs)
 
 ## Features
 
