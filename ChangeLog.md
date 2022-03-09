@@ -1,5 +1,10 @@
 # ChangeLog
 
+### 2022-03-09
+
+- Translate several English chapters to Chinese
+- Add [Type conversions - As](https://practice.rs/type-conversions/as.html)
+  
 ### 2022-03-08
 
 - Add [HashMap](https://practice.rs/collections/hashmap.html)
