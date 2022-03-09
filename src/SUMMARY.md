@@ -34,6 +34,8 @@
   - [HashMap](collections/hashmap.md)
 - [Type Conversion](type-conversions/intro.md)
   - [as](type-conversions/as.md)
+  - [From/Into](type-conversions/from-into.md)
+  - [Others](type-conversions/others.md)
 - [Result and panic todo](result-panic/intro.md)
   - [panic!](result-panic/panic.md)
   - [result and ?](result-panic/result.md)
