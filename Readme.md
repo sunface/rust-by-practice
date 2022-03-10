@@ -10,7 +10,11 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 
 ## Running locally
 
-This uses [mdbook](https://rust-lang.github.io/mdBook/).You can run locally by installing [mdbook](https://rust-lang.github.io/mdBook/guide/installation.html) using cargo and then using `mdbook serve` 
+We use [mdbook](https://rust-lang.github.io/mdBook/) building our exercises. You can run locally with below steps:
+```shell
+$ cargo install mdbook
+$ cd rust-by-practice && mdbook serve 
+```
 
 ## Features
 
