@@ -8,6 +8,10 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 
 - [https://practice.rs](https://practice.rs)
 
+## Running locally
+
+This uses [mdbook](https://rust-lang.github.io/mdBook/).You can run locally by installing [mdbook](https://rust-lang.github.io/mdBook/guide/installation.html) using cargo and then using `mdbook serve` 
+
 ## Features
 
 Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works!
