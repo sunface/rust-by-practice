@@ -4,7 +4,7 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 
 > 🎊 Updated on 2022-03-09: Add [Type conversions - As](https://practice.rs/type-conversions/as.html)
 
-## Read online
+## Reading online
 
 - [https://practice.rs](https://practice.rs)
 
