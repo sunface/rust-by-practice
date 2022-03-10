@@ -43,4 +43,51 @@ fn never_return() -> ! {
 }
 ```
 
+4. 🌟🌟 发散函数( Diverging function )不会返回任何值，因此它们可以用于替代需要返回任何值的地方
+```rust,editable
+
+fn main() {
+    println!("Success!");
+}
+
+fn get_option(tp: u8) -> Option<i32> {
+    match tp {
+        1 => {
+            // TODO
+        }
+        _ => {
+            // TODO
+        }
+    };
+    
+    // 这里与其返回一个 None，不如使用发散函数替代
+    never_return_fn()
+}
+
+// 使用三种方法实现以下发散函数
+fn never_return_fn() -> ! {
+    
+}
+```
+
+5. 🌟🌟
+```rust,editable
+
+fn main() {
+    // 填空
+    let b = __;
+
+    let v = match b {
+        true => 1,
+        // 发散函数也可以用于 `match` 表达式，用于替代任何类型的值
+        false => {
+            println!("Success!");
+            panic!("we have no value for `false`, but we can panic")
+        }
+    };
+
+    println!("Excercise Failed if printing out this line!");
+}
+```
+
 > 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 

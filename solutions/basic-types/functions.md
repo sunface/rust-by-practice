@@ -53,3 +53,65 @@ fn never_return() -> ! {
     }
 }
 ```
+
+4.
+```rust
+fn main() {
+    println!("Success!");
+}
+
+fn get_option(tp: u8) -> Option<i32> {
+    match tp {
+        1 => {
+            // TODO
+        }
+        _ => {
+            // TODO
+        }
+    };
+    
+    never_return_fn()
+}
+
+// IMPLEMENT this function
+// DON'T change any code else
+fn never_return_fn() -> ! {
+    unimplemented!()
+}
+```
+
+```rust
+// IMPLEMENT this function in THREE ways
+fn never_return_fn() -> ! {
+    panic!()
+}
+```
+
+```rust
+// IMPLEMENT this function in THREE ways
+fn never_return_fn() -> ! {
+    loop {
+        std::thread::sleep(std::time::Duration::from_secs(1))
+    }
+}
+```
+
+5.
+```rust
+fn main() {
+    // FILL in the blank
+    let b = false;
+
+    let v = match b {
+        true => 1,
+        // Diverging functions can also be used in match expression
+        false => {
+            println!("Success!");
+            panic!("we have no value for `false`, but we can panic")
+        }
+    };
+
+    println!("Excercise Failed if printing out this line!");
+}
+
+```
