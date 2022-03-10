@@ -4,6 +4,8 @@
 
 - Add [Type conversions - From/Into](https://practice.rs/type-conversions/from-into.html)
 - Add [Type conversions - Others](https://practice.rs/type-conversions/others.html)
+- Add [Panics](https://practice.rs/result-panic/panic.html)
+
 
 ### 2022-03-09
 

@@ -2,7 +2,7 @@
 
 This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
-> 🎊 Updated on 2022-03-10: Add [Type conversions - Others](https://practice.rs/type-conversions/from-into.html)
+> 🎊 Updated on 2022-03-10: Add [Panics](https://practice.rs/result-panic/panic.html)
 
 ## Reading online
 
