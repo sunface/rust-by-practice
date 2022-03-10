@@ -1,5 +1,10 @@
 # ChangeLog
 
+### 2022-03-10
+
+- Add [Type conversions - From/Into](https://practice.rs/type-conversions/from-into.html)
+
+
 ### 2022-03-09
 
 - Translate several English chapters to Chinese
