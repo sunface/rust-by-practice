@@ -4,9 +4,17 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 
 > 🎊 Updated on 2022-03-09: Add [Type conversions - From/Into](https://practice.rs/type-conversions/from-into.html)
 
-## Read online
+## Reading online
 
 - [https://practice.rs](https://practice.rs)
+
+## Running locally
+
+We use [mdbook](https://rust-lang.github.io/mdBook/) building our exercises. You can run locally with below steps:
+```shell
+$ cargo install mdbook
+$ cd rust-by-practice && mdbook serve 
+```
 
 ## Features
 
