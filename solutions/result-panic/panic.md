@@ -1,3 +1,23 @@
+1.
+```rust
+use core::panic;
+
+fn drink(beverage: &str) {
+    if beverage == "lemonade" {
+        println!("Success!");
+        // IMPLEMENT the below code
+        panic!("drinked, duang.....peng!")
+     }
+
+    println!("Excercise Failed if printing out this line!");
+}
+
+fn main() {
+    drink("lemonade");
+
+    println!("Excercise Failed if printing out this line!");
+}
+```
 
 2.
 ```rust
