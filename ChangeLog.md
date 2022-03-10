@@ -3,7 +3,7 @@
 ### 2022-03-10
 
 - Add [Type conversions - From/Into](https://practice.rs/type-conversions/from-into.html)
-
+- Add [Type conversions - Others](https://practice.rs/type-conversions/others.html)
 
 ### 2022-03-09
 
