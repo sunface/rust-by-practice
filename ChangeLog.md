@@ -5,7 +5,7 @@
 - Add [Type conversions - From/Into](https://practice.rs/type-conversions/from-into.html)
 - Add [Type conversions - Others](https://practice.rs/type-conversions/others.html)
 - Add [Panics](https://practice.rs/result-panic/panic.html)
-
+- Add exercises for [diverging functions](https://practice.rs/basic-types/functions.html#diverging-functions)
 
 ### 2022-03-09
 
