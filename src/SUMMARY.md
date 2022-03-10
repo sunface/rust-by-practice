@@ -36,7 +36,7 @@
   - [as](type-conversions/as.md)
   - [From/Into](type-conversions/from-into.md)
   - [Others](type-conversions/others.md)
-- [Result and panic TODO](result-panic/intro.md)
+- [Result and panic](result-panic/intro.md)
   - [panic!](result-panic/panic.md)
   - [result and ?](result-panic/result.md)
 - [Crate and module TODO](crate-module/intro.md)
