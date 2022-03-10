@@ -99,5 +99,7 @@ fn main() {
     unsafe {
         assert_eq!(std::mem::size_of_val(&*b), __)
     }
+
+    println!("Success!")
 }
 ```
