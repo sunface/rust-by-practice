@@ -49,7 +49,7 @@ struct Example<'a, 'b> {
 }
 
 /* Fix function signature */
-fn fix_me<'b>(foo: &Example<'b>) -> &'b NoCopyType
+fn fix_me<'b>(foo: &Example<'_, 'b>) -> &'b NoCopyType
 { foo.b }
 
 fn main()
