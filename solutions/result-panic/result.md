@@ -1,18 +1,8 @@
-# result and ?
-`Result<T>` is an enum to describe possible errors. It has two variants: 
-
-- `Ok(T)`: a value T was found
-- `Err(e)`: An error was found with a value `e`
-
-In short words, the expected outcome is `Ok`, while the unexpected outcome is `Err`.
-
-1. 🌟🌟
-```rust,editable
-
-// FILL in the blanks and FIX the errors
+1.
+```rust
 use std::num::ParseIntError;
 
-fn multiply(n1_str: &str, n2_str: &str) -> __ {
+fn multiply(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     let n1 = n1_str.parse::<i32>();
     let n2 = n2_str.parse::<i32>();
     Ok(n1.unwrap() * n2.unwrap())
@@ -20,26 +10,25 @@ fn multiply(n1_str: &str, n2_str: &str) -> __ {
 
 fn main() {
     let result = multiply("10", "2");
-    assert_eq!(result, __);
+    assert_eq!(result, Ok(20));
 
-    let result = multiply("t", "2");
-    assert_eq!(result.__, 8);
+    let result = multiply("4", "2");
+    assert_eq!(result.unwrap(), 8);
 
     println!("Success!")
 }
 ```
 
-### ? 
-`?` is almost exactly equivalent to `unwrap`, but `?` returns instead of panic on `Err`.
-
-2. 🌟🌟
-```rust,editable
-
+2.
+```rust
 use std::num::ParseIntError;
 
 // IMPLEMENT multiply with ?
 // DON'T use unwrap here
-fn multiply(n1_str: &str, n2_str: &str) -> __ {
+fn multiply(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
+    let n1 = n1_str.parse::<i32>()?;
+    let n2 = n2_str.parse::<i32>()?;
+    Ok(n1 * n2)
 }
 
 fn main() {
@@ -48,9 +37,8 @@ fn main() {
 }
 ```
 
-3. 🌟🌟
-```rust,editable
-
+3.
+```rust
 use std::fs::File;
 use std::io::{self, Read};
 
@@ -60,7 +48,7 @@ fn read_file1() -> Result<String, io::Error> {
         Ok(file) => file,
         Err(e) => return Err(e),
     };
-
+    
     let mut s = String::new();
     match f.read_to_string(&mut s) {
         Ok(_) => Ok(s),
@@ -68,12 +56,10 @@ fn read_file1() -> Result<String, io::Error> {
     }
 }
 
-// FILL in the blanks with one code line
-// DON'T change any code else
 fn read_file2() -> Result<String, io::Error> {
     let mut s = String::new();
 
-    __;
+    File::open("hello.txt")?.read_to_string(&mut s)?;
 
     Ok(s)
 }
@@ -84,17 +70,12 @@ fn main() {
 }
 ```
 
-### map & and_then
-[map](https://doc.rust-lang.org/stable/std/result/enum.Result.html#method.map) and [and_then](https://doc.rust-lang.org/stable/std/result/enum.Result.html#method.and_then) are two common combinators for `Result<T, E>` (also for `Option<T>`).
-
-4. 🌟🌟 
-
-```rust,editable
+4.
+```rust
 use std::num::ParseIntError;
 
-// FILL in the blank in two ways: map, and then
 fn add_two(n_str: &str) -> Result<i32, ParseIntError> {
-   n_str.parse::<i32>().__
+   n_str.parse::<i32>().map(|num| num +2)
 }
 
 fn main() {
@@ -104,8 +85,22 @@ fn main() {
 }
 ```
 
-5. 🌟🌟🌟
-```rust,editable
+```rust
+use std::num::ParseIntError;
+
+fn add_two(n_str: &str) -> Result<i32, ParseIntError> {
+   n_str.parse::<i32>().and_then(|num| Ok(num +2))
+}
+
+fn main() {
+    assert_eq!(add_two("4").unwrap(), 6);
+
+    println!("Success!")
+}
+```
+
+5.
+```rust
 use std::num::ParseIntError;
 
 // With the return type rewritten, we use pattern matching without `unwrap()`.
@@ -125,9 +120,12 @@ fn multiply(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
 }
 
 // Rewriting `multiply` to make it succinct
-// You should use BOTH of  `and_then` and `map` here.
+// You  MUST USING `and_then` and `map` here
 fn multiply1(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     // IMPLEMENT...
+    n1_str.parse::<i32>().and_then(|n1| {
+        n2_str.parse::<i32>().map(|n2| n1 * n2)
+    })
 }
 
 fn print(result: Result<i32, ParseIntError>) {
@@ -150,17 +148,12 @@ fn main() {
 }
 ```
 
-### Type alias
-Using `std::result::Result<T, ParseIntError>` everywhere is verbose and tedious, we can use alias for this purpose.
-
-At a module level, creating aliases can be particularly helpful. Errors found in the a specific module often has the same `Err` type, so a single alias can succinctly defined all associated `Results`. This is so useful even the `std` library even supplies one: [`io::Result`](https://doc.rust-lang.org/std/io/type.Result.html).
-
-6. 🌟
-```rust,editable
+6.
+```rust
 use std::num::ParseIntError;
 
-// FILL in the blank
-type __;
+// Define a generic alias for a `Result` with the error type `ParseIntError`.
+type Res<T> = Result<T, ParseIntError>;
 
 // Use the above alias to refer to our specific `Result` type.
 fn multiply(first_number_str: &str, second_number_str: &str) -> Res<i32> {
@@ -180,33 +173,5 @@ fn print(result: Res<i32>) {
 fn main() {
     print(multiply("10", "2"));
     print(multiply("t", "2"));
-
-    println!("Success!")
-}
-```
-
-### Using Result in `fn main`
-Typically `the` main function will look like this: 
-```rust
-fn main() {
-    println!("Hello World!");
-}
-```
-
-However `main` is also able to have a return type of `Result`. If an error occurs within the `main` function it will return an error code and print a debug representation of the error( Debug trait ).
-
-The following example shows such a scenario:
-```rust,editable
-
-use std::num::ParseIntError;
-
-fn main() -> Result<(), ParseIntError> {
-    let number_str = "10";
-    let number = match number_str.parse::<i32>() {
-        Ok(number)  => number,
-        Err(e) => return Err(e),
-    };
-    println!("{}", number);
-    Ok(())
 }
 ```
