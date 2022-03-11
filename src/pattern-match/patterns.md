@@ -101,4 +101,19 @@ fn main() {
 }
 ```
 
+6. 🌟🌟 Using pattern `&mut V` to match a mutable reference needs you to be very careful due to `V` being a value  after matching
+```rust,editable
+
+// FIX the error with least changing
+// DON'T remove any code line
+fn main() {
+    let mut v = String::from("hello,");
+    let r = &mut v;
+
+    match r {
+       &mut value => value.push_str(" world!") 
+    }
+}
+````
+
 > You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
