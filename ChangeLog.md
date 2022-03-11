@@ -3,7 +3,7 @@
 ### 2022-03-11
 
 - Add one exercise in [Patterns](https://practice.rs/pattern-match/patterns.html)
-
+- Add [Result and ?](https://practice.rs/result-panic/result.html)
 
 ### 2022-03-10
 
