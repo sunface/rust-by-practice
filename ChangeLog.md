@@ -1,5 +1,10 @@
 # ChangeLog
 
+### 2022-03-11
+
+- Add one exercise in [Patterns](https://practice.rs/pattern-match/patterns.html)
+
+
 ### 2022-03-10
 
 - Add [Type conversions - From/Into](https://practice.rs/type-conversions/from-into.html)
