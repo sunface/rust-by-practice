@@ -249,7 +249,7 @@ fn main() {
 
 
 5. 🌟🌟
-```rust
+```rust,editable
 use std::fmt;
 
 // 定义一个 newtype `Pretty`
