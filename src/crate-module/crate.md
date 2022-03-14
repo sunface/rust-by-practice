@@ -42,7 +42,7 @@ edition = "2021"
 > Note! This package could be safely removed due to the first one's existence.
 
 3. 🌟 
-```rust
+```rust,editable
 /* FILL in the blank with your ANSWER */
 
 // Q: Whats the difference between package 1# and 2# ?
@@ -58,7 +58,7 @@ In package `hello-package`, there is binary crate with the same name as the pack
 Similar to `hello-package`, `hello-package1` also has a crate in it, however, this package doesn't contain a binary crate but a library crate, and `src/lib.rs` is the crate root.
 
 4. 🌟
-```rust
+```rust,editable
 /* FILL in the blank with your ANSWER */
 
 // Q: Whats the name of the library crate in package `hello-package1`?
@@ -67,7 +67,7 @@ Similar to `hello-package`, `hello-package1` also has a crate in it, however, th
 
 
 5. 🌟🌟 Add a library crate for `hello-package` and describe it's files tree below:
-```shell
+```shell,editable
 # FILL in the blanks
 .
 ├── Cargo.lock
@@ -81,7 +81,7 @@ After this step, there should be two crates in package `hello-package`: **a bina
 
 6. 🌟🌟🌟 A package can contain at most one library crate, but it can contain as many binary crates as you would like by placing files in `src/bin` directory: **each file will be a separate binary crate with the same name as the file**.
 
-```shell
+```shell,editable
 # Create a package which contains 
 # 1. three binary crates: `hello-package`, `main1` and `main2`
 # 2. one library crate
