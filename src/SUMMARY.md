@@ -1,6 +1,6 @@
 # Summary
 
-- [Rust By Practice](about.md)
+- [Rust By Practice](why-exercise.md)
 - [Variables](variables.md)
 - [Basic Types](basic-types/intro.md)
   - [Numbers](basic-types/numbers.md)
@@ -39,8 +39,8 @@
 - [Result and panic](result-panic/intro.md)
   - [panic!](result-panic/panic.md)
   - [Result and ?](result-panic/result.md)
-- [Crate and module TODO](crate-module/intro.md)
-  - [Crate](crate-module/crate.md)
+- [Crate and module](crate-module/intro.md)
+  - [Package and Crate](crate-module/crate.md)
   - [Module](crate-module/module.md)
   - [use and pub](crate-module/use-pub.md)
 - [Comments and Docs TODO](comments-docs.md)

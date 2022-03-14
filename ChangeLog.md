@@ -1,5 +1,9 @@
 # ChangeLog
 
+### 2022-03-14
+
+- Add [Package and Crate](https://practice.rs/crate-module/crate.html)
+
 ### 2022-03-11
 
 - Add one exercise in [Patterns](https://practice.rs/pattern-match/patterns.html)
