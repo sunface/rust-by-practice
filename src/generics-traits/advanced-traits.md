@@ -258,7 +258,7 @@ This restriction is often called as the orphan rule, so named because the parent
 It’s possible to get around this restriction using the newtype pattern, which involves creating a new type in a tuple struct.
 
 5. 🌟🌟
-```rust
+```rust,editable
 use std::fmt;
 
 // DEFINE a newtype `Pretty` here
