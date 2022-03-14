@@ -4,6 +4,7 @@
 
 - Add [Package and Crate](https://practice.rs/crate-module/crate.html)
 - Add [Modules](https://practice.rs/crate-module/module.html)
+- Add [Advanced use and pub](https://practice.rs/crate-module/use-pub.html)
 
 ### 2022-03-11
 

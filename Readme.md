@@ -2,7 +2,7 @@
 
 This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
-> 🎊 Updated on 2022-03-14: Add [Package and Crate](https://practice.rs/crate-module/crate.html)
+> 🎊 Updated on 2022-03-14: Add Chapter [Crate and Module](https://practice.rs/crate-module/intro.html)
 
 ## Reading online
 
