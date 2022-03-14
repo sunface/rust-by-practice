@@ -42,7 +42,7 @@
 - [Crate and module](crate-module/intro.md)
   - [Package and Crate](crate-module/crate.md)
   - [Module](crate-module/module.md)
-  - [use and pub](crate-module/use-pub.md)
+  - [Advanced use and pub](crate-module/use-pub.md)
 - [Comments and Docs TODO](comments-docs.md)
 - [Formatted output TODO](formatted-output.md)
 - [Lifetime TODO](lifetime/intro.md)

@@ -3,6 +3,7 @@
 ### 2022-03-14
 
 - Add [Package and Crate](https://practice.rs/crate-module/crate.html)
+- Add [Modules](https://practice.rs/crate-module/module.html)
 
 ### 2022-03-11
 
