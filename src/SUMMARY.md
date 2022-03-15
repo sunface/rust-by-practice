@@ -46,7 +46,7 @@
 - [Comments and Docs](comments-docs.md)
 - [Formatted output](formatted-output/intro.md)
   - [Debug and Display](formatted-output/debug-display.md)
-  - [println!, eprintln! and format!](formatted-output/println.md)
+  - [println! and format!](formatted-output/println.md)
   - [formating](formatted-output/formatting.md)
 - [Lifetime TODO](lifetime/intro.md)
   - [basic](lifetime/basic.md)

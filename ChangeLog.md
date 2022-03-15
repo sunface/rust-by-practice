@@ -2,8 +2,10 @@
 
 ### 2022-03-15
 
+- Add [Debug and Display](https://practice.rs/formatted-output/debug-display.html)
 - Add [Comments and Docs](https://practice.rs/comments-docs.html)
 - Add [Fighting with Compiler](https://practice.rs/fight-compiler/intro.html)
+
 
 ### 2022-03-14
 
