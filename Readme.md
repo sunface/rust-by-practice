@@ -1,13 +1,15 @@
 <div align="center">
     <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png">
-    <div>
-        <span>English</span>
-        <span> | </span>
-        <a href="https://github.com/sunface/rust-by-practice/blob/master/zh-CN/src/why-exercise.md">中文</a>
-    </div>
-    <p align="center">Practice Rust with challenging examples, exercises and projects</p>
 </div>
 
+<p align="center">
+    <span>English</span>
+    <span> | </span>
+    <a href="https://github.com/sunface/rust-by-practice/blob/master/zh-CN/src/why-exercise.md">中文</a>
+</p>
+    
+<p align="center">Practice Rust with challenging examples, exercises and projects</p>
+    
 <div align="center">
 
 [![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) [![Forks Count](https://img.shields.io/github/forks/sunface/rust-by-practice.svg?style=flat)](https://github.com/naaive/orange/network/members)
