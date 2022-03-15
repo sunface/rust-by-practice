@@ -67,7 +67,7 @@ fn main() {
     // The problem with `derive` is there is no control over how
     // the results look. What if I want this to just show a `7`?
 
-    /* Make it output: Now 7 will print! */
+    /* Make it print: Now 7 will print! */
     println!("Now {:?} will print!", Deep(Structure(7)));
 }
 ```
@@ -81,6 +81,8 @@ Anotherthing to note: the placefolder for `Display` is `{}` not `{:?}`.
 
 4. 🌟🌟
 ```rust,editable
+
+/* Make it work*/
 use std::fmt;
 
 struct Point2D {
@@ -97,31 +99,27 @@ impl fmt::Debug for Point2D {
 }
 
 fn main() {
-
     let point = Point2D { x: 3.3, y: 7.2 };
-    /* Make it output:
-        Display: 3.3 + 7.2i
-    */
-    println!("{}", point);
-
-     /* Make it output:
-        Debug: Complex { real: 3.3, imag: 7.2 }
-    */
-    println!("{:?}", point);
+    assert_eq!(format!("{}",point), "Display: 3.3 + 7.2i");
+    assert_eq!(format!("{:?}",point), "Debug: Complex { real: 3.3, imag: 7.2 }");
+    
+    println!("Success!")
 }
 ```
 
 
-### Example
+### `?` operator
 
 Implementing `fmt::Display` for a structure whose elements must be handled separately is triky. The problem is each `write!` generates a `fmt::Result` which must be handled in the same place.
 
 Fortunately, Rust provides the `?` operator to help us eliminate some unnecessary codes for deaing with `fmt::Result`.
 
+5. 🌟🌟
 ```rust,editable
-use std::fmt; // Import the `fmt` module.
 
-// Define a structure named `List` containing a `Vec`.
+/* Make it work */
+use std::fmt; 
+
 struct List(Vec<i32>);
 
 impl fmt::Display for List {
@@ -148,7 +146,8 @@ impl fmt::Display for List {
 
 fn main() {
     let v = List(vec![1, 2, 3]);
-    println!("{}", v);
+    assert_eq!(format!("{}",v), "[0: 1, 1: 2, 2: 3]");
+    println!("Success!")
 }
 ```
 
