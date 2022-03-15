@@ -1,5 +1,5 @@
 <div align="center">
-    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png">
+    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png?raw=true">
 </div>
     
 <p align="center">通过有挑战性的示例、练习题、实践项目来提升 Rust 水平，建立从入门学习到上手实战的直通桥梁</p>
