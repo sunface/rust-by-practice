@@ -39,7 +39,7 @@
 - [Result and panic](result-panic/intro.md)
   - [panic!](result-panic/panic.md)
   - [Result and ?](result-panic/result.md)
-- [Crate and module](crate-module/intro.md)
+- [Crate and Module](crate-module/intro.md)
   - [Package and Crate](crate-module/crate.md)
   - [Module](crate-module/module.md)
   - [Advanced use and pub](crate-module/use-pub.md)
@@ -85,3 +85,6 @@
   
 - [Standard Library TODO](std/intro.md)
   - [String](std/String.md)
+
+- [Fighting with Compiler](fight-compiler/intro.md)
+  - [Borrowing](fight-compiler/borrowing.md)
