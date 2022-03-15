@@ -1,8 +1,21 @@
-# Rust By Practice
+<div align="center">
+    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png">
+    <div>
+        <span>English</span>
+        <span> | </span>
+        <a href="https://github.com/sunface/rust-by-practice/blob/master/zh-CN/src/why-exercise.md">中文</a>
+    </div>
+    <p align="center">Practice Rust with challenging examples, exercises and projects</p>
+</div>
+
+<div align="center">
+
+[![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) [![Forks Count](https://img.shields.io/github/forks/sunface/rust-by-practice.svg?style=flat)](https://github.com/naaive/orange/network/members)
+[![LICENSE](https://img.shields.io/badge/license-mit-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
+</div>
 
 This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
-> 🎊 Updated on 2022-03-14: Add Chapter [Crate and Module](https://practice.rs/crate-module/intro.html)
 
 ## Reading online
 

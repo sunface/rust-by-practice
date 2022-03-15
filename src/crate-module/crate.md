@@ -19,7 +19,7 @@ version = "0.1.0"
 edition = "2021"
 ```
 
-> Note! We will this package across the whole chapter
+> Note! We will use this package across the whole chapter as a practice project.
 
 2. 🌟 Create a package with below layout:
 ```shell
@@ -90,11 +90,11 @@ After this step, there should be two crates in package `hello-package`: **a bina
 ├── Cargo.toml
 ├── Cargo.lock
 ├── src
-│   ├── 
-│   ├── 
-│   └── 
-│       └── 
-│       └── 
+│   ├── __
+│   ├── __
+│   └── __
+│       └── __
+│       └── __
 ├── tests # directory for integrated tests files
 │   └── some_integration_tests.rs
 ├── benches # dir for benchmark files
@@ -104,3 +104,6 @@ After this step, there should be two crates in package `hello-package`: **a bina
 ```
 
 Yep, as you can see, the above package structure is very standard and is widely used in many Rust projects.
+
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice) (under the solutions path), but only use it when you need it :)

@@ -64,3 +64,6 @@ pub mod a {
 
 ### Full Code
 The full code of `hello-package` is [here](https://github.com/sunface/rust-by-practice/tree/master/practices/hello-package).
+
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice) (under the solutions path), but only use it when you need it :)
