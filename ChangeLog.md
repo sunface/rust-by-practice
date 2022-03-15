@@ -2,6 +2,7 @@
 
 ### 2022-03-15
 
+- Add [prinln! and format!](https://practice.rs/formatted-output/println.html)
 - Add [Debug and Display](https://practice.rs/formatted-output/debug-display.html)
 - Add [Comments and Docs](https://practice.rs/comments-docs.html)
 - Add [Fighting with Compiler](https://practice.rs/fight-compiler/intro.html)
