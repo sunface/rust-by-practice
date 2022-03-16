@@ -1,3 +1,5 @@
+<h1 align="center">Rust语言实战</h1>
+
 <div align="center">
     <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png?raw=true">
 </div>
