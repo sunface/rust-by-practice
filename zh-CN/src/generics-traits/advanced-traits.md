@@ -102,6 +102,7 @@ trait UsernameWidget {
     fn get(&self) -> String;
 }
 
+trait AgeWidget {
     fn get(&self) -> u8;
 }
 
