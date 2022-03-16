@@ -43,6 +43,12 @@ $ cd rust-by-practice && mdbook serve
 
 **总之，我们想做的就是解决入门学习后，不知道该如何运用的问题，毕竟对于 Rust 来说，从学习到实战，中间还隔着数个 Go语言 的难度**
 
+## 关于我们
+
+Rust By Practice 由 Rust 编程学院倾情打造。
+
+同时我们还提供了一本目前最好也是最用心的开源 Rust 书籍 - [Rust语言圣经](https://github.com/sunface/rust-course)， 适合从入门到精通所有阶段的学习，欢迎大家阅读使用。
+
 ## 喜欢我们精心设计的练习题吗？
 
 对我们来说，来自读者大大的肯定比什么都重要，因此一个 [Github star](https://github.com/sunface/rust-by-practice) 要比一杯咖啡更让我们开心，而且现在它在跳楼打折，无需 998 ， 仅需 0 元钱 :)
