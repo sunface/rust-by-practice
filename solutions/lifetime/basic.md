@@ -1,8 +1,6 @@
 # Lifetime
 
 
-**Lifetimes**
-
 1. 🌟
 ```rust,editable
 /* Make it work */
