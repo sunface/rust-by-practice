@@ -10,7 +10,7 @@
 [![LICENSE](https://img.shields.io/badge/license-mit-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
 </div>
 
-本书的目标是通过大量的实战练习帮助大家更好的学习和上手使用 Rust 语言。书中的练习题非常易于使用：你所需的就是在线完成练习，并让它通过编译。
+*Rust语言实战* 的目标是通过大量的实战练习帮助大家更好的学习和上手使用 Rust 语言。书中的练习题非常易于使用：你所需的就是在线完成练习，并让它通过编译。
 
 
 ## 在线阅读
@@ -42,6 +42,13 @@ $ cd rust-by-practice && mdbook serve
 - 整体难度相对更高，更加贴近于实战难度: 简单 🌟 , 中等 🌟🌟 , 困难 🌟🌟🌟  , 地狱 🌟🌟🌟🌟
 
 **总之，我们想做的就是解决入门学习后，不知道该如何运用的问题，毕竟对于 Rust 来说，从学习到实战，中间还隔着数个 Go语言 的难度**
+
+## 关于我们
+
+*Rust语言实战* 由 Rust 编程学院倾情打造。
+
+同时我们还提供了一本目前最好也是最用心的开源 Rust 书籍 - [Rust语言圣经](https://github.com/sunface/rust-course)， 适合从入门到精通所有阶段的学习，欢迎大家阅读使用。
+
 
 ## 喜欢我们精心设计的练习题吗？
 
