@@ -1,5 +1,9 @@
 # ChangeLog
 
+### 2022-03-17
+
+- Add [Small projects with Elegant code](https://practice.rs/elegant-code-base.html)
+
 ### 2022-03-15
 
 - Add [Formatting](https://practice.rs/formatted-output/formatting.html)

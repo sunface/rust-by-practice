@@ -1,7 +1,7 @@
 # Summary
 
 - [Rust By Practice](why-exercise.md)
-- [Small projects with Elegant code base](elegant-code-base.md)
+- [Small projects with Elegant code](elegant-code-base.md)
 - [Variables](variables.md)
 - [Basic Types](basic-types/intro.md)
   - [Numbers](basic-types/numbers.md)
