@@ -1,6 +1,6 @@
 [book]
 title = "Rust By Practice( Rust 练习实践 )"
-description = "Practice Rust with example, exercise and hand-to-hand projects. Written with ❤️ by https://course.rs team"
+description = "Practice Rust by example, exercise and hand-to-hand projects. Written with ❤️ by https://course.rs team"
 authors = ["sunface, https://im.dev"]
 language = "en"
 
