@@ -7,6 +7,7 @@
 1. 🌟🌟
 
 ```rust,editbale
+
 // 填空并修复错误
 use std::collections::HashMap;
 fn main() {
