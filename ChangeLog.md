@@ -1,5 +1,9 @@
 # ChangeLog
 
+### 2022-03-18
+
+- Add [From and Into( Zh )]
+
 ### 2022-03-17
 
 - Add [Small projects with Elegant code](https://practice.rs/elegant-code-base.html)
