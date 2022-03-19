@@ -79,6 +79,28 @@ fn main() {
 ```
 
 3. 2
+```rust
+fn main() {  
+
+    // 基于 `&str` 类型创建一个 String,
+    // 字符串字面量的类型是 `&str`
+   let s: String = String::from("hello, world!");
+   println!("{:p}", &s);
+
+   // 创建一个切片引用指向 String `s`
+   let slice: &str = &s;
+
+   println!("{:p}", slice);
+
+   // 基于刚创建的切片来创建一个 String
+   let s: String = slice.to_string();
+   println!("{:p}", &s);
+
+   assert_eq!(s, "hello, world!");
+
+   println!("Success!")
+}
+```
 
 
 4.
