@@ -1,8 +1,13 @@
 # ChangeLog
 
+### 2022-3-20
+
+- Add [Panics (Zh)]
+- Add [Type conversion - others.md (zh)]
+
 ### 2022-03-18
 
-- Add [From and Into( Zh )]
+- Add [Type conversion - From and Into( Zh )]
 
 ### 2022-03-17
 

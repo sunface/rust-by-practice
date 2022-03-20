@@ -37,7 +37,7 @@
   - [as](type-conversions/as.md)
   - [From/Into](type-conversions/from-into.md)
   - [其它转换](type-conversions/others.md)
-- [返回值和 panic! todo](result-panic/intro.md)
+- [返回值和 panic!](result-panic/intro.md)
   - [panic! 深入剖析](result-panic/panic.md)
   - [返回值result 和 ?](result-panic/result.md)
 - [包和模块 todo](crate-module/intro.md)
