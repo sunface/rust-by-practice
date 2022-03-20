@@ -2,6 +2,7 @@
 
 ### 2022-3-20
 
+- Add [Result (zh)]
 - Add [Panics (Zh)]
 - Add [Type conversion - others.md (zh)]
 
