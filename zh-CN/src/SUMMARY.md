@@ -36,7 +36,7 @@
 - [类型转换](type-conversions/intro.md)
   - [as](type-conversions/as.md)
   - [From/Into](type-conversions/from-into.md)
-  - [Others](type-conversions/others.md)
+  - [其它转换](type-conversions/others.md)
 - [返回值和 panic! todo](result-panic/intro.md)
   - [panic! 深入剖析](result-panic/panic.md)
   - [返回值result 和 ?](result-panic/result.md)
