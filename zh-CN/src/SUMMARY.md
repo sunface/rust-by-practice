@@ -40,7 +40,7 @@
 - [返回值和 panic!](result-panic/intro.md)
   - [panic! 深入剖析](result-panic/panic.md)
   - [返回值result 和 ?](result-panic/result.md)
-- [包和模块 todo](crate-module/intro.md)
+- [包和模块](crate-module/intro.md)
   - [包 Crate](crate-module/crate.md)
   - [模块 Module](crate-module/module.md)
   - [使用use引入模块及受限可见性](crate-module/use-pub.md)
