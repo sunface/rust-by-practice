@@ -1,5 +1,5 @@
 <div align="center">
-    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png?raw=true">
+    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/en/assets/logo.png?raw=true">
 </div>
     
 <p align="center">Practice Rust with challenging examples, exercises and projects</p>
