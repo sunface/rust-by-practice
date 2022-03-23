@@ -1,6 +1,6 @@
 [book]
 title = "Rust By Practice( Rust 练习实践 )"
-description = "Practice Rust by example, exercise and hand-to-hand projects. Written with ❤️ by https://course.rs team"
+description = "Learning Rust By Practice, narrowing the gap between beginner and skilled-dev with challenging examples, exercises and projects."
 authors = ["sunface, https://im.dev"]
 language = "en"
 
@@ -13,6 +13,8 @@ enable = true
 level = 1
 
 [output.html]
+additional-css = ["theme/style2.css"]
+additional-js = ["assets/custom.js"]
 git-repository-url = "https://github.com/sunface/rust-by-practice"
 edit-url-template = "https://github.com/sunface/rust-by-practice/edit/master/zh-CN/{path}"
 
