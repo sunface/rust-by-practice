@@ -1,6 +1,13 @@
 # ChangeLog
 
-### 2022-3-20
+### 2022-03-23
+
+- Add [crate.md(Zh)]
+- Add [module.md(Zh)]
+- Add [use-pub.md(Zh)]
+
+
+### 2022-03-20
 
 - Add [Result (zh)]
 - Add [Panics (Zh)]
