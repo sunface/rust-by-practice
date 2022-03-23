@@ -1,5 +1,5 @@
 <div align="center">
-    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/assets/logo.png">
+    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/en/assets/logo.png">
 </div>
 
 <p align="center">
