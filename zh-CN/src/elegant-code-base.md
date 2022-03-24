@@ -29,5 +29,10 @@
 
 [这本书](https://picklenerd.github.io/pngme_book/) 将带领大家编写一个命令行程序，功能是在 PNG 文件中隐藏一些秘密信息，首要目标是让我们熟悉 Rust 代码。
 
+### 6. 使用 Rust 写一个小型 OS
+
+[这个博客系列](https://os.phil-opp.com) 会带领大家使用 Rust 语言创建一个小型的操作系统。其中每一篇文章都是一个小的教程并包含完整的代码。
+
+你也可以在[以下地址](https://github.com/phil-opp/blog_os)找到完整的源代码。
 
 **To be continued...**

@@ -26,6 +26,9 @@ Tutorial [`https://www.philippflenker.com/hecto/`](https://www.philippflenker.co
 ### 5. pngme book
 [This book](https://picklenerd.github.io/pngme_book/) will guide you to make a command line program that lets you hide secret messages in PNG files.  The primary goal here is to get you writing code. The secondary goal is to get you reading documentation.
 
+### 6. Writing an OS in Rust
+
+[This blog series](https://os.phil-opp.com) creates a small operating system in the Rust programming language. Each post is a small tutorial and includes all needed code, so you can follow along if you like. The source code is also available in the corresponding [Github repository](https://github.com/phil-opp/blog_os).
 
 
 **To be continued...**
