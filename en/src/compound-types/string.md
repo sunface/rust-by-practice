@@ -9,9 +9,9 @@ The type of string literal `"hello, world"` is `&str`, e.g `let s: &str = "hello
 
 // fix error without adding new line
 fn main() {
-   let s: str = "hello, world";
+    let s: str = "hello, world";
 
-   println!("Success!")
+    println!("Success!")
 }
 ```
 
@@ -22,8 +22,8 @@ fn main() {
 
 // fix the error with at least two solutions
 fn main() {
-   let s: Box<str> =  "hello, world".into();
-   greetings(s)
+    let s: Box<str> =  "hello, world".into();
+    greetings(s)
 }
 
 fn greetings(s: &str) {
@@ -39,13 +39,13 @@ fn greetings(s: &str) {
 
 // fill the blank
 fn main() {
-   let mut s = __;
-   s.push_str("hello, world");
-   s.push('!');
+    let mut s = __;
+    s.push_str("hello, world");
+    s.push('!');
 
-   assert_eq!(s, "hello, world!");
+    assert_eq!(s, "hello, world!");
 
-   println!("Success!")
+    println!("Success!")
 }
 ```
 
@@ -54,7 +54,7 @@ fn main() {
 
 // fix all errors without adding newline
 fn main() {
-   let  s =  String::from("hello");
+    let  s =  String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
@@ -68,13 +68,13 @@ fn main() {
 
 // fill the blank
 fn main() {
-   let s = String::from("I like dogs");
-   // Allocate new memory and store the modified string there
-   let s1 = s.__("dogs", "cats");
+    let s = String::from("I like dogs");
+    // Allocate new memory and store the modified string there
+    let s1 = s.__("dogs", "cats");
 
-   assert_eq!(s1, "I like cats");
+    assert_eq!(s1, "I like cats");
 
-   println!("Success!")
+    println!("Success!")
 }
 ```
 
@@ -102,25 +102,25 @@ Opsite to the seldom using of `str`, `&str` and `String` are used everywhere!
 
 // fix error with at lest two solutions
 fn main() {
-   let s =  "hello, world";
-   greetings(s)
+    let s =  "hello, world";
+    greetings(s)
 }
 
 fn greetings(s: String) {
     println!("{}",s)
 }
 ```
- 
+
 8. 🌟🌟 We can use `String::from` or `to_string` to convert a `&str` to `String`
 
 ```rust,editable
 
 // use two approaches to fix the error and without adding a new line
 fn main() {
-   let s =  "hello, world".to_string();
-   let s1: &str = s;
+    let s =  "hello, world".to_string();
+    let s1: &str = s;
 
-   println!("Success!")
+    println!("Success!")
 }
 ```
 
@@ -256,10 +256,10 @@ You can use [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.ht
 ```rust
 use utf8_slice;
 fn main() {
-   let s = "The 🚀 goes to the 🌑!";
+    let s = "The 🚀 goes to the 🌑!";
 
-   let rocket = utf8_slice::slice(s, 4, 5);
-   // Will equal "🚀"
+    let rocket = utf8_slice::slice(s, 4, 5);
+    // Will equal "🚀"
 }
 ```
 
