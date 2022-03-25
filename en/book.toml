@@ -13,8 +13,8 @@ enable = true
 level = 1
 
 [output.html]
-additional-css = ["theme/style.css"]
-additional-js = ["assets/custom.js"]
+additional-css = ["theme/style1.css"]
+additional-js = ["assets/custom1.js"]
 git-repository-url = "https://github.com/sunface/rust-by-practice"
 edit-url-template = "https://github.com/sunface/rust-by-practice/edit/master/en/{path}"
 
