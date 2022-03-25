@@ -1,5 +1,10 @@
 # ChangeLog
 
+### 2022-03-25
+
+- Replace gitalk with giscus comments system which is based on Github Discussions
+- Update css styles
+
 ### 2022-03-24
 
 - Add [comment-docs.md(Zh)]
