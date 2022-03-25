@@ -9,7 +9,7 @@
 
 // 修复错误，不要新增代码行
 fn main() {
-   let s: str = "hello, world";
+    let s: str = "hello, world";
 }
 ```
 
@@ -20,8 +20,8 @@ fn main() {
 
 // 使用至少两种方法来修复错误
 fn main() {
-   let s: Box<str> =  "hello, world".into();
-   greetings(s)
+    let s: Box<str> =  "hello, world".into();
+    greetings(s)
 }
 
 fn greetings(s: &str) {
@@ -37,11 +37,11 @@ fn greetings(s: &str) {
 
 // 填空
 fn main() {
-   let mut s = __;
-   s.push_str("hello, world");
-   s.push('!');
+    let mut s = __;
+    s.push_str("hello, world");
+    s.push('!');
 
-   assert_eq!(s, "hello, world!");
+    assert_eq!(s, "hello, world!");
 }
 ```
 
@@ -50,7 +50,7 @@ fn main() {
 
 // 修复所有错误，并且不要新增代码行
 fn main() {
-   let  s =  String::from("hello");
+    let  s =  String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
@@ -64,11 +64,11 @@ fn main() {
 
 // 填空
 fn main() {
-   let s = String::from("I like dogs");
-   // 以下方法会重新分配一块内存空间，然后将修改后的字符串存在这里
-   let s1 = s.__("dogs", "cats");
+    let s = String::from("I like dogs");
+    // 以下方法会重新分配一块内存空间，然后将修改后的字符串存在这里
+    let s1 = s.__("dogs", "cats");
 
-   assert_eq!(s1, "I like cats")
+    assert_eq!(s1, "I like cats")
 }
 ```
 
@@ -98,23 +98,23 @@ fn main() {
 
 // 使用至少两种方法来修复错误
 fn main() {
-   let s =  "hello, world";
-   greetings(s)
+    let s =  "hello, world";
+    greetings(s)
 }
 
 fn greetings(s: String) {
     println!("{}",s)
 }
 ```
- 
+
 8. 🌟🌟 我们可以使用 `String::from` 或 `to_string` 将 `&str` 转换成 `String` 类型
 
 ```rust,editable
 
 // 使用两种方法来解决错误，不要新增代码行
 fn main() {
-   let s =  "hello, world".to_string();
-   let s1: &str = s;
+    let s =  "hello, world".to_string();
+    let s1: &str = s;
 }
 ```
 
@@ -135,7 +135,7 @@ fn main() {
                 unicode_codepoint, character_name );
 
     // 还能使用 \ 来连接多行字符串
-   let long_string = "String literals
+    let long_string = "String literals
                         can span multiple lines.
                         The linebreak and indentation here \
                          can be escaped too!";
@@ -247,10 +247,10 @@ fn main() {
 ```rust
 use utf8_slice;
 fn main() {
-   let s = "The 🚀 goes to the 🌑!";
+    let s = "The 🚀 goes to the 🌑!";
 
-   let rocket = utf8_slice::slice(s, 4, 5);
-   // 结果是 "🚀"
+    let rocket = utf8_slice::slice(s, 4, 5);
+    // 结果是 "🚀"
 }
 ```
 

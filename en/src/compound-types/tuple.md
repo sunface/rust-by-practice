@@ -18,10 +18,10 @@ fn main() {
 
 // make it works
 fn main() {
-   let t = ("i", "am", "sunface");
-   assert_eq!(t.1, "sunface");
+    let t = ("i", "am", "sunface");
+    assert_eq!(t.1, "sunface");
 
-   println!("Success!")
+    println!("Success!")
 }
 ```
 
@@ -72,13 +72,13 @@ fn main() {
 ```rust,editable
 
 fn main() {
-   // fill the blank, need a few computations here.
-   let (x, y) = sum_multiply(__);
+    // fill the blank, need a few computations here.
+    let (x, y) = sum_multiply(__);
 
-   assert_eq!(x, 5);
-   assert_eq!(y, 6);
+    assert_eq!(x, 5);
+    assert_eq!(y, 6);
 
-   println!("Success!")
+    println!("Success!")
 }
 
 fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
