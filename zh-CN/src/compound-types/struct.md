@@ -48,7 +48,7 @@ fn do_something_with_unit(u: __) {   }
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
 fn main() {
-    let v = Point(__, __, __);
+    let v = Color(__, __, __);
     check_color(v);
 }   
 
