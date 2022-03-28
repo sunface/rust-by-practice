@@ -16,8 +16,8 @@ fn main() {
 
 // 修改合适的地方，让代码工作
 fn main() {
-   let t = ("i", "am", "sunface");
-   assert_eq!(t.1, "sunface");
+    let t = ("i", "am", "sunface");
+    assert_eq!(t.1, "sunface");
 }
 ```
 
@@ -64,11 +64,11 @@ fn main() {
 ```rust,editable
 
 fn main() {
-   // 填空，需要稍微计算下
-   let (x, y) = sum_multiply(__);
+    // 填空，需要稍微计算下
+    let (x, y) = sum_multiply(__);
 
-   assert_eq!(x, 5);
-   assert_eq!(y, 6);
+    assert_eq!(x, 5);
+    assert_eq!(y, 6);
 }
 
 fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
