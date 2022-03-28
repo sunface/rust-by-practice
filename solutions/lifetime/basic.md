@@ -1,7 +1,140 @@
 # Lifetime
+1.
+```rust
+fn main() {
+    let i = 3; // Lifetime for `i` starts. ────────────────┐
+    //                                                     │
+    { //                                                   │
+        let borrow1 = &i; // `borrow1` lifetime starts. ──┐│
+        //                                                ││
+        println!("borrow1: {}", borrow1); //              ││
+    } // `borrow1 ends. ──────────────────────────────────┘│
+    //                                                     │
+    //                                                     │
+    { //                                                   │
+        let borrow2 = &i; // `borrow2` lifetime starts. ──┐│
+        //                                                ││
+        println!("borrow2: {}", borrow2); //              ││
+    } // `borrow2` ends. ─────────────────────────────────┘│
+    //                                                     │
+}   // Lifetime ends. ─────────────────────────────────────┘
+```
 
 
-1. 🌟
+2. We can't borrow a item whose lifetime is smaller.
+```rust
+fn main() {  
+    {
+        let r;                // ---------+-- 'a
+                              //          |
+        {                     //          |
+            let x = 5;        // -+-- 'b  |
+            r = &x;           //  |       |
+        }                     // -+       |
+                              //          |
+        println!("r: {}", r); //          |
+    }                         // ---------+
+}
+```
+
+3
+```rust
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+
+fn main() {}
+```
+
+4.
+```rust
+fn invalid_output() -> String { 
+    String::from("foo") 
+}
+
+fn main() {}
+```
+
+```rust
+fn invalid_output() -> &'static str { 
+    "foo"
+}
+
+fn main() {}
+```
+
+```rust
+fn invalid_output<'a>(s: &'a String) -> &'a String { 
+    s
+}
+
+fn main() {}
+```
+
+5.
+```rust
+fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
+    println!("x is {} and y is {}", x, y);
+}
+
+/* Make it work */
+fn failed_borrow<'a>() {
+    let _x = 12;
+
+    let y: &i32 = &_x;
+}
+
+fn main() {
+    let (four, nine) = (4, 9);
+    
+    print_refs(&four, &nine);
+    
+    failed_borrow();
+}
+```
+
+6.
+```rust
+// A type `Borrowed` which houses a reference to an
+// `i32`. The reference to `i32` must outlive `Borrowed`.
+#[derive(Debug)]
+struct Borrowed<'a>(&'a i32);
+
+// Similarly, both references here must outlive this structure.
+#[derive(Debug)]
+struct NamedBorrowed<'a> {
+    x: &'a i32,
+    y: &'a i32,
+}
+
+// An enum which is either an `i32` or a reference to one.
+#[derive(Debug)]
+enum Either<'a> {
+    Num(i32),
+    Ref(&'a i32),
+}
+
+fn main() {
+    let x = 18;
+    let y = 15;
+
+    let single = Borrowed(&x);
+    let double = NamedBorrowed { x: &x, y: &y };
+    let reference = Either::Ref(&x);
+    let number    = Either::Num(y);
+
+    println!("x is borrowed in {:?}", single);
+    println!("x and y are borrowed in {:?}", double);
+    println!("x is borrowed in {:?}", reference);
+    println!("y is *not* borrowed in {:?}", number);
+}
+```
+
+7. 🌟
 ```rust,editable
 /* Make it work */
 
@@ -33,7 +166,7 @@ fn main()
 ```
 
 
-2. 🌟
+8. 🌟
 ```rust,editable
 
 #[derive(Debug)]
