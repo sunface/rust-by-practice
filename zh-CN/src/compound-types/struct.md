@@ -53,7 +53,7 @@ fn main() {
 }   
 
 fn check_color(p: Color) {
-    let (x, _, _) = p;
+    let Color(x, _, _) = p;
     assert_eq!(x, 0);
     assert_eq!(p.1, 127);
     assert_eq!(__, 255);
