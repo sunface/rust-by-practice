@@ -51,7 +51,7 @@
   - [formating](formatted-output/formatting.md)
 - [Lifetime](lifetime/intro.md)
   - [basic](lifetime/basic.md)
-  - [&'static and T: 'static TODO](lifetime/static.md)
+  - [&'static and T: 'static](lifetime/static.md)
   - [advance TODO](lifetime/advance.md)
 - [Functional programing TODO](functional-programing/intro.md)
   - [Closure](functional-programing/cloure.md)
