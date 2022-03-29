@@ -1,5 +1,13 @@
 # ChangeLog
 
+### 2022-03-29
+
+- Add language switch icon in top-right corner
+
+### 2022-03-28
+
+- Add [Basic lifetime](https://practice.rs/lifetime/basic.html)
+
 ### 2022-03-25
 
 - Replace gitalk with giscus comments system which is based on Github Discussions

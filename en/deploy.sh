@@ -4,8 +4,6 @@
 mdbook build
 ## copy CNAME info to book dir
 cp ./assets/CNAME ./book/
-cp ./assets/*.html ./book/
-cp ./assets/sitemap.xml ./book/
 
 ## init git repo
 cd book
