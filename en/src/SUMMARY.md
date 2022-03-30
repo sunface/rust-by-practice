@@ -52,7 +52,7 @@
 - [Lifetime](lifetime/intro.md)
   - [basic](lifetime/basic.md)
   - [&'static and T: 'static](lifetime/static.md)
-  - [advance TODO](lifetime/advance.md)
+  - [advanced](lifetime/advance.md)
 - [Functional programing TODO](functional-programing/intro.md)
   - [Closure](functional-programing/cloure.md)
   - [Iterator](functional-programing/iterator.md)

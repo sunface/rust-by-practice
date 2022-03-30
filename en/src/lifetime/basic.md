@@ -270,7 +270,7 @@ fn main()
     let no_copy = NoCopyType {};
     let example = Example { a: &1, b: &no_copy };
     fix_me(&example);
-    print!("Success!")
+    println!("Success!")
 }
 ```
 
