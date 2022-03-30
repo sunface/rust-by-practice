@@ -1,11 +1,15 @@
 # ChangeLog
 
+## 2022-03-30
+
+- Add [Advance Liftime](https://practice.rs/lifetime/advance.html) chapter
+
 ### 2022-03-29
 
 - Add language switch icon in top-right corner
 - Add [&'static and T: 'static](https://practice.rs/lifetime/static.html)
   
-  
+
 ### 2022-03-28
 
 - Add [Basic lifetime](https://practice.rs/lifetime/basic.html)
