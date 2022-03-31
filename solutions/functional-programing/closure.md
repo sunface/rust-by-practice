@@ -232,3 +232,54 @@ fn main() {
     call_me(function);
 }
 ```
+
+10、
+```rust
+/* Fill in the blank and fix the errror */
+// You can aslo use `impl FnOnce(i32) -> i32`
+fn create_fn() -> impl Fn(i32) -> i32 {
+    let num = 5;
+
+    move |x| x + num
+}
+
+
+fn main() {
+    let fn_plain = create_fn();
+    fn_plain(1);
+}
+```
+
+```rust
+/* Fill in the blank and fix the errror */
+fn create_fn() -> Box<dyn Fn(i32) -> i32> {
+    let num = 5;
+
+    // how does the following closure capture the evironment variable `num`
+    // &T, &mut T, T ?
+    Box::new(move |x| x + num)
+}
+
+
+fn main() {
+    let fn_plain = create_fn();
+    fn_plain(1);
+}
+```
+
+11、
+```rust
+// Every closure has its own type. Even if one closure has the same representation as another, their types are different.
+fn factory(x:i32) -> Box<dyn Fn(i32) -> i32> {
+
+    let num = 5;
+
+    if x > 1{
+        Box::new(move |x| x + num)
+    } else {
+        Box::new(move |x| x + num)
+    }
+}
+
+fn main() {}
+```

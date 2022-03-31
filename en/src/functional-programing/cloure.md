@@ -328,10 +328,44 @@ fn main() {
 ## Closure as return types
 Returning a closure is much harder than you may thought of.
 
+10、🌟🌟
+```rust,editable
+/* Fill in the blank using two approches,
+ and fix the errror */
+fn create_fn() -> __ {
+    let num = 5;
 
-<!-- 2、
-下面代码是Rust圣经课程中[闭包](http://course.rs/advance/functional-programing/closure.html#结构体中的闭包)章节的课内练习题答案：
+    // how does the following closure capture the evironment variable `num`
+    // &T, &mut T, T ?
+    |x| x + num
+}
 
+
+fn main() {
+    let fn_plain = create_fn();
+    fn_plain(1);
+}
+```
+
+11、🌟🌟
+```rust,editable
+/* Fill in the blank and fix the error*/
+fn factory(x:i32) -> __ {
+
+    let num = 5;
+
+    if x > 1{
+        move |x| x + num
+    } else {
+        move |x| x + num
+    }
+}
+```
+
+
+## Closure in structs
+
+**Example**
 ```rust
 struct Cacher<T,E>
 where
@@ -378,4 +412,4 @@ fn call_with_different_values() {
 
     assert_eq!(v2, 1);
 }
-``` -->
+```
