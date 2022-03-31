@@ -186,7 +186,7 @@ fn exec<'a, F: __>(mut f: F)  {
 }
 ```
  
-#### How does the compiler determine the trait
+#### Which trait does the compiler prefer to use?
 - Fn: the closure uses the captured value by reference (&T)
 - FnMut: the closure uses the captured value by mutable reference (&mut T)
 - FnOnce: the closure uses the captured value by value (T)

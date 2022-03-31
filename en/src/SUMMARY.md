@@ -55,7 +55,7 @@
   - [advanced](lifetime/advance.md)
 - [Functional programing](functional-programing/intro.md)
   - [Closure](functional-programing/cloure.md)
-  - [Iterator TODO](functional-programing/iterator.md)
+  - [Iterator](functional-programing/iterator.md)
 - [newtype and Sized TODO](newtype-sized.md)
 - [Smart pointers TODO](smart-pointers/intro.md)
   - [Box](smart-pointers/box.md)
