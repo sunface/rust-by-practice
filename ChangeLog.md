@@ -3,6 +3,8 @@
 ## 2022-03-31
 
 - Add [Iterator](https://practice.rs/functional-programing/iterator.html)
+- Add [Newtype and DST](https://practice.rs/newtype-sized.html)
+
 
 ## 2022-03-30
 
