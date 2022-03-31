@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 2022-03-31
+
+- Add [Iterator](https://practice.rs/functional-programing/iterator.html)
+
 ## 2022-03-30
 
 - Add [Advance Liftime](https://practice.rs/lifetime/advance.html) chapter
