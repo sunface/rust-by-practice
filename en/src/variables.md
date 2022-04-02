@@ -4,10 +4,10 @@
 1. 🌟 A variable can be used only if it has been initialized.
 ```rust,editable
 
-// fix the error below with least modifying
+// Fix the error below with least amount of modification to the code
 fn main() {
-    let x: i32; // uninitialized but using, ERROR !
-    let y: i32; // uninitialized but also unusing, only warning
+    let x: i32; // Uninitialized but used, will result in an ERROR !
+    let y: i32; // Uninitialized but also unused, will only receive a warning
 
     assert_eq!(x, 5);
     println!("Success!")
@@ -17,7 +17,7 @@ fn main() {
 2. 🌟 Use `mut` to mark a variable as mutable.
 ```rust,editable
 
-// fill the blanks in code to make it compile
+// Fill the blanks in the code to make it compile
 fn main() {
     let __ =  1;
     __ += 2; 
@@ -33,7 +33,7 @@ A scope is the range within the program for which the item is valid.
 3. 🌟 
 ```rust,editable
 
-// fix the error below with least modifying
+// Fix the error below with least amount of modification
 fn main() {
     let x: i32 = 10;
     {
@@ -47,7 +47,7 @@ fn main() {
 4. 🌟🌟 
 ```rust,editable
 
-// fix the error with using of define_x
+// Fix the error with the use of define_x
 fn main() {
     println!("{}, world", x); 
 }
@@ -63,7 +63,7 @@ You can declare a new variable with the same name as a previous variable, here w
 5. 🌟🌟 
 ```rust,editable
 
-// only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
+// Only modify `assert_eq!` to make the `println!` work(print `42` in terminal)
 fn main() {
     let x: i32 = 5;
     {
@@ -81,17 +81,17 @@ fn main() {
 6. 🌟🌟 
 ```rust,editable
 
-// remove a line in code to make it compile
+// Remove a line in the code to make it compile
 fn main() {
     let mut x: i32 = 1;
     x = 7;
-    // shadowing and re-binding
+    // Shadowing and re-binding
     let x = x; 
     x += 3;
 
 
     let y = 4;
-    // shadowing
+    // Shadowing
     let y = "I can also be bound to text!"; 
 
     println!("Success!")
@@ -99,10 +99,10 @@ fn main() {
 ```
 
 ### Unused variables
-1. fix the warning below with :
+1. Fix the warning below with :
 
-- 🌟  only one solution
-- 🌟🌟  two distinct solutions
+- 🌟  Only one solution
+- 🌟🌟  Two distinct solutions
 
 > Note: none of the solutions is to remove the line `let x = 1` 
 
@@ -112,7 +112,7 @@ fn main() {
     let x = 1; 
 }
 
-// warning: unused variable: `x`
+// Warning: unused variable: `x`
 ```
 
 ### Destructuring
@@ -122,7 +122,7 @@ fn main() {
 
 ```rust,editable
 
-// fix the error below with least modifying
+// Fix the error below with least amount of modification
 fn main() {
     let (x, y) = (1, 2);
     x += 2;
@@ -147,7 +147,7 @@ fn main() {
     let (x, y);
     (x,..) = (3, 4);
     [.., y] = [1, 2];
-    // fill the blank to make the code work
+    // Fill the blank to make the code work
     assert_eq!([x,y], __);
 
     println!("Success!")
