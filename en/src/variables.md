@@ -1,6 +1,6 @@
 # Variables
 
-### Binding and mutablity
+### Binding and mutability
 1. 🌟 A variable can be used only if it has been initialized.
 ```rust,editable
 
@@ -98,7 +98,7 @@ fn main() {
 }
 ```
 
-### Unused varibles
+### Unused variables
 1. fix the warning below with :
 
 - 🌟  only one solution
@@ -135,7 +135,7 @@ fn main() {
 ```
 
 ### Destructuring assignments
-Introducing in Rust 1.59: You can now use tuple, slice, and struct patterns as the left-hand side of an assignment.
+Introduced in Rust 1.59: You can now use tuple, slice, and struct patterns as the left-hand side of an assignment.
 
 9. 🌟🌟
 
