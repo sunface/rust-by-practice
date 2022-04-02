@@ -30,5 +30,7 @@ Tutorial [`https://www.philippflenker.com/hecto/`](https://www.philippflenker.co
 
 [This blog series](https://os.phil-opp.com) creates a small operating system in the Rust programming language. Each post is a small tutorial and includes all needed code, so you can follow along if you like. The source code is also available in the corresponding [Github repository](https://github.com/phil-opp/blog_os).
 
+### 7. mini-redis
+[mini-redis](https://github.com/tokio-rs/mini-redis) is an incomplete Redis client and server implementation using tokio, it has decent code base and detail explanations, very suitable for learning Rust and asynchronous programming.
 
 **To be continued...**
