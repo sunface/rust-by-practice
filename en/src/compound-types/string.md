@@ -152,9 +152,9 @@ fn main() {
 
 ```rust,editable
 
+/* Fill in the blank and fix the errors */
 fn main() {
     let raw_str = r"Escapes don't work here: \x3F \u{211D}";
-    // modify below line to make it work
     assert_eq!(raw_str, "Escapes don't work here: ? ℝ");
 
     // If you need quotes in a raw string, add a pair of #s
@@ -166,7 +166,6 @@ fn main() {
     let  delimiter = r###"A string with "# in it. And even "##!"###;
     println!("{}", delimiter);
 
-    // fill the blank
     let long_delimiter = __;
     assert_eq!(long_delimiter, "Hello, \"##\"");
 
