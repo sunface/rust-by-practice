@@ -10,7 +10,7 @@ fn main() {
     let y: i32; // Uninitialized but also unused, will only receive a warning
 
     assert_eq!(x, 5);
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -23,7 +23,7 @@ fn main() {
     __ += 2; 
     
     assert_eq!(x, 3);
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -94,7 +94,7 @@ fn main() {
     // Shadowing
     let y = "I can also be bound to text!"; 
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -130,7 +130,7 @@ fn main() {
     assert_eq!(x, 3);
     assert_eq!(y, 2);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -150,7 +150,7 @@ fn main() {
     // Fill the blank to make the code work
     assert_eq!([x,y], __);
 
-    println!("Success!")
+    println!("Success!");
 } 
 ```
 
