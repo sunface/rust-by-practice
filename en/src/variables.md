@@ -6,8 +6,8 @@
 
 // Fix the error below with least amount of modification to the code
 fn main() {
-    let x: i32; // Uninitialized but used, will result in an ERROR !
-    let y: i32; // Uninitialized but also unused, will only receive a warning
+    let x: i32; // Uninitialized but used, ERROR !
+    let y: i32; // Uninitialized but also unused, only a warning
 
     assert_eq!(x, 5);
     println!("Success!");
