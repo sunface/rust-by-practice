@@ -4,49 +4,49 @@
 
 1. 🌟 
 
-> Tips: If we don't explicitly give one type to a varible, then the compiler will infer one for us
+> Tips: If we don't explicitly assign a type to a variable, then the compiler will infer one for us.
 
 ```rust,editable
 
-// remove something to make it work
+// Remove something to make it work
 fn main() {
     let x: i32 = 5;
     let mut y: u32 = 5;
 
     y = x;
     
-    let z = 10; // type of z ? 
+    let z = 10; // Type of z ? 
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 2. 🌟
 ```rust,editable
 
-//  fill the blank
+//  Fill the blank
 fn main() {
     let v: u16 = 38_u8 as __;
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 3. 🌟🌟🌟  
 
-> Tips: If we don't explicitly give one type to a varible, then the compiler will infer one for us
+> Tips: If we don't explicitly assign a type to a variable, then the compiler will infer one for us.
 
 ```rust,editable
 
-// modify `assert_eq!` to make it work
+// Modify `assert_eq!` to make it work
 fn main() {
     let x = 5;
     assert_eq!("u32".to_string(), type_of(&x));
 
-    println!("Success!")
+    println!("Success!");
 }
 
-// get the type of given variable, return a string representation of the type  , e.g "i8", "u8", "i32", "u32"
+// Get the type of given variable, return a string representation of the type  , e.g "i8", "u8", "i32", "u32"
 fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
 }
@@ -55,19 +55,19 @@ fn type_of<T>(_: &T) -> String {
 4. 🌟🌟 
 ```rust,editable
 
-// fill the blanks to make it work
+// Fill the blanks to make it work
 fn main() {
     assert_eq!(i8::MAX, __); 
     assert_eq!(u8::MAX, __); 
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 5. 🌟🌟 
 ```rust,editable
 
-// fix errors and panics to make it work
+// Fix errors and panics to make it work
 fn main() {
    let v1 = 251_u8 + 8;
    let v2 = i8::checked_add(251, 8).unwrap();
@@ -78,12 +78,12 @@ fn main() {
 6. 🌟🌟
 ```rust,editable
 
-// modify `assert!` to make it work
+// Modify `assert!` to make it work
 fn main() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
     assert!(v == 1579);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -93,29 +93,29 @@ fn main() {
 
 ```rust,editable
 
-//  replace ? with your answer
+//  Replace ? with your answer
 fn main() {
     let x = 1_000.000_1; // ?
     let y: f32 = 0.12; // f32
     let z = 0.01_f64; // f64
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-1. 🌟🌟 make it work in two distinct ways
+1. 🌟🌟 Make it work in two distinct ways
 
 ```rust,editable
 
 fn main() {
     assert!(0.1+0.2==0.3);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 ### Range
-9. 🌟🌟 two goals: 1. modify `assert!` to make it work 2. make `println!` output: 97 - 122
+9. 🌟🌟 Two goals: 1. Modify `assert!` to make it work 2. Make `println!` output: 97 - 122
 
 ```rust,editable
 fn main() {
@@ -135,13 +135,13 @@ fn main() {
 10. 🌟🌟 
 ```rust,editable
 
-// fill the blanks
+// Fill the blanks
 use std::ops::{Range, RangeInclusive};
 fn main() {
     assert_eq!((1..__), Range{ start: 1, end: 5 });
     assert_eq!((1..__), RangeInclusive::new(1, 5));
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -150,7 +150,7 @@ fn main() {
 11. 🌟 
 ```rust,editable
 
-// fill the blanks and fix the errors
+// Fill the blanks and fix the errors
 fn main() {
     // Integer addition
     assert!(1u32 + 2 == __);
