@@ -68,7 +68,7 @@ fn show_message(msg: Message) {
             assert_eq!(g, 255);
             assert_eq!(b, 0);
         }
-        __ => println!("no data in these variants")
+        _ => println!("no data in these variants")
     }
 }
 ```
