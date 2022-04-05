@@ -23,6 +23,45 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 
 - [https://practice.rs](https://practice.rs)
 
+## Features
+
+Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works!
+
+Although they are so awesome, we have our own secret weapons :)
+
+- There are three parts in each chapter: examples, exercises and practices
+
+- Besides examples, we have `a lot of exercises`, you can Read, Edit and Run them ONLINE
+
+- Covering nearly all aspects of Rust, such as async/await, threads, sync primitives, optimizing, standard libraries, tool chain, data structures and algorithms etc.
+
+- Every exercise has its own solutions
+
+- The overall difficulties are a bit higher and from easy to super hard: easy 🌟 medium 🌟🌟 hard 🌟🌟🌟 super hard 🌟🌟🌟🌟
+
+**What we want to do is fill in the gap between learning and getting started with real projects.**
+
+## 🏅 Contributors
+
+Thanks to all of our [contributors](https://github.com/sunface/rust-by-practice/graphs/contributors)!
+
+<br />
+
+**🏆 Special thanks to our English editor:**
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/Tanish-Eagle">
+                <img src="https://avatars.githubusercontent.com/u/71984506?v=4?s=100" width="160px"   alt=""/>
+                <br />
+                <sub><b>Tanish-Eagle</b></sub>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<br />
+
 ## Running locally
 
 We use [mdbook](https://rust-lang.github.io/mdBook/) building our exercises. You can run locally with below steps:
@@ -45,24 +84,6 @@ $ cd rust-by-practice && mdbook serve en/
 ```shell
 $ cd rust-by-practice && mdbook serve zh-CN/
 ```
-
-## Features
-
-Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works!
-
-Although they are so awesome, we have our own secret weapons :)
-
-- There are three parts in each chapter: examples, exercises and practices
-
-- Besides examples, we have `a lot of exercises`, you can Read, Edit and Run them ONLINE
-
-- Covering nearly all aspects of Rust, such as async/await, threads, sync primitives, optimizing, standard libraries, tool chain, data structures and algorithms etc.
-
-- Every exercise has its own solutions
-
-- The overall difficulties are a bit higher and from easy to super hard: easy 🌟 medium 🌟🌟 hard 🌟🌟🌟 super hard 🌟🌟🌟🌟
-
-**What we want to do is fill in the gap between learning and getting started with real projects.**
 
 ## Some of our exercises
 
