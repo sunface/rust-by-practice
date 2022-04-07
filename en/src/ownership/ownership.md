@@ -4,7 +4,7 @@
 ```rust,editable
 
 fn main() {
-    // use as many approaches as you can to make it work
+    // Use as many approaches as you can to make it work
     let x = String::from("hello, world");
     let y = x;
     println!("{},{}",x,y);
@@ -39,7 +39,7 @@ fn main() {
 // Only modify the code below!
 fn give_ownership() -> String {
     let s = String::from("hello, world");
-    // convert String to Vec
+    // Convert String to Vec
     let _s = s.into_bytes();
     s
 }
@@ -47,7 +47,7 @@ fn give_ownership() -> String {
 
 4. 🌟🌟
 ```rust,editable
-// fix the error without removing code line
+// Fix the error without removing code line
 fn main() {
     let s = String::from("hello, world");
 
@@ -63,7 +63,7 @@ fn print_str(s: String)  {
 
 5. 🌟🌟 
 ```rust, editable
-// don't use clone ,use copy instead
+// Don't use clone ,use copy instead
 fn main() {
     let x = (1, 2, (), "hello".to_string());
     let y = x.clone();
@@ -80,12 +80,12 @@ Mutability can be changed when ownership is transferred.
 fn main() {
     let s = String::from("hello, ");
     
-    // modify this line only !
+    // Modify this line only !
     let s1 = s;
 
     s1.push_str("world");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -95,13 +95,13 @@ fn main() {
 fn main() {
     let x = Box::new(5);
     
-    let ...      // implement this line, dont change other lines!
+    let ...      // Implement this line, dont change other lines!
     
     *y = 4;
     
     assert_eq!(*x, 5);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -148,7 +148,7 @@ fn main() {
 
    let _s = t.0;
 
-   // modify this line only, don't use `_s`
+   // Modify this line only, don't use `_s`
    println!("{:?}", t);
 }
 ```
@@ -159,7 +159,7 @@ fn main() {
 fn main() {
    let t = (String::from("hello"), String::from("world"));
 
-    // fill the blanks
+    // Fill the blanks
     let (__, __) = __;
 
     println!("{:?}, {:?}, {:?}", s1, s2, t); // -> "hello", "world", ("hello", "world")
