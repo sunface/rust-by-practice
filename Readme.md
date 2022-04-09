@@ -12,7 +12,8 @@
     
 <div align="center">
 
-[![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) [![Forks Count](https://img.shields.io/github/forks/sunface/rust-by-practice.svg?style=flat)](https://github.com/naaive/orange/network/members)
+[![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) 
+[![studyrut](https://img.shields.io/badge/StudyRust-orange)](https://github.com/studyrs) 
 [![LICENSE](https://img.shields.io/badge/license-mit-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
 </div>
 
