@@ -3,6 +3,8 @@
 ## 2022-04-09
 
 - Add [Zh - Formating]
+- Add [Zh - Lifetime-Basic]
+
 
 ## 2022-03-31
 
