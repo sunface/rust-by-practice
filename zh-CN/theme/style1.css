@@ -63,6 +63,7 @@
 /* 修改滚动条宽度 */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 /* 表格靠左对齐 */
@@ -78,4 +79,9 @@ table {
 @media only screen and (max-width: 2560px) {
     .sidebar-visible .nav-wide-wrapper { display: none; }
     .sidebar-visible .nav-wrapper { display: block; }
+}
+
+/* 修复可编辑代码框顶部过窄的问题 */
+code.editable, .ace_scroller {
+    top: 10px;
 }
