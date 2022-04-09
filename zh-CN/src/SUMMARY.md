@@ -46,7 +46,7 @@
   - [使用use引入模块及受限可见性](crate-module/use-pub.md)
 - [注释和文档](comments-docs.md)
 - [格式化输出](formatted-output.md)
-- [生命周期 todo](lifetime/intro.md)
+- [生命周期](lifetime/intro.md)
   - [生命周期基础](lifetime/basic.md)
   - [&'static 和 T: 'static](lifetime/static.md)
   - [深入生命周期](lifetime/advance.md)

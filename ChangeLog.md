@@ -4,7 +4,7 @@
 
 - Add [Zh - Formating]
 - Add [Zh - Lifetime-Basic]
-
+- Add [Zh - Static]
 
 ## 2022-03-31
 
