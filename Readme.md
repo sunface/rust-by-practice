@@ -13,7 +13,7 @@
 <div align="center">
 
 [![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) 
-[![studyrut](https://img.shields.io/badge/StudyRust-orange)](https://github.com/studyrs) 
+[![studyrut](https://img.shields.io/badge/Rust语言中文网-orange)](https://rustl.cn) 
 [![LICENSE](https://img.shields.io/badge/license-CC_BY_4.0-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
 </div>
 
