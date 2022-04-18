@@ -266,7 +266,7 @@ fn main() {
 ```
 
 11、🌟🌟
-```rust
+```rust,edtiable
 /* Fill in the blanks */
 use std::collections::HashMap;
 fn main() {
@@ -282,7 +282,7 @@ fn main() {
 #### Using closures in iterator adaptors
 
 12、🌟🌟 
-```rust
+```rust,edtiable
 /* Fill in the blanks */
 #[derive(PartialEq, Debug)]
 struct Shoe {
