@@ -9,7 +9,7 @@
 fn main() {
     let x: i32; // 未初始化，但被使用
     let y: i32; // 未初始化，也未被使用
-    println!("{} is equal to 5", x); 
+    println!("x is equal to {}", x); 
 }
 ```
 
@@ -21,7 +21,7 @@ fn main() {
     let __ =  1;
     __ += 2; 
     
-    println!("{} = 3", x); 
+    println!("x = {}", x); 
 }
 ```
 
