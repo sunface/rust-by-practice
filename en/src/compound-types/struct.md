@@ -1,10 +1,10 @@
 # Struct
 
-### There types of structs
+### The types of structs
 1. 🌟 We must specify concrete values for each of the fields in struct.
 ```rust,editable
 
-// fix the error
+// Fix the error
 struct Person {
     name: String,
     age: u8,
@@ -17,7 +17,7 @@ fn main() {
         age,
     };
 
-    println!("Success!")
+    println!("Success!");
 } 
 ```
 
@@ -27,35 +27,35 @@ fn main() {
 
 struct Unit;
 trait SomeTrait {
-    // ...Some behavours defines here
+    // ...Some behaviors defined here.
 }
 
-// We don't care the the fields are in Unit, but we care its behaviors.
+// We don't care about what fields  are  in the Unit, but we care about its behaviors.
 // So we use a struct with no fields and implement some behaviors for it
 impl SomeTrait for Unit {  }
 fn main() {
     let u = Unit;
     do_something_with_unit(u);
 
-    println!("Success!")
+    println!("Success!");
 } 
 
-// fill the blank to make the code work
+// Fill the blank to make the code work
 fn do_something_with_unit(u: __) {   }
 ```
 
-3. 🌟🌟🌟 Tuple struct looks similar to tuples, it has added meaning the struct name provides but has no named fields. It's useful when you want give the whole tuple a name, but don't care the fields's names.
+3. 🌟🌟🌟 Tuple struct looks similar to tuples, it has added meaning the struct name provides but has no named fields. It's useful when you want to give the whole tuple a name, but don't care about the fields's names.
 
 ```rust,editable
 
-// fix the error and fill the blanks
+// Fix the error and fill the blanks
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
 fn main() {
     let v = Point(__, __, __);
     check_color(v);
 
-    println!("Success!")
+    println!("Success!");
 }   
 
 fn check_color(p: Color) {
@@ -66,13 +66,13 @@ fn check_color(p: Color) {
  }
 ```
 
-### Operate on structs
+### Operating on structs
 
-4. 🌟 You can make a whole struct mutable when instantiate it, but Rust doesn't allow us to mark only certain fields as mutable.
+4. 🌟 You can make a whole struct mutable when instantiating it, but Rust doesn't allow us to mark only certain fields as mutable.
 
 ```rust,editable
 
-// fill the blank and fix the error without adding/removing new line
+// Fill the blank and fix the error without adding/removing new line
 struct Person {
     name: String,
     age: u8,
@@ -84,26 +84,26 @@ fn main() {
         age,
     };
 
-    // how can you believe sunface is only 18? 
+    // How can you believe sunface is only 18? 
     p.age = 30;
 
-    // fill the lank
+    // Fill the blank
     __ = String::from("sunfei");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-5. 🌟 Using *field init shorthand syntax* to reduct repetitions.
+5. 🌟 Using *field init shorthand syntax* to reduce repetitions.
 ```rust,editable
 
-// fill the blank
+// Fill the blank
 struct Person {
     name: String,
     age: u8,
 }
 fn main() {
-    println!("Success!")
+    println!("Success!");
 } 
 
 fn build_person(name: String, age: u8) -> Person {
@@ -117,7 +117,7 @@ fn build_person(name: String, age: u8) -> Person {
 6. 🌟 You can create instance from other instance with *struct update syntax*
 ```rust,editable
 
-// fill the blank to make the code work
+// Fill the blank to make the code work
 struct User {
     active: bool,
     username: String,
@@ -134,7 +134,7 @@ fn main() {
 
     let u2 = set_email(u1);
 
-    println!("Success!")
+    println!("Success!");
 } 
 
 fn set_email(u: User) -> User {
@@ -146,11 +146,11 @@ fn set_email(u: User) -> User {
 ```
 
 ### Print the structs
-7. 🌟🌟 We can use `#[derive(Debug)]` to [make a struct prinable](https://doc.rust-lang.org/book/ch05-02-example-structs.html?highlight=%23%5Bderive(Debug)%5D#adding-useful-functionality-with-derived-traits).
+7. 🌟🌟 We can use `#[derive(Debug)]` to [make a struct printable](https://doc.rust-lang.org/book/ch05-02-example-structs.html?highlight=%23%5Bderive(Debug)%5D#adding-useful-functionality-with-derived-traits).
 
 ```rust,editable
 
-// fill the blanks to make the code work
+// Fill the blanks to make the code work
 #[__]
 struct Rectangle {
     width: u32,
@@ -160,13 +160,13 @@ struct Rectangle {
 fn main() {
     let scale = 2;
     let rect1 = Rectangle {
-        width: dbg!(30 * scale), // print debug info to stderr and assign the value of  `30 * scale` to `width`
+        width: dbg!(30 * scale), // Print debug info to stderr and assign the value of  `30 * scale` to `width`
         height: 50,
     };
 
-    dbg!(&rect1); // print debug info to stderr
+    dbg!(&rect1); // Print debug info to stderr
 
-    println!(__, rect1); // print debug info to stdout
+    println!(__, rect1); // Print debug info to stdout
 }
 ```
 
@@ -209,7 +209,7 @@ fn main() {
 8. 🌟🌟
 ```rust,editable
 
-// fix errors to make it work
+// Fix errors to make it work
 #[derive(Debug)]
 struct File {
     name: String,
