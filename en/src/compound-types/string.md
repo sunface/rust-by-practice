@@ -1,17 +1,17 @@
-# string
+# String
 The type of string literal `"hello, world"` is `&str`, e.g `let s: &str = "hello, world"`.
 
 
-### str and &str
-1. 🌟 We can't use `str` type in normal ways, but we can use `&str`
+### Str and &str
+1. 🌟 We can't use `str` type in normal ways, but we can use `&str`.
 
 ```rust,editable
 
-// fix error without adding new line
+// Fix error without adding new line
 fn main() {
     let s: str = "hello, world";
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -20,7 +20,7 @@ fn main() {
 
 ```rust,editable
 
-// fix the error with at least two solutions
+// Fix the error with at least two solutions
 fn main() {
     let s: Box<str> =  "hello, world".into();
     greetings(s)
@@ -37,7 +37,7 @@ fn greetings(s: &str) {
 3. 🌟
 ```rust,editable
 
-// fill the blank
+// Fill the blank
 fn main() {
     let mut s = __;
     s.push_str("hello, world");
@@ -45,28 +45,28 @@ fn main() {
 
     assert_eq!(s, "hello, world!");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 4. 🌟🌟🌟
 ```rust,editable
 
-// fix all errors without adding newline
+// Fix all errors without adding newline
 fn main() {
     let  s =  String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
 
-    println!("{}", s)
+    println!("{}", s);
 }
 ```
 
 5. 🌟🌟 `replace` can be used to replace substring
 ```rust,editable
 
-// fill the blank
+// Fill the blank
 fn main() {
     let s = String::from("I like dogs");
     // Allocate new memory and store the modified string there
@@ -74,17 +74,17 @@ fn main() {
 
     assert_eq!(s1, "I like cats");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 More `String` methods can be found under [String](https://doc.rust-lang.org/std/string/struct.String.html) module.
 
-6. 🌟🌟 You can only concat a `String` with `&str`, and `String`'s ownership can be moved to another variable
+6. 🌟🌟 You can only concat a `String` with `&str`, and `String`'s ownership can be moved to another variable.
 
 ```rust,editable
 
-// fix errors without removing any line
+// Fix errors without removing any line
 fn main() {
     let s1 = String::from("hello,");
     let s2 = String::from("world!");
@@ -100,7 +100,7 @@ Opsite to the seldom using of `str`, `&str` and `String` are used everywhere!
 7. 🌟🌟 `&str` can be converted to `String` in two ways
 ```rust,editable
 
-// fix error with at lest two solutions
+// Fix error with at least two solutions
 fn main() {
     let s =  "hello, world";
     greetings(s)
@@ -115,25 +115,25 @@ fn greetings(s: String) {
 
 ```rust,editable
 
-// use two approaches to fix the error and without adding a new line
+// Use two approaches to fix the error and without adding a new line
 fn main() {
     let s =  "hello, world".to_string();
     let s1: &str = s;
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-### string escapes
+### String escapes
 9. 🌟 
 ```rust,editable
 fn main() {
     // You can use escapes to write bytes by their hexadecimal values
-    // fill the blank below to show "I'm writing Rust"
+    // Fill the blank below to show "I'm writing Rust"
     let byte_escape = "I'm writing Ru\x73__!";
     println!("What are you doing\x3F (\\x3F means ?) {}", byte_escape);
 
-    // ...or Unicode code points.
+    // ...Or Unicode code points.
     let unicode_codepoint = "\u{211D}";
     let character_name = "\"DOUBLE-STRUCK CAPITAL R\"";
 
@@ -169,11 +169,11 @@ fn main() {
     let long_delimiter = __;
     assert_eq!(long_delimiter, "Hello, \"##\"");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-### byte string
+### Byte string
 Want a string that's not UTF-8? (Remember, str and String must be valid UTF-8). Or maybe you want an array of bytes that's mostly text? Byte strings to the rescue!
 
 **Example**:
@@ -189,8 +189,8 @@ fn main() {
 
     // Byte strings can have byte escapes...
     let escaped = b"\x52\x75\x73\x74 as bytes";
-    // ...but no unicode escapes
-    // let escaped = b"\u{211D} is not allowed";
+    // ...But no unicode escapes
+    // let escaped = b"\u{211D} Is not allowed";
     println!("Some escaped bytes: {:?}", escaped);
 
 
@@ -207,7 +207,7 @@ fn main() {
                     like with normal raw strings"#;
 
     // Byte strings don't have to be UTF-8
-    let shift_jis = b"\x82\xe6\x82\xa8\x82\xb1\x82\xbb"; // "ようこそ" in SHIFT-JIS
+    let shift_jis = b"\x82\xe6\x82\xa8\x82\xb1\x82\xbb"; // "ようこそ" In SHIFT-JIS
 
     // But then they can't always be converted to `str`
     match str::from_utf8(shift_jis) {
@@ -219,29 +219,29 @@ fn main() {
 
 A more detailed listing of the ways to write string literals and escape characters is given in the ['Tokens' chapter](https://doc.rust-lang.org/reference/tokens.html) of the Rust Reference.
 
-### string index
+### String index
 11. 🌟🌟🌟 You can't use index to access a char in a string, but you can use slice `&s1[start..end]`.
 
 ```rust,editable
 
 fn main() {
     let s1 = String::from("hi,中国");
-    let h = s1[0]; //modify this line to fix the error, tips: `h` only takes 1 byte in UTF8 format
+    let h = s1[0]; // Modify this line to fix the error, tips: `h` only takes 1 byte in UTF8 format
     assert_eq!(h, "h");
 
-    let h1 = &s1[3..5];//modify this line to fix the error, tips: `中`  takes 3 bytes in UTF8 format
+    let h1 = &s1[3..5]; // Modify this line to fix the error, tips: `中`  takes 3 bytes in UTF8 format
     assert_eq!(h1, "中");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-### operate on UTF8 string
+### Operate on UTF8 string
 12. 🌟
 ```rust,editable
 
 fn main() {
-    // fill the blank to print each char in "你好，世界"
+    // Fill the blank to print each char in "你好，世界"
     for c in "你好，世界".__ {
         println!("{}", c)
     }
