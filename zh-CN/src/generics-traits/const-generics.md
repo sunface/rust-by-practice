@@ -1,8 +1,11 @@
 # Const 泛型
+
 在之前的泛型中，可以抽象为一句话：针对类型实现的泛型，所有的泛型都是为了抽象不同的类型，那有没有针对值的泛型？答案就是 `Const 泛型`。
 
 ## 示例
-1. 下面的例子同时使用泛型和 const 泛型来实现一个结构体，该结构体的字段中的数组长度是可变的
+
+1. 下面的例子同时使用泛型和 const 泛型来实现一个结构体，该结构体的字段中的数组长度是可变的：
+
 ```rust,editable
 struct ArrayPair<T, const N: usize> {
     left: [T; N],
@@ -14,12 +17,11 @@ impl<T: Debug, const N: usize> Debug for ArrayPair<T, N> {
 }
 ```
 
-
 2. 目前，const 泛型参数只能使用以下形式的实参:
 
-- 一个单独的 const  泛型参数
-- 一个字面量 (i.e. 整数, 布尔值或字符).
-- 一个具体的 const 表达式( 表达式中不能包含任何 泛型参数)
+- 一个单独的 const 泛型参数;
+- 一个字面量 (i.e. 整数, 布尔值或字符);
+- 一个具体的 const 表达式 (表达式中不能包含任何泛型参数)
   
 ```rust,editable
 fn foo<const N: usize>() {}
@@ -39,7 +41,8 @@ fn bar<T, const M: usize>() {
 fn main() {}
 ```
 
-1. const 泛型还能帮我们避免一些运行时检查，提升性能
+3. const 泛型还能帮我们避免一些运行时检查，提升性能：
+
 ```rust
 pub struct MinSlice<T, const N: usize> {
     pub head: [T; N],
@@ -63,10 +66,10 @@ fn main() {
 }
 ```
 
-
 ## 练习
-1. 🌟🌟 `<T, const N: usize>` 是结构体类型的一部分，和数组类型一样，这意味着长度不同会导致类型不同： `Array<i32, 3>` 和 `Array<i32, 4>` 是不同的类型
-   
+
+1. 🌟🌟 `<T, const N: usize>` 是结构体类型的一部分，和数组类型一样，这意味着长度不同会导致类型不同： `Array<i32, 3>` 和 `Array<i32, 4>` 是不同的类型。
+
 ```rust,editable
 
 // 修复错误
@@ -89,7 +92,8 @@ fn main() {
 }
 ```
 
-2. 🌟🌟 
+2. 🌟🌟 填空，让 `print_array` 方法可以打印出数组的内容，并支持多种类型的数组。
+
 ```rust,editable
 
 // 填空
@@ -105,8 +109,8 @@ fn main() {
 }
 ```
 
-3. 🌟🌟🌟 有时我们希望能限制一个变量占用内存的大小，例如在嵌入式环境中，此时 const 泛型参数的第三种形式 `const 表达式` 就非常适合.
-   
+3. 🌟🌟🌟 有时我们希望能限制一个变量占用内存的大小，例如在嵌入式环境中，此时 const 泛型参数的第三种形式 `const 表达式` 就非常适合。
+
 ```rust,editable
 #![allow(incomplete_features)]
 #![feature(generic_const_exprs)]
@@ -123,11 +127,9 @@ fn main() {
     check_size([0u8; 767]); 
     check_size([0i32; 191]);
     check_size(["hello你好"; __]); // size of &str ?
-    check_size(["hello你好".to_string(); __]);  // size of String?
+    check_size([&"hello你好".to_string(); __]);  // size of String?
     check_size(['中'; __]); // size of char ?
 }
-
-
 
 pub enum Assert<const CHECK: bool> {}
 
