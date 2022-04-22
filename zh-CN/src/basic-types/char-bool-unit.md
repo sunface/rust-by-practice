@@ -3,6 +3,7 @@
 ### 字符
 1. 🌟
 ```rust, editable
+//  修改2处 `assert_eq!` 让代码工作
 
 use std::mem::size_of_val;
 fn main() {
@@ -18,7 +19,7 @@ fn main() {
 
 2. 🌟
 ```rust, editable
-
+//  修改一行让代码正常打印
 fn main() {
     let c1 = "中";
     print_char(c1);
@@ -33,7 +34,7 @@ fn print_char(c : char) {
 3. 🌟
 ```rust, editable
 
-// make  println! work
+// 使成功打印
 fn main() {
     let _f: bool = false;
 
