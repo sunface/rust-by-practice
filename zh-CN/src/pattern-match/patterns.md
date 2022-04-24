@@ -38,7 +38,7 @@ fn main() {
     match p {
         Point { x, y: 0 } => println!("On the x axis at {}", x),
         // 第二个分支
-        Point { x: 0, y: y@ (10 | 20 | 30) } => println!("On the y axis at {}", y),
+        Point { x: 0..=5, y: y@ (10 | 20 | 30) } => println!("On the y axis at {}", y),
         Point { x, y } => println!("On neither axis: ({}, {})", x, y),
     }
 }
