@@ -1,10 +1,10 @@
 # Flow control
 
-### if/else
+### If/else
 1. 🌟 
 ```rust,editable
 
-// fill in the blanks
+// Fill in the blanks
 fn main() {
     let n = 5;
 
@@ -18,10 +18,10 @@ fn main() {
 } 
 ```
 
-2. 🌟🌟 `if/else` expression can be used in assignments.
+2. 🌟🌟 `If/else` expression can be used in assignments.
 ```rust,editable
 
-// fix the errors
+// Fix the errors
 fn main() {
     let n = 5;
 
@@ -40,7 +40,7 @@ fn main() {
 } 
 ```
 
-### for
+### For
 3. 🌟 The `for in` construct can be used to iterate through an Iterator, e.g a range `a..b`.
 
 ```rust,editable
@@ -52,7 +52,7 @@ fn main() {
         }
     }
 
-    println!("Success!")
+    println!("Success!");
 } 
 ```
 
@@ -60,19 +60,19 @@ fn main() {
 4. 🌟🌟 
 ```rust,editable
 
-// fix the errors without adding or removing lines
+// Fix the errors without adding or removing lines
 fn main() {
     let names = [String::from("liming"),String::from("hanmeimei")];
     for name in names {
-        // do something with name...
+        // Do something with name...
     }
 
     println!("{:?}", names);
 
     let numbers = [1, 2, 3];
-    // the elements in numbers are Copy，so there is no move here
+    // The elements in numbers are Copy，so there is no move here
     for n in numbers {
-        // do something with name...
+        // Do something with name...
     }
     
     println!("{:?}", numbers);
@@ -84,19 +84,19 @@ fn main() {
 fn main() {
     let a = [4, 3, 2, 1];
 
-    // iterate the indexing and value in 'a'
+    // Iterate the indexing and value in 'a'
     for (i,v) in a.__ {
         println!("The {}th element is {}",i+1,v);
     }
 }
 ```
 
-### while
+### While
 6. 🌟🌟 The `while` keyword can be used to run a loop when a condition is true.
 
 ```rust,editable
 
-// fill in the blanks to make the last println! work !
+// Fill in the blanks to make the last println! work !
 fn main() {
     // A counter variable
     let mut n = 1;
@@ -117,15 +117,15 @@ fn main() {
         __;
     }
 
-    println!("n reached {}, soloop is over",n);
+    println!("n reached {}, so loop is over",n);
 }
 ```
 
-### continue and break
-7. 🌟 use `break` to break the loop.
+### Continue and break
+7. 🌟 Use `break` to break the loop.
 ```rust,editable
 
-// fill in the blank
+// Fill in the blank
 fn main() {
     let mut n = 0;
     for i in 0..=100 {
@@ -137,14 +137,14 @@ fn main() {
 
     assert_eq!(n, 66);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 8. 🌟🌟 `continue` will skip over the remaining code in current iteration and go to the next iteration.
 ```rust,editable
 
-// fill in the blanks
+// Fill in the blanks
 fn main() {
     let mut n = 0;
     for i in 0..=100 {
@@ -158,17 +158,17 @@ fn main() {
 
     assert_eq!(n, 66);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-### loop 
+### Loop 
 
-9. 🌟🌟 loop is usually used together with `break` or `continue`.
+9. 🌟🌟 Loop is usually used together with `break` or `continue`.
 
 ```rust,editable
 
-// fill in the blanks
+// Fill in the blanks
 fn main() {
     let mut count = 0u32;
 
@@ -196,14 +196,14 @@ fn main() {
 
     assert_eq!(count, 5);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-10. 🌟🌟 loop is an expression, so we can use it with `break` to return a value
+10. 🌟🌟 Loop is an expression, so we can use it with `break` to return a value
 ```rust,editable
 
-// fill in the blank
+// Fill in the blank
 fn main() {
     let mut counter = 0;
 
@@ -217,7 +217,7 @@ fn main() {
 
     assert_eq!(result, 20);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -225,14 +225,14 @@ fn main() {
 
 ```rust,editable
 
-// fill in the blank
+// Fill in the blank
 fn main() {
     let mut count = 0;
     'outer: loop {
         'inner1: loop {
             if count >= 20 {
                 // This would break only the inner1 loop
-                break 'inner1; // `break` is also ok 
+                break 'inner1; // `break` is also works.
             }
             count += 2;
         }
@@ -252,7 +252,7 @@ fn main() {
 
     assert!(count == __);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
