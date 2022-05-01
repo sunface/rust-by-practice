@@ -1,4 +1,5 @@
-1. 
+1.
+
 ```rust
 fn main() {
     let x = 5;
@@ -9,7 +10,8 @@ fn main() {
 }
 ```
 
-2. 
+2.
+
 ```rust
 fn main() {
     let x = 5;
@@ -20,7 +22,8 @@ fn main() {
 }
 ```
 
-3. 
+3.
+
 ```rust
 fn main() {
     let mut s = String::from("hello, ");
@@ -31,7 +34,8 @@ fn main() {
 fn borrow_object(s: &String) {}
 ```
 
-4. 
+4.
+
 ```rust
 fn main() {
     let mut s = String::from("hello, ");
@@ -44,7 +48,8 @@ fn push_str(s: &mut String) {
 }
 ```
 
-5. 
+5.
+
 ```rust
 fn main() {
     let mut s = String::from("hello, ");
@@ -56,7 +61,8 @@ fn main() {
 }
 ```
 
-6. 
+6.
+
 ```rust
 fn main() {
     let c = '中';
@@ -77,7 +83,8 @@ fn get_addr(r: &char) -> String {
 }
 ```
 
-7. 
+7.
+
 ```rust
 fn main() {
     let s = String::from("hello");
@@ -89,7 +96,8 @@ fn main() {
 }
 ```
 
-8. 
+8.
+
 ```rust
 fn main() {
     //fix error by modifying this line
@@ -101,7 +109,8 @@ fn main() {
 fn borrow_object(s: &mut String) {}
 ```
 
-9. 
+9.
+
 ```rust
 fn main() {
     let mut s = String::from("hello, ");
@@ -114,7 +123,8 @@ fn main() {
 fn borrow_object(s: &String) {}
 ```
 
-10. 
+10.
+
 ```rust
 fn main() {
     let mut s = String::from("hello, ");
@@ -128,7 +138,8 @@ fn main() {
 }
 ```
 
-11. 
+11.
+
 ```rust
 fn main() {
     let mut s = String::from("hello, ");

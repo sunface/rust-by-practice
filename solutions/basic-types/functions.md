@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     // don't modify the following two lines!
@@ -14,6 +15,7 @@ fn sum(x: i32, y: i32) -> i32 {
 ```
 
 2.
+
 ```rust
 fn main() {
     print();
@@ -26,6 +28,7 @@ fn print() -> () {
 ```
 
 3.
+
 ```rust
 fn main() {
     never_return();
@@ -44,6 +47,7 @@ fn main() {
 
 use std::thread;
 use std::time;
+
 fn never_return() -> ! {
     // implement this function, don't modify fn signatures
     loop {
@@ -55,6 +59,7 @@ fn never_return() -> ! {
 ```
 
 4.
+
 ```rust
 fn main() {
     println!("Success!");
@@ -69,7 +74,7 @@ fn get_option(tp: u8) -> Option<i32> {
             // TODO
         }
     };
-    
+
     never_return_fn()
 }
 
@@ -97,6 +102,7 @@ fn never_return_fn() -> ! {
 ```
 
 5.
+
 ```rust
 fn main() {
     // FILL in the blank

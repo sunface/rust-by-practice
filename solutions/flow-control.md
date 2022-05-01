@@ -1,11 +1,12 @@
 1.
+
 ```rust
 fn main() {
     let n = 5;
 
     if n < 0 {
         println!("{} is negative", n);
-    } else if  n > 0 {
+    } else if n > 0 {
         println!("{} is positive", n);
     } else {
         println!("{} is zero", n);
@@ -14,6 +15,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     let n = 5;
@@ -26,7 +28,7 @@ fn main() {
         } else {
             println!(", and is a big number, halve the number");
 
-            n / 2 
+            n / 2
         };
 
     println!("{} -> {}", n, big_n);
@@ -34,9 +36,10 @@ fn main() {
 ```
 
 3.
+
 ```rust
 fn main() {
-    for n in 1..100 { 
+    for n in 1..100 {
         if n == 100 {
             panic!("NEVER LET THIS RUN")
         }
@@ -45,9 +48,10 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
-    let names = [String::from("liming"),String::from("hanmeimei")];
+    let names = [String::from("liming"), String::from("hanmeimei")];
     for name in &names {
         // do something with name...
     }
@@ -59,24 +63,26 @@ fn main() {
     for n in numbers {
         // do something with name...
     }
-    
+
     println!("{:?}", numbers);
 } 
 ```
 
 5.
+
 ```rust
 fn main() {
     let a = [4, 3, 2, 1];
 
     // iterate the indexing and value in 'a'
-    for (i,v) in a.iter().enumerate() {
-        println!("The {}th element is {}",i+1,v);
+    for (i, v) in a.iter().enumerate() {
+        println!("The {}th element is {}", i + 1, v);
     }
 }
 ```
 
 6.
+
 ```rust
 fn main() {
     // A counter variable
@@ -98,19 +104,20 @@ fn main() {
         n += 1;
     }
 
-    println!("n reached {}, soloop is over",n);
+    println!("n reached {}, soloop is over", n);
 }
 ```
 
 7.
+
 ```rust
 fn main() {
     let mut n = 0;
     for i in 0..=100 {
-       if n == 66 {
-           break
-       }
-       n += 1;
+        if n == 66 {
+            break;
+        }
+        n += 1;
     }
 
     assert_eq!(n, 66);
@@ -118,16 +125,17 @@ fn main() {
 ```
 
 8.
+
 ```rust
 fn main() {
     let mut n = 0;
     for i in 0..=100 {
-       if n != 66 {
-           n+=1;
-           continue;
-       }
-       
-       break
+        if n != 66 {
+            n += 1;
+            continue;
+        }
+
+        break;
     }
 
     assert_eq!(n, 66);
@@ -135,6 +143,7 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn main() {
     let mut count = 0u32;
@@ -166,6 +175,7 @@ fn main() {
 ```
 
 10.
+
 ```rust
 fn main() {
     let mut counter = 0;
@@ -183,6 +193,7 @@ fn main() {
 ```
 
 11.
+
 ```rust
 fn main() {
     let mut count = 0;

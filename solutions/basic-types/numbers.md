@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let x: i32 = 5;
@@ -11,6 +12,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     let v: u16 = 38_u8 as u16;
@@ -18,6 +20,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 fn main() {
     let x = 5;
@@ -31,6 +34,7 @@ fn type_of<T>(_: &T) -> String {
 ```
 
 4.
+
 ```rust
 fn main() {
     assert_eq!(i8::MAX, 127); 
@@ -39,6 +43,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 fn main() {
     let v1 = 247_u8 + 8;
@@ -48,6 +53,7 @@ fn main() {
  ```
 
 6.
+
  ```rust
  fn main() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
@@ -56,6 +62,7 @@ fn main() {
  ```
 
 7.
+
  ```rust
  fn main() {
     let x = 1_000.000_1; // f64
@@ -65,6 +72,7 @@ fn main() {
  ```
 
 8.
+
 ```rust
 fn main() {
     assert!(0.1_f32+0.2_f32==0.3_f32);
@@ -78,6 +86,7 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn main() {
     let mut sum = 0;
@@ -94,6 +103,7 @@ fn main() {
 ```
 
 10.
+
 ```rust
 use std::ops::{Range, RangeInclusive};
 fn main() {
@@ -103,6 +113,7 @@ fn main() {
 ```
 
 11.
+
 ```rust
 fn main() {
     // Integer addition

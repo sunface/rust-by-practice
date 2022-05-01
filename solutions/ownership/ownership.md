@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let x = String::from("hello, world");
@@ -32,6 +33,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 // Don't modify code in main!
 fn main() {
@@ -49,6 +51,7 @@ fn take_ownership(s: String) -> String {
 ```
 
 3.
+
 ```rust
 fn main() {
     let s = give_ownership();
@@ -78,6 +81,7 @@ fn give_ownership() -> String {
 ```
 
 4.
+
 ```rust
 fn main() {
     let s = String::from("hello, world");
@@ -93,6 +97,7 @@ fn print_str(s: String)  {
 ```
 
 5.
+
 ```rust
 fn main() {
     let x = (1, 2, (), "hello");
@@ -102,6 +107,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 fn main() {
     let s = String::from("hello, ");
@@ -114,6 +120,7 @@ fn main() {
 ```
 
 7.
+
 ```rust
 fn main() {
     let x = Box::new(5);
@@ -127,6 +134,7 @@ fn main() {
 ```
 
 8.
+
 ```rust
 fn main() {
     let t = (String::from("hello"), String::from("world"));
@@ -139,6 +147,7 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn main() {
     let t = (String::from("hello"), String::from("world"));

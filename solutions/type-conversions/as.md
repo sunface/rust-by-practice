@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let decimal = 97.123_f32;
@@ -13,6 +14,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 // Suppress all warnings from casts which overflow.
 #![allow(overflowing_literals)]
@@ -24,6 +26,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 fn main() {
     assert_eq!(1000 as u16, 1000);
@@ -58,6 +61,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
     let mut values: [i32; 2] = [1, 2];
@@ -75,6 +79,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 fn main() {
     let arr :[u64; 13] = [0; 13];

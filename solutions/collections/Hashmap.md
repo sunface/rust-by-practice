@@ -1,4 +1,5 @@
 1.
+
 ```rust
 // FILL in the blanks and FIX the erros
 use std::collections::HashMap;
@@ -29,6 +30,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 use std::collections::HashMap;
 fn main() {
@@ -73,9 +75,11 @@ fn main() {
 ```
 
 3.
+
 ```rust
 // FILL in the blanks
 use std::collections::HashMap;
+
 fn main() {
     // type inference lets us omit an explicit type signature (which
     // would be `HashMap<&str, u8>` in this example).
@@ -109,6 +113,7 @@ fn random_stat_buff() -> u8 {
 ```
 
 4.
+
 ```rust
 use std::collections::HashMap;
 
@@ -144,19 +149,21 @@ fn main() {
 ```
 
 5.
+
 ```rust
 use std::collections::HashMap;
-fn main() {
-  let v1 = 10;
-  let mut m1 = HashMap::new();
-  m1.insert(v1, v1);
-  println!("v1 is still usable after inserting to hashmap : {}", v1);
 
-  // &str implements Copy trait
-  let v2 = "hello";
-  let mut m2 = HashMap::new();
-  m2.insert(v2, v1);
-    
-  assert_eq!(v2, "hello");
+fn main() {
+    let v1 = 10;
+    let mut m1 = HashMap::new();
+    m1.insert(v1, v1);
+    println!("v1 is still usable after inserting to hashmap : {}", v1);
+
+    // &str implements Copy trait
+    let v2 = "hello";
+    let mut m2 = HashMap::new();
+    m2.insert(v2, v1);
+
+    assert_eq!(v2, "hello");
 }
 ```

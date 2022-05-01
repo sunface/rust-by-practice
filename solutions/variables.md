@@ -1,23 +1,26 @@
-1. 
+1.
+
 ```rust
 fn main() {
     let x: i32 = 5; // uninitialized but using, ERROR !
     let y: i32; // uninitialized but also unusing, only warning
-    println!("{} is equal to 5", x); 
+    println!("{} is equal to 5", x);
 }
 ```
 
 2.
+
 ```rust
 fn main() {
-    let mut x =  1;
-    x += 2; 
-    
-    println!("{} is equal to 3", x); 
+    let mut x = 1;
+    x += 2;
+
+    println!("{} is equal to 3", x);
 }
 ```
 
 3.
+
 ```rust
 fn main() {
     let x: i32 = 10;
@@ -25,15 +28,16 @@ fn main() {
         let y: i32 = 5;
         println!("The value of x is {} and value of y is {}", x, y);
     }
-    println!("The value of x is {}", x); 
+    println!("The value of x is {}", x);
 }
 ```
 
 4.
+
 ```rust
 fn main() {
     let x = define_x();
-    println!("{}, world", x); 
+    println!("{}, world", x);
 }
 
 fn define_x() -> String {
@@ -45,7 +49,7 @@ fn define_x() -> String {
 ```rust
 fn main() {
     let x = define_x();
-    println!("{:?}, world", x); 
+    println!("{:?}, world", x);
 }
 
 fn define_x() -> &'static str {
@@ -55,6 +59,7 @@ fn define_x() -> &'static str {
 ```
 
 5.
+
 ```rust
 fn main() {
     let x: i32 = 5;
@@ -65,42 +70,45 @@ fn main() {
 
     assert_eq!(x, 5);
 
-    let x =  42;
+    let x = 42;
     println!("{}", x); // Prints "42".
 }
 ```
 
 6.
+
 ```rust
 fn main() {
     let mut x: i32 = 1;
     x = 7;
     // shadowing and re-binding
-    let x = x; 
+    let x = x;
     // x += 3;
 
 
     let y = 4;
     // shadowing
-    let y = "I can also be bound to text!"; 
+    let y = "I can also be bound to text!";
 }
 ```
 
 7.
+
 ```rust
 fn main() {
-    let _x = 1; 
+    let _x = 1;
 }
 ```
 
 ```rust
 #[allow(unused_variables)]
 fn main() {
-    let x = 1; 
+    let x = 1;
 }
 ```
 
 8.
+
 ```rust
 fn main() {
     let (mut x, y) = (1, 2);
@@ -122,12 +130,13 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn main() {
     let (x, y);
-    (x,..) = (3, 4);
+    (x, ..) = (3, 4);
     [.., y] = [1, 2];
     // fill the blank to make the code work
-    assert_eq!([x,y], [3,2]);
+    assert_eq!([x, y], [3, 2]);
 }
 ```

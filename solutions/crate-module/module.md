@@ -1,4 +1,5 @@
 1.
+
 ```rust
 // in lib.rs
 mod front_of_house {
@@ -21,6 +22,7 @@ mod front_of_house {
 ```
 
 2.
+
 ```rust
 // in lib.rs
 pub mod front_of_house {
@@ -53,6 +55,7 @@ pub fn eat_at_restaurant() {
 ```
 
 3.
+
 ```rust
 mod back_of_house {
     fn fix_incorrect_order() {
@@ -75,9 +78,8 @@ mod back_of_house {
 }
 ```
 
-
-
 4.
+
 ```rust
 // in src/lib.rs
 
@@ -103,7 +105,6 @@ pub fn fix_incorrect_order() {
 
 pub fn cook_order() {}
 ```
-
 
 ```rust
 // in src/front_of_house/mod.rs
@@ -136,8 +137,8 @@ pub fn take_payment() {}
 fn complain() {} 
 ```
 
-
 5.
+
 ```rust
 mod front_of_house;
 

@@ -2,13 +2,14 @@
 
 2. `cargo new --lib hello-package1`
 
-3. `hello-package` has a binary crate named `hello-package`, `src/main.rs` is the crate root. 
-   
+3. `hello-package` has a binary crate named `hello-package`, `src/main.rs` is the crate root.
+
 `hello-pacakge1` has a library crate named `hello-package1`, `src/lib.rs` is the crate root.
 
 4. `hello-package1`
 
 5.
+
 ```shell
 # FILL in the blanks
 .
@@ -20,6 +21,7 @@
 ```
 
 6.
+
 ```shell
 # Create a package which contains 
 # 1. three binary crates: `hello-package`, `main1` and `main2`

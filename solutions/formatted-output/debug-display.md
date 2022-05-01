@@ -1,4 +1,5 @@
 1.
+
 ```rust
 #[derive(Debug)]
 struct Structure(i32);
@@ -10,7 +11,9 @@ fn main() {
     println!("Now {:?} will print!", Structure(3));
 }
 ```
+
 2.
+
 ```rust
 #[derive(Debug)]
 struct Person {
@@ -26,6 +29,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 use std::fmt;
 
@@ -48,6 +52,7 @@ fn main() {
 ```
 
 4
+
 ```rust
 use std::fmt;
 
@@ -79,6 +84,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 use std::fmt; // Import the `fmt` module.
 

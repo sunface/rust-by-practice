@@ -1,4 +1,5 @@
 1、
+
 ```rust
 struct DoubleRef<'a,'b:'a, T> {
     r: &'a T,
@@ -9,8 +10,8 @@ fn main() {
 }
 ```
 
-
 2、
+
 ```rust
 struct ImportantExcerpt<'a> {
     part: &'a str,
@@ -29,6 +30,7 @@ fn main() {
 ```
 
 3、
+
 ```rust
 fn f<'a, 'b>(x: &'a i32, mut y: &'b i32) where 'a: 'b {
     y = x;                      // &'a i32 is a subtype of &'b i32 because 'a: 'b
@@ -39,8 +41,8 @@ fn main() {
 }
 ```
 
-
 4、
+
 ```rust
 fn call_on_ref_zero<F>(f: F) where for<'a> F: Fn(&'a i32) {
     let zero = 0;
@@ -52,7 +54,9 @@ fn main() {
 }
 ```
 
-Higher-ranked lifetimes may also be specified just before the trait: the only difference is the scope of the lifetime parameter, which extends only to the end of the following trait instead of the whole bound. This function is equivalent to the last one.
+Higher-ranked lifetimes may also be specified just before the trait: the only difference is the scope of the lifetime
+parameter, which extends only to the end of the following trait instead of the whole bound. This function is equivalent
+to the last one.
 
 ```rust
 fn call_on_ref_zero<F>(f: F) where F: for<'a> Fn(&'a i32) {
@@ -62,6 +66,7 @@ fn call_on_ref_zero<F>(f: F) where F: for<'a> Fn(&'a i32) {
 ```
 
 5、
+
 ```rust
 fn main() {
     let mut data = 10;
@@ -75,8 +80,8 @@ fn main() {
 }
 ```
 
-
 6、
+
 ```rust
 struct Interface<'b, 'a: 'b> {
     manager: &'b mut Manager<'a>

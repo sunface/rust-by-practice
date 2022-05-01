@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let v = {
@@ -23,6 +24,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     let v = {
@@ -35,6 +37,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 fn main() {
     let s = sum(1 , 2);

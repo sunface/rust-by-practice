@@ -1,4 +1,5 @@
 1.
+
 ```rust
 enum Number {
     Zero,
@@ -28,6 +29,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 enum Message {
     Quit,
@@ -43,6 +45,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 enum Message {
     Quit,
@@ -63,6 +66,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 #[derive(Debug)]
 enum Message {
@@ -75,14 +79,14 @@ enum Message {
 fn main() {
     let msgs: [Message; 3] = [
         Message::Quit,
-        Message::Move{x:1, y:3},
-        Message::ChangeColor(255,255,0)
+        Message::Move { x: 1, y: 3 },
+        Message::ChangeColor(255, 255, 0)
     ];
 
     for msg in msgs {
         show_message(msg)
     }
-} 
+}
 
 fn show_message(msg: Message) {
     println!("{:?}", msg);
@@ -90,6 +94,7 @@ fn show_message(msg: Message) {
 ```
 
 5.
+
 ```rust
 fn main() {
     let five = Some(5);
@@ -113,6 +118,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 ```
 
 6.
+
 ```rust
 use crate::List::*;
 
@@ -162,10 +168,10 @@ impl List {
                 // `format!` is similar to `print!`, but returns a heap
                 // allocated string instead of printing to the console
                 format!("{}, {}", head, tail.stringify())
-            },
+            }
             Nil => {
                 format!("Nil")
-            },
+            }
         }
     }
 }

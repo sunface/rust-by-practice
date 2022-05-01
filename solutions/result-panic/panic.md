@@ -1,4 +1,5 @@
 1.
+
 ```rust
 use core::panic;
 
@@ -20,6 +21,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 // MAKE the code work by fixing all panics
 fn main() {

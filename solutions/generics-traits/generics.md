@@ -1,4 +1,5 @@
 1.
+
 ```rust
 struct A;          // Concrete type `A`.
 struct S(A);       // Concrete type `S`.
@@ -27,6 +28,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn sum<T:std::ops::Add<Output = T>>(x: T, y: T) -> T {
     x + y
@@ -39,8 +41,8 @@ fn main() {
 }
 ```
 
-
 3.
+
 ```rust
 struct Point<T> {
     x: T,
@@ -54,6 +56,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 // modify this struct to make the code work
 struct Point<T, U> {
@@ -68,6 +71,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 struct Val<T> {
     val: T,
@@ -88,6 +92,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 struct Point<T, U> {
     x: T,
@@ -115,6 +120,7 @@ fn main() {
 ```
 
 7.
+
 ```rust
 struct Point<T> {
     x: T,

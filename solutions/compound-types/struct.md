@@ -1,4 +1,5 @@
 1.
+
 ```rust
 struct Person {
     name: String,
@@ -16,6 +17,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 struct Unit;
 trait SomeTrait {
@@ -35,6 +37,7 @@ fn do_something_with_unit(u: Unit) {   }
 ```
 
 3.
+
 ```rust
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
@@ -52,6 +55,7 @@ fn check_color(p: Point) {
 ```
 
 4.
+
 ```rust
 struct Person {
     name: String,
@@ -72,6 +76,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 struct Person {
     name: String,
@@ -88,6 +93,7 @@ fn build_person(name: String, age: u8) -> Person {
 ```
 
 6.
+
 ```rust
 struct User {
     active: bool,
@@ -115,6 +121,7 @@ fn set_email(u: User) -> User {
 ```
 
 7.
+
 ```rust
 #[derive(Debug)]
 struct Rectangle {
@@ -136,6 +143,7 @@ fn main() {
 ```
 
 8.
+
 ```rust
 #[derive(Debug)]
 struct File {
