@@ -1,16 +1,16 @@
 # Patterns
 
-1. 🌟🌟 use `|` to match several values, use `..=` to match a inclusive range
+1. 🌟🌟 Use `|` to match several values, use `..=` to match an inclusive range.
 ```rust,editable
 
 fn main() {}
 fn match_number(n: i32) {
     match n {
-        // match a single value
+        // Match a single value
         1 => println!("One!"),
-        // fill in the blank with `|`, DON'T use `..` ofr `..=`
+        // Fill in the blank with `|`, DON'T use `..` or `..=`
         __ => println!("match 2 -> 5"),
-        // match an inclusive range
+        // Match an inclusive range
         6..=10 => {
             println!("match 6 -> 10")
         },
@@ -21,7 +21,7 @@ fn match_number(n: i32) {
 }
 ```
 
-2. 🌟🌟🌟 The `@` operator lets us create a variable that holds a value at the same time we are testing that value to see whether it matches a pattern.
+2. 🌟🌟🌟 The `@` operator lets us create a variable that holds a value, at the same time we are testing that value to see whether it matches a pattern.
 ```rust,editable
 
 struct Point {
@@ -30,12 +30,12 @@ struct Point {
 }
 
 fn main() {
-    // fill in the blank to let p match the second arm
+    // Fill in the blank to let p match the second arm
     let p = Point { x: __, y: __ };
 
     match p {
         Point { x, y: 0 } => println!("On the x axis at {}", x),
-        // second arm
+        // Second arm
         Point { x: 0..=5, y: y@ (10 | 20 | 30) } => println!("On the y axis at {}", y),
         Point { x, y } => println!("On neither axis: ({}, {})", x, y),
     }
@@ -46,7 +46,7 @@ fn main() {
 
 ```rust,editable
 
-// fix the errors
+// Fix the errors
 enum Message {
     Hello { id: i32 },
 }
@@ -69,7 +69,7 @@ fn main() {
 4. 🌟🌟 A match guard is an additional if condition specified after the pattern in a match arm that must also match, along with the pattern matching, for that arm to be chosen.
 ```rust,editable
 
-// fill in the blank to make the code work, `split` MUST be used
+// Fill in the blank to make the code work, `split` MUST be used
 fn main() {
     let num = Some(4);
     let split = 5;
@@ -79,14 +79,14 @@ fn main() {
         None => (),
     }
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 5. 🌟🌟 Ignoring remaining parts of the value with `..`
 ```rust,editable
 
-// fill the blank to make the code work
+// Fill the blank to make the code work
 fn main() {
     let numbers = (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048);
 
@@ -97,11 +97,11 @@ fn main() {
         }
     }
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-6. 🌟🌟 Using pattern `&mut V` to match a mutable reference needs you to be very careful due to `V` being a value  after matching
+6. 🌟🌟 Using pattern `&mut V` to match a mutable reference needs you to be very careful, due to `V` being a value  after matching.
 ```rust,editable
 
 // FIX the error with least changing
