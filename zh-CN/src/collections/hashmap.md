@@ -140,7 +140,7 @@ fn main() {
         (Viking::new("Harald", "Iceland"), 12),
     ]);
 
-    // 使用 derive 的方式来打印 vikong 的当前状态
+    // 使用 derive 的方式来打印 viking 的当前状态
     for (viking, health) in &vikings {
         println!("{:?} has {} hp", viking, health);
     }
