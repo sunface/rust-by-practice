@@ -174,7 +174,7 @@ impl TrafficLight {
     }
 
     // fill in the blank, DON'T use any variants of `Self`
-    pub fn change_state() {
+    pub fn change_state(__) {
         self.color = "green".to_string()
     }
 }

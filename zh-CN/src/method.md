@@ -168,7 +168,7 @@ impl TrafficLight {
     }
 
     // 填空，不要使用 `Self` 或其变体
-    pub fn change_state() {
+    pub fn change_state(__) {
         self.color = "green".to_string()
     }
 }
