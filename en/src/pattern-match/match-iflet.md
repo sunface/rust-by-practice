@@ -82,7 +82,7 @@ fn show_message(msg: Message) {
 }
 ```
 
-### Matches!
+### matches!
 [`matches!`](https://doc.rust-lang.org/stable/core/macro.matches.html) looks like `match`, but can do something different.
 
 4. 🌟🌟
