@@ -1,11 +1,13 @@
-1. 
+1.
+
 ```rust
 fn main() {
     let s: &str = "hello, world";
  }
 ```
 
-2. 
+2.
+
 ```rust
 fn main() {
     let s: Box<str> =  "hello, world".into();
@@ -16,6 +18,7 @@ fn main() {
      println!("{}",s)
  }
 ```
+
 ```rust
 fn main() {
     let s: Box<&str> = "hello, world".into();
@@ -27,7 +30,8 @@ fn greetings(s: &str) {
 }
 ```
 
-3. 
+3.
+
 ```rust
 fn main() {
     let mut s = String::new();
@@ -38,7 +42,8 @@ fn main() {
  }
 ```
 
-4. 
+4.
+
 ```rust
 fn main() {
     let mut s =  String::from("hello");
@@ -50,7 +55,8 @@ fn main() {
  }
 ```
 
-5. 
+5.
+
 ```rust
 fn main() {
     let s = String::from("I like dogs");
@@ -61,7 +67,8 @@ fn main() {
  }
 ```
 
-6. 
+6.
+
 ```rust
 fn main() {
     let s1 = String::from("hello,");
@@ -72,7 +79,8 @@ fn main() {
 }
 ```
 
-7. 
+7.
+
 ```rust
 fn main() {
     let s =  "hello, world".to_string();
@@ -95,10 +103,11 @@ fn greetings(s: String) {
 }
 ```
 
-8. 
+8.
+
 ```rust
 fn main() {
-    let s =  "hello, world".to_string();
+    let s = "hello, world".to_string();
     let s1: &str = &s;
 }
 ```
@@ -112,12 +121,13 @@ fn main() {
 
 ```rust
 fn main() {
-    let s =  "hello, world".to_string();
+    let s = "hello, world".to_string();
     let s1: String = s;
 }
 ```
 
-9. 
+9.
+
 ```rust
 fn main() {
     // You can use escapes to write bytes by their hexadecimal values
@@ -140,7 +150,8 @@ fn main() {
 }
 ```
 
-10. 
+10.
+
 ```rust
 fn main() {
     let raw_str = "Escapes don't work here: \x3F \u{211D}";
@@ -162,7 +173,8 @@ fn main() {
 }
 ```
 
-11. 
+11.
+
 ```rust
 fn main() {
     let s1 = String::from("hi,中国");
@@ -174,7 +186,8 @@ fn main() {
 }
 ```
 
-12. 
+12.
+
 ```rust
 fn main() {
     for c in "你好，世界".chars() {

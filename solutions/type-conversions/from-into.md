@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
      // impl From<bool> for i32
@@ -28,6 +29,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 // From is now included in `std::prelude`, so there is no need to introduce it into the current scope
 // use std::convert::From;
@@ -56,6 +58,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 use std::fs;
 use std::io;
@@ -92,6 +95,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
     let n: i16 = 256;
@@ -111,6 +115,7 @@ fn main() {
 ```
 
 5.
+
 ```rust,editable
 #[derive(Debug, PartialEq)]
 struct EvenNum(i32);

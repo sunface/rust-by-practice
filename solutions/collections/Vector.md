@@ -1,4 +1,5 @@
-1. 
+1.
+
 ```rust
 fn main() {
     let arr: [u8; 3] = [1, 2, 3];
@@ -30,6 +31,7 @@ fn is_vec(v: &Vec<u8>) {}
 ```
 
 2.
+
 ```rust
 fn main() {
     let mut v1 = Vec::from([1, 2, 4]);
@@ -45,7 +47,8 @@ fn main() {
 }
 ```
 
-3. 
+3.
+
 ```rust
 fn main() {
     // array -> Vec
@@ -72,7 +75,8 @@ fn main() {
  }
  ```
 
-4. 
+4.
+
 ```rust,editable
 fn main() {
     let mut v = Vec::from([1, 2, 3]);
@@ -94,7 +98,8 @@ fn main() {
 }
 ```
 
-5. 
+5.
+
 ```rust
 // FIX the errors
 fn main() {
@@ -119,7 +124,8 @@ fn main() {
 }
 ```
 
-6. 
+6.
+
 ```rust
 // FIX the errors
 fn main() {
@@ -155,20 +161,22 @@ fn main() {
 }
 ```
 
-7. 
+7.
+
 ```rust
 #[derive(Debug, PartialEq)]
 enum IpAddr {
     V4(String),
     V6(String),
 }
+
 fn main() {
     // FILL in the blank
-    let v : Vec<IpAddr>= vec![
+    let v: Vec<IpAddr> = vec![
         IpAddr::V4("127.0.0.1".to_string()),
         IpAddr::V6("::1".to_string())
     ];
-    
+
     // Comparing two enums need to derive the PartialEq trait
     assert_eq!(v[0], IpAddr::V4("127.0.0.1".to_string()));
     assert_eq!(v[1], IpAddr::V6("::1".to_string()));
@@ -177,7 +185,8 @@ fn main() {
 }
 ```
 
-8. 
+8.
+
 ```rust
 trait IpAddr {
     fn display(&self);

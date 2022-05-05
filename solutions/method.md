@@ -1,4 +1,5 @@
 1.
+
 ```rust
 struct Rectangle {
     width: u32,
@@ -19,6 +20,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 #[derive(Debug)]
 struct TrafficLight {
@@ -26,12 +28,13 @@ struct TrafficLight {
 }
 
 impl TrafficLight {
-    pub fn show_state(&self)  {
+    pub fn show_state(&self) {
         println!("the current state is {}", self.color);
     }
 }
+
 fn main() {
-    let light = TrafficLight{
+    let light = TrafficLight {
         color: "red".to_owned(),
     };
     // Don't take the ownership of `light` here
@@ -42,6 +45,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 struct TrafficLight {
     color: String,
@@ -49,7 +53,7 @@ struct TrafficLight {
 
 impl TrafficLight {
     // using `Self` to fill in the blank
-    pub fn show_state(self: &Self)  {
+    pub fn show_state(self: &Self) {
         println!("the current state is {}", self.color);
     }
 
@@ -58,10 +62,12 @@ impl TrafficLight {
         self.color = "green".to_string()
     }
 }
+
 fn main() {}
 ```
 
 4.
+
 ```rust
 #[derive(Debug)]
 struct TrafficLight {
@@ -82,6 +88,7 @@ impl TrafficLight {
         &self.color
     }
 }
+
 fn main() {
     let light = TrafficLight::new();
     assert_eq!(light.get_state(), "red");
@@ -89,6 +96,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 struct Rectangle {
     width: u32,
@@ -107,10 +115,12 @@ impl Rectangle {
         self.width > other.width && self.height > other.height
     }
 }
+
 fn main() {}
 ```
 
 6.
+
 ```rust
 #[derive(Debug)]
 enum TrafficLightColor {
@@ -135,6 +145,6 @@ fn main() {
 
     assert_eq!(c.color(), "yellow");
 
-    println!("{:?}",c);
+    println!("{:?}", c);
 }
 ```

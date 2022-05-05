@@ -1,5 +1,7 @@
 # Lifetime
+
 1.
+
 ```rust
 fn main() {
     let i = 3; // Lifetime for `i` starts. ────────────────┐
@@ -20,8 +22,8 @@ fn main() {
 }   // Lifetime ends. ─────────────────────────────────────┘
 ```
 
-
 2. We can't borrow a item whose lifetime is smaller.
+
 ```rust
 fn main() {  
     {
@@ -38,6 +40,7 @@ fn main() {
 ```
 
 3
+
 ```rust
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
@@ -51,6 +54,7 @@ fn main() {}
 ```
 
 4.
+
 ```rust
 fn invalid_output() -> String { 
     String::from("foo") 
@@ -76,6 +80,7 @@ fn main() {}
 ```
 
 5.
+
 ```rust
 fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
     println!("x is {} and y is {}", x, y);
@@ -98,6 +103,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 // A type `Borrowed` which houses a reference to an
 // `i32`. The reference to `i32` must outlive `Borrowed`.
@@ -135,6 +141,7 @@ fn main() {
 ```
 
 7. 🌟
+
 ```rust,editable
 /* Make it work */
 
@@ -165,8 +172,8 @@ fn main()
 }
 ```
 
-
 8. 🌟
+
 ```rust,editable
 
 #[derive(Debug)]
@@ -193,6 +200,7 @@ fn main()
 ```
 
 9.
+
 ```rust
 struct ImportantExcerpt<'a> {
     part: &'a str,
@@ -207,8 +215,8 @@ impl<'a> ImportantExcerpt<'a> {
 fn main() {}
 ```
 
-
 10.
+
 ```rust
 
 fn nput(x: &i32) {

@@ -1,4 +1,5 @@
 1.
+
 ```rust
 trait Hello {
     fn say_hi(&self) -> String {
@@ -37,6 +38,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 // `Centimeters`, a tuple struct that can be compared
 #[derive(PartialEq, PartialOrd)]
@@ -84,6 +86,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 use std::ops;
 
@@ -101,6 +104,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 use std::ops;
 
@@ -141,6 +145,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 // implement `fn summary` to make the code work
 // fix the errors without removing any code line
@@ -197,6 +202,7 @@ fn summary(t: &impl Summary) {
 ```
 
 6.
+
 ```rust
 struct Sheep {}
 struct Cow {}
@@ -272,6 +278,7 @@ fn main() {
 ```
 
 7.
+
 ```rust
 fn main() {
     assert_eq!(sum(1, 2), 3);
@@ -298,6 +305,7 @@ where
 ```
 
 8.
+
 ```rust
 struct Pair<T> {
     x: T,
@@ -337,6 +345,7 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn example1() {
     // `T: Trait` is the commonly used way

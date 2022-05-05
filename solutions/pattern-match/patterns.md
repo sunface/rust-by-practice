@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {}
 fn match_number(n: i32) {
@@ -19,6 +20,7 @@ fn match_number(n: i32) {
 ```
 
 2.
+
 ```rust
 
 struct Point {
@@ -40,6 +42,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 enum Message {
     Hello { id: i32 },
@@ -61,6 +64,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
     let num = Some(4);
@@ -74,6 +78,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 fn main() {
     let numbers = (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048);
@@ -88,6 +93,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 fn main() {
     let mut v = String::from("hello,");

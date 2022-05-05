@@ -1,4 +1,5 @@
 1.
+
 ```rust
 trait Bird {
     fn quack(&self) -> String;
@@ -58,6 +59,7 @@ fn hatch_a_bird(species: u8) ->Box<dyn Bird> {
 ```
 
 2.
+
 ```rust
 trait Bird {
     fn quack(&self);
@@ -101,6 +103,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 trait Draw {
     fn draw(&self) -> String;
@@ -139,6 +142,7 @@ fn draw_with_ref(x: &dyn Draw) {
 ```
 
 4.
+
 ```rust
 trait Foo {
     fn method(&self) -> String;
@@ -174,6 +178,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 trait MyTrait {
     fn f(&self) -> Self;

@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");// => Alice, this is Bob. Bob, this is Alice
@@ -9,6 +10,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     println!("{argument}", argument = "test"); // => "test"
@@ -24,6 +26,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 fn main() {
     // the following two are padding with 5 spaces
@@ -38,6 +41,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
     // left align
@@ -55,6 +59,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 fn main() {
     println!("Hello {:5}!", 5); // => Hello     5!
@@ -69,6 +74,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 fn main() {
     let v = 3.1415926;
@@ -84,6 +90,7 @@ fn main() {
 ```
 
 7.
+
 ```rust
 fn main() {
     let s = "Hello, world!";
@@ -97,6 +104,7 @@ fn main() {
 ```
 
 8.
+
 ```rust
 fn main() {
      assert_eq!(format!("{:#b}", 27), "0b11011");
@@ -113,6 +121,7 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn get_person() -> String {
     String::from("sunface")

@@ -1,4 +1,5 @@
 1.
+
 ```rust
 struct Array<T, const N: usize> {
     data : [T; N]
@@ -20,6 +21,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn print_array<T: std::fmt::Debug, const N: usize>(arr: [T; N]) {
     println!("{:?}", arr);
@@ -33,7 +35,8 @@ fn main() {
 }
 ```
 
-3. 
+3.
+
 ```rust
 #![allow(incomplete_features)]
 #![feature(generic_const_exprs)]

@@ -1,4 +1,5 @@
 1、
+
 ```rust
 use std::fmt;
 
@@ -17,6 +18,7 @@ fn main() {
 ```
 
 2、
+
 ```rust
 struct Meters(u32);
 
@@ -30,6 +32,7 @@ fn main() {
 ```
 
 3、
+
 ```rust
 struct Years(i64);
 
@@ -62,11 +65,13 @@ fn main() {
 ```
 
 4、Sometimes `newtype` pattern can provide extra readability.
+
 ```rust
 use std::ops::Add;
 use std::fmt::{self, format};
 
 struct Meters(u32);
+
 impl fmt::Display for Meters {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "There are still {} meters left", self.0)
@@ -80,9 +85,10 @@ impl Add for Meters {
         Self(self.0 + other.0)
     }
 }
+
 fn main() {
     let d = calculate_distance(Meters(10), Meters(20));
-    assert_eq!(format!("{}",d), "There are still 30 meters left");
+    assert_eq!(format!("{}", d), "There are still 30 meters left");
 }
 
 /* implement calculate_distance  */
@@ -92,6 +98,7 @@ fn calculate_distance(d1: Meters, d2: Meters) -> Meters {
 ```
 
 5、
+
 ```rust
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
@@ -109,6 +116,7 @@ fn main() {
 ```
 
 6、
+
 ```rust
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
@@ -124,12 +132,11 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
     }
 }
 
-fn main() {
-    
-}
+fn main() {}
 ```
 
 7、
+
 ```rust
 fn my_function<const N: usize>() -> [u32; N] {
     [123; N]
@@ -137,11 +144,12 @@ fn my_function<const N: usize>() -> [u32; N] {
 
 fn main() {
     let arr = my_function::<5>();
-    println!("{:?}",arr);
+    println!("{:?}", arr);
 }
 ```
 
 8、
+
 ```rust
 fn main() {
     let s: &str = "Hello there!";
@@ -150,13 +158,14 @@ fn main() {
 }
 ```
 
-
 9、
+
 ```rust
 use std::fmt::Display;
-fn foobar_1(thing: &dyn Display) {}    
-fn foobar_2(thing: Box<dyn Display>) {} 
 
-fn main() {
-}
+fn foobar_1(thing: &dyn Display) {}
+
+fn foobar_2(thing: Box<dyn Display>) {}
+
+fn main() {}
 ```
