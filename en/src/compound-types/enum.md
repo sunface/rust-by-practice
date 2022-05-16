@@ -64,7 +64,7 @@ enum Message {
 }
 
 fn main() {
-    let msg = Message::Move{x: 1, y: 2};
+    let msg = Message::Move{x: 1, y: 1};
 
     if let Message::Move{__} = msg {
         assert_eq!(a, b);
