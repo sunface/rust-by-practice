@@ -1,4 +1,4 @@
-# Associated function & Method
+# Associated functions & Methods
 
 ## Examples
 ```rust,editable
@@ -7,7 +7,7 @@ struct Point {
     y: f64,
 }
 
-// Implementation block, all `Point` associated functions & methods go in here
+// Implementation block, all `Point` associated functions & methods go in here.
 impl Point {
     // This is an "associated function" because this function is associated with
     // a particular type, that is, Point.
@@ -30,11 +30,11 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    // This is a method
+    // This is a method.
     // `&self` is sugar for `self: &Self`, where `Self` is the type of the
     // caller object. In this case `Self` = `Rectangle`
     fn area(&self) -> f64 {
-        // `self` gives access to the struct fields via the dot operator
+        // `self` gives access to the struct fields via the dot operator.
         let Point { x: x1, y: y1 } = self.p1;
         let Point { x: x2, y: y2 } = self.p2;
 
@@ -61,7 +61,7 @@ impl Rectangle {
     }
 }
 
-// `Pair` owns resources: two heap allocated integers
+// `Pair` owns resources: two heap allocated integers.
 struct Pair(Box<i32>, Box<i32>);
 
 impl Pair {
@@ -73,7 +73,7 @@ impl Pair {
 
         println!("Destroying Pair({}, {})", first, second);
 
-        // `first` and `second` go out of scope and get freed
+        // `first` and `second` go out of scope and get freed.
     }
 }
 
@@ -84,7 +84,7 @@ fn main() {
         p2: Point::new(3.0, 4.0),
     };
 
-    // Methods are called using the dot operator
+    // Methods are called using the dot operator.
     // Note that the first argument `&self` is implicitly passed, i.e.
     // `rectangle.perimeter()` === `Rectangle::perimeter(&rectangle)`
     println!("Rectangle perimeter: {}", rectangle.perimeter());
@@ -96,7 +96,7 @@ fn main() {
     };
 
     // Error! `rectangle` is immutable, but this method requires a mutable
-    // object
+    // object.
     //rectangle.translate(1.0, 0.0);
     // TODO ^ Try uncommenting this line
 
@@ -116,7 +116,7 @@ fn main() {
 ## Exercises
 
 ### Method
-1. 🌟🌟 Methods are similar to functions: declare with `fn`, have parameters and a return value.  Unlike functions, methods are defined within the context of a struct (or an enum or a trait object), and their first parameter is always `self`, which represents the instance of the struct the method is being called on.
+1. 🌟🌟 Methods are similar to functions: Declare with `fn`, have parameters and a return value.  Unlike functions, methods are defined within the context of a struct (or an enum or a trait object), and their first parameter is always `self`, which represents the instance of the struct the method is being called on.
 ```rust,editable
 struct Rectangle {
     width: u32,
@@ -124,7 +124,7 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    // complete the area method which return the area of a Rectangle
+    // Complete the area method which return the area of a Rectangle.
     fn area
 }
 
@@ -133,11 +133,11 @@ fn main() {
 
     assert_eq!(rect1.area(), 1500);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-2. 🌟🌟 `self` will take the ownership of current struct instance, however, `&self` will only borrow a reference from the instance
+2. 🌟🌟 `self` will take the ownership of current struct instance, however, `&self` will only borrow a reference from the instance.
 
 ```rust,editable
 // Only fill in the blanks, DON'T remove any line!
@@ -155,9 +155,9 @@ fn main() {
     let light = TrafficLight{
         color: "red".to_owned(),
     };
-    // Don't take the ownership of `light` here
+    // Don't take the ownership of `light` here.
     light.show_state();
-    // ..otherwise, there will be an error below
+    // ... Otherwise, there will be an error below
     println!("{:?}", light);
 }
 ```
@@ -168,23 +168,23 @@ struct TrafficLight {
 }
 
 impl TrafficLight {
-    // using `Self` to fill in the blank
+    // Using `Self` to fill in the blank.
     pub fn show_state(__)  {
         println!("the current state is {}", self.color);
     }
 
-    // fill in the blank, DON'T use any variants of `Self`
+    // Fill in the blank, DON'T use any variants of `Self`.
     pub fn change_state(__) {
         self.color = "green".to_string()
     }
 }
 fn main() {
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 
-### Associated function
+### Associated functions
 
 4. 🌟🌟  All functions defined within an `impl` block are called associated functions because they’re associated with the type named after the `impl`. We can define associated functions that don’t have `self` as their first parameter (and thus are not methods) because they don’t need an instance of the type to work with.
 
@@ -195,9 +195,9 @@ struct TrafficLight {
 }
 
 impl TrafficLight {
-    // 1. implement a assotiated function `new`,
-    // 2. it will return a TrafficLight contains color "red"
-    // 3. must use `Self`, DONT use `TrafficLight` in fn signatures or body
+    // 1. Implement an assotiated function `new`,
+    // 2. It will return a TrafficLight contains color "red"
+    // 3. Must use `Self`, DONT use `TrafficLight` in fn signatures or body
     pub fn new() 
 
     pub fn get_state(&self) -> &str {
@@ -209,7 +209,7 @@ fn main() {
     let light = TrafficLight::new();
     assert_eq!(light.get_state(), "red");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -222,7 +222,7 @@ struct Rectangle {
     height: u32,
 }
 
-// using multiple `impl` blocks to rewrite the code below
+// Using multiple `impl` blocks to rewrite the code below.
 impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
@@ -235,7 +235,7 @@ impl Rectangle {
 
 
 fn main() {
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -251,7 +251,7 @@ enum TrafficLightColor {
     Green,
 }
 
-// implement TrafficLightColor with a method
+// Implement TrafficLightColor with a method.
 impl TrafficLightColor {
     
 }
