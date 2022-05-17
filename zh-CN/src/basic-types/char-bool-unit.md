@@ -73,12 +73,12 @@ fn main() {
 }
 
 fn implicitly_ret_unit() {
-    println!("I will returen a ()")
+    println!("I will return a ()")
 }
 
 // 不要使用下面的函数，它只用于演示！
 fn explicitly_ret_unit() -> () {
-    println!("I will returen a ()")
+    println!("I will return a ()")
 }
 ```
 
