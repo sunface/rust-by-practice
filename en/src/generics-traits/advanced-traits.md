@@ -9,7 +9,7 @@ pub trait CacheableItem: Clone + Default + fmt::Debug + Decodable + Encodable {
 }
 ```
 
-Using of `Address` is much more clearable and convenient than `AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash`.
+Using of `Address` is much more clearer and convenient than `AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash`.
 
 1. 🌟🌟🌟
 ```rust,editable
@@ -89,7 +89,7 @@ fn main() {
     assert_eq!(Point { x: 2, y: 3 } - Point { x: 1, y: 0 },
         Point { x: 1, y: 3 });
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -110,7 +110,7 @@ trait AgeWidget {
     fn get(&self) -> u8;
 }
 
-// A form with both a UsernameWidget and an AgeWidget
+// A form with both a UsernameWidget and an AgeWidget.
 struct Form {
     username: String,
     age: u8,
@@ -141,10 +141,10 @@ fn main() {
     
     let username = UsernameWidget::get(&form);
     assert_eq!("rustacean".to_owned(), username);
-    let age = AgeWidget::get(&form); // you can also use `<Form as AgeWidget>::get`
+    let age = AgeWidget::get(&form); // You can also use `<Form as AgeWidget>::get`
     assert_eq!(28, age);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -187,7 +187,7 @@ fn main() {
 
     assert_eq!(__, "*waving arms furiously*");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -253,7 +253,7 @@ fn main() {
 ## Orphan Rules
 We can’t implement external traits on external types. For example, we can’t implement the `Display` trait on `Vec<T>` within our own crate, because `Display` and `Vec<T>` are defined in the standard library and aren’t local to our crate. 
 
-This restriction is often called as the orphan rule, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. 
+This restriction is often called the orphan rule, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. 
 
 It’s possible to get around this restriction using the newtype pattern, which involves creating a new type in a tuple struct.
 
