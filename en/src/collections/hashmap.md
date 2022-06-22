@@ -9,7 +9,7 @@ The hash table implementation is a Rust port of Google’s [SwissTable](https://
 ### Basic Operations
 1. 🌟🌟
 
-```rust,editbale
+```rust,editable
 
 // FILL in the blanks and FIX the erros
 use std::collections::HashMap;
