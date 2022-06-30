@@ -81,8 +81,8 @@ fn main() {
 1. 🌟🌟
 ```rust,editable
 
-// fill in the two impl blocks to make the code work
-// DON'T modify the code in `main`
+// Fill in the two impl blocks to make the code work.
+// DON'T modify the code in `main`.
 trait Hello {
     fn say_hi(&self) -> String {
         String::from("hi")
@@ -107,7 +107,7 @@ fn main() {
     assert_eq!(t.say_hi(), "Hi, I'm your new teacher");
     assert_eq!(t.say_something(), "I'm not a bad teacher");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -135,7 +135,7 @@ impl Inches {
 }
 
 // ADD some attributes to make the code work!
-// DON'T modify other codes!
+// DON'T modify other code!
 struct Seconds(i32);
 
 fn main() {
@@ -171,23 +171,23 @@ In Rust, many of the operators can be overloaded via traits. That is, some opera
 
 use std::ops;
 
-// implement fn multiply to make the code work
-// As mentiond above, `+` needs `T` to implement `std::ops::Add` Trait
-// so, what about `*` ?  You can find the answer here: https://doc.rust-lang.org/core/ops/
+// Implement fn multiply to make the code work.
+// As mentiond above, `+` needs `T` to implement `std::ops::Add` Trait.
+// So, what about `*`?  You can find the answer here: https://doc.rust-lang.org/core/ops/
 fn multipl
 
 fn main() {
     assert_eq!(6, multiply(2u8, 3u8));
     assert_eq!(5.0, multiply(1.0, 5.0));
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 4. 🌟🌟🌟
 ```rust,editable
 
-// fix the errors, DON'T modify the code in `main`
+// Fix the errors, DON'T modify the code in `main`.
 use std::ops;
 
 struct Foo;
@@ -217,12 +217,12 @@ impl ops::Sub<Foo> for Bar {
 }
 
 fn main() {
-    // DON'T modify the below code
-    // you need to derive some trait for FooBar to make it comparable
+    // DON'T modify the code below.
+    // You need to derive some trait for FooBar to make it comparable.
     assert_eq!(Foo + Bar, FooBar);
     assert_eq!(Foo - Bar, BarFoo);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -232,8 +232,8 @@ Instead of a concrete type for the item parameter, we specify the impl keyword a
 5. 🌟🌟🌟
 ```rust,editable
 
-// implement `fn summary` to make the code work
-// fix the errors without removing any code line
+// Implement `fn summary` to make the code work.
+// Fix the errors without removing any code line
 trait Summary {
     fn summarize(&self) -> String;
 }
@@ -281,14 +281,14 @@ fn main() {
     println!("{:?}", weibo);
 }
 
-// implement `fn summary` below
+// Implement `fn summary` below.
 
 ```
 
 ### Returning Types that Implement Traits
 We can also use the impl Trait syntax in the return position to return a value of some type that implements a trait.
 
-However, you can only use impl Trait if you’re returning a single type, using Trait Objects instead when you really need to return serveral types.
+However, you can only use impl Trait if you’re returning a single type, use Trait Objects instead when you really need to return several types.
 
 6. 🌟🌟
 ```rust,editable
@@ -313,7 +313,7 @@ impl Animal for Cow {
 }
 
 // Returns some struct that implements Animal, but we don't know which one at compile time.
-// FIX the erros here, you can make a fake random, or you can use trait object
+// FIX the errors here, you can make a fake random, or you can use trait object.
 fn random_animal(random_number: f64) -> impl Animal {
     if random_number < 0.5 {
         Sheep {}
@@ -340,7 +340,7 @@ fn main() {
     assert_eq!(sum(1, 2), 3);
 }
 
-// implement `fn sum` with trait bound in two ways
+// Implement `fn sum` with trait bound in two ways.
 fn sum<T>(x: T, y: T) -> T {
     x + y
 }
@@ -348,7 +348,7 @@ fn sum<T>(x: T, y: T) -> T {
 8. 🌟🌟
 ```rust,editable
 
-// FIX the errors
+// FIX the errors.
 struct Pair<T> {
     x: T,
     y: T,
@@ -388,10 +388,10 @@ fn main() {
 9. 🌟🌟🌟
 ```rust,editable
 
-// fill in the blanks to make it work
+// Fill in the blanks to make it work
 fn example1() {
-    // `T: Trait` is the commonly used way
-    // `T: Fn(u32) -> u32` specifies that we can only pass a closure to `T`
+    // `T: Trait` is the commonly used way.
+    // `T: Fn(u32) -> u32` specifies that we can only pass a closure to `T`.
     struct Cacher<T: Fn(u32) -> u32> {
         calculation: T,
         value: Option<u32>,
@@ -424,7 +424,7 @@ fn example1() {
 
 
 fn example2() {
-    // We can also use `where` to constrain `T`
+    // We can also use `where` to construct `T`
     struct Cacher<T>
         where T: Fn(u32) -> u32,
     {
@@ -465,7 +465,7 @@ fn main() {
     example1();
     example2();
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 

@@ -25,15 +25,15 @@ impl<T: Debug, const N: usize> Debug for ArrayPair<T, N> {
 fn foo<const N: usize>() {}
 
 fn bar<T, const M: usize>() {
-    foo::<M>(); // ok: `M` is a const parameter
-    foo::<2021>(); // ok: `2021` is a literal
-    foo::<{20 * 100 + 20 * 10 + 1}>(); // ok: const expression contains no generic parameters
+    foo::<M>(); // Okay: `M` is a const parameter
+    foo::<2021>(); // Okay: `2021` is a literal
+    foo::<{20 * 100 + 20 * 10 + 1}>(); // Okay: const expression contains no generic parameters
     
-    foo::<{ M + 1 }>(); // error: const expression contains the generic parameter `M`
-    foo::<{ std::mem::size_of::<T>() }>(); // error: const expression contains the generic parameter `T`
+    foo::<{ M + 1 }>(); // Error: const expression contains the generic parameter `M`
+    foo::<{ std::mem::size_of::<T>() }>(); // Error: const expression contains the generic parameter `T`
     
-    let _: [u8; M]; // ok: `M` is a const parameter
-    let _: [u8; std::mem::size_of::<T>()]; // error: const expression contains the generic parameter `T`
+    let _: [u8; M]; // Okay: `M` is a const parameter
+    let _: [u8; std::mem::size_of::<T>()]; // Error: const expression contains the generic parameter `T`
 }
 
 fn main() {}
@@ -89,14 +89,14 @@ fn main() {
         }
     ];
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 2. 🌟🌟 
 ```rust,editable
 
-// fill in the blanks to make it work
+// Fill in the blanks to make it work.
 fn print_array<__>(__) {
     println!("{:?}", arr);
 }
@@ -109,7 +109,7 @@ fn main() {
 }
 ```
 
-3. 🌟🌟🌟 Sometimes we want to limit the size of an variable, e.g when using in embedding evironments, then `const expressions` will fit your need.
+3. 🌟🌟🌟 Sometimes we want to limit the size of a variable, e.g when using in embedding environments, then `const expressions` will fit your needs.
    
 ```rust,editable
 #![allow(incomplete_features)]
@@ -122,15 +122,15 @@ where
     //...
 }
 
-// fix the errors in main
+// Fix the errors in main.
 fn main() {
     check_size([0u8; 767]); 
     check_size([0i32; 191]);
-    check_size(["hello你好"; __]); // size of &str ?
-    check_size(["hello你好".to_string(); __]);  // size of String?
-    check_size(['中'; __]); // size of char ?
+    check_size(["hello你好"; __]); // Size of &str ?
+    check_size(["hello你好".to_string(); __]);  // Size of String?
+    check_size(['中'; __]); // Size of char ?
 
-    println!("Success!")
+    println!("Success!");
 }
 
 
