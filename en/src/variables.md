@@ -19,7 +19,7 @@ fn main() {
 
 // Fill the blanks in the code to make it compile
 fn main() {
-    let __ =  1;
+    let __ = 1;
     __ += 2; 
     
     assert_eq!(x, 3);
@@ -73,7 +73,7 @@ fn main() {
 
     assert_eq!(x, 12);
 
-    let x =  42;
+    let x = 42;
     println!("{}", x); // Prints "42".
 }
 ```

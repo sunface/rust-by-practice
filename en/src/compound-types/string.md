@@ -22,7 +22,7 @@ fn main() {
 
 // Fix the error with at least two solutions
 fn main() {
-    let s: Box<str> =  "hello, world".into();
+    let s: Box<str> = "hello, world".into();
     greetings(s)
 }
 
@@ -54,7 +54,7 @@ fn main() {
 
 // Fix all errors without adding newline
 fn main() {
-    let  s =  String::from("hello");
+    let  s = String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
@@ -102,7 +102,7 @@ Opsite to the seldom using of `str`, `&str` and `String` are used everywhere!
 
 // Fix error with at least two solutions
 fn main() {
-    let s =  "hello, world";
+    let s = "hello, world";
     greetings(s)
 }
 
@@ -117,7 +117,7 @@ fn greetings(s: String) {
 
 // Use two approaches to fix the error and without adding a new line
 fn main() {
-    let s =  "hello, world".to_string();
+    let s = "hello, world".to_string();
     let s1: &str = s;
 
     println!("Success!");
