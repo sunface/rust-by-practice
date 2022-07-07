@@ -268,4 +268,4 @@ fn main() {
 }
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/generics-traits/advanced-trait.md)(under the solutions path), but only use it when you need it :)
