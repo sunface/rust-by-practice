@@ -173,7 +173,7 @@ fn main() {
 fn main() {
     let mut s = String::new();
 
-    let update_string =  |str| s.push_str(str);
+    let update_string = |str| s.push_str(str);
 
     exec(update_string);
 
@@ -260,7 +260,7 @@ move closures may still implement `Fn` or `FnMut`, even though they capture vari
 fn main() {
     let s = String::new();
 
-    let update_string =  move || println!("{}",s);
+    let update_string = move || println!("{}",s);
 
     exec(update_string);
 }
@@ -275,7 +275,7 @@ The following code also has no error:
 fn main() {
     let s = String::new();
 
-    let update_string =  move || println!("{}",s);
+    let update_string = move || println!("{}",s);
 
     exec(update_string);
 }

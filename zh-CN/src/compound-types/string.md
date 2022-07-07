@@ -20,7 +20,7 @@ fn main() {
 
 // 使用至少两种方法来修复错误
 fn main() {
-    let s: Box<str> =  "hello, world".into();
+    let s: Box<str> = "hello, world".into();
     greetings(s)
 }
 
@@ -50,7 +50,7 @@ fn main() {
 
 // 修复所有错误，并且不要新增代码行
 fn main() {
-    let  s =  String::from("hello");
+    let  s = String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
@@ -98,7 +98,7 @@ fn main() {
 
 // 使用至少两种方法来修复错误
 fn main() {
-    let s =  "hello, world";
+    let s = "hello, world";
     greetings(s)
 }
 
@@ -113,7 +113,7 @@ fn greetings(s: String) {
 
 // 使用两种方法来解决错误，不要新增代码行
 fn main() {
-    let s =  "hello, world".to_string();
+    let s = "hello, world".to_string();
     let s1: &str = s;
 }
 ```

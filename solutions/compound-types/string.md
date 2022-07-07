@@ -10,7 +10,7 @@ fn main() {
 
 ```rust
 fn main() {
-    let s: Box<str> =  "hello, world".into();
+    let s: Box<str> = "hello, world".into();
     greetings(&s)
  }
  
@@ -46,7 +46,7 @@ fn main() {
 
 ```rust
 fn main() {
-    let mut s =  String::from("hello");
+    let mut s = String::from("hello");
      s.push(',');
      s.push_str(" world");
      s += "!";
@@ -83,7 +83,7 @@ fn main() {
 
 ```rust
 fn main() {
-    let s =  "hello, world".to_string();
+    let s = "hello, world".to_string();
     greetings(s)
 }
 
@@ -114,7 +114,7 @@ fn main() {
 
 ```rust
 fn main() {
-    let s =  "hello, world";
+    let s = "hello, world";
     let s1: &str = s;
 }
 ```
