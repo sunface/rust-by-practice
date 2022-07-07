@@ -30,7 +30,16 @@ Tutorial [`https://www.philippflenker.com/hecto/`](https://www.philippflenker.co
 
 [This blog series](https://os.phil-opp.com) creates a small operating system in the Rust programming language. Each post is a small tutorial and includes all needed code, so you can follow along if you like. The source code is also available in the corresponding [Github repository](https://github.com/phil-opp/blog_os).
 
-### 7. mini-redis
+
+### 7. CodeCrafters.io: Build your own Git, Docker, SQLite, or Redis
+
+On [CodeCrafters](https://codecrafters.io/for/rust), you can recreate your favorite developer tools from scratch. It's a hands-on, minimally-guided approach to master Rust, while appreciating the internals and documentation of popular technology that we use every day.
+
+### 8. mini-redis
 [mini-redis](https://github.com/tokio-rs/mini-redis) is an incomplete Redis client and server implementation using tokio, it has decent code base and detail explanations, very suitable for learning Rust and asynchronous programming.
+
+
+---
+
 
 **To be continued...**
