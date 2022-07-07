@@ -4,7 +4,7 @@ In [traits chapter](https://practice.rs/generics-traits/traits.html#returning-ty
 Also one limitation of arrays is that they can only store elements of one type, yeah, enum is a not bad solution when our items are a fixed set of types in compile time, but trait object are more flexible and powerful here.
 
 ## Returning Traits with dyn
-The Rust compiler needs to know how much space a function's return type requires. Because the different implementations of a trait probably will need different amounts of memoery, this means function need to return a concrete type or the same type when using  `impl Trait`, or it can return a trait object with `dyn`.
+The Rust compiler needs to know how much space a function's return type requires. Because the different implementations of a trait probably will need different amounts of memory, this means function need to return a concrete type or the same type when using  `impl Trait`, or it can return a trait object with `dyn`.
 
 1. 🌟🌟🌟
 ```rust,editable
@@ -39,26 +39,26 @@ impl Bird for Swan {
 }
 
 fn main() {
-    // FILL in the blank
+    // FILL in the blank.
     let duck = __;
     duck.swim();
 
     let bird = hatch_a_bird(2);
-    // this bird has forgotten how to swim, so below line will cause an error
+    // This bird has forgotten how to swim, so below line will cause an error.
     // bird.swim();
-    // but it can quak
+    // But it can quak.
     assert_eq!(bird.quack(), "duck duck");
 
     let bird = hatch_a_bird(1);
-    // this bird has forgotten how to fly, so below line will cause an error
+    // This bird has forgotten how to fly, so below line will cause an error.
     // bird.fly();
-    // but it can quak too
+    // But it can quak too.
     assert_eq!(bird.quack(), "swan swan");
 
-    println!("Success!")
+    println!("Success!");
 }   
 
-// IMPLEMENT this function
+// IMPLEMENT this function.
 fn hatch_a_bird...
 
 ```
@@ -95,13 +95,13 @@ impl Bird for Swan {
 }
 
 fn main() {
-    // FILL in the blank to make the code work
+    // FILL in the blank to make the code work.
     let birds __;
 
     for bird in birds {
         bird.quack();
-        // when duck and swan turns into Bird, they all forgot how to fly, only remeber how to quack
-        // so, the below code will cause an error
+        // When duck and swan turn into Birds, they all forgot how to fly, only remember how to quack.
+        // So, the code below will cause an error.
         // bird.fly();
     }
 }
@@ -113,7 +113,7 @@ fn main() {
 3. 🌟🌟
 ```rust,editable
 
-// FILL in the blanks
+// FILL in the blanks.
 trait Draw {
     fn draw(&self) -> String;
 }
@@ -134,13 +134,13 @@ fn main() {
     let x = 1.1f64;
     let y = 8u8;
 
-    // draw x
+    // Draw x.
     draw_with_box(__);
 
-    // draw y
+    // Draw y.
     draw_with_ref(&y);
 
-    println!("Success!")
+    println!("Success!");
 }
 
 fn draw_with_box(x: Box<dyn Draw>) {
@@ -153,11 +153,11 @@ fn draw_with_ref(x: __) {
 ```
 
 ## Static and Dynamic dispatch
-when we use trait bounds on generics: the compiler generates nongeneric implementations of functions and methods for each concrete type that we use in place of a generic type parameter. The code that results from monomorphization is doing static dispatch, which is when the compiler knows what method you’re calling at compile time. 
+When we use trait bounds on generics, the compiler generates nongeneric implementations of functions and methods for each concrete type that we use in place of a generic type parameter. The code that results from monomorphization is doing static dispatch, which is when the compiler knows what method you’re calling at compile time. 
 
 When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that is using trait objects, so it doesn’t know which method implemented on which type to call. Instead, at runtime, Rust uses the pointers inside the trait object to know which method to call. There is a runtime cost when this lookup happens that doesn’t occur with static dispatch. Dynamic dispatch also prevents the compiler from choosing to inline a method’s code, which in turn prevents some optimizations. 
 
-However, we did get extra flexibility when using dynamic dispatch.
+However, we do get extra flexibility when using dynamic dispatch.
 
 4. 🌟🌟
 ```rust,editable
@@ -174,10 +174,10 @@ impl Foo for String {
     fn method(&self) -> String { format!("string: {}", *self) }
 }
 
-// IMPLEMENT below with generics
+// IMPLEMENT below with generics.
 fn static_dispatch...
 
-// implement below with trait objects
+// Implement below with trait objects.
 fn dynamic_dispatch...
 
 fn main() {
@@ -187,7 +187,7 @@ fn main() {
     static_dispatch(x);
     dynamic_dispatch(&y);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -200,8 +200,8 @@ You can only make object-safe traits into trait objects. A trait is object safe 
 5. 🌟🌟🌟🌟
 ```rust,editable
 
-// Use at least two approaches to make it work
-// DON'T add/remove any code line
+// Use at least two approaches to make it work.
+// DON'T add/remove any code line.
 trait MyTrait {
     fn f(&self) -> Self;
 }
@@ -222,7 +222,7 @@ fn main() {
     my_function(Box::new(13_u32));
     my_function(Box::new(String::from("abc")));
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 

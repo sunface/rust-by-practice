@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let mut s: String = String::from("hello, ");
@@ -36,6 +37,7 @@ fn borrow_string(s: &str) {
 ```
 
 2.
+
 ```rust
 // FILL in the blanks
 fn main() {  
@@ -82,6 +84,7 @@ fn main() {
 
 
 4.
+
 ```rust
 fn main() {
     let s = String::from("hello, 世界");
@@ -102,6 +105,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 // FILL in the blanks
 fn main() {
@@ -123,6 +127,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 fn main() {
     let mut s = String::with_capacity(25);
@@ -139,6 +144,7 @@ fn main() {
 ```
 
 7.
+
 ```rust
 use std::mem;
 

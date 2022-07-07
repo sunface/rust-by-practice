@@ -1,28 +1,32 @@
 1.
+
 ```rust
 use std::mem::size_of_val;
+
 fn main() {
     let c1 = 'a';
-    assert_eq!(size_of_val(&c1),4); 
+    assert_eq!(size_of_val(&c1), 4);
 
     let c2 = '中';
-    assert_eq!(size_of_val(&c2),4); 
+    assert_eq!(size_of_val(&c2), 4);
 } 
 ```
 
 2.
+
 ```rust
 fn main() {
     let c1 = '中';
     print_char(c1);
-} 
+}
 
-fn print_char(c : char) {
+fn print_char(c: char) {
     println!("{}", c);
 }
 ```
 
 3.
+
 ```rust
 fn main() {
     let _f: bool = false;
@@ -35,6 +39,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
     let f = true;
@@ -44,6 +49,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 fn main() {
     let v0: () = ();
@@ -63,8 +69,10 @@ fn explicitly_ret_unit() -> () {
 ```
 
 6.
+
 ```rust
 use std::mem::size_of_val;
+
 fn main() {
     let unit: () = ();
     // unit type does't occupy any memeory space

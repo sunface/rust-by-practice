@@ -67,4 +67,4 @@ pub mod a {
 至此，包与模块章节已经结束，关于 `hello-package` 的完整代码可以在[这里](https://github.com/sunface/rust-by-practice/tree/master/practices/hello-package) 找到.
 
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice) (under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/crate-module/use-pub.md) (under the solutions path), but only use it when you need it :)

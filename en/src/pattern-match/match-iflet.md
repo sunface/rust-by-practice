@@ -1,10 +1,10 @@
-# match, if let
+# Match, if let
 
-### match
+### Match
 1. 🌟🌟
 ```rust,editable
 
-// fill the blanks
+// Fill the blanks
 enum Direction {
     East,
     West,
@@ -16,7 +16,7 @@ fn main() {
     let dire = Direction::South;
     match dire {
         Direction::East => println!("East"),
-        __  => { // matching South or North here
+        __  => { // Matching South or North here
             println!("South or North");
         },
         _ => println!(__),
@@ -24,13 +24,13 @@ fn main() {
 }
 ```
 
-2. 🌟🌟 match is an expression, so we can use it in assignments
+2. 🌟🌟 Match is an expression, so we can use it in assignments.
 ```rust,editable
 
 fn main() {
     let boolean = true;
 
-    // fill the blank with an match expression:
+    // Fill the blank with a match expression:
     //
     // boolean = true => binary = 1
     // boolean = false =>  binary = 0
@@ -38,14 +38,14 @@ fn main() {
 
     assert_eq!(binary, 1);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-3. 🌟🌟 using match to get the data an enum variant holds
+3. 🌟🌟 Using match to get the data an enum variant holds.
 ```rust,editable
 
-// fill in the blanks
+// Fill in the blanks
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
@@ -64,7 +64,7 @@ fn main() {
         show_message(msg)
     }
 
-    println!("Success!")
+    println!("Success!");
 } 
 
 fn show_message(msg: Message) {
@@ -83,7 +83,7 @@ fn show_message(msg: Message) {
 ```
 
 ### matches!
-[`matches!`](https://doc.rust-lang.org/stable/core/macro.matches.html) looks like `match`, but can do something different
+[`matches!`](https://doc.rust-lang.org/stable/core/macro.matches.html) looks like `match`, but can do something different.
 
 4. 🌟🌟
 ```rust,editable
@@ -91,12 +91,12 @@ fn show_message(msg: Message) {
 fn main() {
     let alphabets = ['a', 'E', 'Z', '0', 'x', '9' , 'Y'];
 
-    // fill the blank with `matches!` to make the code work
+    // Fill the blank with `matches!` to make the code work
     for ab in alphabets {
         assert!(__)
     }
 
-    println!("Success!")
+    println!("Success!");
 } 
 ```
 
@@ -113,19 +113,19 @@ fn main() {
 
     let v = vec![MyEnum::Foo,MyEnum::Bar,MyEnum::Foo];
     for e in v {
-        if e == MyEnum::Foo { // fix the error with changing only this line
+        if e == MyEnum::Foo { // Fix the error by changing only this line
             count += 1;
         }
     }
 
     assert_eq!(count, 2);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-### if let
-For some cases, when matching enums, `match` is too heavy, we can use `if let` instead.
+### If let
+For some cases, when matching enums, `match` is too heavy. We can use `if let` instead.
 
 6. 🌟 
 ```rust,editable
@@ -133,12 +133,12 @@ For some cases, when matching enums, `match` is too heavy, we can use `if let` i
 fn main() {
     let o = Some(7);
 
-    // remove the whole `match` block, using `if let` instead 
+    // Remove the whole `match` block, using `if let` instead 
     match o {
         Some(i) => {
             println!("This is a really long string and `{:?}`", i);
 
-            println!("Success!")
+            println!("Success!");
         }
         _ => {}
     };
@@ -148,7 +148,7 @@ fn main() {
 7. 🌟🌟
 ```rust,editable
 
-// fill in the blank
+// Fill in the blank
 enum Foo {
     Bar(u8)
 }
@@ -159,7 +159,7 @@ fn main() {
     __ {
         println!("foobar holds the value: {}", i);
 
-        println!("Success!")
+        println!("Success!");
     }
 }
 ```
@@ -176,7 +176,7 @@ enum Foo {
 fn main() {
     let a = Foo::Qux(10);
 
-    // remove the codes below, using `match` instead 
+    // Remove the codes below, using `match` instead 
     if let Foo::Bar = a {
         println!("match foo::bar")
     } else if let Foo::Baz = a {
@@ -191,15 +191,15 @@ fn main() {
 9. 🌟🌟
 ```rust,editable
 
-// fix the errors in-place
+// Fix the errors in-place
 fn main() {
     let age = Some(30);
-    if let Some(age) = age { // create a new variable with the same name as previous `age`
+    if let Some(age) = age { // Create a new variable with the same name as previous `age`
        assert_eq!(age, Some(30));
-    } // the new variable `age` goes out of scope here
+    } // The new variable `age` goes out of scope here
     
     match age {
-        // match can also introduce a new shadowed variable
+        // Match can also introduce a new shadowed variable
         Some(age) =>  println!("age is a new variable, it's value is {}",age),
         _ => ()
     }

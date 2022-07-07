@@ -1,4 +1,5 @@
 1
+
 ```rust
 use std::fmt;
 
@@ -23,6 +24,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 // To use `from_str` method, you needs to introduce this trait into the current scope.
 use std::str::FromStr;
@@ -38,6 +40,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 use std::str::FromStr;
 use std::num::ParseIntError;

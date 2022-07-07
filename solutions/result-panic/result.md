@@ -1,4 +1,5 @@
 1.
+
 ```rust
 use std::num::ParseIntError;
 
@@ -20,6 +21,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 use std::num::ParseIntError;
 
@@ -38,6 +40,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 use std::fs::File;
 use std::io::{self, Read};
@@ -71,6 +74,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 use std::num::ParseIntError;
 
@@ -100,6 +104,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 use std::num::ParseIntError;
 
@@ -149,6 +154,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 use std::num::ParseIntError;
 

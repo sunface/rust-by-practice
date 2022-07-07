@@ -143,8 +143,8 @@ fn main() {
     let _one_second = Seconds(1);
 
     println!("One second looks like: {:?}", _one_second);
-    let _this_is_true = (_one_second == _one_second);
-    let _this_is_true = (_one_second > _one_second);
+    let _this_is_true = _one_second == _one_second;
+    let _this_is_true = _one_second > _one_second;
 
     let foot = Inches(12);
 
@@ -175,7 +175,7 @@ use std::ops;
 // 实现 fn multiply 方法
 // 如上所述，`+` 需要 `T` 类型实现 `std::ops::Add` 特征
 // 那么, `*` 运算符需要实现什么特征呢? 你可以在这里找到答案: https://doc.rust-lang.org/core/ops/
-fn multipl
+fn multiply
 
 fn main() {
     assert_eq!(6, multiply(2u8, 3u8));
@@ -467,4 +467,4 @@ fn main() {
 }
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/generics-traits/traits.md)(under the solutions path), but only use it when you need it :)

@@ -3,6 +3,7 @@
 ### 字符
 1. 🌟
 ```rust, editable
+//  修改2处 `assert_eq!` 让代码工作
 
 use std::mem::size_of_val;
 fn main() {
@@ -18,7 +19,7 @@ fn main() {
 
 2. 🌟
 ```rust, editable
-
+//  修改一行让代码正常打印
 fn main() {
     let c1 = "中";
     print_char(c1);
@@ -33,7 +34,7 @@ fn print_char(c : char) {
 3. 🌟
 ```rust, editable
 
-// make  println! work
+// 使成功打印
 fn main() {
     let _f: bool = false;
 
@@ -72,12 +73,12 @@ fn main() {
 }
 
 fn implicitly_ret_unit() {
-    println!("I will returen a ()")
+    println!("I will return a ()")
 }
 
 // 不要使用下面的函数，它只用于演示！
 fn explicitly_ret_unit() -> () {
-    println!("I will returen a ()")
+    println!("I will return a ()")
 }
 ```
 
@@ -94,4 +95,4 @@ fn main() {
 }
 ```
 
-> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/basic-types/char-bool.md)找到答案(在 solutions 路径下) 

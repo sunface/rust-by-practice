@@ -1,5 +1,5 @@
 <div align="center">
-    <img height="150" src="https://github.com/sunface/rust-by-practice/blob/master/en/assets/logo.png">
+    <img src="https://github.com/sunface/rust-by-practice/blob/master/en/assets/header.jpg?raw=true">
 </div>
 
 <p align="center">
@@ -12,8 +12,9 @@
     
 <div align="center">
 
-[![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) [![Forks Count](https://img.shields.io/github/forks/sunface/rust-by-practice.svg?style=flat)](https://github.com/naaive/orange/network/members)
-[![LICENSE](https://img.shields.io/badge/license-mit-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
+[![Stars Count](https://img.shields.io/github/stars/sunface/rust-by-practice?style=flat)](https://github.com/sunface/rust-by-practice/stargazers) 
+[![studyrut](https://img.shields.io/badge/RustCn-orange)](https://hirust.cn) 
+[![LICENSE](https://img.shields.io/badge/license-CC_BY_4.0-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
 </div>
 
 This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
@@ -22,6 +23,45 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 ## Reading online
 
 - [https://practice.rs](https://practice.rs)
+
+## Features
+
+Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works!
+
+Although they are so awesome, we have our own secret weapons :)
+
+- There are three parts in each chapter: examples, exercises and practices
+
+- Besides examples, we have `a lot of exercises`, you can Read, Edit and Run them ONLINE
+
+- Covering nearly all aspects of Rust, such as async/await, threads, sync primitives, optimizing, standard libraries, tool chain, data structures and algorithms etc.
+
+- Every exercise has its own solutions
+
+- The overall difficulties are a bit higher and from easy to super hard: easy 🌟 medium 🌟🌟 hard 🌟🌟🌟 super hard 🌟🌟🌟🌟
+
+**What we want to do is fill in the gap between learning and getting started with real projects.**
+
+## 🏅 Contributors
+
+Thanks to all of our [contributors](https://github.com/sunface/rust-by-practice/graphs/contributors)!
+
+<br />
+
+**🏆 Special thanks to our English editor:**
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/Tanish-Eagle">
+                <img src="https://avatars.githubusercontent.com/u/71984506?v=4?s=100" width="160px"   alt=""/>
+                <br />
+                <sub><b>Tanish-Eagle</b></sub>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<br />
 
 ## Running locally
 
@@ -45,24 +85,6 @@ $ cd rust-by-practice && mdbook serve en/
 ```shell
 $ cd rust-by-practice && mdbook serve zh-CN/
 ```
-
-## Features
-
-Part of our examples and exercises are borrowed from [Rust By Example](https://github.com/rust-lang/rust-by-example), thanks for your great works!
-
-Although they are so awesome, we have our own secret weapons :)
-
-- There are three parts in each chapter: examples, exercises and practices
-
-- Besides examples, we have `a lot of exercises`, you can Read, Edit and Run them ONLINE
-
-- Covering nearly all aspects of Rust, such as async/await, threads, sync primitives, optimizing, standard libraries, tool chain, data structures and algorithms etc.
-
-- Every exercise has its own solutions
-
-- The overall difficulties are a bit higher and from easy to super hard: easy 🌟 medium 🌟🌟 hard 🌟🌟🌟 super hard 🌟🌟🌟🌟
-
-**What we want to do is fill in the gap between learning and getting started with real projects.**
 
 ## Some of our exercises
 

@@ -1,4 +1,5 @@
 1.
+
 ```rust
 use std::fmt::Result;
 use std::io::Result as IoResult;
@@ -7,6 +8,7 @@ fn main() {}
 ```
 
 2.
+
 ```rust
 use std::collections::*;
 
@@ -29,8 +31,8 @@ fn main() {
 }
 ```
 
+3.
 
-3. 
 ```rust
 // in lib.rs
 

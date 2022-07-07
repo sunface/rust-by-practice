@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let _t0: (u8,i16) = (0, -1);
@@ -9,6 +10,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     let t = ("i", "am", "sunface");
@@ -17,6 +19,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 fn main() {
     let too_long_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
@@ -25,6 +28,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 fn main() {
     let tup = (1, 6.4, "hello");
@@ -38,6 +42,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 fn main() {
     let (x, y, z);
@@ -52,6 +57,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 fn main() {
     let (x, y) = sum_multiply((2, 3));

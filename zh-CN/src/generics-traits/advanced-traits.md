@@ -9,7 +9,7 @@ pub trait CacheableItem: Clone + Default + fmt::Debug + Decodable + Encodable {
 }
 ```
 
-相比 `AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash`， `Address` 的使用可以极大的极少其它类型在实现该特征时所需的模版代码.
+相比 `AsRef<[u8]> + Clone + fmt::Debug + Eq + Hash`， `Address` 的使用可以极大的减少其它类型在实现该特征时所需的模版代码.
 
 1. 🌟🌟🌟
 ```rust,editable
@@ -268,4 +268,4 @@ fn main() {
 }
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/generics-traits/advanced-trait.md)(under the solutions path), but only use it when you need it :)

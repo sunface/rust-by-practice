@@ -4,7 +4,7 @@
 1. 🌟🌟🌟
 ```rust,editable
 
-// fill in the blanks to make it work
+// Fill in the blanks to make it work
 struct A;          // Concrete type `A`.
 struct S(A);       // Concrete type `S`.
 struct SGen<T>(T); // Generic type `SGen`.
@@ -29,14 +29,14 @@ fn main() {
     // Implicitly specified type parameter `char` to `generic()`.
     generic(__);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 2. 🌟🌟 A function call with explicitly specified type parameters looks like: `fun::<A, B, ...>()`.
 ```rust,editable
 
-// implement the generic function below
+// Implement the generic function below.
 fn sum
 
 fn main() {
@@ -44,7 +44,7 @@ fn main() {
     assert_eq!(50, sum(20, 30));
     assert_eq!(2.46, sum(1.23, 1.23));
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -54,38 +54,38 @@ fn main() {
 3. 🌟
 ```rust,editable
 
-// implement struct Point to make it work
+// Implement struct Point to make it work.
 
 
 fn main() {
     let integer = Point { x: 5, y: 10 };
     let float = Point { x: 1.0, y: 4.0 };
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 4. 🌟🌟
 ```rust,editable
 
-// modify this struct to make the code work
+// Modify this struct to make the code work
 struct Point<T> {
     x: T,
     y: T,
 }
 
 fn main() {
-    // DON'T modify here
+    // DON'T modify this code.
     let p = Point{x: 5, y : "hello".to_string()};
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 5. 🌟🌟
 ```rust,editable
 
-// add generic for Val to make the code work, DON'T modify the code in `main`
+// Add generic for Val to make the code work, DON'T modify the code in `main`.
 struct Val {
     val: f64,
 }
@@ -114,7 +114,7 @@ struct Point<T, U> {
 }
 
 impl<T, U> Point<T, U> {
-    // implement mixup to make it work, DON'T modify other code
+    // Implement mixup to make it work, DON'T modify other code.
     fn mixup
 }
 
@@ -127,14 +127,14 @@ fn main() {
     assert_eq!(p3.x, 5);
     assert_eq!(p3.y, '中');
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 7. 🌟🌟
 ```rust,editable
 
-// fix the errors to make the code work
+// Fix the errors to make the code work.
 struct Point<T> {
     x: T,
     y: T,
@@ -148,7 +148,7 @@ impl Point<f32> {
 
 fn main() {
     let p = Point{x: 5, y: 10};
-    println!("{}",p.distance_from_origin())
+    println!("{}",p.distance_from_origin());
 }
 ```
 

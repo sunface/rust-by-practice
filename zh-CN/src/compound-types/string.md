@@ -20,7 +20,7 @@ fn main() {
 
 // 使用至少两种方法来修复错误
 fn main() {
-    let s: Box<str> =  "hello, world".into();
+    let s: Box<str> = "hello, world".into();
     greetings(s)
 }
 
@@ -50,7 +50,7 @@ fn main() {
 
 // 修复所有错误，并且不要新增代码行
 fn main() {
-    let  s =  String::from("hello");
+    let  s = String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
@@ -98,7 +98,7 @@ fn main() {
 
 // 使用至少两种方法来修复错误
 fn main() {
-    let s =  "hello, world";
+    let s = "hello, world";
     greetings(s)
 }
 
@@ -113,7 +113,7 @@ fn greetings(s: String) {
 
 // 使用两种方法来解决错误，不要新增代码行
 fn main() {
-    let s =  "hello, world".to_string();
+    let s = "hello, world".to_string();
     let s1: &str = s;
 }
 ```
@@ -146,10 +146,9 @@ fn main() {
 
 10. 🌟🌟🌟 有时候需要转义的字符很多，我们会希望使用更方便的方式来书写字符串: raw string.
 ```rust,editable
-
+/* 填空并修复所有错误 */
 fn main() {
     let raw_str = r"Escapes don't work here: \x3F \u{211D}";
-    // 修改以下代码行，让它工作
     assert_eq!(raw_str, "Escapes don't work here: ? ℝ");
 
     // 如果你希望在字符串中使用双引号，可以使用以下形式
@@ -255,4 +254,4 @@ fn main() {
 ```
 
 
-> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/compound-types/string.md)找到答案(在 solutions 路径下) 

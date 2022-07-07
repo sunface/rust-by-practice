@@ -168,7 +168,7 @@ impl TrafficLight {
     }
 
     // 填空，不要使用 `Self` 或其变体
-    pub fn change_state() {
+    pub fn change_state(__) {
         self.color = "green".to_string()
     }
 }
@@ -258,4 +258,4 @@ fn main() {
 @todo
 
 
-> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/method.md)找到答案(在 solutions 路径下) 

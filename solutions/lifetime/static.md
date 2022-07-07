@@ -1,4 +1,5 @@
 1、
+
 ```rust
 fn main() {
     let v: &str = "hello";
@@ -26,6 +27,7 @@ fn need_static(r : &'static str) {
 ```
 
 2、
+
 ```rust
 #[derive(Debug)]
 struct Config {
@@ -54,6 +56,7 @@ fn main() {
 ```
 
 3、
+
 ```rust
 fn main() {
     // Make a `string` literal and print it:
@@ -65,6 +68,7 @@ fn main() {
 ```
 
 5、
+
 ```rust
 use std::fmt::Debug;
 

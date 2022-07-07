@@ -9,7 +9,7 @@
 fn main() {
     let x: i32; // 未初始化，但被使用
     let y: i32; // 未初始化，也未被使用
-    println!("{} is equal to 5", x); 
+    println!("x is equal to {}", x); 
 }
 ```
 
@@ -18,10 +18,10 @@ fn main() {
 
 // 完形填空，让代码编译
 fn main() {
-    let __ =  1;
+    let __ = 1;
     __ += 2; 
     
-    println!("{} = 3", x); 
+    println!("x = {}", x); 
 }
 ```
 
@@ -69,7 +69,7 @@ fn main() {
 
     assert_eq!(x, 12);
 
-    let x =  42;
+    let x = 42;
     println!("{}", x); // 输出 "42".
 }
 ```

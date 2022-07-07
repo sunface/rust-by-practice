@@ -1,4 +1,5 @@
 1.
+
 ```rust
 struct Container(i32, i32);
 
@@ -53,6 +54,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 impl<T: Sub<Output = T>> Sub<Point<T>> for Point<T> {
     type Output = Self;
@@ -93,6 +95,7 @@ impl<T: Sub<Output = T>> Sub for Point<T> {
 ```
 
 3.
+
 ```rust
 trait Pilot {
     fn fly(&self) -> String;
@@ -134,6 +137,7 @@ fn main() {
 ```
 
 4.
+
 ```rust
 trait Person {
     fn name(&self) -> String;
@@ -209,6 +213,7 @@ fn main() {
 ```
 
 5.
+
 ```rust
 use std::fmt;
 

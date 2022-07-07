@@ -35,4 +35,7 @@
 
 你也可以在[以下地址](https://github.com/phil-opp/blog_os)找到完整的源代码。
 
+### 7. mini-redis
+[mini-redis](https://github.com/tokio-rs/mini-redis) 是一个不完整的 Redis 客户端、服务器实现，由 tokio 官方出品，代码质量非常高，而且有详细的注释，非常适合学习 Rust 和异步编程。
+
 **To be continued...**

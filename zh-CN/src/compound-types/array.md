@@ -1,5 +1,5 @@
 # 数组
-数组的类型是 `[T; Lengh]`, 就如你所看到的，数组的长度是类型签名的一部分，因此数组的长度必须在编译期就已知，例如你不能使用以下方式来声明一个数组:
+数组的类型是 `[T; Length]`，就如你所看到的，数组的长度是类型签名的一部分，因此数组的长度必须在编译期就已知，例如你不能使用以下方式来声明一个数组:
 ```rust
 fn create_arr(n: i32) {
     let arr = [1; n];
@@ -83,4 +83,4 @@ fn main() {
 }
 ```
 
-> 你可以在[这里](https://github.com/sunface/rust-by-practice)找到答案(在 solutions 路径下) 
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/compound-types/array.md)找到答案(在 solutions 路径下) 

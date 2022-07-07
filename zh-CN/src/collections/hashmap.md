@@ -140,7 +140,7 @@ fn main() {
         (Viking::new("Harald", "Iceland"), 12),
     ]);
 
-    // 使用 derive 的方式来打印 vikong 的当前状态
+    // 使用 derive 的方式来打印 viking 的当前状态
     for (viking, health) in &vikings {
         println!("{:?} has {} hp", viking, health);
     }
@@ -220,4 +220,4 @@ hash.insert(42, "the answer");
 assert_eq!(hash.get(&42), Some(&"the answer"));
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/collections/Hashmap.md)(under the solutions path), but only use it when you need it

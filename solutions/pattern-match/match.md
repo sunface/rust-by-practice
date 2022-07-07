@@ -1,4 +1,5 @@
 1.
+
 ```rust
 enum Direction {
     East,
@@ -20,6 +21,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     let boolean = true;
@@ -38,6 +40,7 @@ fn main() {
 ```
 
 3.
+
 ```rust
 enum Message {
     Quit,
@@ -68,24 +71,26 @@ fn show_message(msg: Message) {
             assert_eq!(g, 255);
             assert_eq!(b, 0);
         }
-        __ => println!("no data in these variants")
+        _ => println!("no data in these variants")
     }
 }
 ```
 
 4.
+
 ```rust
 fn main() {
     let alphabets = ['a', 'E', 'Z', '0', 'x', '9' , 'Y'];
 
     // fill the blank with `matches!` to make the code work
     for ab in alphabets {
-        assert!(matches!(ab, 'a'..='z' | 'A'..='Z' | '0' | '9'))
+        assert!(matches!(ab, 'a'..='z' | 'A'..='Z' | '0'..='9'))
     }
 } 
 ```
 
 5.
+
 ```rust
 enum MyEnum {
     Foo,
@@ -107,6 +112,7 @@ fn main() {
 ```
 
 6.
+
 ```rust
 fn main() {
     let o = Some(7);
@@ -118,6 +124,7 @@ fn main() {
 ```
 
 7.
+
 ```rust
 enum Foo {
     Bar(u8)
@@ -133,6 +140,7 @@ fn main() {
 ```
 
 8.
+
 ```rust
 enum Foo {
     Bar,
@@ -152,6 +160,7 @@ fn main() {
 ```
 
 9.
+
 ```rust
 fn main() {
     let age = Some(30);

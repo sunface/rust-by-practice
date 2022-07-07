@@ -27,7 +27,7 @@ fn main() {
 ### Exercises
 1. 🌟🌟
 ```rust,editable
-// make it work with two ways
+// Make it work with two ways
 fn main() {
    let v = {
        let mut x = 1;
@@ -36,7 +36,7 @@ fn main() {
 
    assert_eq!(v, 3);
 
-   println!("Success!")
+   println!("Success!");
 }
 ```
 
@@ -48,7 +48,7 @@ fn main() {
 
    assert!(v == 3);
 
-   println!("Success!")
+   println!("Success!");
 }
 ```
 
@@ -59,7 +59,7 @@ fn main() {
     let s = sum(1 , 2);
     assert_eq!(s, 3);
 
-    println!("Success!")
+    println!("Success!");
 }
 
 fn sum(x: i32, y: i32) -> i32 {

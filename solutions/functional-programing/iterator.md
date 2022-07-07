@@ -1,4 +1,5 @@
 1、
+
 ```rust
 fn main() {
     let arr = [0; 10];
@@ -9,6 +10,7 @@ fn main() {
 ```
 
 2、
+
 ```rust
 fn main() {
     let mut v = Vec::new();
@@ -21,6 +23,7 @@ fn main() {
 ```
 
 3、
+
 ```rust
 fn main() {
     let v1 = vec![1, 2];
@@ -48,6 +51,7 @@ fn main() {
 ```
 
 4、
+
 ```rust
 fn main() {
     let arr = vec![0; 10];
@@ -60,6 +64,7 @@ fn main() {
 ```
 
 5、
+
 ```rust
 fn main() {
     let mut names = vec!["Bob", "Frank", "Ferris"];
@@ -76,6 +81,7 @@ fn main() {
 ```
 
 6、
+
 ```rust
 fn main() {
     let mut values = vec![1, 2, 3];
@@ -90,6 +96,7 @@ fn main() {
 ```
 
 7、
+
 ```rust
 struct Fibonacci {
     curr: u32,
@@ -136,6 +143,7 @@ fn main() {
 ```
 
 8、
+
 ```rust
 fn main() {
     let v1 = vec![1, 2, 3];
@@ -152,6 +160,7 @@ fn main() {
 ```
 
 9、
+
 ```rust
 use std::collections::HashMap;
 fn main() {
@@ -169,6 +178,7 @@ fn main() {
 ```
 
 10、
+
 ```rust
 fn main() {
     let v1: Vec<i32> = vec![1, 2, 3];
@@ -180,6 +190,7 @@ fn main() {
 ```
 
 11、
+
 ```rust
 use std::collections::HashMap;
 fn main() {
@@ -192,6 +203,7 @@ fn main() {
 ```
 
 12、
+
 ```rust
 #[derive(PartialEq, Debug)]
 struct Shoe {

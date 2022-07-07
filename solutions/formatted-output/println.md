@@ -1,4 +1,5 @@
 1.
+
 ```rust
 fn main() {
     let s1 = "hello";
@@ -9,6 +10,7 @@ fn main() {
 ```
 
 2.
+
 ```rust
 fn main() {
     print!("hello world, ");
