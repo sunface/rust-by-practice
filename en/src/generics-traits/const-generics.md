@@ -127,7 +127,7 @@ fn main() {
     check_size([0u8; 767]); 
     check_size([0i32; 191]);
     check_size(["hello你好"; __]); // Size of &str ?
-    check_size(["hello你好".to_string(); __]);  // Size of String?
+    check_size([(); __].map(|_| "hello你好".to_string()));  // Size of String?
     check_size(['中'; __]); // Size of char ?
 
     println!("Success!");
