@@ -6,7 +6,7 @@
 
 // Fix the error below with least amount of modification to the code
 fn main() {
-    let x: i32; // Uninitialized but used, ERROR !
+    let x: i32 = 5;
     let y: i32; // Uninitialized but also unused, only a Warning !
 
     assert_eq!(x, 5);
@@ -19,12 +19,13 @@ fn main() {
 
 // Fill the blanks in the code to make it compile
 fn main() {
-    let __ = 1;
-    __ += 2; 
+    let mut x: i32 = 1;
+    x += 2; 
     
     assert_eq!(x, 3);
     println!("Success!");
 }
+
 ```
 
 ### Scope
@@ -36,8 +37,8 @@ A scope is the range within the program for which the item is valid.
 // Fix the error below with least amount of modification
 fn main() {
     let x: i32 = 10;
+    let y: i32 = 5;
     {
-        let y: i32 = 5;
         println!("The value of x is {} and value of y is {}", x, y);
     }
     println!("The value of x is {} and value of y is {}", x, y); 
@@ -49,12 +50,15 @@ fn main() {
 
 // Fix the error with the use of define_x
 fn main() {
+    let x: String = define_x();
     println!("{}, world", x); 
 }
 
-fn define_x() {
+fn define_x() -> String {
     let x = "hello";
+    return x.to_string();
 }
+
 ```
 
 ### Shadowing
@@ -68,14 +72,15 @@ fn main() {
     let x: i32 = 5;
     {
         let x = 12;
-        assert_eq!(x, 5);
+        assert_eq!(x-7, 5);
     }
 
-    assert_eq!(x, 12);
+    assert_eq!(x+7, 12);
 
     let x = 42;
     println!("{}", x); // Prints "42".
 }
+
 ```
 
 6. 🌟🌟 
@@ -86,7 +91,7 @@ fn main() {
     let mut x: i32 = 1;
     x = 7;
     // Shadowing and re-binding
-    let x = x; 
+    // let x = x; 
     x += 3;
 
 
@@ -96,6 +101,7 @@ fn main() {
 
     println!("Success!");
 }
+
 ```
 
 ### Unused variables
@@ -109,10 +115,22 @@ fn main() {
 ```rust,editable
 
 fn main() {
-    let x = 1; 
+    let x = 1;
+    println!("{}",x);
 }
 
 // Warning: unused variable: `x`
+
+
+fn main() {
+    let x = 1;
+    println!("{}",x);
+    println!("{}", x+2);
+}
+
+// Warning: unused variable: `x`
+
+
 ```
 
 ### Destructuring
@@ -124,7 +142,7 @@ fn main() {
 
 // Fix the error below with least amount of modification
 fn main() {
-    let (x, y) = (1, 2);
+    let (mut x, y) = (1, 2);
     x += 2;
 
     assert_eq!(x, 3);
@@ -132,6 +150,17 @@ fn main() {
 
     println!("Success!");
 }
+
+fn main() {
+    let (x, y) = (1, 2);
+    let x = 3;
+
+    assert_eq!(x, 3);
+    assert_eq!(y, 2);
+
+    println!("Success!");
+}
+
 ```
 
 ### Destructuring assignments
@@ -148,7 +177,7 @@ fn main() {
     (x,..) = (3, 4);
     [.., y] = [1, 2];
     // Fill the blank to make the code work
-    assert_eq!([x,y], __);
+    assert_eq!([x,y], [3,2]);
 
     println!("Success!");
 } 
