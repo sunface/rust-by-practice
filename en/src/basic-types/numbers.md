@@ -13,7 +13,7 @@ fn main() {
     let x: i32 = 5;
     let mut y: u32 = 5;
 
-    y = x;
+    // y = x;
     
     let z = 10; // Type of z ? 
 
@@ -26,7 +26,7 @@ fn main() {
 
 //  Fill the blank
 fn main() {
-    let v: u16 = 38_u8 as __;
+    let v: u16 = 38_u8 as u16;
 
     println!("Success!");
 }
@@ -41,7 +41,7 @@ fn main() {
 // Modify `assert_eq!` to make it work
 fn main() {
     let x = 5;
-    assert_eq!("u32".to_string(), type_of(&x));
+    assert_eq!("i32".to_string(), type_of(&x));
 
     println!("Success!");
 }
@@ -57,8 +57,8 @@ fn type_of<T>(_: &T) -> String {
 
 // Fill the blanks to make it work
 fn main() {
-    assert_eq!(i8::MAX, __); 
-    assert_eq!(u8::MAX, __); 
+    assert_eq!(i8::MAX, 127); 
+    assert_eq!(u8::MAX, 255); 
 
     println!("Success!");
 }
@@ -69,10 +69,11 @@ fn main() {
 
 // Fix errors and panics to make it work
 fn main() {
-   let v1 = 251_u8 + 8;
-   let v2 = i8::checked_add(251, 8).unwrap();
-   println!("{},{}",v1,v2);
+   let v1 = 251 + 8;
+  let v2 = i16::checked_add(251, 8).unwrap();
+  println!("{},{}",v1,v2);
 }
+
 ```
 
 6. 🌟🌟
@@ -81,7 +82,7 @@ fn main() {
 // Modify `assert!` to make it work
 fn main() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
-    assert!(v == 1579);
+    assert!(v == 1597);
 
     println!("Success!");
 }
@@ -95,7 +96,7 @@ fn main() {
 
 //  Replace ? with your answer
 fn main() {
-    let x = 1_000.000_1; // ?
+    let x = 1_000.000_1; // f64
     let y: f32 = 0.12; // f32
     let z = 0.01_f64; // f64
 
@@ -107,11 +108,21 @@ fn main() {
 
 ```rust,editable
 
+
 fn main() {
-    assert!(0.1+0.2==0.3);
+    assert!(0.1_f32+0.2_f32==0.3_f32);
 
     println!("Success!");
 }
+
+Aliter: 
+
+fn main() {
+    assert!(0.3_f32+0.2_f32==0.5_f32);
+
+    println!("Success!");
+}
+
 ```
 
 ### Range
@@ -124,10 +135,10 @@ fn main() {
         sum += i
     }
 
-    assert!(sum == -3);
+    assert!(sum == -5);
 
     for c in 'a'..='z' {
-        println!("{}",c);
+        println!("{}",c as u8);
     }
 }
 ```
@@ -138,8 +149,8 @@ fn main() {
 // Fill the blanks
 use std::ops::{Range, RangeInclusive};
 fn main() {
-    assert_eq!((1..__), Range{ start: 1, end: 5 });
-    assert_eq!((1..__), RangeInclusive::new(1, 5));
+    assert_eq!((1..5), Range{ start: 1, end: 5 });
+    assert_eq!((1..=5), RangeInclusive::new(1, 5));
 
     println!("Success!");
 }
@@ -150,31 +161,33 @@ fn main() {
 11. 🌟 
 ```rust,editable
 
+
 // Fill the blanks and fix the errors
 fn main() {
     // Integer addition
-    assert!(1u32 + 2 == __);
+    assert!(1u32 + 2 == 3);
 
     // Integer subtraction
-    assert!(1i32 - 2 == __);
-    assert!(1u8 - 2 == -1); 
+    assert!(1i32 - 2 == -1);
+    assert!(1i8 - 2 == -1); 
+    assert!(3 * 50 == 150);
     
-    assert!(3 * 50 == __);
-
-    assert!(9.6 / 3.2 == 3.0); // error ! make it work
-
-    assert!(24 % 5 == __);
+    assert!(9 / 3 == 3); // error ! make it work
+    
+    assert!(24 % 5 == 4);
+    
     // Short-circuiting boolean logic
-    assert!(true && false == __);
-    assert!(true || false == __);
-    assert!(!true == __);
-
+    assert!(true && false == false);
+    assert!(true || false == true);
+    assert!(!true == false);
+    
     // Bitwise operations
-    println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
-    println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101);
-    println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101);
+    println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101u32);
+    println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101u32);
+    println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101u32);
     println!("1 << 5 is {}", 1u32 << 5);
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
+    println!(">>> success");
 }
 ```
 
