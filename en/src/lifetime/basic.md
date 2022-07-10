@@ -59,11 +59,11 @@ fn main() {
 ```
 
 ## lifetime annotating
-The **borrow checker uses explicit lifetime annotations** to determine how long a referrence should be valid. 
+The **borrow checker uses explicit lifetime annotations** to determine how long a reference should be valid. 
 
 But for us users, in most cases, there is no need to annotate the lifetime, because there are several elision rules, before learning these rules, we need to know how to annotate lifetime manually.
 
-#### funtion
+#### function
 Ignoring elision rules, lifetimes in function signatures have a few contraints：
 
 - any reference must have an annotated lifetime

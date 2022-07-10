@@ -246,7 +246,7 @@ fn main() {
 
 ```rust
 /* Fill in the blank and fix the errror */
-// You can aslo use `impl FnOnce(i32) -> i32`
+// You can also use `impl FnOnce(i32) -> i32`
 fn create_fn() -> impl Fn(i32) -> i32 {
     let num = 5;
 

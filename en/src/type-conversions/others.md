@@ -82,7 +82,7 @@ fn main() {
 You can find all the examples and exercises of the `Deref` trait [here](https://practice.rs/smart-pointers/deref.html).
 
 ### transmute
-`std::mem::transmute` is a **unsafe function** can be used to reinterprets the bits of a value of one type as another type. Both of the orginal and the result types must have the same size and neither of them can be invalid.
+`std::mem::transmute` is a **unsafe function** can be used to reinterprets the bits of a value of one type as another type. Both of the original and the result types must have the same size and neither of them can be invalid.
 
 `transmute` is semantically equivalent to a bitwise move of one type into another. It copies the bits from the source value into the destination value, then forgets the original, seems equivalent to C's `memcpy` under the hood.
 
