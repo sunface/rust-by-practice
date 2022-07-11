@@ -3,9 +3,35 @@
 1. 🌟🌟 
 ```rust,editable
 
+1) Using clone()
 fn main() {
     // Use as many approaches as you can to make it work
     let x = String::from("hello, world");
+    let y = x.clone();
+    println!("{},{}",x,y);
+}
+
+2) Initialize string within double quotes
+fn main() {
+    // Use as many approaches as you can to make it work
+    let x = "hello, world";
+    let y = x;
+    println!("{},{}",x,y);
+}
+
+3) Reference
+fn main() {
+    // Use as many approaches as you can to make it work
+    let x = &String::from("hello, world");
+    let y = x;
+    println!("{},{}",x,y);
+}
+
+
+4) Using integers
+fn main() {
+    // Use as many approaches as you can to make it work
+    let x = 10;
     let y = x;
     println!("{},{}",x,y);
 }
@@ -22,8 +48,9 @@ fn main() {
 }
 
 // Only modify the code below!
-fn take_ownership(s: String) {
+fn take_ownership(s: String) -> String {
     println!("{}", s);
+    s
 }
 ```
 
@@ -40,7 +67,7 @@ fn main() {
 fn give_ownership() -> String {
     let s = String::from("hello, world");
     // Convert String to Vec
-    let _s = s.into_bytes();
+    let _s = s.as_bytes();
     s
 }
 ```
@@ -49,15 +76,16 @@ fn give_ownership() -> String {
 ```rust,editable
 // Fix the error without removing code line
 fn main() {
-    let s = String::from("hello, world");
+    let mut s = String::from("hello, world");
 
-    print_str(s);
+    s = print_str(s);
 
     println!("{}", s);
 }
 
-fn print_str(s: String)  {
-    println!("{}",s)
+fn print_str(s: String) -> String {
+    println!("{}",s);
+    s
 }
 ```
 
@@ -65,8 +93,8 @@ fn print_str(s: String)  {
 ```rust, editable
 // Don't use clone ,use copy instead
 fn main() {
-    let x = (1, 2, (), "hello".to_string());
-    let y = x.clone();
+    let x = (1, 2, (), "hello");
+    let y = x;
     println!("{:?}, {:?}", x, y);
 }
 ```
@@ -81,7 +109,7 @@ fn main() {
     let s = String::from("hello, ");
     
     // Modify this line only !
-    let s1 = s;
+    let mut s1 = s;
 
     s1.push_str("world");
 
@@ -95,7 +123,7 @@ fn main() {
 fn main() {
     let x = Box::new(5);
     
-    let ...      // Implement this line, dont change other lines!
+    let mut y = Box::new(3);   // Implement this line, dont change other lines!
     
     *y = 4;
     
@@ -149,7 +177,7 @@ fn main() {
    let _s = t.0;
 
    // Modify this line only, don't use `_s`
-   println!("{:?}", t);
+   println!("{:?}", t.1);
 }
 ```
 
@@ -160,7 +188,7 @@ fn main() {
    let t = (String::from("hello"), String::from("world"));
 
     // Fill the blanks
-    let (__, __) = __;
+    let (ref s1, ref  s2) = t;
 
     println!("{:?}, {:?}, {:?}", s1, s2, t); // -> "hello", "world", ("hello", "world")
 }
