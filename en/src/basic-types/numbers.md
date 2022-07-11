@@ -103,7 +103,7 @@ fn main() {
 }
 ```
 
-1. 🌟🌟 Make it work in two distinct ways
+8. 🌟🌟 Make it work in two distinct ways
 
 ```rust,editable
 
