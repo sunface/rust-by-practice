@@ -95,7 +95,7 @@ fn main() {
 
     for bird in birds {
         bird.quack();
-        // when duck and swan turns into Bird, they all forgot how to fly, only remeber how to quack
+        // when duck and swan turns into Bird, they all forgot how to fly, only remember how to quack
         // so, the below code will cause an error
         // bird.fly();
     }

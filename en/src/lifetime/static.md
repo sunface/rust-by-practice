@@ -1,5 +1,5 @@
 # &'static and T: 'static
-`'static` is a reserverd lifetime name, you might have encountered it serveral times:
+`'static` is a reserved lifetime name, you might have encountered it serveral times:
 ```rust
 // A reference with 'static lifetime:
 let s: &'static str = "hello world";
