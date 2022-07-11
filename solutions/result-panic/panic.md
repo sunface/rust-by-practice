@@ -10,13 +10,13 @@ fn drink(beverage: &str) {
         panic!("drinked, duang.....peng!")
      }
 
-    println!("Excercise Failed if printing out this line!");
+    println!("Exercise Failed if printing out this line!");
 }
 
 fn main() {
     drink("lemonade");
 
-    println!("Excercise Failed if printing out this line!");
+    println!("Exercise Failed if printing out this line!");
 }
 ```
 

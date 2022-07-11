@@ -117,7 +117,7 @@ fn main() {
         }
     };
 
-    println!("Excercise Failed if printing out this line!");
+    println!("Exercise Failed if printing out this line!");
 }
 
 ```

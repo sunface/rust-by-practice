@@ -16,13 +16,13 @@ fn drink(beverage: &str) {
         __
      }
 
-    println!("Excercise Failed if printing out this line!");
+    println!("Exercise Failed if printing out this line!");
 }
 
 fn main() {
     drink(__);
 
-    println!("Excercise Failed if printing out this line!");
+    println!("Exercise Failed if printing out this line!");
 }
 ```
 

@@ -214,7 +214,7 @@ impl<'a> Reader for BufReader<'a> {
     // 'a is not used in the following methods
 }
 
-// can be writting as :
+// can be writing as :
 impl Reader for BufReader<'_> {
     
 }

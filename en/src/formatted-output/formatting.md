@@ -135,7 +135,7 @@ fn main() {
 }
 ```
 
-## Capture the enviroments
+## Capture the environments
 9.🌟🌟🌟
 ```rust,editable
 fn get_person() -> String {

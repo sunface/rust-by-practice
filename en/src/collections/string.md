@@ -53,7 +53,7 @@ fn main() {
 3. 🌟🌟
 ```rust,editable
 
-// Question: how many heap allocations are happend here ?
+// Question: how many heap allocations are happened here ?
 // Your answer: 
 fn main() {  
     // Create a String type based on `&str`

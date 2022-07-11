@@ -331,7 +331,7 @@ In some cases, fine control is needed over the way a register name is formatted 
 
 By default the compiler will always choose the name that refers to the full register size (e.g. `rax` on x86-64, `eax` on x86, etc).
 
-This default can be overriden by using modifiers on the template string operands, just like you would with format strings:
+This default can be overridden by using modifiers on the template string operands, just like you would with format strings:
 
 ```rust
 use std::arch::asm;
