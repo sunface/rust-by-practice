@@ -19,7 +19,10 @@
 
 This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
 
-
+### To run this book
+```
+mdbook serve en/  
+```
 ## Reading online
 
 - [https://practice.rs](https://practice.rs)
