@@ -52,7 +52,7 @@ fn never_return() -> ! {
     // implement this function, don't modify fn signatures
     loop {
         println!("I return nothing");
-        // sleeping for 1 second to avoid exhausting the cpu resoucre
+        // sleeping for 1 second to avoid exhausting the cpu resource
         thread::sleep(time::Duration::from_secs(1))
     }
 }
