@@ -17,7 +17,7 @@
 [![LICENSE](https://img.shields.io/badge/license-CC_BY_4.0-green?style=flat)](https://github.com/sunface/rust-by-practice/blob/master/LICENSE)
 </div>
 
-This book was designed for easily diving into and get skilled with Rust, and it's very easy to use: All you need to do is to make each exercise compile without ERRORS and Panics !
+This book was designed for easily diving into and getting skilled with Rust It's very easy to use. All you need to do is to make each exercise compile without ERRORS and Panics!
 
 
 ## Reading online
