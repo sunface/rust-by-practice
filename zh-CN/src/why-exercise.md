@@ -26,7 +26,10 @@
 $ cargo install mdbook
 $ cd rust-by-practice && mdbook serve 
 ```
-
+在本地win 10或者linux服务器上运行时，应当使用 -n 参数指定mdbook服务所监听的IP地址（-p 参数指定服务监听的端口，不指定则为默认的3000），以win 10本地运行为例：
+```shell
+$ mdbook serve -p 8888 -n 127.0.0.1
+```
 ## 特性
 
 部分示例和习题借鉴了 [Rust By Example](https://github.com/rust-lang/rust-by-example), 书中的示例真的非常棒！
