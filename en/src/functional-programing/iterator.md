@@ -251,7 +251,7 @@ fn main() {
 ###  Iterator adaptors
 Methods allowing you to change one iterator into another iterator are known as *iterator adaptors*. You can chain multiple iterator adaptors to perform complex actions in a readable way.
 
-But beacuse **all iterators are lazy**, you have to call one of the consuming adapers to get results from calls to iterator adapters.
+But because **all iterators are lazy**, you have to call one of the consuming adapers to get results from calls to iterator adapters.
 
 10、🌟🌟
 ```rust,editable

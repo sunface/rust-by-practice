@@ -1,10 +1,10 @@
 # Trait Object
 In [traits chapter](https://practice.rs/generics-traits/traits.html#returning-types-that-implement-traits) we have seen that we can't use `impl Trait` when returning multiple types.
 
-Also one limitation of arrays is that they can only store elements of one type, yeah, enum is a not bad solution when our items are a fixed set of types in compile time, but trait object are more flexible and powerful here.
+Another limitation of arrays is that they can only store elements of one type. Using enums is not a bad solution when we have a fixed set of types at compile time, but trait objects would be more flexible and powerful.
 
 ## Returning Traits with dyn
-The Rust compiler needs to know how much space a function's return type requires. Because the different implementations of a trait probably will need different amounts of memory, this means function need to return a concrete type or the same type when using  `impl Trait`, or it can return a trait object with `dyn`.
+The Rust compiler needs to know how much space a function's return type requires. Because the different implementations of a trait probably uses different amounts of memory, functions need to either return a concrete type or the same type when using  `impl Trait`, or return a trait object with `dyn`.
 
 1. 🌟🌟🌟
 ```rust,editable

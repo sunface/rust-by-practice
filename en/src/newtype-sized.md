@@ -26,7 +26,7 @@ fn main() {
 }
 ```
 
-2、🌟 Hide the methods of the orginal type
+2、🌟 Hide the methods of the original type
 ```rust,editable
 /* Make it workd */
 struct Meters(u32);
