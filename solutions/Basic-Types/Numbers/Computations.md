@@ -41,7 +41,7 @@ fn main() {
     
     assert!(3 * 50 == 150);
 
-    assert!(9.6_f32 / 3.2 == 3.0); // error ! make it work
+    assert!(9.6_f32 / 3.2 == 3.0); 
 
     assert!(24 % 5 == 4);
     // Short-circuiting boolean logic
