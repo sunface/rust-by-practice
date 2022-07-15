@@ -10,9 +10,9 @@ fn main() {
 
     if n < 0 {
         println!("{} is negative", n);
-    } __ n > 0 {
+    } else if n > 0 {
         println!("{} is positive", n);
-    } __ {
+    } else {
         println!("{} is zero", n);
     }
 } 
@@ -27,17 +27,17 @@ fn main() {
 
     let big_n =
         if n < 10 && n > -10 {
-            println!(", and is a small number, increase ten-fold");
+            println!("{} , and is a small number, increase ten-fold", n);
 
             10 * n
         } else {
-            println!(", and is a big number, halve the number");
+            println!("{} , and is a big number, halve the number", n);
 
-            n / 2.0 ;
-        }
+            n / 2
+        };
 
-    println!("{} -> {}", n, big_n);
-} 
+    println!("{:?} -> {:?}", n, big_n);
+}
 ```
 
 ### For
@@ -46,14 +46,14 @@ fn main() {
 ```rust,editable
 
 fn main() {
-    for n in 1..=100 { // modify this line to make the code work
+    for n in 1..100 { // modify this line to make the code work
         if n == 100 {
             panic!("NEVER LET THIS RUN")
         }
     }
 
     println!("Success!");
-} 
+}
 ```
 
 
@@ -63,8 +63,8 @@ fn main() {
 // Fix the errors without adding or removing lines
 fn main() {
     let names = [String::from("liming"),String::from("hanmeimei")];
-    for name in names {
-        // Do something with name...
+    for name in &names {
+        println!("{}", name);
     }
 
     println!("{:?}", names);
@@ -72,7 +72,7 @@ fn main() {
     let numbers = [1, 2, 3];
     // The elements in numbers are Copy，so there is no move here
     for n in numbers {
-        // Do something with name...
+        println!("{}", n);
     }
     
     println!("{:?}", numbers);
@@ -85,7 +85,7 @@ fn main() {
     let a = [4, 3, 2, 1];
 
     // Iterate the indexing and value in 'a'
-    for (i,v) in a.__ {
+    for (i,v) in a.iter().enumerate() {
         println!("The {}th element is {}",i+1,v);
     }
 }
@@ -102,7 +102,7 @@ fn main() {
     let mut n = 1;
 
     // Loop while the condition is true
-    while n __ 10 {
+    while n < 10 {
         if n % 15 == 0 {
             println!("fizzbuzz");
         } else if n % 3 == 0 {
@@ -114,7 +114,7 @@ fn main() {
         }
 
 
-        __;
+        n += 1;    
     }
 
     println!("n reached {}, so loop is over",n);
@@ -130,7 +130,7 @@ fn main() {
     let mut n = 0;
     for i in 0..=100 {
        if n == 66 {
-           __
+           break;
        }
        n += 1;
     }
@@ -150,10 +150,10 @@ fn main() {
     for i in 0..=100 {
        if n != 66 {
            n+=1;
-           __;
+           continue;
        }
        
-       __
+       println!("{}", n);
     }
 
     assert_eq!(n, 66);
@@ -182,7 +182,7 @@ fn main() {
             println!("three");
 
             // Skip the rest of this iteration
-            __;
+            continue;
         }
 
         println!("{}", count);
@@ -190,7 +190,7 @@ fn main() {
         if count == 5 {
             println!("OK, that's enough");
 
-            __;
+            break;
         }
     }
 
@@ -211,11 +211,11 @@ fn main() {
         counter += 1;
 
         if counter == 10 {
-            __;
+            break counter;
         }
     };
 
-    assert_eq!(result, 20);
+    assert_eq!(result, 10);
 
     println!("Success!");
 }
@@ -250,7 +250,8 @@ fn main() {
         }
     }
 
-    assert!(count == __);
+    println!("{}", count);
+    assert!(count == 30);
 
     println!("Success!");
 }
