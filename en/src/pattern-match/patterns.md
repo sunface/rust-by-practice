@@ -9,7 +9,7 @@ fn match_number(n: i32) {
         // Match a single value
         1 => println!("One!"),
         // Fill in the blank with `|`, DON'T use `..` or `..=`
-        __ => println!("match 2 -> 5"),
+        2 | 3 | 4 | 5 => println!("match 2 -> 5"),
         // Match an inclusive range
         6..=10 => {
             println!("match 6 -> 10")
@@ -31,7 +31,7 @@ struct Point {
 
 fn main() {
     // Fill in the blank to let p match the second arm
-    let p = Point { x: __, y: __ };
+    let p = Point { x: 2, y: 20 };
 
     match p {
         Point { x, y: 0 } => println!("On the x axis at {}", x),
@@ -56,9 +56,9 @@ fn main() {
 
     match msg {
         Message::Hello {
-            id:  3..=7,
+            id:  id@3..=7,
         } => println!("Found an id in range [3, 7]: {}", id),
-        Message::Hello { id: newid@10 | 11 | 12 } => {
+        Message::Hello { id: newid@(10 | 11 | 12) } => {
             println!("Found an id in another range [10, 12]: {}", newid)
         }
         Message::Hello { id } => println!("Found some other id: {}", id),
@@ -74,7 +74,7 @@ fn main() {
     let num = Some(4);
     let split = 5;
     match num {
-        Some(x) __ => assert!(x < split),
+        Some(x) if x < split => assert!(x < split),
         Some(x) => assert!(x >= split),
         None => (),
     }
@@ -91,7 +91,7 @@ fn main() {
     let numbers = (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048);
 
     match numbers {
-        __ => {
+        (first,.., last) => {
            assert_eq!(first, 2);
            assert_eq!(last, 2048);
         }
@@ -111,7 +111,7 @@ fn main() {
     let r = &mut v;
 
     match r {
-       &mut value => value.push_str(" world!") 
+       value => value.push_str(" world!") 
     }
 }
 ````
