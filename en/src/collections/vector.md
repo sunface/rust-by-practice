@@ -1,5 +1,5 @@
 # Vector
-Vectors are re-sizable arrays. Like slices, their size is not known at compile time, but they can grow or shrink at any time. 
+Vectors are resizable arrays. Like slices, their size is not known at compile time, but they can grow or shrink at any time. 
 
 ### Basic Operations
 1. 🌟🌟🌟
@@ -18,14 +18,14 @@ fn main() {
     let v = vec!(1, 2, 3);
     is_vec(v);
     
-    // in code below, v is Vec<[u8; 3]> , not Vec<u8>
+    // In code below, v is Vec<[u8; 3]> , not Vec<u8>
     // USE Vec::new and `for` to rewrite the below code 
     let v1 = vec!(arr);
     is_vec(v1);
  
     assert_eq!(v, v1);
 
-    println!("Success!")
+    println!("Success!");
 }
 
 fn is_vec(v: Vec<u8>) {}
@@ -33,7 +33,7 @@ fn is_vec(v: Vec<u8>) {}
 
 
 
-2. 🌟🌟 a Vec can be extended with `extend` method
+2. 🌟🌟 A Vec can be extended with `extend` method
 ```rust,editable
 
 // FILL in the blank
@@ -47,7 +47,7 @@ fn main() {
 
     assert_eq!(v1, v2);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -57,7 +57,7 @@ fn main() {
 
 // FILL in the blanks
 fn main() {
-    // array -> Vec
+    // Array -> Vec
     // impl From<[T; N]> for Vec
     let arr = [1, 2, 3];
     let v1 = __(arr);
@@ -84,7 +84,7 @@ fn main() {
     let v4: Vec<i32> = [0; 10].into_iter().collect();
     assert_eq!(v4, vec![0; 10]);
 
-    println!("Success!")
+    println!("Success!");
  }
 ```
 
@@ -105,7 +105,7 @@ fn main() {
     
     assert_eq!(v, vec![2, 3, 4, 5, 6]);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -123,13 +123,13 @@ fn main() {
     let mut v = vec![1, 2, 3];
 
     let slice1 = &v[..];
-    // out of bounds will cause a panic
+    // Out of bounds will cause a panic
     // You must use `v.len` here
     let slice2 = &v[0..4];
     
     assert_eq!(slice1, slice2);
     
-    // slice are read only
+    // Slices are read only
     // Note: slice and &Vec are different
     let vec_ref: &mut Vec<i32> = &mut v;
     (*vec_ref).push(4);
@@ -138,7 +138,7 @@ fn main() {
 
     assert_eq!(slice3, &[1, 2, 3, 4]);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 ### Capacity
@@ -169,7 +169,7 @@ fn main() {
     assert!(vec.capacity() >= 11);
 
 
-    // fill in an appropriate value to make the `for` done without reallocating 
+    // Fill in an appropriate value to make the `for` done without reallocating 
     let mut vec = Vec::with_capacity(__);
     for i in 0..100 {
         vec.push(i);
@@ -178,12 +178,12 @@ fn main() {
     assert_eq!(vec.len(), __);
     assert_eq!(vec.capacity(), __);
     
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 ### Store distinct types in Vector
-The elements in a vector mush be the same type, for example , the code below will cause an error:
+The elements in a vector must be the same type, for example , the code below will cause an error:
 ```rust
 fn main() {
    let v = vec![1, 2.0, 3];
@@ -207,7 +207,7 @@ fn main() {
     assert_eq!(v[0], IpAddr::V4("127.0.0.1".to_string()));
     assert_eq!(v[1], IpAddr::V6("::1".to_string()));
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
