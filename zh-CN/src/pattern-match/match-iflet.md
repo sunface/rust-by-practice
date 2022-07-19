@@ -194,4 +194,4 @@ fn main() {
  }
 ```
 
-> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/pattern-match/match-iflet.md)找到答案(在 solutions 路径下) 
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/pattern-match/match.md)找到答案(在 solutions 路径下) 
