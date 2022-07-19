@@ -99,7 +99,7 @@ fn main() {
 ```
 
 ### Unused variables
-1. Fix the warning below with :
+7. Fix the warning below with :
 
 - 🌟  Only one solution
 - 🌟🌟  Two distinct solutions
