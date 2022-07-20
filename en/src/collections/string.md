@@ -1,5 +1,5 @@
 # String
-`std::string::String` is a UTF-8 encoded, growable string. It is the most common string type we used in daily dev, it also has ownership over the string contents.
+`std::string::String` is a UTF-8 encoded, growable string. It is the most common string type we used in daily development, it also has ownership over the string contents.
 
 ### Basic operations
 1. 🌟🌟
@@ -7,7 +7,7 @@
 
 // FILL in the blanks and FIX errors
 // 1. Don't use `to_string()`
-// 2. Dont't add/remove any code line
+// 2. Don't add/remove any code line
 fn main() {
     let mut s: String = "hello, ";
     s.push_str("world".to_string());
@@ -17,7 +17,7 @@ fn main() {
 
     assert_eq!(s, "hello, world!");
 
-    println!("Success!")
+    println!("Success!");
 }
 
 fn move_ownership(s: String) {
@@ -36,7 +36,7 @@ A `String` is stored as a vector of bytes (`Vec<u8>`), but guaranteed to always 
 fn main() {  
    let mut s = String::from("hello, world");
 
-   let slice1: &str = __; // in two ways
+   let slice1: &str = __; // In two ways
    assert_eq!(slice1, "hello, world");
 
    let slice2 = __;
@@ -46,37 +46,37 @@ fn main() {
    slice3.push('!');
    assert_eq!(slice3, "hello, world!");
 
-   println!("Success!")
+   println!("Success!");
 }
 ```
 
 3. 🌟🌟
 ```rust,editable
 
-// Question: how many heap allocations are happened here ?
+// Question: how many heap allocations are happening here?
 // Your answer: 
 fn main() {  
     // Create a String type based on `&str`
-    // the type of string literals is `&str`
+    // The type of string literals is `&str`
    let s: String = String::from("hello, world!");
 
-   // create a slice point to String `s`
+   // Create a slice point to String `s`
    let slice: &str = &s;
 
-   // create a String type based on the recently created slice
+   // Create a String type based on the recently created slice
    let s: String = slice.to_string();
 
    assert_eq!(s, "hello, world!");
 
-   println!("Success!")
+   println!("Success!");
 }
 ```
 
 ### UTF-8 & Indexing
 Strings are always valid UTF-8. This has a few implications:
 
-- the first of which is that if you need a non-UTF-8 string, consider [OsString](https://doc.rust-lang.org/stable/std/ffi/struct.OsString.html). It is similar, but without the UTF-8 constraint. 
-- The second implication is that you cannot index into a String
+- The first of which is that if you need a non-UTF-8 string, consider [OsString](https://doc.rust-lang.org/stable/std/ffi/struct.OsString.html). It is similar, but without the UTF-8 constraint. 
+- The second implication is that you cannot index into a String.
 
 Indexing is intended to be a constant-time operation, but UTF-8 encoding does not allow us to do this. Furthermore, it’s not clear what sort of thing the index should return: a byte, a codepoint, or a grapheme cluster. The bytes and chars methods return iterators over the first two, respectively.
 
@@ -90,22 +90,22 @@ fn main() {
     let slice1 = s[0]; //tips: `h` only takes 1 byte in UTF8 format
     assert_eq!(slice1, "h");
 
-    let slice2 = &s[3..5];// tips: `中`  takes 3 bytes in UTF8 format
+    let slice2 = &s[3..5]; // Tips: `中`  takes 3 bytes in UTF8 format
     assert_eq!(slice2, "世");
     
-    // iterate all chars in s
+    // Iterate through all chars in s
     for (i, c) in s.__ {
         if i == 7 {
             assert_eq!(c, '世')
         }
     }
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 
-#### utf8_slice
+#### UTF8_slice
 You can use [utf8_slice](https://docs.rs/utf8_slice/1.0.0/utf8_slice/fn.slice.html) to slice UTF8 string, it can index chars instead of bytes.
 
 **Example**
@@ -130,16 +130,16 @@ fn main() {
     let mut s = String::new();
     __;
 
-    // some bytes, in a vector
+    // Some bytes, in a vector
     let v = vec![104, 101, 108, 108, 111];
 
-    // Turn a bytes vector into a String
+    // Turn a byte's vector into a String
     let s1 = __;
     
     
     assert_eq!(s, s1);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -151,7 +151,7 @@ The pointer points to an internal buffer String uses to store its data. The leng
 6. 🌟🌟 If a String has enough capacity, adding elements to it will not re-allocate
 ```rust,editable
 
-// modify the code below to print out: 
+// Modify the code below to print out: 
 // 25
 // 25
 // 25
@@ -166,7 +166,7 @@ fn main() {
         println!("{}", s.capacity());
     }
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -179,7 +179,7 @@ use std::mem;
 fn main() {
     let story = String::from("Rust By Practice");
 
-    // Prevent automatically dropping the String's data
+    // Prevent automatically dropping of the String's data
     let mut story = mem::ManuallyDrop::new(story);
 
     let ptr = story.__();
@@ -188,14 +188,14 @@ fn main() {
 
     assert_eq!(16, len);
 
-    // We can re-build a String out of ptr, len, and capacity. This is all
+    // We can rebuild a String out of ptr, len, and capacity. This is all
     // unsafe because we are responsible for making sure the components are
     // valid:
     let s = unsafe { String::from_raw_parts(ptr, len, capacity) };
 
     assert_eq!(*story, s);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 

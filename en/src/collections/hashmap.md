@@ -11,7 +11,7 @@ The hash table implementation is a Rust port of Google’s [SwissTable](https://
 
 ```rust,editable
 
-// FILL in the blanks and FIX the erros
+// FILL in the blanks and FIX the errors
 use std::collections::HashMap;
 fn main() {
     let mut scores = HashMap::new();
@@ -20,12 +20,12 @@ fn main() {
     scores.insert("Ashley", 69.0);
     scores.insert("Katie", "58");
 
-    // get returns a Option<&V>
+    // Get returns an Option<&V>
     let score = scores.get("Sunface");
     assert_eq!(score, Some(98));
 
     if scores.contains_key("Daniel") {
-        // indexing return a value V
+        // Indexing returns a value V
         let score = scores["Daniel"];
         assert_eq!(score, __);
         scores.remove("Daniel");
@@ -34,7 +34,7 @@ fn main() {
     assert_eq!(scores.len(), __);
 
     for (name, score) in scores {
-        println!("The score of {} is {}", name, score)
+        println!("The score of {} is {}", name, score);
     }
 }
 ```
@@ -56,12 +56,12 @@ fn main() {
     }
 
     // IMPLEMENT team_map2 in two ways
-    // tips: one of the approaches is to use `collect` method
+    // Tips: one of the approaches is to use `collect` method
     let teams_map2...
 
     assert_eq!(teams_map1, teams_map2);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -71,16 +71,16 @@ fn main() {
 // FILL in the blanks
 use std::collections::HashMap;
 fn main() {
-    // type inference lets us omit an explicit type signature (which
+    // Type inference lets us omit an explicit type signature (which
     // would be `HashMap<&str, u8>` in this example).
     let mut player_stats = HashMap::new();
 
-    // insert a key only if it doesn't already exist
+    // Insert a key only if it doesn't already exist
     player_stats.entry("health").or_insert(100);
 
     assert_eq!(player_stats["health"], __);
 
-    // insert a key using a function that provides a new value only if it
+    // Insert a key using a function that provides a new value only if it
     // doesn't already exist
     player_stats.entry("health").or_insert_with(random_stat_buff);
     assert_eq!(player_stats["health"], __);
@@ -92,11 +92,11 @@ fn main() {
     *health -= 50;
     assert_eq!(*health, __);
 
-    println!("Success!")
+    println!("Success!");
 }
 
 fn random_stat_buff() -> u8 {
-    // could actually return some random value here - let's just return
+    // Could actually return some random value here - let's just return
     // some fixed value for now
     42
 }
@@ -161,7 +161,7 @@ fn main() {
     let mut map: HashMap<i32, i32> = HashMap::with_capacity(100);
     map.insert(1, 2);
     map.insert(3, 4);
-    // indeed ,the capacity of HashMap is not 100, so we can't compare the equality here.
+    // Indeed ,the capacity of HashMap is not 100, so we can't compare the equality here.
     assert!(map.capacity() >= 100);
 
     // Shrinks the capacity of the map with a lower limit. It will drop
@@ -176,7 +176,7 @@ fn main() {
     // and possibly leaving some space in accordance with the resize policy.
     map.shrink_to_fit();
     assert!(map.capacity() >= 2);
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -196,12 +196,12 @@ fn main() {
 
   let v2 = "hello".to_string();
   let mut m2 = HashMap::new();
-  // ownership moved here
+  // Ownership moved here
   m2.insert(v2, v1);
     
   assert_eq!(v2, "hello");
 
-  println!("Success!")
+  println!("Success!");
 }
 ```
 
@@ -212,7 +212,7 @@ The usage of third-party hash looks like this:
 ```rust
 use std::hash::BuildHasherDefault;
 use std::collections::HashMap;
-// introduce a third party hash function
+// Introduce a third party hash function
 use twox_hash::XxHash64;
 
 
