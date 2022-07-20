@@ -108,7 +108,7 @@ fn main() {
     // FILL in the blank
     let b = false;
 
-    let v = match b {
+    let _v = match b {
         true => 1,
         // Diverging functions can also be used in match expression
         false => {
