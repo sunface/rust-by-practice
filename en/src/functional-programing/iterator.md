@@ -35,7 +35,7 @@ fn main() {
 ```
 
 2、 🌟 One of the easiest ways to create an iterator is to use the range notion: `a..b`.
-```rust,editble
+```rust,editable
 /* Fill in the blank */
 fn main() {
     let mut v = Vec::new();
