@@ -135,3 +135,5 @@ pub trait IsTrue {}
 
 impl IsTrue for Assert<true> {}
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/generics-traits/const-generics.md)找到答案(在 solutions 路径下) 
