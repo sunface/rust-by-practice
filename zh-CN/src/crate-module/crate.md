@@ -108,4 +108,4 @@ edition = "2021"
 可以看到，上面的 package 结构非常标准，你可以在很多 Rust 项目中看到该结构的身影。
 
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/crate-module/crate.md) (under the solutions path), but only use it when you need it :)
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/crate-module/crate.md)找到答案(在 solutions 路径下) 
