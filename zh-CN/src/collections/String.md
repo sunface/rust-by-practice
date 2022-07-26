@@ -201,7 +201,7 @@ fn main() {
 ```
 
 
-### 常用方法
+### 常用方法(TODO)
 关于 String 的常用方法练习，可以查看[这里](../std/String.md).
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/collections/String.md)(under the solutions path), but only use it when you need it
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/collections/String.md)找到答案(在 solutions 路径下) 
