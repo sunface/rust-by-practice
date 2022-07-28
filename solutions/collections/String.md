@@ -32,7 +32,7 @@ fn main() {
 }
 
 fn borrow_string(s: &str) {
-    println!("ownership of \"{}\" is moved here!", s)
+    println!("ownership of \"{}\" is still with the variable 's', only the reference is passed", s)
 }
 ```
 
