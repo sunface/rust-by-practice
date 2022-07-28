@@ -220,4 +220,4 @@ hash.insert(42, "the answer");
 assert_eq!(hash.get(&42), Some(&"the answer"));
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/collections/Hashmap.md)(under the solutions path), but only use it when you need it
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/collections/Hashmap.md)找到答案(在 solutions 路径下) 
