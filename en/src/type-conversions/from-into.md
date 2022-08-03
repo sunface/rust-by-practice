@@ -8,7 +8,7 @@ The `Into` trait is simply the reciprocal of the `From` trait. That is, if you h
 
 Using the `Into` trait will typically require the type annotations as the compiler is unable to determine this most of the time.
 
-For example we can easily convert `&str` into `String` :
+For example, we can easily convert `&str` into `String` :
 ```rust
 fn main() {
     let my_str = "hello";
@@ -16,12 +16,12 @@ fn main() {
     // three conversions below all depends on the fact: String implements From<&str>:
     let string1 = String::from(my_str);
     let string2 = my_str.to_string();
-    // explict type annotation is required here
+    // Explicit type annotation is required here
     let string3: String = my_str.into();
 }
 ```
 
-because the standard library has already implemented this for us : `impl From<&'_ str> for String` .
+Because the standard library has already implemented this for us : `impl From<&'_ str> for String` .
 
 Some implementations of `From` trait can be found [here](https://doc.rust-lang.org/stable/std/convert/trait.From.html#implementors).
 
@@ -43,7 +43,7 @@ fn main() {
     // FIX the error in two ways
     let s: String = 'a' as String;
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -71,7 +71,7 @@ fn main() {
     let num: Number = __;
     assert_eq!(num.value, 30);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -104,7 +104,7 @@ fn open_and_parse_file(file_name: &str) -> Result<i32, CliError> {
 }
 
 fn main() {
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -134,7 +134,7 @@ fn main() {
 
     assert_eq!(n, __);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -166,6 +166,6 @@ fn main() {
     let result: Result<EvenNum, ()> = 5i32.try_into();
     assert_eq!(result, __);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
