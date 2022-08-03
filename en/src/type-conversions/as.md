@@ -15,7 +15,7 @@ fn main() {
 
     assert_eq!(integer, 'b' as u8);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -23,17 +23,17 @@ fn main() {
 ```rust,editable
 fn main() {
     assert_eq!(u8::MAX, 255);
-    // the max of `u8` is 255 as shown above.
+    // The max of `u8` is 255 as shown above.
     // so the below code will cause an overflow error: literal out of range for `u8`.
     // PLEASE looking for clues within compile errors to FIX it.
     // DON'T modify any code in main.
     let v = 1000 as u8;
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
-3. 🌟🌟  when casting any value to an unsigned type `T`, `T::MAX + 1` is added or subtracted until the value fits into the new type.
+3. 🌟🌟  When casting any value to an unsigned type `T`, `T::MAX + 1` is added or subtracted until the value fits into the new type.
 ```rust,editable
 fn main() {
     assert_eq!(1000 as u16, __);
@@ -67,7 +67,7 @@ fn main() {
 }
 ```
 
-4. 🌟🌟🌟 Raw pointer can be converted to memory address (integer) and vice versa
+4. 🌟🌟🌟 Raw pointers can be converted to memory address (integer) and vice versa.
 ```rust,editable
 
 // FILL in the blanks
@@ -78,13 +78,13 @@ fn main() {
     let second_address = first_address + 4; // 4 == std::mem::size_of::<i32>()
     let p2: *mut i32 = second_address __; // p2 points to the 2nd element in values
     unsafe {
-        // add one to the second element
+        // Add one to the second element
         __
     }
     
     assert_eq!(values[1], 3);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -100,6 +100,6 @@ fn main() {
         assert_eq!(std::mem::size_of_val(&*b), __)
     }
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
