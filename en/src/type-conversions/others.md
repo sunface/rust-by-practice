@@ -1,7 +1,7 @@
 # Others
 
 ### Convert any type to String
-To convert any type to `String`, you can simply the `ToString` trait for that type. Rather than doing that directly, you should implement the `fmt::Display` trait which will automatically provides `ToString` and also allows you to print the type with `println!`.
+To convert any type to `String`, you can simply use the `ToString` trait for that type. Rather than doing that directly, you should implement the `fmt::Display` trait which will automatically provides `ToString` and also allows you to print the type with `println!`.
 
 1. 🌟🌟
 ```rust,editable
@@ -22,14 +22,14 @@ fn main() {
     assert_eq!(origin.__, "The point is (0, 0)");
     assert_eq!(format!(__), "The point is (0, 0)");
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 ### Parse a String
-2. 🌟🌟🌟 We can use `parse` method to convert a `String` into a `i32` number, this is becuase `FromStr` is implemented for `i32` type in standard library: `impl FromStr for i32`
+2. 🌟🌟🌟 We can use `parse` method to convert a `String` into a `i32` number, this is because `FromStr` is implemented for `i32` type in standard library: `impl FromStr for i32`
 ```rust,editable
-// To use `from_str` method, you needs to introduce this trait into the current scope.
+// To use `from_str` method, you need to introduce this trait into the current scope.
 use std::str::FromStr;
 fn main() {
     let parsed: i32 = "5".__.unwrap();
@@ -38,7 +38,7 @@ fn main() {
     let sum = parsed + turbo_parsed + from_str;
     assert_eq!(sum, 35);
 
-    println!("Success!")
+    println!("Success!");
 }
 ``` 
 
@@ -74,14 +74,14 @@ fn main() {
     let p = __;
     assert_eq!(p.unwrap(), Point{ x: 3, y: 4} );
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 ### Deref
 You can find all the examples and exercises of the `Deref` trait [here](https://practice.rs/smart-pointers/deref.html).
 
-### transmute
+### Transmute
 `std::mem::transmute` is a **unsafe function** can be used to reinterprets the bits of a value of one type as another type. Both of the original and the result types must have the same size and neither of them can be invalid.
 
 `transmute` is semantically equivalent to a bitwise move of one type into another. It copies the bits from the source value into the destination value, then forgets the original, seems equivalent to C's `memcpy` under the hood.
@@ -126,9 +126,9 @@ fn main() {
 
     let num = unsafe { std::mem::transmute::<[u8; 4], u32>(raw_bytes) };
 
-    // use `u32::from_ne_bytes` instead
+    // Use `u32::from_ne_bytes` instead
     let num = u32::from_ne_bytes(raw_bytes);
-    // or use `u32::from_le_bytes` or `u32::from_be_bytes` to specify the endianness
+    // Or use `u32::from_le_bytes` or `u32::from_be_bytes` to specify the endianness
     let num = u32::from_le_bytes(raw_bytes);
     assert_eq!(num, 0x12345678);
     let num = u32::from_be_bytes(raw_bytes);
@@ -150,7 +150,7 @@ fn main() {
     let val_casts = unsafe { &mut *(ptr as *mut i32 as *mut u32) };
 
     /*Turning an &str into a &[u8]: */
-    // this is not a good way to do this.
+    // This is not a good way to do this.
     let slice = unsafe { std::mem::transmute::<&str, &[u8]>("Rust") };
     assert_eq!(slice, &[82, 117, 115, 116]);
 
