@@ -154,9 +154,9 @@ fn main() {
 
 ```rust
 fn main() {
-    let raw_str = "Escapes don't work here: \x3F \u{211D}";
+    let raw_str = r"Escapes don't work here: \x3F \u{211D}";
     // modify below line to make it work
-    assert_eq!(raw_str, "Escapes don't work here: ? ℝ");
+    assert_eq!(raw_str, "Escapes don't work here: \\x3F \\u{211D}");
 
     // If you need quotes in a raw string, add a pair of #s
     let quotes = r#"And then I said: "There is no escape!""#;
