@@ -3,7 +3,7 @@
 ## Positional arguments
 
 1.🌟🌟
-```rust,edtiable
+```rust,editable
 
 /* Fill in the blanks */
 fn main() {
