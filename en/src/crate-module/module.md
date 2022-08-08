@@ -39,7 +39,7 @@ mod front_of_house {
 
 2. 🌟🌟 Let's call `add_to_waitlist` from a function `eat_at_restaurant` which within the library crate root.
 
-```rust
+```rust,editable
 // in lib.rs
 
 // FILL in the blanks and FIX the errors
@@ -76,7 +76,7 @@ mod back_of_house {
 
 
 ### Separating modules into different files
-```rust
+```rust,editable
 // in lib.rs
 pub mod front_of_house {
     pub mod hosting {
