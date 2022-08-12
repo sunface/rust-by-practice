@@ -101,7 +101,7 @@ and could then be used to compare a `&'a T` with any lifetime to an `i32`.
 Only a higher-ranked bound can be used here, because the lifetime of the reference is shorter than any possible lifetime parameter on the function。
 
 4、🌟🌟🌟
-```rust
+```rust,editable
 /* Adding HRTB to make it work!*/
 fn call_on_ref_zero<'a, F>(f: F) where F: Fn(&'a i32) {
     let zero = 0;
@@ -236,7 +236,7 @@ struct Ref<'a, T> {
 ## A difficult exercise
 
 6、🌟🌟🌟🌟
-```rust
+```rust,editable
 /* Make it work */
 struct Interface<'a> {
     manager: &'a mut Manager<'a>
