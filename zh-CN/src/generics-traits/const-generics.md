@@ -39,7 +39,7 @@ fn bar<T, const M: usize>() {
 fn main() {}
 ```
 
-1. const 泛型还能帮我们避免一些运行时检查，提升性能
+3. const 泛型还能帮我们避免一些运行时检查，提升性能
 ```rust
 pub struct MinSlice<T, const N: usize> {
     pub head: [T; N],
