@@ -73,7 +73,7 @@ thread 'main' panicked at 'index out of bounds: the len is 3 but the index is 99
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
-Though there is the panic reason and code line showing here, but sometime we want to get more info about the call stack.
+Though there is the reason of panic and the line of the code is showing where the panic has occured, sometimes we want to get more info about the call stack.
 
 3. 🌟
 ```shell
@@ -99,7 +99,7 @@ note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose bac
 ```
 
 ### `unwinding` and `abort`
-By default, when a `panic` occurs, the program starts *unwinding*, which means Rust walks back up the stack and cleans up the data from each function it encouters.
+By default, when a `panic` occurs, the program starts *unwinding*, which means Rust walks back up the stack and cleans up the data from each function it encounters.
 
 But this walk back and clean up is a lot of work. The alternative is to immediately abort the program without cleaning up.
 

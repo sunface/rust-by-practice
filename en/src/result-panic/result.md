@@ -1,7 +1,7 @@
 # result and ?
 `Result<T>` is an enum to describe possible errors. It has two variants: 
 
-- `Ok(T)`: a value T was found
+- `Ok(T)`: A value T was found
 - `Err(e)`: An error was found with a value `e`
 
 In short words, the expected outcome is `Ok`, while the unexpected outcome is `Err`.
@@ -25,7 +25,7 @@ fn main() {
     let result = multiply("t", "2");
     assert_eq!(result.__, 8);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -44,7 +44,7 @@ fn multiply(n1_str: &str, n2_str: &str) -> __ {
 
 fn main() {
     assert_eq!(multiply("3", "4").unwrap(), 12);
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -69,7 +69,7 @@ fn read_file1() -> Result<String, io::Error> {
 }
 
 // FILL in the blanks with one code line
-// DON'T change any code else
+// DON'T change any code lines
 fn read_file2() -> Result<String, io::Error> {
     let mut s = String::new();
 
@@ -80,7 +80,7 @@ fn read_file2() -> Result<String, io::Error> {
 
 fn main() {
     assert_eq!(read_file1().unwrap_err().to_string(), read_file2().unwrap_err().to_string());
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -100,7 +100,7 @@ fn add_two(n_str: &str) -> Result<i32, ParseIntError> {
 fn main() {
     assert_eq!(add_two("4").unwrap(), 6);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
@@ -109,7 +109,7 @@ fn main() {
 use std::num::ParseIntError;
 
 // With the return type rewritten, we use pattern matching without `unwrap()`.
-// But it's so Verbose..
+// But it's so Verbose...
 fn multiply(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     match n1_str.parse::<i32>() {
         Ok(n1)  => {
@@ -146,14 +146,14 @@ fn main() {
     let tt = multiply("t", "2");
     print(tt);
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 ### Type alias
 Using `std::result::Result<T, ParseIntError>` everywhere is verbose and tedious, we can use alias for this purpose.
 
-At a module level, creating aliases can be particularly helpful. Errors found in the a specific module often has the same `Err` type, so a single alias can succinctly defined all associated `Results`. This is so useful even the `std` library even supplies one: [`io::Result`](https://doc.rust-lang.org/std/io/type.Result.html).
+At a module level, creating aliases can be particularly helpful. Errors found in  a specific module often has the same `Err` type, so a single alias can succinctly defined all associated `Results`. This is so useful even the `std` library even supplies one: [`io::Result`](https://doc.rust-lang.org/std/io/type.Result.html).
 
 6. 🌟
 ```rust,editable
@@ -181,7 +181,7 @@ fn main() {
     print(multiply("10", "2"));
     print(multiply("t", "2"));
 
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
