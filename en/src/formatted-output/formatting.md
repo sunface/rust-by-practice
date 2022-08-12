@@ -4,7 +4,6 @@
 
 1.🌟🌟
 ```rust,editable
-
 /* Fill in the blanks */
 fn main() {
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");// => Alice, this is Bob. Bob, this is Alice
