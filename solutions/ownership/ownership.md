@@ -96,6 +96,17 @@ fn print_str(s: String)  {
 }
 ```
 
+```rust
+ fn main() {
+     let s = String::from("hello, world");
+     print_str(&s);
+     println!("{}", s);
+ }
+ fn print_str(s: &String)  {
+     println!("{}",s)
+ }
+ ```
+
 5.
 
 ```rust
