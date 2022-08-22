@@ -123,7 +123,7 @@ fn main() {
     };
 
     // 通过这种解构式模式匹配，person.name 的所有权被转移给新的变量 `name`
-    // 但是，这里 `age` 变量确是对 person.age 的引用, 这里 ref 的使用相当于: let age = &person.age 
+    // 但是，这里 `age` 变量却是对 person.age 的引用, 这里 ref 的使用相当于: let age = &person.age 
     let Person { name, ref age } = person;
 
     println!("The person's age is {}", age);
