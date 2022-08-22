@@ -1,5 +1,5 @@
 # Module
-Modules let us organize the code within a crate into groups by readablity and easy reuse. Module also controls the privacy of items, which is whether an item can be seen by outside code( public ), or is just an internal implementation and not available for outside code( private ).
+Modules let us organize the code within a crate into groups for readability and ease of reuse. Module also controls the privacy of items, which is whether an item can be seen by outside code( public ), or is just an internal implementation and not available for outside code( private ).
 
 
 We have created a package named `hello-package` in previous chapter, and it looks like this:
@@ -37,34 +37,34 @@ mod front_of_house {
 ```
 
 
-2. 🌟🌟 Let's call `add_to_waitlist` from a function `eat_at_restaurant` which within the library crate root.
+2. 🌟🌟 Let's call `add_to_waitlist` from a function `eat_at_restaurant` which is within the library crate root.
 
 ```rust,editable
-// in lib.rs
+// In lib.rs
 
 // FILL in the blanks and FIX the errors
-// You need make something public with `pub` to provide accessiblity for outside code `fn eat_at_restaurant()`
+// You need to make something public with `pub` to provide accessibility for outside code `fn eat_at_restaurant()`
 mod front_of_house {
     /* ...snip... */
 }
 
 pub fn eat_at_restaurant() {
-    // call add_to_waitlist with **absolute path**:
+    // Call add_to_waitlist with **absolute path**:
     __.add_to_waitlist();
 
-    // call with **relative path** 
+    // Call with **relative path** 
      __.add_to_waitlist();
 }
 ```
 
 3. 🌟🌟 You can use `super` to import items within the parent module
 ```rust,editable
-// in lib.rs
+// In lib.rs
 
 mod back_of_house {
     fn fix_incorrect_order() {
         cook_order();
-        // FILL in the blank in tree ways
+        // FILL in the blank in three ways
         //1. using keyword `super`
         //2. using absolute path
         __.serve_order();
@@ -77,7 +77,7 @@ mod back_of_house {
 
 ### Separating modules into different files
 ```rust,editable
-// in lib.rs
+// In lib.rs
 pub mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
@@ -133,37 +133,37 @@ pub mod back_of_house {
 ```
 
 ```rust,editable
-// in src/lib.rs
+// In src/lib.rs
 
 // IMPLEMENT...
 ```
 
 ```rust,editable
-// in src/back_of_house.rs
+// In src/back_of_house.rs
 
 // IMPLEMENT...
 ```
 
 
 ```rust,editable
-// in src/front_of_house/mod.rs
+// In src/front_of_house/mod.rs
 
 // IMPLEMENT...
 ```
 
 ```rust,editable
-// in src/front_of_house/hosting.rs
+// In src/front_of_house/hosting.rs
 
 // IMPLEMENT...
 ```
 
 ```rust,editable
-// in src/front_of_house/serving.rs
+// In src/front_of_house/serving.rs
 
 // IMPLEMENT...
 ```
 
-### accessing code in library crate from binary crate
+### Accessing code in library crate from binary crate
 **Please ensure you have completed the 4th exercise before making further progress.**
 
 You should have below structures and the corresponding codes in them when reaching here: 
@@ -183,7 +183,7 @@ You should have below structures and the corresponding codes in them when reachi
 5. 🌟🌟🌟 Now we will call a few library functions from the binary crate.
 
 ```rust,editable
-// in src/main.rs
+// In src/main.rs
 
 // FILL in the blank and FIX the errors
 fn main() {
