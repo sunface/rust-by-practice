@@ -1,4 +1,4 @@
-# use and pub
+# Use and pub
 1. 🌟 We can bring two types of the same name into the same scope with use, but you need `as` keyword.
 
 ```rust,editable
@@ -8,7 +8,7 @@ use std::io::Result;
 fn main() {}
 ```
 
-2. 🌟🌟 If we are using multiple items defined in the same crate or module, then listing each item on its own line will take up too much verticall space.
+2. 🌟🌟 If we are using multiple items defined in the same crate or module, then listing each item on its own line will take up too much vertical space.
 
 ```rust,editable
 
@@ -34,8 +34,8 @@ fn main() {
 ```
 
 
-### pub(in Crate) 
-Sometimes we want an item only be public to a certain crate, then we can use the `pub(in Crate)` syntax.
+### Pub(in Crate) 
+Sometimes we want an item only be public to a certain crate. For this we can use the `pub(in Crate)` syntax.
 
 #### Example
 ```rust,editable
