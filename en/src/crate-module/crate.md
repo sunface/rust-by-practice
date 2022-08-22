@@ -1,5 +1,5 @@
 # Package and Crate
-A package is a project which you create with Cargo (most cases), so it contains a `Cargo.toml` file in it.
+A package is a project which you create with Cargo (in most cases), so it contains a `Cargo.toml` file in it.
 
 1. 🌟 Create a package  with below layout:
 ```shell
@@ -45,7 +45,7 @@ edition = "2021"
 ```rust,editable
 /* FILL in the blank with your ANSWER */
 
-// Q: Whats the difference between package 1# and 2# ?
+// Q: What's the difference between package number 1 and number 2?
 // A: __
 ```
 
@@ -61,7 +61,7 @@ Similar to `hello-package`, `hello-package1` also has a crate in it, however, th
 ```rust,editable
 /* FILL in the blank with your ANSWER */
 
-// Q: Whats the name of the library crate in package `hello-package1`?
+// Q: What's the name of the library crate in package `hello-package1`?
 // A: __
 ```
 
