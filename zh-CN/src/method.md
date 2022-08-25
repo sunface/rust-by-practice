@@ -73,7 +73,7 @@ impl Pair {
 
 fn main() {
     let rectangle = Rectangle {
-        // 关联函数的调用不是通过点操作符，而是使用 `::~
+        // 关联函数的调用不是通过点操作符，而是使用 `::`
         p1: Point::origin(),
         p2: Point::new(3.0, 4.0),
     };
