@@ -6,7 +6,7 @@
 需要注意的是，当使用 `into` 方法时，你需要进行显式地类型标注，因为编译器很可能无法帮我们推导出所需的类型。
 
 
-来看一个例子，我们可以简单的将 `&str` 转换成 `String`。` 
+来看一个例子，我们可以简单的将 `&str` 转换成 `String`
 ```rust
 fn main() {
     let my_str = "hello";
@@ -107,7 +107,7 @@ fn main() {
 
 
 ### TryFrom/TryInto
-类似于 `From` 和 `Into`, `TryFrom` 和 `TryInto` 也是用于类型转换的泛型特。
+类似于 `From` 和 `Into`, `TryFrom` 和 `TryInto` 也是用于类型转换的泛型特征。
 
 但是又与 `From/Into` 不同, `TryFrom` 和 `TryInto` 可以对转换后的失败进行处理，然后返回一个 `Result`。
 
@@ -166,3 +166,5 @@ fn main() {
     println!("Success!")
 }
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/type-conversions/from-into.md)找到答案(在 solutions 路径下) 

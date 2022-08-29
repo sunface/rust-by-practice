@@ -163,3 +163,5 @@ fn main() {
     assert_eq!(b"Rust", &[82, 117, 115, 116]);
 }
 ```
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/type-conversions/others.md)(under the solutions path), but only use it when you need it
