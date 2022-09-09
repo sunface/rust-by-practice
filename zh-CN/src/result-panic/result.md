@@ -125,7 +125,7 @@ fn multiply(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     }
 }
 
-// 重写上面的 `multiply` ，让它尽量简介
+// 重写上面的 `multiply` ，让它尽量简洁
 // 提示：使用 `and_then` 和 `map`
 fn multiply1(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     // 实现...
@@ -208,3 +208,5 @@ fn main() -> Result<(), ParseIntError> {
     Ok(())
 }
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/result-panic/result.md)找到答案(在 solutions 路径下) 

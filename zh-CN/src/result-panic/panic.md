@@ -74,7 +74,7 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 但是有时候，我们还希望获取更详细的信息:
 
 3. 🌟
-```shell
+```shell,editable
 ## 填空以打印全部的调用栈
 ## 提示: 你可以在之前的默认 panic 信息中找到相关线索
 $ __ cargo run
@@ -109,3 +109,4 @@ note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose bac
 panic = 'abort'
 ```
 
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/result-panic/panic.md)找到答案(在 solutions 路径下) 

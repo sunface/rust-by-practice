@@ -109,3 +109,4 @@ If in your project you need to make the resulting binary as small as possible, y
 panic = 'abort'
 ```
 
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/result-panic/panic.md)(under the solutions path), but only use it when you need it

@@ -225,7 +225,7 @@ fn nput(x: &i32) {
 
 fn pass(x: &i32) -> &i32 { x }
 
-fn longest<'a, 'b>(x: &'a str, y: &'b str) -> &'a str {
+fn longest<'a>(x: &'a str, y: &str) -> &'a str {
     x
 }
 
