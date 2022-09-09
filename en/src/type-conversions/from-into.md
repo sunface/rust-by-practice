@@ -169,3 +169,5 @@ fn main() {
     println!("Success!");
 }
 ```
+
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/type-conversions/from-into.md)(under the solutions path), but only use it when you need it
