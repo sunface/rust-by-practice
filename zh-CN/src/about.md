@@ -1,1 +1,1 @@
-# 关于 pracitce.rs
+# 关于 practice.rs
