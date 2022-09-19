@@ -51,7 +51,7 @@
   - [&'static 和 T: 'static](lifetime/static.md)
   - [深入生命周期](lifetime/advance.md)
 - [函数式编程: 闭包、迭代器 todo](functional-programing/intro.md)
-  - [闭包 Closure](functional-programing/cloure.md)
+  - [闭包 Closure](functional-programing/closure.md)
   - [迭代器 Iterator](functional-programing/iterator.md)
 - [newtype 和 Sized todo](newtype-sized.md)
 - [智能指针 todo](smart-pointers/intro.md)
