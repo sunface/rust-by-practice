@@ -1,6 +1,6 @@
 # println! and format!
 Printing is handled by a series of [`macros`][macros] defined in [`std::fmt`][fmt]
-some of which include:
+Some of which include:
 
 * `format!`: write formatted text to [`String`][string]
 * `print!`: same as `format!` but the text is printed to the console (io::stdout).
@@ -8,8 +8,7 @@ some of which include:
 * `eprint!`: same as `format!` but the text is printed to the standard error (io::stderr).
 * `eprintln!`: same as `eprint!`but a newline is appended.
 
-All parse text in the same fashion. As a plus, Rust checks formatting
-correctness at compile time.
+All parse text in the same fashion. As a plus, Rust checks format correctness at compile time.
 
 ## `format!`
 1.🌟
