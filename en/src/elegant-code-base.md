@@ -21,7 +21,7 @@ Tutorial [`https://www.philippflenker.com/hecto/`](https://www.philippflenker.co
 [Ncspot](https://github.com/hrkfdn/ncspot), a terminal Spotify client. Small, simple, well organized and async, it's good for learning.
 
 ### 4. Command Line Rust
-[This project](https://github.com/kyclark/command-line-rust) is for the book `Command-Line Rust(O'Reily)` ,it will show you how to write small CLIS( clones of head, cat, ls).
+[This project](https://github.com/kyclark/command-line-rust) is for the book `Command-Line Rust(O'Reily)`, it will show you how to write small CLIs (clones of `head`, `cat`, `ls`).
 
 ### 5. pngme book
 [This book](https://picklenerd.github.io/pngme_book/) will guide you to make a command line program that lets you hide secret messages in PNG files.  The primary goal here is to get you writing code. The secondary goal is to get you reading documentation.
