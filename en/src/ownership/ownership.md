@@ -62,7 +62,7 @@ fn print_str(s: String)  {
 ```
 
 5. 🌟🌟 
-```rust, editable
+```rust,editable
 // Don't use clone ,use copy instead
 fn main() {
     let x = (1, 2, (), "hello".to_string());
