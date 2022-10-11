@@ -30,7 +30,7 @@ fn move_ownership(s: String) {
 
 而 `&str` 是[切片引用](https://course.rs/confonding/slice.html)类型( `&[u8]` )，指向一个合法的 UTF-8 字符序列，总之，`&str` 和 `String` 的关系类似于 `&[T]` 和 `Vec<T>` 。
 
-如果大家想了解更多，可以看看[易混淆概念解析 - &str 和 String](https://course.rs/confonding/string.html)。
+如果大家想了解更多，可以看看[易混淆概念解析 - &str 和 String](https://course.rs/difficulties/string.html)。
 
 
 2. 🌟🌟
