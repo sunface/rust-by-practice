@@ -15,7 +15,7 @@ fn match_number(n: i32) {
             println!("match 6 -> 10")
         },
         _ => {
-            println!("match 11 -> +infinite")
+            println!("match -infinite -> 0 or 11 -> +infinite")
         }
     }
 }
