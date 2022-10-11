@@ -77,7 +77,7 @@ Yeah, `Debug` is simple and easy to use. But sometimes we want to customize the 
 
 Unlike `Debug`, there is no way to derive the implementation of the `Display` trait, we have to manually implement it.
 
-Anotherthing to note: the placefolder for `Display` is `{}` not `{:?}`.
+Another thing to note: the placefolder for `Display` is `{}` not `{:?}`.
 
 4. 🌟🌟
 ```rust,editable
@@ -103,16 +103,16 @@ fn main() {
     assert_eq!(format!("{}",point), "Display: 3.3 + 7.2i");
     assert_eq!(format!("{:?}",point), "Debug: Complex { real: 3.3, imag: 7.2 }");
     
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
 
 ### `?` operator
 
-Implementing `fmt::Display` for a structure whose elements must be handled separately is triky. The problem is each `write!` generates a `fmt::Result` which must be handled in the same place.
+Implementing `fmt::Display` for a structure whose elements must be handled separately is tricky. The problem is each `write!` generates a `fmt::Result` which must be handled in the same place.
 
-Fortunately, Rust provides the `?` operator to help us eliminate some unnecessary codes for deaing with `fmt::Result`.
+Fortunately, Rust provides the `?` operator to help us eliminate some unnecessary codes for dealing with `fmt::Result`.
 
 5. 🌟🌟
 ```rust,editable
@@ -147,7 +147,7 @@ impl fmt::Display for List {
 fn main() {
     let v = List(vec![1, 2, 3]);
     assert_eq!(format!("{}",v), "[0: 1, 1: 2, 2: 3]");
-    println!("Success!")
+    println!("Success!");
 }
 ```
 
