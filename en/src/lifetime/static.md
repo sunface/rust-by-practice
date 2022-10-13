@@ -108,7 +108,7 @@ fn main() {
 ##  T: 'static
 As a trait bound, it means the type does not contain any non-static references. Eg. the receiver can hold on to the type for as long as they want and it will never become invalid until they drop it.
 
-It's important to understand this means that any owned data always passes a `'static `lifetime bound, but a reference to that owned data generally does no。
+It's important to understand this means that any owned data always passes a `'static `lifetime bound, but a reference to that owned data generally does not.
 
 5、🌟🌟
 ```rust,editable
