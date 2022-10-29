@@ -1,4 +1,4 @@
-# advanced lifetime
+# Advance lifetime
 
 ## Trait Bounds
 Just like generic types can be bounded, lifetimes can also be bounded as below:
@@ -39,10 +39,10 @@ fn main() {
 }
 ```
 
-1、🌟
+1,🌟
 ```rust,editable
 /* Annotate struct with lifetime:
-1. `r` and `s` must has different lifetimes
+1. `r` and `s` must have different lifetimes
 2. lifetime of `s` is bigger than that of 'r'
 */
 struct DoubleRef<T> {
@@ -55,7 +55,7 @@ fn main() {
 ```
 
 
-2、🌟🌟
+2,🌟🌟
 ```rust,editable
 /* Adding trait bounds to make it work */
 struct ImportantExcerpt<'a> {
@@ -74,7 +74,7 @@ fn main() {
 }
 ```
 
-3、🌟🌟
+3,🌟🌟
 ```rust,editable
 /* Adding trait bounds to make it work */
 fn f<'a, 'b>(x: &'a i32, mut y: &'b i32) {
@@ -98,9 +98,9 @@ impl<'a> PartialEq<i32> for &'a T {
 
 and could then be used to compare a `&'a T` with any lifetime to an `i32`.
 
-Only a higher-ranked bound can be used here, because the lifetime of the reference is shorter than any possible lifetime parameter on the function。
+Only a higher-ranked bound can be used here, because the lifetime of the reference is shorter than any possible lifetime parameter on the function.
 
-4、🌟🌟🌟
+4,🌟🌟🌟
 ```rust,editable
 /* Adding HRTB to make it work!*/
 fn call_on_ref_zero<'a, F>(f: F) where F: Fn(&'a i32) {
@@ -109,7 +109,7 @@ fn call_on_ref_zero<'a, F>(f: F) where F: Fn(&'a i32) {
 }
 
 fn main() {
-    println!("Success!")
+    println!("Success!");
 }
 ```
 ## NLL (Non-Lexical Lifetime)
@@ -187,7 +187,7 @@ fn main() {
 ```
 
 
-5、🌟🌟
+5,🌟🌟
 ```rust,editable
 /* Make it work by reordering some code */
 fn main() {
@@ -214,7 +214,7 @@ impl<'a> Reader for BufReader<'a> {
     // 'a is not used in the following methods
 }
 
-// can be writing as :
+// can be written as :
 impl Reader for BufReader<'_> {
     
 }
@@ -235,7 +235,7 @@ struct Ref<'a, T> {
 
 ## A difficult exercise
 
-6、🌟🌟🌟🌟
+6,🌟🌟🌟🌟
 ```rust,editable
 /* Make it work */
 struct Interface<'a> {
