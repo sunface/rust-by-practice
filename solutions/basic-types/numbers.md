@@ -50,20 +50,20 @@ fn main() {
     let v2 = i8::checked_add(119, 8).unwrap();
     println!("{},{}",v1,v2);
  }
- ```
+```
 
 6.
 
- ```rust
+```rust
  fn main() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
     assert!(v == 1597);
 }
- ```
+```
 
 7.
 
- ```rust
+```rust
 fn main() {
     let x = 1_000.000_1; // f64
     let y: f32 = 0.12; // f32
@@ -76,7 +76,7 @@ fn main() {
 fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
 }
- ```
+```
 
 8.
 

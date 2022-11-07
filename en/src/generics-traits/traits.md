@@ -335,7 +335,7 @@ The `impl Trait` syntax works for straightforward cases but is actually syntax s
 When working with generics, the type parameters often must use traits as bounds to stipulate what functionality a type implements. 
 
 7. 🌟🌟
-```rust, editable
+```rust,editable
 fn main() {
     assert_eq!(sum(1, 2), 3);
 }

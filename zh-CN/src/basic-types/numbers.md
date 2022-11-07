@@ -34,7 +34,7 @@ fn main() {
 
 ```rust,editable
 
-//  修改 `assert_eq!` 让代码工作
+// 修改 `assert_eq!` 让代码工作
 fn main() {
     let x = 5;
     assert_eq!("u32".to_string(), type_of(&x));
