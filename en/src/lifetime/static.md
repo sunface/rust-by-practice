@@ -32,7 +32,7 @@ fn need_static(r : &'static str) {
 }
 ```
 
-2, 🌟🌟🌟🌟 Another way to make `'static` lifetime is using `Box::leak`
+2. 🌟🌟🌟🌟 Another way to make `'static` lifetime is using `Box::leak`
 ```rust,editable
 #[derive(Debug)]
 struct Config {
@@ -59,7 +59,7 @@ fn main() {
 }
 ```
 
-3, 🌟 `&'static` only indicates that the data can live forever, not the reference. The latter one will be constrained by its scope.
+3. 🌟 `&'static` only indicates that the data can live forever, not the reference. The latter one will be constrained by its scope.
 ```rust,editable
 fn main() {
     {
@@ -75,7 +75,7 @@ fn main() {
 }
 ```
 
-4, `&'static` can be coerced to a shorter lifetime.
+4. `&'static` can be coerced to a shorter lifetime.
 
 **Example**
 ```rust,editable
@@ -112,7 +112,7 @@ As a trait bound, it means the type does not contain any non-static references. 
 It's important to understand this means that any owned data always passes a `'static `lifetime bound, but a reference to that owned data generally does not.
 
 
-5,🌟🌟
+5. 🌟🌟
 ```rust,editable
 /* Make it work */
 use std::fmt::Debug;
@@ -147,7 +147,7 @@ fn main() {
 ```
 
 
-6,🌟🌟🌟
+6. 🌟🌟🌟
 ```rust,editable
 use std::fmt::Display;
 
