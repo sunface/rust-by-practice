@@ -1,5 +1,5 @@
 ## Lifetime
-The compile uses lifetime to ensure all borrows are valid. Typically, a variable's lifetime begins when it is created and ends when it is destroyed.
+The compiler uses lifetime to ensure all borrows are valid. Typically, a variable's lifetime begins when it is created and ends when it is destroyed.
 
 ## The scope of lifetime
 1、 🌟
@@ -42,7 +42,7 @@ fn main() {
 
 
 ```rust,editable
-/* annotate `r` and `x` as above, and explain why this code fails to compile, in the lifetime aspect. */
+/* Annotate `r` and `x` as above, and explain why this code fails to compile, in the lifetime aspect. */
 
 fn main() {  
     {
@@ -58,16 +58,16 @@ fn main() {
 }
 ```
 
-## lifetime annotating
+## Lifetime annotating
 The **borrow checker uses explicit lifetime annotations** to determine how long a reference should be valid. 
 
 But for us users, in most cases, there is no need to annotate the lifetime, because there are several elision rules, before learning these rules, we need to know how to annotate lifetime manually.
 
-#### function
-Ignoring elision rules, lifetimes in function signatures have a few contraints：
+#### Function
+Ignoring elision rules, lifetimes in function signatures have a few constraints:
 
-- any reference must have an annotated lifetime
-- any reference being returned must have the same lifetime as one of the inputs or be static
+- Any reference must have an annotated lifetime
+- Any reference being returned must have the same lifetime as one of the inputs or be static
 
 **Example**
 ```rust,editable
@@ -236,7 +236,7 @@ fn main()
   let example: Example;
   
   {
-    /* lifetime 'b tied to new stackframe/scope */ 
+    /* Lifetime 'b tied to new stackframe/scope */ 
     let var_b = NoCopyType {};
     
     /* fixme */
@@ -314,7 +314,7 @@ fn main() {}
 ```
 
 ## Elision
-Some lifetime patterns are so comman that the borrow checker will allow you to omit them to save typing and to improve readablity.
+Some lifetime patterns are so comman that the borrow checker will allow you to omit them to save typing and to improve readability.
 
 This is known as **Elision**. Elision exist in Rust only because these patterns are common.
 

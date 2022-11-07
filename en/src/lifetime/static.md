@@ -1,5 +1,5 @@
 # &'static and T: 'static
-`'static` is a reserved lifetime name, you might have encountered it serveral times:
+`'static` is a reserved lifetime name, you might have encountered it several times:
 ```rust
 // A reference with 'static lifetime:
 let s: &'static str = "hello world";
@@ -15,7 +15,7 @@ As a reference lifetime, `&'static` indicates the data pointed to by the referen
 
 
 
-1、🌟🌟 There are several ways to make a variable with `'static` lifetime, two of them are stored in the read-only memory of the binary。
+1、🌟🌟 There are several ways to make a variable with `'static` lifetime, two of them are stored in the read-only memory of the binary.
 
 ```rust,editable
 
@@ -32,7 +32,7 @@ fn need_static(r : &'static str) {
 }
 ```
 
-2、 🌟🌟🌟🌟 Another way to make `'static` lifetime is using `Box::leak`
+2, 🌟🌟🌟🌟 Another way to make `'static` lifetime is using `Box::leak`
 ```rust,editable
 #[derive(Debug)]
 struct Config {
@@ -59,7 +59,7 @@ fn main() {
 }
 ```
 
-3、 🌟 `&'static` only indicates that the data can live forever, not the reference. The latter one will be constrained by its scope.
+3, 🌟 `&'static` only indicates that the data can live forever, not the reference. The latter one will be constrained by its scope.
 ```rust,editable
 fn main() {
     {
@@ -75,7 +75,7 @@ fn main() {
 }
 ```
 
-4、 `&'static` can be coerced to a shorter lifetime.
+4, `&'static` can be coerced to a shorter lifetime.
 
 **Example**
 ```rust,editable
@@ -108,9 +108,11 @@ fn main() {
 ##  T: 'static
 As a trait bound, it means the type does not contain any non-static references. Eg. the receiver can hold on to the type for as long as they want and it will never become invalid until they drop it.
 
+
 It's important to understand this means that any owned data always passes a `'static `lifetime bound, but a reference to that owned data generally does not.
 
-5、🌟🌟
+
+5,🌟🌟
 ```rust,editable
 /* Make it work */
 use std::fmt::Debug;
@@ -145,7 +147,7 @@ fn main() {
 ```
 
 
-6、🌟🌟🌟
+6,🌟🌟🌟
 ```rust,editable
 use std::fmt::Display;
 
