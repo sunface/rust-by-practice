@@ -105,7 +105,7 @@ fn print_str(s: String)  {
  fn print_str(s: &String)  {
      println!("{}",s)
  }
- ```
+```
 
 5.
 

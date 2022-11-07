@@ -2,7 +2,7 @@
 
 ### Char
 1. 🌟
-```rust, editable
+```rust,editable
 
 // Make it work
 use std::mem::size_of_val;
@@ -18,7 +18,7 @@ fn main() {
 ```
 
 2. 🌟
-```rust, editable
+```rust,editable
 
 // Make it work
 fn main() {
@@ -33,7 +33,7 @@ fn print_char(c : char) {
 
 ### Bool
 3. 🌟
-```rust, editable
+```rust,editable
 
 // Make println! work
 fn main() {
@@ -47,7 +47,7 @@ fn main() {
 ```
 
 4. 🌟
-```rust, editable
+```rust,editable
 
 // Make it work
 fn main() {

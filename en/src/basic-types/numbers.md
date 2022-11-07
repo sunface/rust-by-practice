@@ -24,7 +24,7 @@ fn main() {
 2. 🌟
 ```rust,editable
 
-//  Fill the blank
+// Fill the blank
 fn main() {
     let v: u16 = 38_u8 as __;
 

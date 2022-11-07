@@ -205,7 +205,7 @@ pub fn add_three(x: i32) -> Option<i32> {
 // in lib.rs
 
 mod a {
-    ///  Add four to the given value and return a [`Option`] type
+    /// Add four to the given value and return a [`Option`] type
     /// [`crate::MySpecialFormatter`]
     pub fn add_four(x: i32) -> Option<i32> {
         Some(x + 4)
