@@ -24,11 +24,12 @@ fn main() {
 ```rust
 fn main() {
     let x: i32 = 10;
+    let y: i32 = 20;
     {
         let y: i32 = 5;
         println!("The value of x is {} and value of y is {}", x, y);
     }
-    println!("The value of x is {}", x);
+    println!("The value of x is {} and value of y is {}", x, y); 
 }
 ```
 
@@ -81,14 +82,16 @@ fn main() {
 fn main() {
     let mut x: i32 = 1;
     x = 7;
-    // shadowing and re-binding
-    let x = x;
-    // x += 3;
+    // Shadowing and re-binding
+    let mut x = x; 
+    x += 3;
 
 
     let y = 4;
-    // shadowing
-    let y = "I can also be bound to text!";
+    // Shadowing
+    let y = "I can also be bound to text!"; 
+
+    println!("Success!");
 }
 ```
 
