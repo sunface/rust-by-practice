@@ -2,7 +2,7 @@
 The compiler uses lifetime to ensure all borrows are valid. Typically, a variable's lifetime begins when it is created and ends when it is destroyed.
 
 ## The scope of lifetime
-1、 🌟
+1. 🌟
 ```rust,editable
 /* Annotate the lifetime of `i` and `borrow2` */
 
@@ -109,7 +109,7 @@ fn main() {
 }
 ```
 
-3、 🌟
+3. 🌟
 ```rust,editable
 /* Make it work by adding proper lifetime annotation */
 fn longest(x: &str, y: &str) -> &str {
@@ -122,7 +122,7 @@ fn longest(x: &str, y: &str) -> &str {
 
 fn main() {}
 ```
-4、🌟🌟🌟
+4. 🌟🌟🌟
 ```rust,editable
 // `'a` must live longer than the function.
 // Here, `&String::from("foo")` would create a `String`, followed by a
@@ -138,7 +138,7 @@ fn main() {
 }
 ```
 
-5、🌟🌟
+5. 🌟🌟
 ```rust,editable
 // `print_refs` takes two references to `i32` which have different
 // lifetimes `'a` and `'b`. These two lifetimes must both be at
@@ -176,7 +176,7 @@ fn main() {
 ```
 
 #### Structs
-6、 🌟
+6. 🌟
 ```rust,editable
 /* Make it work by adding proper lifetime annotation */
 
@@ -216,7 +216,7 @@ fn main() {
 ```
 
 
-7、 🌟🌟
+7. 🌟🌟
 ```rust,editable
 /* Make it work */
 
@@ -248,7 +248,7 @@ fn main()
 ```
 
 
-8、 🌟🌟
+8. 🌟🌟
 ```rust,editable
 
 #[derive(Debug)]
@@ -297,7 +297,7 @@ fn main() {
 }
 ```
 
-9、🌟🌟
+9. 🌟🌟
 ```rust,editable
 /* Make it work by adding proper lifetime annotations */
 struct ImportantExcerpt {
@@ -320,7 +320,7 @@ This is known as **Elision**. Elision exist in Rust only because these patterns 
 
 For a more comprehensive understanding of elision, please see [lifetime elision](https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html#lifetime-elision) in the official book.
 
-10、🌟🌟
+10. 🌟🌟
 ```rust,editable
 /* Remove all the lifetimes that can be elided */
 

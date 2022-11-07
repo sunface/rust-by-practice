@@ -15,7 +15,7 @@ As a reference lifetime, `&'static` indicates the data pointed to by the referen
 
 
 
-1、🌟🌟 There are several ways to make a variable with `'static` lifetime, two of them are stored in the read-only memory of the binary.
+1. 🌟🌟 There are several ways to make a variable with `'static` lifetime, two of them are stored in the read-only memory of the binary.
 
 ```rust,editable
 

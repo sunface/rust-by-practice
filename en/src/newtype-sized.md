@@ -5,7 +5,7 @@ The orphan rule tells us that we are allowed to implement a trait on a type as l
 
 The **newtype pattern** can help us get around this restriction, which involves creating a new type in a **tuple struct**.
 
-1、🌟
+1. 🌟
 ```rust,editable
 use std::fmt;
 
@@ -26,7 +26,7 @@ fn main() {
 }
 ```
 
-2、🌟 Hide the methods of the original type
+2. 🌟 Hide the methods of the original type
 ```rust,editable
 /* Make it workd */
 struct Meters(u32);
@@ -41,7 +41,7 @@ fn main() {
 }
 ```
 
-3、🌟🌟 The `newtype` idiom gives compile time guarantees that the right type of value is suplied to a program.
+3. 🌟🌟 The `newtype` idiom gives compile time guarantees that the right type of value is suplied to a program.
 ```rust,editable
 /* Make it work */
 struct Years(i64);
@@ -74,7 +74,7 @@ fn main() {
 }
 ```
 
-4、🌟🌟
+4. 🌟🌟
 ```rust,editable
 use std::ops::Add;
 use std::fmt::{self, format};
@@ -133,7 +133,7 @@ let y: Meters = 5;
 println!("x + y = {}", x + y);
 ```
 
-5、🌟
+5. 🌟
 ```rust,editable
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
@@ -150,7 +150,7 @@ fn main() {
 }
 ```
 
-6、🌟🌟 There are a few preserved alias in Rust, one of which can be used in `impl` blocks.
+6. 🌟🌟 There are a few preserved alias in Rust, one of which can be used in `impl` blocks.
 ```rust,editable
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
@@ -170,7 +170,7 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
 ## DST and unsized type
 These concepts are complicated, so we are not going to explain here, but you can find them in [The Book](https://doc.rust-lang.org/book/ch19-04-advanced-types.html?highlight=DST#dynamically-sized-types-and-the-sized-trait).
 
-7、🌟🌟🌟 Array with dynamic length is a Dynamic Sized Type ( DST ), we can't directly use it
+7. 🌟🌟🌟 Array with dynamic length is a Dynamic Sized Type ( DST ), we can't directly use it
 ```rust,editable
 /* Make it work with const generics */
 fn my_function(n: usize) -> [u32; usize] {
@@ -183,7 +183,7 @@ fn main() {
 }
 ```
 
-8、🌟🌟 Slice is unsized type, but the reference of slice is not.
+8. 🌟🌟 Slice is unsized type, but the reference of slice is not.
 ```rust,editable
 /* Make it work with slice references */
 fn main() {
@@ -193,7 +193,7 @@ fn main() {
 }
 ```
 
-9、🌟🌟 Trait is also a unsized type
+9. 🌟🌟 Trait is also a unsized type
 ```rust,editable
 /* Make it work in two ways */
 use std::fmt::Display;

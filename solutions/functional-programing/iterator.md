@@ -1,4 +1,4 @@
-1、
+1. 
 
 ```rust
 fn main() {
@@ -9,7 +9,7 @@ fn main() {
 }
 ```
 
-2、
+2. 
 
 ```rust
 fn main() {
@@ -22,7 +22,7 @@ fn main() {
 }
 ```
 
-3、
+3. 
 
 ```rust
 fn main() {
@@ -50,7 +50,7 @@ fn main() {
 }
 ```
 
-4、
+4. 
 
 ```rust
 fn main() {
@@ -63,7 +63,7 @@ fn main() {
 }
 ```
 
-5、
+5. 
 
 ```rust
 fn main() {
@@ -80,7 +80,7 @@ fn main() {
 }
 ```
 
-6、
+6. 
 
 ```rust
 fn main() {
@@ -95,7 +95,7 @@ fn main() {
 }
 ```
 
-7、
+7. 
 
 ```rust
 struct Fibonacci {
@@ -142,7 +142,7 @@ fn main() {
 }
 ```
 
-8、
+8. 
 
 ```rust
 fn main() {
@@ -159,7 +159,7 @@ fn main() {
 }
 ```
 
-9、
+9. 
 
 ```rust
 use std::collections::HashMap;
@@ -177,7 +177,7 @@ fn main() {
 }
 ```
 
-10、
+10. 
 
 ```rust
 fn main() {
@@ -189,7 +189,7 @@ fn main() {
 }
 ```
 
-11、
+11. 
 
 ```rust
 use std::collections::HashMap;
@@ -202,7 +202,7 @@ fn main() {
 }
 ```
 
-12、
+12. 
 
 ```rust
 #[derive(PartialEq, Debug)]

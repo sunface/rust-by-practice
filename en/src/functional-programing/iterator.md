@@ -23,7 +23,7 @@ fn main() {
 }
 ```
 
-1、🌟
+1. 🌟
 ```rust,editable
 /* Refactoring the following code using iterators */
 fn main() {
@@ -34,7 +34,7 @@ fn main() {
 }
 ```
 
-2、 🌟 One of the easiest ways to create an iterator is to use the range notion: `a..b`.
+2. 🌟 One of the easiest ways to create an iterator is to use the range notion: `a..b`.
 ```rust,editable
 /* Fill in the blank */
 fn main() {
@@ -61,7 +61,7 @@ pub trait Iterator {
 
 And we can call the `next` method on iterators directly.
 
-3、🌟🌟
+3. 🌟🌟
 ```rust,editable
 /* Fill the blanks and fix the errors.
 Using two ways if possible */
@@ -83,7 +83,7 @@ In the previous section, we have mentioned that `for` will apply the `into_iter`
 - `iter`, this borrows each element of the collection through each iteration, thus leaving the collection untouched and available for reuse after the loop
 - `iter_mut`, this mutably borrows each element of the collection, allowing for the collection to be modified in place.
 
-4、🌟
+4. 🌟
 ```rust,editable
 /* Make it work */
 fn main() {
@@ -96,7 +96,7 @@ fn main() {
 }
 ```
 
-5、🌟
+5. 🌟
 ```rust,editable
 /* Fill in the blank */
 fn main() {
@@ -113,7 +113,7 @@ fn main() {
 }
 ```
 
-6、🌟🌟
+6. 🌟🌟
 ```rust,editable
 /* Fill in the blank */
 fn main() {
@@ -169,7 +169,7 @@ fn main() {
 }
 ```
 
-7、🌟🌟🌟
+7. 🌟🌟🌟
 ```rust,editable
 struct Fibonacci {
     curr: u32,
@@ -208,7 +208,7 @@ The `Iterator` trait has a number of methods with default implementations provid
 ### Consuming adaptors
 Some of these methods call the method `next`to use up the iterator, so they are called *consuming adaptors*.
 
-8、🌟🌟
+8. 🌟🌟
 ```rust,edtiable
 /* Fill in the blank and fix the errors */
 fn main() {
@@ -229,7 +229,7 @@ fn main() {
 #### collect
 Other than converting a collection into an iterator, we can also `collect` the result values into a collection, `collect` will cosume the iterator.
 
-9、🌟🌟
+9. 🌟🌟
 ```rust,editable
 /* Make it work */
 use std::collections::HashMap;
@@ -253,7 +253,7 @@ Methods allowing you to change one iterator into another iterator are known as *
 
 But because **all iterators are lazy**, you have to call one of the consuming adapers to get results from calls to iterator adapters.
 
-10、🌟🌟
+10. 🌟🌟
 ```rust,editable
 /* Fill in the blanks */
 fn main() {
@@ -265,7 +265,7 @@ fn main() {
 }
 ```
 
-11、🌟🌟
+11. 🌟🌟
 ```rust
 /* Fill in the blanks */
 use std::collections::HashMap;
@@ -281,7 +281,7 @@ fn main() {
 
 #### Using closures in iterator adaptors
 
-12、🌟🌟 
+12. 🌟🌟 
 ```rust
 /* Fill in the blanks */
 #[derive(PartialEq, Debug)]

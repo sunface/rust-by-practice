@@ -1,4 +1,4 @@
-1、
+1. 
 
 ```rust
 use std::fmt;
@@ -17,7 +17,7 @@ fn main() {
 }
 ```
 
-2、
+2. 
 
 ```rust
 struct Meters(u32);
@@ -31,7 +31,7 @@ fn main() {
 }
 ```
 
-3、
+3. 
 
 ```rust
 struct Years(i64);
@@ -64,7 +64,7 @@ fn main() {
 }
 ```
 
-4、Sometimes `newtype` pattern can provide extra readability.
+4. Sometimes `newtype` pattern can provide extra readability.
 
 ```rust
 use std::ops::Add;
@@ -97,7 +97,7 @@ fn calculate_distance(d1: Meters, d2: Meters) -> Meters {
 }
 ```
 
-5、
+5. 
 
 ```rust
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
@@ -115,7 +115,7 @@ fn main() {
 }
 ```
 
-6、
+6. 
 
 ```rust
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
@@ -135,7 +135,7 @@ impl VeryVerboseEnumOfThingsToDoWithNumbers {
 fn main() {}
 ```
 
-7、
+7. 
 
 ```rust
 fn my_function<const N: usize>() -> [u32; N] {
@@ -148,7 +148,7 @@ fn main() {
 }
 ```
 
-8、
+8. 
 
 ```rust
 fn main() {
@@ -158,7 +158,7 @@ fn main() {
 }
 ```
 
-9、
+9. 
 
 ```rust
 use std::fmt::Display;
