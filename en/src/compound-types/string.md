@@ -54,7 +54,7 @@ fn main() {
 
 // Fix all errors without adding newline
 fn main() {
-    let  s = String::from("hello");
+    let s = String::from("hello");
     s.push(',');
     s.push(" world");
     s += "!".to_string();
@@ -89,8 +89,8 @@ fn main() {
     let s1 = String::from("hello,");
     let s2 = String::from("world!");
     let s3 = s1 + s2; 
-    assert_eq!(s3,"hello,world!");
-    println!("{}",s1);
+    assert_eq!(s3, "hello,world!");
+    println!("{}", s1);
 }
 ```
 
@@ -107,7 +107,7 @@ fn main() {
 }
 
 fn greetings(s: String) {
-    println!("{}",s)
+    println!("{}", s)
 }
 ```
 
@@ -140,7 +140,7 @@ fn main() {
     println!("Unicode character {} (U+211D) is called {}",
                 unicode_codepoint, character_name );
 
-   let long_string = "String literals
+    let long_string = "String literals
                         can span multiple lines.
                         The linebreak and indentation here \
                          can be escaped too!";
@@ -163,7 +163,7 @@ fn main() {
 
     // If you need "# in your string, just use more #s in the delimiter.
     // You can use up to 65535 #s.
-    let  delimiter = r###"A string with "# in it. And even "##!"###;
+    let delimiter = r###"A string with "# in it. And even "##!"###;
     println!("{}", delimiter);
 
     let long_delimiter = __;
