@@ -15,7 +15,7 @@ fn main() {
 }
 ```
 
-A slice reference is a two-word object, for simplicity reasons, from now on we will use slice instead of `slice reference`.  The first word is a pointer to the data, and the second word is the length of the slice. The word size is the same as usize, determined by the processor architecture, eg 64 bits on an x86-64. Slices can be used to borrow a section of an array, and have the type signature `&[T]`.
+A slice reference is a two-word object, for simplicity reasons, from now on we will use slice instead of `slice reference`. The first word is a pointer to the data, and the second word is the length of the slice. The word size is the same as usize, determined by the processor architecture, e.g. 64 bits on an x86-64. Slices can be used to borrow a section of an array, and have the type signature `&[T]`.
 
 2. 🌟🌟🌟
 ```rust,editable
@@ -26,7 +26,7 @@ fn main() {
     let slice = &arr[..2];
     
     // Modify '8' to make it work
-    // TIPS: slice( reference ) IS NOT an array, if it is an array, then `assert!` will passed: Each of the two chars '中' and '国'  occupies 4 bytes, 2 * 4 = 8
+    // TIPS: slice( reference ) IS NOT an array, if it is an array, then `assert!` will be passed: Each of the two chars '中' and '国'  occupies 4 bytes, 2 * 4 = 8
     assert!(std::mem::size_of_val(&slice) == 8);
 
     println!("Success!");
@@ -85,7 +85,7 @@ fn main() {
     let mut s = String::from("hello world");
 
     // Here, &s is `&String` type, but `first_word` need a `&str` type.
-    // It works because `&String` can be implicitly converted to `&str, If you want know more ,this is called `Deref` 
+    // It works because `&String` can be implicitly converted to `&str. If you want know more, this is called `Deref coercion`. 
     let word = first_word(&s);
 
     s.clear(); // error!
