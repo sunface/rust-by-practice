@@ -95,7 +95,7 @@ fn main() {
 ```
 
 ### &str and String
-Opsite to the seldom using of `str`, `&str` and `String` are used everywhere!
+Opposite to the seldom using of `str`, `&str` and `String` are used everywhere!
 
 7. 🌟🌟 `&str` can be converted to `String` in two ways
 ```rust,editable
