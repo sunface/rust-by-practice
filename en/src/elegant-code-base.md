@@ -40,7 +40,7 @@ On [CodeCrafters](https://codecrafters.io/for/rust), you can recreate your favor
 
 ### 9. Writing Interpreters in Rust
 
-[This online book](https://github.com/rust-hosted-langs/book) will walk through the basics of interpreted language implementation in Rust.
+[This online book](https://github.com/rust-hosted-langs/book) will walk through the basics of interpreted language implementation in Rust with a focus on the challenges that are specific to using Rust.
 
 ---
 

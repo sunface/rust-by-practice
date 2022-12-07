@@ -35,7 +35,7 @@
 
 你也可以在[以下地址](https://github.com/phil-opp/blog_os)找到完整的源代码。
 
-### 7. CodeCrafters.io: Build your own Git, Docker, SQLite, or Redis
+### 7. CodeCrafters.io: 写一个你自己的 Git， Docker，SQLite 或 Redis
 
 在 [CodeCrafters](https://codecrafters.io/for/rust) 上，你可以从头开始重新创建您最喜欢的开发人员工具。这是一种掌握 Rust 的实践、最低限度指导的方法，同时欣赏我们每天使用的流行技术的内部结构和文档。
 
