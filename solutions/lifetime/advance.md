@@ -1,4 +1,4 @@
-1、
+1. 
 
 ```rust
 struct DoubleRef<'a,'b:'a, T> {
@@ -10,7 +10,7 @@ fn main() {
 }
 ```
 
-2、
+2. 
 
 ```rust
 struct ImportantExcerpt<'a> {
@@ -29,7 +29,7 @@ fn main() {
 }
 ```
 
-3、
+3. 
 
 ```rust
 fn f<'a, 'b>(x: &'a i32, mut y: &'b i32) where 'a: 'b {
@@ -41,7 +41,7 @@ fn main() {
 }
 ```
 
-4、
+4. 
 
 ```rust
 fn call_on_ref_zero<F>(f: F) where for<'a> F: Fn(&'a i32) {
@@ -65,7 +65,7 @@ fn call_on_ref_zero<F>(f: F) where F: for<'a> Fn(&'a i32) {
 }
 ```
 
-5、
+5. 
 
 ```rust
 fn main() {
@@ -80,7 +80,7 @@ fn main() {
 }
 ```
 
-6、
+6. 
 
 ```rust
 struct Interface<'b, 'a: 'b> {

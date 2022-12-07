@@ -1,4 +1,4 @@
-1、
+1. 
 
 ```rust
 fn main() {
@@ -13,7 +13,7 @@ fn main() {
 }
 ```
 
-2、
+2. 
 
 ```rust
 fn main() {
@@ -39,7 +39,7 @@ fn main() {
 }
 ```
 
-3、
+3. 
 
 ```rust
 fn main() {
@@ -85,7 +85,7 @@ fn take<T>(_v: &T) {
 }
 ```
 
-4、
+4. 
 
 ```rust
 fn main() {
@@ -98,7 +98,7 @@ fn main() {
 }
 ```
 
-5、
+5. 
 
 ```rust
 fn fn_once<F>(func: F)
@@ -130,7 +130,7 @@ fn main() {
 }
 ```
 
-6、
+6. 
 
 ```rust
 fn main() {
@@ -148,7 +148,7 @@ fn exec<'a, F: FnMut(&'a str)>(mut f: F)  {
 }
 ```
 
-7、
+7. 
 
 ```rust
 // A function which takes a closure as an argument and calls it.
@@ -203,7 +203,7 @@ fn main() {
 }
 ```
 
-8、
+8. 
 
 ```rust
 fn main() {
@@ -219,7 +219,7 @@ fn exec<'a, F: FnOnce(&'a str) -> String>(mut f: F) {
 }
 ```
 
-9、
+9. 
 
 ```rust
 // Define a function which takes a generic `F` argument
@@ -242,7 +242,7 @@ fn main() {
 }
 ```
 
-10、
+10. 
 
 ```rust
 /* Fill in the blank and fix the errror */
@@ -277,7 +277,7 @@ fn main() {
 }
 ```
 
-11、
+11. 
 
 ```rust
 // Every closure has its own type. Even if one closure has the same representation as another, their types are different.

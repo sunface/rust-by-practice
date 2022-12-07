@@ -41,7 +41,9 @@ Closures can capture variables by borrowing or moving. But they prefer to captur
 - By mutable reference: `&mut T`
 - By value: `T`
 
-1.🌟
+
+1. 🌟
+
 ```rust,editable
 /* Make it work with least amount of changes*/
 fn main() {
@@ -60,7 +62,9 @@ fn main() {
 }
 ```
 
-2.🌟🌟
+
+2. 🌟🌟
+
 ```rust,editable
 /* Make it work 
 - Dont use `_reborrow` and `_count_reborrowed`
@@ -89,7 +93,9 @@ fn main() {
 }
 ```
 
-3.🌟🌟
+
+3. 🌟🌟
+
 ```rust,editable
 /* Make it work in two ways, none of them is to remove `take(movable)` away from the code
 */
@@ -132,7 +138,9 @@ let add_one_v3 = |x|             { x + 1 };
 let add_one_v4 = |x|               x + 1  ;
 ```
 
-4.🌟
+
+4. 🌟
+
 ```rust,editable
 fn main() {
     let example_closure = |x| x;
@@ -151,7 +159,9 @@ When taking a closure as an input parameter, the closure's complete type must be
 - FnMut: the closure uses the captured value by mutable reference (&mut T)
 - FnOnce: the closure uses the captured value by value (T)
 
-5.🌟🌟
+
+5. 🌟🌟
+
 ```rust,editable
 /* Make it work by changing the trait bound, in two ways*/
 fn fn_once<F>(func: F)
@@ -198,7 +208,9 @@ Which trait to use is determined by what the closure does with captured value.
 
 This is because if a move is possible, then any type of borrow should also be possible. Note that the reverse is not true. If the parameter is annotated as `Fn`, then capturing variables by `&mut T` or `T` are not allowed.
 
-7.🌟🌟
+
+7. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank */
 
@@ -285,7 +297,9 @@ fn exec<F: Fn()>(f: F)  {
 }
 ```
 
-8.🌟🌟
+
+8. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank */
 fn main() {
@@ -305,7 +319,9 @@ fn exec<'a, F: __>(mut f: F) {
 ## Input functions
 Since closure can be used as arguments, you might wonder can we use functions as arguments too? And indeed we can.
 
-9.🌟🌟
+
+9. 🌟🌟
+
 ```rust,editable
 
 /* Implement `call_me` to make it work */
@@ -328,7 +344,9 @@ fn main() {
 ## Closure as return types
 Returning a closure is much harder than you may have thought of.
 
-10.🌟🌟
+
+10. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank using two aproaches,
  and fix the errror */
@@ -347,7 +365,9 @@ fn main() {
 }
 ```
 
-11.🌟🌟
+
+11. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank and fix the error*/
 fn factory(x:i32) -> __ {

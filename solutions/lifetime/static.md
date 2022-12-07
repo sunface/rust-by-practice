@@ -1,4 +1,4 @@
-1、
+1. 
 
 ```rust
 fn main() {
@@ -26,7 +26,7 @@ fn need_static(r : &'static str) {
 }
 ```
 
-2、
+2. 
 
 ```rust
 #[derive(Debug)]
@@ -55,7 +55,7 @@ fn main() {
 }
 ```
 
-3、
+3. 
 
 ```rust
 fn main() {
@@ -67,7 +67,7 @@ fn main() {
 }
 ```
 
-5、
+5. 
 
 ```rust
 use std::fmt::Debug;
