@@ -1,5 +1,5 @@
 # Closure
-Closures can capture the enclosing evironments. For example we can capture the `x` variable :
+Closures can capture the enclosing environments. For example we can capture the `x` variable :
 ```rust
 fn main() {
     let x = 1;
@@ -37,13 +37,15 @@ fn main() {
 
 ## Capturing
 Closures can capture variables by borrowing or moving. But they prefer to capture by borrowing and only go lower when required:
-- by reference: `&T`
-- by mutable reference: `&mut T`
-- by value: `T`
+- By reference: `&T`
+- By mutable reference: `&mut T`
+- By value: `T`
+
 
 1. 🌟
+
 ```rust,editable
-/* Make it work with least changing */
+/* Make it work with least amount of changes*/
 fn main() {
     let color = String::from("green");
 
@@ -60,7 +62,9 @@ fn main() {
 }
 ```
 
+
 2. 🌟🌟
+
 ```rust,editable
 /* Make it work 
 - Dont use `_reborrow` and `_count_reborrowed`
@@ -89,7 +93,9 @@ fn main() {
 }
 ```
 
+
 3. 🌟🌟
+
 ```rust,editable
 /* Make it work in two ways, none of them is to remove `take(movable)` away from the code
 */
@@ -132,14 +138,16 @@ let add_one_v3 = |x|             { x + 1 };
 let add_one_v4 = |x|               x + 1  ;
 ```
 
+
 4. 🌟
+
 ```rust,editable
 fn main() {
     let example_closure = |x| x;
 
     let s = example_closure(String::from("hello"));
 
-    /* Make it work, only changeg the following line */
+    /* Make it work, only change the following line */
     let n = example_closure(5);
 }
 ```
@@ -151,9 +159,11 @@ When taking a closure as an input parameter, the closure's complete type must be
 - FnMut: the closure uses the captured value by mutable reference (&mut T)
 - FnOnce: the closure uses the captured value by value (T)
 
+
 5. 🌟🌟
+
 ```rust,editable
-/* Make it work by change the trait bound, in two ways*/
+/* Make it work by changing the trait bound, in two ways*/
 fn fn_once<F>(func: F)
 where
     F: FnOnce(usize) -> bool,
@@ -198,7 +208,9 @@ Which trait to use is determined by what the closure does with captured value.
 
 This is because if a move is possible, then any type of borrow should also be possible. Note that the reverse is not true. If the parameter is annotated as `Fn`, then capturing variables by `&mut T` or `T` are not allowed.
 
+
 7. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank */
 
@@ -254,7 +266,7 @@ fn main() {
 }
 ```
 
-move closures may still implement `Fn` or `FnMut`, even though they capture variables by move. This is because the traits implemented by a closure type are determined by what the closure does with captured values, not how it captures them. The `move` keyword only specifies the latter.
+Move closures may still implement `Fn` or `FnMut`, even though they capture variables by move. This is because the traits implemented by a closure type are determined by what the closure does with captured values, not how it captures them. The `move` keyword only specifies the latter.
 
 ```rust
 fn main() {
@@ -285,7 +297,9 @@ fn exec<F: Fn()>(f: F)  {
 }
 ```
 
+
 8. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank */
 fn main() {
@@ -303,9 +317,11 @@ fn exec<'a, F: __>(mut f: F) {
 
 
 ## Input functions
-Since closure maybe used as arguments, you might wonder can we use functions as arguments too? And indeed they can.
+Since closure can be used as arguments, you might wonder can we use functions as arguments too? And indeed we can.
+
 
 9. 🌟🌟
+
 ```rust,editable
 
 /* Implement `call_me` to make it work */
@@ -326,16 +342,18 @@ fn main() {
 ```
 
 ## Closure as return types
-Returning a closure is much harder than you may thought of.
+Returning a closure is much harder than you may have thought of.
+
 
 10. 🌟🌟
+
 ```rust,editable
-/* Fill in the blank using two approches,
+/* Fill in the blank using two aproaches,
  and fix the errror */
 fn create_fn() -> __ {
     let num = 5;
 
-    // how does the following closure capture the evironment variable `num`
+    // How does the following closure capture the environment variable `num`
     // &T, &mut T, T ?
     |x| x + num
 }
@@ -347,7 +365,9 @@ fn main() {
 }
 ```
 
+
 11. 🌟🌟
+
 ```rust,editable
 /* Fill in the blank and fix the error*/
 fn factory(x:i32) -> __ {
