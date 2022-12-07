@@ -112,7 +112,7 @@ fn print_str(s: String)  {
 ```rust
 fn main() {
     let x = (1, 2, (), "hello");
-    let y = x;
+    let y = &x;
     println!("{:?}, {:?}", x, y);
 }
 ```
