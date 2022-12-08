@@ -26,7 +26,7 @@ fn main() {
 }
 ```
 
-2. 🌟 Hide the methods of the original type
+2. 🌟 Hide the methods of the original type.
 ```rust,editable
 /* Make it workd */
 struct Meters(u32);
@@ -41,7 +41,7 @@ fn main() {
 }
 ```
 
-3. 🌟🌟 The `newtype` idiom gives compile time guarantees that the right type of value is suplied to a program.
+3. 🌟🌟 The `newtype` idiom gives compile time guarantees that the right type of value is supplied to a program.
 ```rust,editable
 /* Make it work */
 struct Years(i64);
@@ -61,7 +61,7 @@ impl Days {
     }
 }
 
-// an age verification function that checks age in years, must be given a value of type Years.
+// An age verification function that checks age in years, must be given a value of type Years.
 fn old_enough(age: &Years) -> bool {
     age.0 >= 18
 }
@@ -98,12 +98,12 @@ fn main() {
     assert_eq!(format!("{}",d), "There are still 30 meters left");
 }
 
-/* implement calculate_distance  */
+/* Implement calculate_distance  */
 fn calculate_distance
 ```
 
 ## Type alias
-The most importance of type alias is to improve the readability of our codes.
+Type alias is important to improve the readability of our code.
 
 ```rust
 type Thunk = Box<dyn Fn() + Send + 'static>;
@@ -150,7 +150,7 @@ fn main() {
 }
 ```
 
-6. 🌟🌟 There are a few preserved alias in Rust, one of which can be used in `impl` blocks.
+6. 🌟🌟 There are a few preserved aliases in Rust, one of which can be used in `impl` blocks.
 ```rust,editable
 enum VeryVerboseEnumOfThingsToDoWithNumbers {
     Add,
@@ -193,7 +193,7 @@ fn main() {
 }
 ```
 
-9. 🌟🌟 Trait is also a unsized type
+9. 🌟🌟 Trait is also an unsized type
 ```rust,editable
 /* Make it work in two ways */
 use std::fmt::Display;
