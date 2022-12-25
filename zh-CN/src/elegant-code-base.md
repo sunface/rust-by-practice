@@ -35,7 +35,15 @@
 
 你也可以在[以下地址](https://github.com/phil-opp/blog_os)找到完整的源代码。
 
-### 7. mini-redis
+### 7. CodeCrafters.io: 写一个你自己的 Git， Docker，SQLite 或 Redis
+
+在 [CodeCrafters](https://codecrafters.io/for/rust) 上，你可以从头开始重新创建您最喜欢的开发人员工具。这是一种掌握 Rust 的实践、最低限度指导的方法，同时欣赏我们每天使用的流行技术的内部结构和文档。
+
+### 8. mini-redis
 [mini-redis](https://github.com/tokio-rs/mini-redis) 是一个不完整的 Redis 客户端、服务器实现，由 tokio 官方出品，代码质量非常高，而且有详细的注释，非常适合学习 Rust 和异步编程。
+
+### 9. 使用 Rust 写一个解析器
+
+[这本开源书](https://github.com/rust-hosted-langs/book) 是一个使用 Rust 语言实现编译型语言的教程。
 
 **To be continued...**
