@@ -86,4 +86,4 @@ fn sum_multiply(nums: (i32, i32)) -> (i32, i32) {
 }
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/compound-types/tuple.md)(under the solutions path), but only use it when you need it

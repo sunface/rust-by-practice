@@ -109,3 +109,5 @@ note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose bac
 panic = 'abort'
 ```
 
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/result-panic/panic.md)找到答案(在 solutions 路径下)

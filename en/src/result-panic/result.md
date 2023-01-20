@@ -210,3 +210,4 @@ fn main() -> Result<(), ParseIntError> {
     Ok(())
 }
 ```
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/result-panic/result.md)(under the solutions path), but only use it when you need it :)

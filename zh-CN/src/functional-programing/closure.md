@@ -49,3 +49,4 @@ fn call_with_different_values() {
     assert_eq!(v2, 1);
 }
 ```
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/functional-programing/closure.md)找到答案(在 solutions 路径下)

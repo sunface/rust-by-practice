@@ -106,4 +106,4 @@ After this step, there should be two crates in package `hello-package`: **a bina
 Yep, as you can see, the above package structure is very standard and is widely used in many Rust projects.
 
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice) (under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/crate-module/crate.md) (under the solutions path), but only use it when you need it :)
