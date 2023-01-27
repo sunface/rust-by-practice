@@ -23,11 +23,10 @@ fn main() {
     println!("{},{}",x,y);
 }
 ```
-
 ```rust
 fn main() {
-    let x = 10;
-    let y = x;
+    let x = String::from("hello, world");
+    let y = x.as_str();
     println!("{},{}",x,y);
 }
 ```
