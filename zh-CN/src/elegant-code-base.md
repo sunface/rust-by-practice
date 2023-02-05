@@ -15,7 +15,7 @@
 
 ### 2. 教程：构建一个文本编辑器
 
-该教程 [`https://www.philippflenker.com/hecto/`](https://www.philippflenker.com/hecto/) 将带领我们从零开始构建一个文本编辑器.
+该教程 [`https://www.flenker.blog/hecto/`](https://www.flenker.blog/hecto/) 将带领我们从零开始构建一个文本编辑器.
 
 ### 3. Ncspot
 
