@@ -180,3 +180,5 @@ fn main() {
     println!("Hello {{}}"); // => Hello {}
 }
 ```
+### 完整的代码
+`formatted-output` 的完整代码可以在[这里找到](https://github.com/sunface/rust-by-practice/blob/master/solutions/formatted-output/formatting.md).
