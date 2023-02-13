@@ -15,7 +15,7 @@ This is precisely the goal of this book, so, collecting relative resourses and r
 Answers for above questions usually came with [`ripgrep`](https://github.com/BurntSushi/ripgrep), though I don't think it is a **small** project, but yes, go for it if you are not afraid to delve deep a bit.
 
 ### 2. Building a text editor
-Tutorial [`https://www.philippflenker.com/hecto/`](https://www.philippflenker.com/hecto/) will lead you to build a text editor from scratch.
+Tutorial [`https://www.flenker.blog/hecto/`](https://www.flenker.blog/hecto/) will lead you to build a text editor from scratch.
 
 ### 3. Ncspot
 [Ncspot](https://github.com/hrkfdn/ncspot), a terminal Spotify client. Small, simple, well organized and async, it's good for learning.
