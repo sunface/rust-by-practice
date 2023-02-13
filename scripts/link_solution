@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+#
+# Function:
+#   1. Link solution page to each practice page where there is no solution link
+#   2. Correct link address (i.e. non-corresponding address)
+#
+# Usage:
+#   locate in the project root directory and execute the file
+#
+# Tips:
+#   Use 'git diff' to show the change after executing this command
+
+set -e # exit on error
+
+SOLUTION_DIR="solutions"
+ZH_DIR="zh-CN/src"
+EN_DIR="en/src"
+LINK_PREFIX="https://github.com/sunface/rust-by-practice/blob/master"
+
+# create an array of the relative address of all markdown file about practice in both Chinese and English
+read -ra markdown_files <<< "$(echo "${ZH_DIR}"/**/*.md "${EN_DIR}"/**/*.md)"
+
+for mdfile in "${markdown_files[@]}"; do
+    # if the corresponding solution file exist, check whether the practice file contians a
+    #   link to solution or not. If not, create a link
+    solution_file=$( sed "s#\(${ZH_DIR}\|${EN_DIR}\)#${SOLUTION_DIR}#g" <<< "${mdfile}" )
+    if [[ -f "${solution_file}" ]]; then # exist solution file
+        echo -n "${mdfile}"
+        correct_link="${LINK_PREFIX}/${solution_file}"
+        found=$(grep -Ei '^\s*>.*https://.*solution.*$' < "${mdfile}" || true)
+        if [[ -z "${found}" ]]; then # not found link
+            echo >> "${mdfile}" # some file ends without newline character
+            if [[ "${mdfile}" == "${ZH_DIR}"/* ]]; then # written in Chinese
+                echo "> 你可以在[这里](${correct_link})找到答案(在 solutions 路径下)" >> "${mdfile}"
+            elif [[ "${mdfile}" == "${EN_DIR}"/* ]]; then # written in English
+                echo "> You can find the solutions [here](${correct_link})(under the solutions path), but only use it when you need it :)" >> "${mdfile}"
+            fi
+        else # found link in file
+            # simply correct all matched links
+            sed -i 's#^\(.*\)>\(.*\)(https://[^)]*)\(.*\)solution\(.*\)$#\1>\2('"${correct_link}"')\3solution\4#' "${mdfile}"
+        fi
+        echo " --done"
+    fi
+done
