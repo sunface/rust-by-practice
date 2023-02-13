@@ -93,7 +93,7 @@ fn main() {
     let slice1 = s[0]; //提示: `h` 在 UTF-8 编码中只占用 1 个字节
     assert_eq!(slice1, "h");
 
-    let slice2 = &s[3..5];// 提示: `中` 在 UTF-8 编码中占用 3 个字节
+    let slice2 = &s[3..5];// 提示: `世` 在 UTF-8 编码中占用 3 个字节
     assert_eq!(slice2, "世");
     
     // 迭代 s 中的所有字符
