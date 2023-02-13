@@ -192,4 +192,4 @@ fn main() {
 }
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice) (under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/crate-module/module.md) (under the solutions path), but only use it when you need it :)

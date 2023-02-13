@@ -66,4 +66,4 @@ pub mod a {
 The full code of `hello-package` is [here](https://github.com/sunface/rust-by-practice/tree/master/practices/hello-package).
 
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice) (under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/crate-module/use-pub.md) (under the solutions path), but only use it when you need it :)

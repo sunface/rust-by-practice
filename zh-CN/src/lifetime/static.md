@@ -185,3 +185,5 @@ fn print_g(t: &'static String) {
   println!("{}", t);
 }
 ```
+
+> 你可以在[这里](https://github.com/sunface/rust-by-practice/blob/master/solutions/lifetime/static.md)找到答案(在 solutions 路径下)

@@ -433,3 +433,4 @@ fn call_with_different_values() {
     assert_eq!(v2, 1);
 }
 ```
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/functional-programing/closure.md)(under the solutions path), but only use it when you need it :)
