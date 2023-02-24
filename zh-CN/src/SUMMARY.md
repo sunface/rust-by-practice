@@ -1,6 +1,6 @@
 # Summary
 
-- [关于 pracitce.rs](why-exercise.md)
+- [关于 practice.rs](why-exercise.md)
 - [值得学习的小型项目](elegant-code-base.md)
 - [变量绑定与解构](variables.md)
 - [基本类型](basic-types/intro.md)
