@@ -131,7 +131,7 @@ Then run `cargo doc --open` and see the results.
 
 
 ### Doc tests
-The doc comments of `add_one` and `add_tow` contain two example code blocks.
+The doc comments of `add_one` and `add_two` contain two example code blocks.
 
 The examples can not only demonstrate how to use your library, but also running as test with `cargo test` command.
 
