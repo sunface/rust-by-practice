@@ -36,7 +36,8 @@ fn main() {
     assert_eq!(i1, 0);
 
     // FIX the error in two ways
-    // 1. impl From<char> for ? , maybe you should check the docs mentiond above to find the answer
+    /* 1. impl From<char> for ? , maybe you should check the docs mentiond above 
+    to find the answer */
     // 2. a keyword from the last chapter
     let i3: i32 = 'a'.into();
 
