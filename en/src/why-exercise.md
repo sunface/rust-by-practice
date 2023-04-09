@@ -23,8 +23,9 @@ This book was designed for easily diving into and get skilled with Rust, and it'
 
 We use [mdbook](https://rust-lang.github.io/mdBook/) building our exercises. You can run locally with below steps:
 ```shell
+$ git clone git@github.com:sunface/rust-by-practice.git
 $ cargo install mdbook
-$ cd rust-by-practice && mdbook serve 
+$ cd rust-by-practice && mdbook serve en/ 
 ```
 
 ## Features
