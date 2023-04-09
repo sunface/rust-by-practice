@@ -22,7 +22,7 @@ fn main() {
     assert_eq!(i1, i2);
     assert_eq!(i1, 0);
 
-    let i3: u32 = 'a' as u32 ;
+    let i3: i32 = 'a' as i32 ;
 
     let s: String = String::from('a');
 }
