@@ -1,19 +1,19 @@
 1.
 
 ```rust
-struct test {
+struct Test {
     list: Vec<i32>,
     a: i32
 }
 
-impl test {
+impl Test {
     pub fn new() -> Self {
-        test { list:vec![1,2,3,4,5,6,7], a:0 }
+        Test { list:vec![1,2,3,4,5,6,7], a:0 }
     }
 
     pub fn run(&mut self) {
-        for i in 0..self.list.len() {
-            self.do_something(self.list[i])
+        for i in self.list.clone().iter() {
+            self.do_something(*i)
         }
 
     }
