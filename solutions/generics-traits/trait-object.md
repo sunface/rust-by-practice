@@ -37,13 +37,13 @@ fn main() {
     let bird = hatch_a_bird(2);
     // this bird has forgotten how to swim, so below line will cause an error
     // bird.swim();
-    // but it can quak
+    // but it can quack
     assert_eq!(bird.quack(), "duck duck");
 
     let bird = hatch_a_bird(1);
     // this bird has forgotten how to fly, so below line will cause an error
     // bird.fly();
-    // but it can quak too
+    // but it can quack too
     assert_eq!(bird.quack(), "swan swan");
 
     println!("Success!")
@@ -95,7 +95,7 @@ fn main() {
 
     for bird in birds {
         bird.quack();
-        // when duck and swan turns into Bird, they all forgot how to fly, only remember how to quack
+        // when duck and swan turn into Bird, they all forget how to fly, and only remember how to quack
         // so, the below code will cause an error
         // bird.fly();
     }
