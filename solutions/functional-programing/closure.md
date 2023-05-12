@@ -51,11 +51,11 @@ fn main() {
      // the closure.
      let consume = || {
          println!("`movable`: {:?}", movable);
-         take(movable);
+         take(movable.clone());
      };
 
      consume();
-     // consume();
+     consume();
 }
 
 fn take<T>(_v: T) {
