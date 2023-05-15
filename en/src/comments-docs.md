@@ -103,7 +103,7 @@ We can also add doc comments for our crates and modules.
 
 Firstly, let's add some doc comments for our library crate:
 
-> Note: We mush place crates and module comments at the top of the crate root or module file.
+> Note: We must place crates and module comments at the top of crate root or module file.
 ```rust
 //! # Doc comments
 //! 
