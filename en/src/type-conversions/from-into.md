@@ -37,7 +37,7 @@ fn main() {
 
     // FIX the error in two ways
     /* 1. use a similar type which `impl From<char>`, maybe you 
-    should check the docs mentiond above to find the answer */
+    should check the docs mentioned above to find the answer */
     // 2. a keyword from the last chapter
     let i3: i32 = 'a'.into();
 
