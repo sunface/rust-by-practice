@@ -52,7 +52,7 @@ fn main() {
 ## Doc Comments
 - Doc comments which are parsed into HTML and supported `Markdown`
   - `/// Generate library docs for the following item`
-  - `//! Generate library docs for the eclosing item`
+  - `//! Generate library docs for the enclosing item`
 
 Before starting, we need to create a new package for practice: `cargo new --lib doc-comments`.
 
