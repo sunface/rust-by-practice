@@ -314,7 +314,7 @@ fn main() {}
 ```
 
 ## Elision
-Some lifetime patterns are so common that the borrow checker will allow you to omit them to save typing and to improve readability.
+Some lifetime patterns are so common that borrow checker will allow you to omit them to save typing and improve readability.
 
 This is known as **Elision**. Elision exist in Rust only because these patterns are common.
 
