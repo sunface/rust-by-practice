@@ -58,7 +58,7 @@ fn define_x() {
 ```
 
 ### Shadowing
-You can declare a new variable with the same name as a previous variable, here we can say **the first one is shadowed by the second one.
+You can declare a new variable with the same name as a previous variable, here we can say **the first one is shadowed by the second one.**
 
 5. 🌟🌟 
 ```rust,editable
