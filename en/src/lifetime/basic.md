@@ -324,7 +324,7 @@ For a more comprehensive understanding of elision, please see [lifetime elision]
 ```rust,editable
 /* Remove all the lifetimes that can be elided */
 
-fn nput<'a>(x: &'a i32) {
+fn input<'a>(x: &'a i32) {
     println!("`annotated_input`: {}", x);
 }
 
