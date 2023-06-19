@@ -101,7 +101,7 @@ fn main() {
 }
 ```
 
-6. 🌟🌟 Using pattern `&mut V` to match a mutable reference needs you to be very careful, due to `V` being a value  after matching.
+6. 🌟🌟 Using pattern `&mut V` to match a mutable reference requires you to be very careful, due to `V` being a value  after matching.
 ```rust,editable
 
 // FIX the error with least changing
