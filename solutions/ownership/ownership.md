@@ -31,6 +31,15 @@ fn main() {
 }
 ```
 
+```
+fn main() {
+    let x = String::from("hello, world");
+    let y = &x;
+    println!("{},{}",x,y);
+}
+
+```
+
 2.
 
 ```rust
