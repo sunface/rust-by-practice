@@ -17,7 +17,6 @@
       lang_node = '<a href="' + link + '" title="' + changeLang + '" aria-label="' + changeLang + '"><i id="change-language-button" class="fa fa-language"> ' + word + '</i></a>';
     }
 
-    console.log(lang_node)
     var insertNode = document.getElementsByClassName('right-buttons');
     if (insertNode.length > 0) {
       var html = insertNode[0].innerHTML;
