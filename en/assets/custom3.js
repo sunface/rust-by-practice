@@ -114,7 +114,8 @@ var initAll = function () {
     var ele = document.createElement("div");
     ele.setAttribute("align","center");
     var count = document.createElement("img")
-    count.setAttribute("src", "https://visitor-badge.glitch.me/badge?page_id=practice/en/" + path);
+    // count.setAttribute("src", "https://visitor-badge.glitch.me/badge?page_id=practice/en/" + path);
+    count.setAttribute("src", "https://api.visitorbadge.io/api/visitors?labelColor=%23595959&countColor=%230d81c3&style=flat-square&path=practice/en/" + path);
     ele.appendChild(count);
     var divider =document.createElement("hr")
 
