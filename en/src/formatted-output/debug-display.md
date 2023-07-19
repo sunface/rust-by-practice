@@ -77,7 +77,7 @@ Yeah, `Debug` is simple and easy to use. But sometimes we want to customize the 
 
 Unlike `Debug`, there is no way to derive the implementation of the `Display` trait, we have to manually implement it.
 
-Another thing to note: the placefolder for `Display` is `{}` not `{:?}`.
+Another thing to note: the placeholder for `Display` is `{}` not `{:?}`.
 
 4. 🌟🌟
 ```rust,editable
