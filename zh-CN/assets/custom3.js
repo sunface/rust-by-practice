@@ -147,7 +147,7 @@ var initAll = function () {
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "top");
     script.setAttribute("data-theme", theme);
-    script.setAttribute("data-lang", lang);
+    script.setAttribute("data-lang", lang == 'en-US' ? 'en' : lang);
     // 预先加载评论会更好，这样用户读到那边时，评论就加载好了
     // script.setAttribute("data-loading", "lazy");
     document.getElementById("giscus-container").appendChild(script);
