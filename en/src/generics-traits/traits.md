@@ -232,7 +232,7 @@ Instead of a concrete type for the item parameter, we specify the impl keyword a
 5. 🌟🌟🌟
 ```rust,editable
 
-// Implement `fn summary` to make the code work.
+// Implement `fn summarize` to make the code work.
 // Fix the errors without removing any code line
 trait Summary {
     fn summarize(&self) -> String;

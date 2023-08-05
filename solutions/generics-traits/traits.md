@@ -147,7 +147,7 @@ fn main() {
 5.
 
 ```rust
-// implement `fn summary` to make the code work
+// implement `fn summarize` to make the code work
 // fix the errors without removing any code line
 trait Summary {
     fn summarize(&self) -> String;
