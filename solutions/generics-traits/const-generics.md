@@ -14,7 +14,7 @@ fn main() {
             data: [1, 2, 3],
         },
         Array {
-            data: [1, 2,4]
+            data: [1, 2, 4]
         }
     ];
 }
