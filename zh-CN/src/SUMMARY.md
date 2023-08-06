@@ -30,7 +30,7 @@
   - [特征对象](generics-traits/trait-object.md)
   - [进一步深入特征](generics-traits/advanced-traits.md)
 - [集合类型](collections/intro.md)
-  - [动态字符串 String](collections/String.md)
+  - [动态字符串 String](collections/string.md)
   - [动态数组 Vector](collections/vector.md)
   - [KV 存储 HashMap](collections/hashmap.md)
 - [类型转换](type-conversions/intro.md)
