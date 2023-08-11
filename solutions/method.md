@@ -75,7 +75,7 @@ struct TrafficLight {
 }
 
 impl TrafficLight {
-    // 1. implement a assotiated function `new`,
+    // 1. implement a associated function `new`,
     // 2. it will return a TrafficLight contains color "red"
     // 3. must use `Self`, DONT use `TrafficLight`
     pub fn new() -> Self {
