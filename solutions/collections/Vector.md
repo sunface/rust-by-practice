@@ -129,12 +129,11 @@ fn main() {
 
     println!("Success!")
 }
+```
 
-
-//Another solution 
-
+```rust,editable
 fn main() {
-    let mut v = Vec::from([1, 2, 3,4,5]);
+    let mut v = Vec::from([1, 2, 3, 4, 5]);
     for i in 0..5 {
         println!("{:?}", v[i])
     }
@@ -147,7 +146,6 @@ fn main() {
 
     println!("Success!")
 }
-
 ```
 
 5.
