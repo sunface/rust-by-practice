@@ -91,7 +91,7 @@ fn main() {
 use std::ops;
 
 // implement fn multiply to make the code work
-// As mentiond above, `+` needs `T` to implement `std::ops::Add` Trait
+// As mentioned above, `+` needs `T` to implement `std::ops::Add` Trait
 // so, what about `*` ?  You can find the answer here: https://doc.rust-lang.org/core/ops/
 fn multiply<T: ops::Mul<Output = T>>(x: T, y: T) -> T {
     x * y

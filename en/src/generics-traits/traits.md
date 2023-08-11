@@ -172,7 +172,7 @@ In Rust, many of the operators can be overloaded via traits. That is, some opera
 use std::ops;
 
 // Implement fn multiply to make the code work.
-// As mentiond above, `+` needs `T` to implement `std::ops::Add` Trait.
+// As mentioned above, `+` needs `T` to implement `std::ops::Add` Trait.
 // So, what about `*`?  You can find the answer here: https://doc.rust-lang.org/core/ops/
 fn multipl
 
