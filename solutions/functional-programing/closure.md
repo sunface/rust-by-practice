@@ -245,7 +245,7 @@ fn main() {
 10. 
 
 ```rust
-/* Fill in the blank and fix the errror */
+/* Fill in the blank and fix the error */
 // You can also use `impl FnOnce(i32) -> i32`
 fn create_fn() -> impl Fn(i32) -> i32 {
     let num = 5;
@@ -261,11 +261,11 @@ fn main() {
 ```
 
 ```rust
-/* Fill in the blank and fix the errror */
+/* Fill in the blank and fix the error */
 fn create_fn() -> Box<dyn Fn(i32) -> i32> {
     let num = 5;
 
-    // how does the following closure capture the evironment variable `num`
+    // how does the following closure capture the environment variable `num`
     // &T, &mut T, T ?
     Box::new(move |x| x + num)
 }

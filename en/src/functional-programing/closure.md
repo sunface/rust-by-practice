@@ -348,8 +348,8 @@ Returning a closure is much harder than you may have thought of.
 10. 🌟🌟
 
 ```rust,editable
-/* Fill in the blank using two aproaches,
- and fix the errror */
+/* Fill in the blank using two approaches,
+ and fix the error */
 fn create_fn() -> __ {
     let num = 5;
 
