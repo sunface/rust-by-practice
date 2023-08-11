@@ -66,7 +66,7 @@ fn main() {
 
     println!("One second looks like: {:?}", _one_second);
     let _this_is_true = (_one_second == _one_second);
-    let _this_is_true = (_one_second > _one_second);
+    let _this_is_false = (_one_second > _one_second);
 
     let foot = Inches(12);
 
