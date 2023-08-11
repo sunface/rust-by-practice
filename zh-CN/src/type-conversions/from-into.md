@@ -24,11 +24,10 @@ fn main() {
 
 1. 🌟🌟🌟
 ```rust,editable
-
 fn main() {
-     // impl From<bool> for i32
-    let i1:i32 = false.into();
-    let i2:i32 = i32::from(false);  
+    // impl From<bool> for i32
+    let i1: i32 = false.into();
+    let i2: i32 = i32::from(false);
     assert_eq!(i1, i2);
     assert_eq!(i1, 0);
 
@@ -47,7 +46,6 @@ fn main() {
 ### 为自定义类型实现 `From` 特征
 2. 🌟🌟
 ```rust,editable
-
 // From 被包含在 `std::prelude` 中，因此我们没必要手动将其引入到当前作用域来
 // use std::convert::From;
 
@@ -74,7 +72,6 @@ fn main() {
 
 3. 🌟🌟🌟 当执行错误处理时，为我们自定义的错误类型实现 `From` 特征是非常有用。这样就可以通过 `?` 自动将某个错误类型转换成我们自定义的错误类型
 ```rust,editable
-
 use std::fs;
 use std::io;
 use std::num;

@@ -27,16 +27,15 @@ Some implementations of `From` trait can be found [here](https://doc.rust-lang.o
 
 1. 🌟🌟🌟
 ```rust,editable
-
 fn main() {
-     // impl From<bool> for i32
-    let i1:i32 = false.into();
-    let i2:i32 = i32::from(false);  
+    // impl From<bool> for i32
+    let i1: i32 = false.into();
+    let i2: i32 = i32::from(false);
     assert_eq!(i1, i2);
     assert_eq!(i1, 0);
 
     // FIX the error in two ways
-    /* 1. use a similar type which `impl From<char>`, maybe you 
+    /* 1. use a similar type which `impl From<char>`, maybe you
     should check the docs mentioned above to find the answer */
     // 2. a keyword from the last chapter
     let i3: i32 = 'a'.into();
@@ -51,7 +50,6 @@ fn main() {
 ### Implement `From` for custom types
 2. 🌟🌟
 ```rust,editable
-
 // From is now included in `std::prelude`, so there is no need to introduce it into the current scope
 // use std::convert::From;
 
@@ -78,7 +76,6 @@ fn main() {
 
 3. 🌟🌟🌟 When performing error handling it is often useful to implement `From` trait for our own error type. Then we can use `?` to automatically convert the underlying error type to our own error type.
 ```rust,editable
-
 use std::fs;
 use std::io;
 use std::num;
