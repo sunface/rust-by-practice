@@ -6,9 +6,9 @@
 ```shell
 .
 ├── Cargo.toml
-├── src
-│   ├── lib.rs
-│   └── main.rs
+└── src
+    ├── lib.rs
+    └── main.rs
 ```
 
 下面，我们来为其中的库包创建一些模块，然后在二进制包中使用这些模块。
@@ -122,14 +122,14 @@ pub mod back_of_house {
 ```shell
 .
 ├── Cargo.toml
-├── src
-│   ├── back_of_house.rs
-│   ├── front_of_house
-│   │   ├── hosting.rs
-│   │   ├── mod.rs
-│   │   └── serving.rs
-│   ├── lib.rs
-│   └── main.rs
+└── src
+    ├── back_of_house.rs
+    ├── front_of_house
+    │   ├── hosting.rs
+    │   ├── mod.rs
+    │   └── serving.rs
+    ├── lib.rs
+    └── main.rs
 ```
 
 ```rust,editable
@@ -170,14 +170,14 @@ pub mod back_of_house {
 ```shell
 .
 ├── Cargo.toml
-├── src
-│   ├── back_of_house.rs
-│   ├── front_of_house
-│   │   ├── hosting.rs
-│   │   ├── mod.rs
-│   │   └── serving.rs
-│   ├── lib.rs
-│   └── main.rs
+└── src
+    ├── back_of_house.rs
+    ├── front_of_house
+    │   ├── hosting.rs
+    │   ├── mod.rs
+    │   └── serving.rs
+    ├── lib.rs
+    └── main.rs
 ```
 
 5. 🌟🌟🌟现在我们可以从二进制包中发起函数调用了.
