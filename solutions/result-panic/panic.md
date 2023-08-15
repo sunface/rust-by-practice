@@ -59,3 +59,8 @@ pub fn working_items_per_minute(speed: u8) -> u32 {
     (production_rate_per_hour(speed) / 60 as f64) as u32
 }
 ```
+
+3.
+```sh
+RUST_BACKTRACE=1; cargo run
+```
