@@ -153,7 +153,7 @@ fn main() {
 ### Type alias
 Using `std::result::Result<T, ParseIntError>` everywhere is verbose and tedious, we can use alias for this purpose.
 
-At a module level, creating aliases can be particularly helpful. Errors found in  a specific module often has the same `Err` type, so a single alias can succinctly defined all associated `Results`. This is so useful even the `std` library even supplies one: [`io::Result`](https://doc.rust-lang.org/std/io/type.Result.html).
+At a module level, creating aliases can be particularly helpful. Errors found in a specific module often have the same `Err` type, so a single alias can succinctly define all associated `Results`. This is so useful that even the `std` library supplies one: [`io::Result`](https://doc.rust-lang.org/std/io/type.Result.html).
 
 6. 🌟
 ```rust,editable
