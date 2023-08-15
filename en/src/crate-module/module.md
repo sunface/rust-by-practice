@@ -64,9 +64,9 @@ pub fn eat_at_restaurant() {
 mod back_of_house {
     fn fix_incorrect_order() {
         cook_order();
-        // FILL in the blank in three ways
-        //1. using keyword `super`
-        //2. using absolute path
+        // FILL in the blank in two ways
+        // 1. using keyword `super`
+        // 2. using absolute path
         __.serve_order();
     }
 
