@@ -133,9 +133,9 @@ enum TrafficLightColor {
 impl TrafficLightColor {
     fn color(&self) -> String {
         match *self {
-            TrafficLightColor::Red => "red".to_string(),
-            TrafficLightColor::Yellow => "yellow".to_string(),
-            TrafficLightColor::Green => "green".to_string(),
+            Self::Red => "red".to_string(),
+            Self::Yellow => "yellow".to_string(),
+            Self::Green => "green".to_string(),
         }
     }
 }
