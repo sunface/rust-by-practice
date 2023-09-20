@@ -16,7 +16,7 @@ fn main() {
 ```
 
 
-2. 🌟🌟 We can only use `str` by boxed it, `&` can be used to convert `Box<str>` to `&str` 
+2. 🌟🌟 We can only use `str` by boxing it, `&` can be used to convert `Box<str>` to `&str` 
 
 ```rust,editable
 
