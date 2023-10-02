@@ -125,7 +125,7 @@ fn multiply(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     }
 }
 
-// 重写上面的 `multiply` ，让它尽量简介
+// 重写上面的 `multiply` ，让它尽量简洁
 // 提示：使用 `and_then` 和 `map`
 fn multiply1(n1_str: &str, n2_str: &str) -> Result<i32, ParseIntError> {
     // 实现...
