@@ -335,10 +335,7 @@ impl<T: std::fmt::Debug + PartialOrd> Pair<T> {
 struct Unit(i32);
 
 fn main() {
-    let pair = Pair{
-        x: Unit(1),
-        y: Unit(3)
-    };
+    let pair = Pair::new(Unit(1), Unit(2));
 
     pair.cmp_display();
 }
