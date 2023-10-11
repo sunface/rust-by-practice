@@ -5,7 +5,6 @@
 
 1. 🌟🌟
 ```rust,editable
-
 /* 只使用注释让下面代码工作! */
 fn main() {
     todo!();
@@ -115,7 +114,7 @@ test src/lib.rs - add_two (line 26) ... ok
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.55s
 ```
 
-3. 🌟🌟 有时我们会期望示例的结果是一个 panic。将以下代码添加到 `src/compute.rs` ，并且让  `cargo test` 成功运行.
+3. 🌟🌟 有时我们会期望示例的结果是一个 panic。将以下代码添加到 `src/compute.rs` ，并且让 `cargo test` 成功运行.
 
 > 你只能修改注释，不要修改 `fn div`
 

@@ -38,7 +38,6 @@ fn main() {
 ### Exercises
 1. 🌟🌟
 ```rust,editable
-
 /* Make it work, only using comments! */
 fn main() {
     todo!();
@@ -48,9 +47,8 @@ fn main() {
 }
 ```
 
-
 ## Doc Comments
-- Doc comments which are parsed into HTML and supported `Markdown`
+- Doc comments are parsed into HTML and support `Markdown` syntax.
   - `/// Generate library docs for the following item`
   - `//! Generate library docs for the eclosing item`
 
