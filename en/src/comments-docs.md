@@ -183,7 +183,7 @@ Add following code to `src/compute.rs` ,
 
 /// ```
 /// # fn try_main() -> Result<(), String> {
-/// let res = doc_comments::compute::try_div(10, 0)?;
+/// # let res = doc_comments::compute::try_div(10, 0)?;
 /// # Ok(()) // returning from try_main
 /// # }
 /// # fn main() { 
@@ -228,7 +228,7 @@ Add following code to `src/lib.rs`:
 ```rust
 // in lib.rs
 
-/// Add one to the given value and return a [`Option`] type
+/// Add three to the given value and return a [`Option`] type
 pub fn add_three(x: i32) -> Option<i32> {
     Some(x + 3)
 }
