@@ -42,6 +42,10 @@ On [CodeCrafters](https://codecrafters.io/for/rust), you can recreate your favor
 
 [This online book](https://github.com/rust-hosted-langs/book) will walk through the basics of interpreted language implementation in Rust with a focus on the challenges that are specific to using Rust.
 
+### 10. Implementing (part of) a BitTorrent client in Rust
+
+[In this stream](https://www.youtube.com/watch?v=jf_ddGnum_4), Jon Gjengset implements a BitTorrent client and talks through his thought process as he goes about the process. 
+
 ---
 
 
