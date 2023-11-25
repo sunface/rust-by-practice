@@ -35,7 +35,7 @@ fn print() -> i32 {
 
 ```rust,editable
 // Solve it in two ways
-// DON'T let `println!` works
+// DON'T let `println!` work
 fn main() {
     never_return();
 
