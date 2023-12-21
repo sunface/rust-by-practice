@@ -27,7 +27,7 @@
 
 ### 5. 在 PNG 中隐藏你的秘密
 
-[这本书](https://picklenerd.github.io/pngme_book/) 将带领大家编写一个命令行程序，功能是在 PNG 文件中隐藏一些秘密信息，首要目标是让我们熟悉 Rust 代码。
+[这本书](https://jrdngr.github.io/pngme_book/) 将带领大家编写一个命令行程序，功能是在 PNG 文件中隐藏一些秘密信息，首要目标是让我们熟悉 Rust 代码。
 
 ### 6. 使用 Rust 写一个小型 OS
 
