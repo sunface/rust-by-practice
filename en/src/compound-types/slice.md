@@ -84,15 +84,15 @@ fn main() {
 fn main() {
     let mut s = String::from("hello world");
 
-    // Here, &s is `&String` type, but `first_word` need a `&str` type.
+    // Here, &s is `&String` type, but `first_letter` needs a `&str` type.
     // It works because `&String` can be implicitly converted to `&str. If you want to know more, this is called `Deref coercion`. 
-    let word = first_word(&s);
+    let letter = first_letter(&s);
 
     s.clear(); // error!
 
-    println!("the first word is: {}", word);
+    println!("the first letter is: {}", letter);
 }
-fn first_word(s: &str) -> &str {
+fn first_letter(s: &str) -> &str {
     &s[..1]
 }
 ```
