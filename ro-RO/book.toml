@@ -1,0 +1,22 @@
+[book]
+title = "Rust prin practică"
+description = "Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team"
+authors = ["sunface, https://im.dev"]
+language = "en"
+
+[output.html.playpen]
+editable = true
+editor = "ace"
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html]
+additional-css = ["theme/style1.css"]
+additional-js = ["assets/custom3.js","assets/lang.js"]
+git-repository-url = "https://github.com/sunface/rust-by-practice"
+edit-url-template = "https://github.com/sunface/rust-by-practice/edit/master/ro-RO/{path}"
+
+[rust]
+edition = "2021"
