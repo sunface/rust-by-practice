@@ -305,7 +305,7 @@ fn main() {
 
 12. 🌟🌟 
 
-```rust
+```rust,editable
 /* Fill in the blanks */
 #[derive(PartialEq, Debug)]
 struct Shoe {
