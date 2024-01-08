@@ -5,9 +5,9 @@
 
 fn main() {
     // Use as many approaches as you can to make it work
-    let x = String::from("hello, world");
+    let x = String::from("Hello world");
     let y = x;
-    println!("{},{}",x,y);
+    println!("{}, {}",x, y);
 }
 ```
 
@@ -15,7 +15,7 @@ fn main() {
 ```rust,editable
 // Don't modify code in main!
 fn main() {
-    let s1 = String::from("hello, world");
+    let s1 = String::from("Hello world");
     let s2 = take_ownership(s1);
 
     println!("{}", s2);
@@ -38,7 +38,7 @@ fn main() {
 
 // Only modify the code below!
 fn give_ownership() -> String {
-    let s = String::from("hello, world");
+    let s = String::from("Hello world");
     // Convert String to Vec
     let _s = s.into_bytes();
     s
@@ -47,9 +47,9 @@ fn give_ownership() -> String {
 
 4. 🌟🌟
 ```rust,editable
-// Fix the error without removing code line
+// Fix the error without removing any code
 fn main() {
-    let s = String::from("hello, world");
+    let s = String::from("Hello World");
 
     print_str(s);
 
@@ -77,13 +77,13 @@ Mutability can be changed when ownership is transferred.
 6. 🌟
 ```rust,editable
 
+// make the necessary variable mutable
 fn main() {
-    let s = String::from("hello, ");
+    let s = String::from("Hello ");
     
-    // Modify this line only !
     let s1 = s;
 
-    s1.push_str("world");
+    s1.push_str("World!");
 
     println!("Success!");
 }
@@ -95,7 +95,7 @@ fn main() {
 fn main() {
     let x = Box::new(5);
     
-    let ...      // Implement this line, dont change other lines!
+    let ...      // update this line, don't change other lines!
     
     *y = 4;
     
