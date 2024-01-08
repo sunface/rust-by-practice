@@ -287,7 +287,7 @@ fn main() {
 
 11. 🌟🌟
 
-```rust
+```rust,editable
 /* Fill in the blanks */
 use std::collections::HashMap;
 fn main() {
