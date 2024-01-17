@@ -24,7 +24,7 @@ Tutorial [`https://www.flenker.blog/hecto/`](https://www.flenker.blog/hecto/) wi
 [This project](https://github.com/kyclark/command-line-rust) is for the book `Command-Line Rust(O'Reily)`, it will show you how to write small CLIs (clones of `head`, `cat`, `ls`).
 
 ### 5. pngme book
-[This book](https://picklenerd.github.io/pngme_book/) will guide you to make a command line program that lets you hide secret messages in PNG files.  The primary goal here is to get you writing code. The secondary goal is to get you reading documentation.
+[This book](https://jrdngr.github.io/pngme_book/) will guide you to make a command line program that lets you hide secret messages in PNG files.  The primary goal here is to get you writing code. The secondary goal is to get you reading documentation.
 
 ### 6. Writing an OS in Rust
 
@@ -40,7 +40,7 @@ On [CodeCrafters](https://codecrafters.io/for/rust), you can recreate your favor
 
 ### 9. Writing Interpreters in Rust
 
-[This online book](https://github.com/rust-hosted-langs/book) will walk through the basics of interpreted language implementation in Rust with a focus on the challenges that are specific to using Rust.
+[This online book](https://rust-hosted-langs.github.io/book/) will walk through the basics of interpreted language implementation in Rust with a focus on the challenges that are specific to using Rust.
 
 ---
 
