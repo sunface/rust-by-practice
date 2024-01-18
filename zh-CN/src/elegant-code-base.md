@@ -44,7 +44,7 @@
 
 ### 9. 使用 Rust 写一个解析器
 
-[这本开源书](https://github.com/rust-hosted-langs/book) 是一个使用 Rust 语言实现编译型语言的教程。
+[这本开源书](https://rust-hosted-langs.github.io/book/) 是一个使用 Rust 语言实现编译型语言的教程。
 
 ### 10. Rust编写推箱子游戏教程
 [sokoban](https://sokoban.iolivia.me/zh_cn/c01-00-intro) 是一个使用 Rust 语言实现 sokoban 游戏的教程。虽然社区已停止活跃（ Initial Commits on Sep 3, 2019，GitHub 仓库最后一条 commit 是 last year ），但是项目是完善的 release v0.1.0，拿来练手是个不错的选择。
