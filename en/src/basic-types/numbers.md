@@ -120,7 +120,7 @@ fn main() {
 ```
 
 ### Range
-9. 🌟🌟 Two goals: 1. Modify `assert!` to make it work 2. Make `println!` output: 97 - 122
+9. 🌟🌟 Two goals: 1. Modify `assert!` to make it work 2. Make `println!` output the numbers from 97 to 122
 
 ```rust,editable
 fn main() {
