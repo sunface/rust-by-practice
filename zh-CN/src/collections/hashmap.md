@@ -149,7 +149,7 @@ fn main() {
 
 ### 容量
 
-关于容量，我们在之前的 [Vector](https://zh.practice.rs/collections/vector.html#容量) 中有详细的介绍，而 `HashMap` 也可以调整容量: 你可以通过 `HashMap::with_capacity(uint)` 使用指定的容量来初始化，或者使用 `HashMap::new()` ，后者会提供一个默认的初始化容量。
+关于容量，我们在之前的 [Vector](https://practice-zh.course.rs/collections/vector.html#容量) 中有详细的介绍，而 `HashMap` 也可以调整容量: 你可以通过 `HashMap::with_capacity(uint)` 使用指定的容量来初始化，或者使用 `HashMap::new()` ，后者会提供一个默认的初始化容量。
 
 #### 示例
 
