@@ -46,13 +46,13 @@ fn main() {
     let bird = hatch_a_bird(2);
     // This bird has forgotten how to swim, so below line will cause an error.
     // bird.swim();
-    // But it can quak.
+    // But it can quack.
     assert_eq!(bird.quack(), "duck duck");
 
     let bird = hatch_a_bird(1);
     // This bird has forgotten how to fly, so below line will cause an error.
     // bird.fly();
-    // But it can quak too.
+    // But it can quack too.
     assert_eq!(bird.quack(), "swan swan");
 
     println!("Success!");
