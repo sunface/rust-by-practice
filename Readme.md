@@ -69,7 +69,7 @@ We use [mdbook](https://rust-lang.github.io/mdBook/) building our exercises. You
 
 - Clone the repo
 ```shell
-$ git clone git@github.com:sunface/rust-by-practice.git
+$ git clone https://github.com/sunface/rust-by-practice
 ```
 - Install mdbook using Cargo
 ```shell
