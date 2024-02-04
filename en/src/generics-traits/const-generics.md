@@ -42,11 +42,25 @@ fn main() {}
 3. Const generics can also let us avoid some runtime checks.
 ```rust
 /// A region of memory containing at least `N` `T`s.
-pub struct MinSlice<T, const N: usize> {
+pub struct MinSlice<'a, T, const N: usize> {
     /// The bounded region of memory. Exactly `N` `T`s.
     pub head: [T; N],
     /// Zero or more remaining `T`s after the `N` in the bounded region.
-    pub tail: [T],
+    pub tail: &'a [T],
+}
+impl<'a, T: std::marker::Copy + std::default::Default, const N: usize> MinSlice<'a,T,N> {
+    fn from_slice(slice: &'a [T]) -> Option<Self> {
+        if slice.len() >= N {
+            let mut head = [T::default(); N];
+            let (head_slice, tail) = slice.split_at(N);
+            for (dst, src) in head.iter_mut().zip(head_slice.iter()) {
+                *dst = *src;
+            }
+            Some(Self { head, tail })
+        } else {
+            None
+        }
+    }
 }
 
 fn main() {
