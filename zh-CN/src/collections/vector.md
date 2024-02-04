@@ -83,7 +83,7 @@ fn main() {
     assert_eq!(v2, v3);
 
     // 迭代器 Iterators 可以通过 collect 变成 Vec
-    let v4: Vec<i32> = [0; 10].into_iter().collect();
+    let v4: Vec<i32> = vec![0; 10].into_iter().collect();
     assert_eq!(v4, vec![0; 10]);
 
     println!("Success!")
