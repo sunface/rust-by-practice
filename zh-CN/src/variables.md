@@ -106,6 +106,7 @@ fn main() {
 }
 
 // compiler warning: unused variable: `x`
+
 ```
 
 ### 变量解构

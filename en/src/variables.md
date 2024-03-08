@@ -113,6 +113,7 @@ fn main() {
 }
 
 // Warning: unused variable: `x`
+
 ```
 
 ### Destructuring
