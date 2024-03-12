@@ -4,7 +4,7 @@
 ```rust,editable
 // Make it work
 fn main() {
-    let b = Box::new(5);
+    // Create a new box `b` that contains the integer 5
     assert_eq!(*b, 5);
 
     println!("Success!");
@@ -20,7 +20,7 @@ fn main() {
     print_boxed_string(b);
 }
 
-fn print_boxed_string(b : Box<&str>) {
+fn print_boxed_string(b : _) {
     println!("{}", b);
 }
 ```
@@ -32,7 +32,7 @@ fn print_boxed_string(b : Box<&str>) {
 fn main() {
     let b1 = Box::new(5);
     let b2 = b1;
-    assert_eq!(*b2, 5);
+    assert_eq!(_, 5);
 
     println!("Success!");
 }
