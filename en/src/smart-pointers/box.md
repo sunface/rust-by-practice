@@ -38,4 +38,15 @@ fn main() {
 }
 ```
 
+4. 🌟
+```rust,editable
+
+// Make it work
+fn main() {
+    // Create a box `b` with an array [1, 2, 3, 4, 5]
+    // Print each integer in `b`
+}
+```
+
+
 > You can find the solutions [here](https://github.com/sunface/rust-by-practice)(under the solutions path), but only use it when you need it
