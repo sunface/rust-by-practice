@@ -79,6 +79,21 @@ fn give_ownership() -> String {
 }
 ```
 
+```rust
+fn main() {
+    let s = give_ownership();
+    println!("{:?}", s);
+}
+
+// Only modify the code below!
+fn give_ownership() -> Vec<u8> {
+    let s = String::from("Hello world");
+    // Convert String to Vec
+    let s_bytes = s.into_bytes();
+    s_bytes
+}
+```
+
 4.
 
 ```rust
