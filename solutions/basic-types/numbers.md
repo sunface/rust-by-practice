@@ -103,7 +103,7 @@ fn main() {
 
     assert!(sum == -5);
 
-    for c in 'a'..='z' {
+    for c in 97..=122 {
         println!("{}",c as u8);
     }
 }
