@@ -111,7 +111,7 @@ fn main() {
 
 
 ### Slicing
-Immutable or mutable slices of Vecs can be taken, using `&` or `&mut, respectively.
+Immutable or mutable slices of Vecs can be taken, using `&` or `&mut`, respectively.
 
 In Rust, it’s more common to pass immutable slices as arguments rather than vectors when you just want to provide read access, as this is more flexible (no move) and efficient (no copy). The same goes for `String` and `&str`.
 
