@@ -130,7 +130,7 @@ fn main() {
     assert_eq!(slice1, slice2);
     
     // A slice can also be mutable, in which
-    // case mutating it will mutate its underlying Vec
+    // case mutating it will mutate its underlying Vec.
     // Note: slice and &Vec are different
     let vec_ref: &mut Vec<i32> = &mut v;
     (*vec_ref).push(4);
