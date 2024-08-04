@@ -237,7 +237,7 @@ struct Ref<'a, T> {
 ## 艰难的练习
 
 6. 🌟🌟🌟🌟
-```rust
+```rust,editable
 /* 使下面代码正常运行 */
 struct Interface<'a> {
     manager: &'a mut Manager<'a>
