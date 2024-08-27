@@ -168,3 +168,14 @@ fn main() {
     println!("{:?}, {:?}, {:?}", s1, s2, t); // -> "hello", "world", ("hello", "world")
 }
 ```
+
+```rust
+fn main() {
+    let t = (String::from("hello"), String::from("world"));
+
+    // fill the blanks
+    let (ref s1, ref s2) = t;
+
+    println!("{:?}, {:?}, {:?}", s1, s2, t); // -> "hello", "world", ("hello", "world")
+}
+```
