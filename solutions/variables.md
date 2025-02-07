@@ -37,6 +37,17 @@ fn main() {
 
 ```rust
 fn main() {
+    define_x();
+}
+
+fn define_x() {
+    let x = "hello";
+    println!("{}, world", x);
+}
+```
+
+```rust
+fn main() {
     let x = define_x();
     println!("{}, world", x);
 }
