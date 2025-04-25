@@ -23,7 +23,7 @@
 
 我们使用 [mdbook](https://rust-lang.github.io/mdBook/) 构建在线练习题，你也可以下载到本地运行：
 ```shell
-$ git clone git@github.com:sunface/rust-by-practice.git
+$ git clone https://github.com/sunface/rust-by-practice
 $ cargo install mdbook
 $ cd rust-by-practice && mdbook serve zh-CN/
 ```
