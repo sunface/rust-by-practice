@@ -1,0 +1,559 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>basic - Rust By Practice</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust By Practice</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice/edit/master/en/src/lifetime/basic.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="lifetime"><a class="header" href="#lifetime">Lifetime</a></h2>
+<p>The compiler uses lifetime to ensure all borrows are valid. Typically, a variable's lifetime begins when it is created and ends when it is destroyed.</p>
+<h2 id="the-scope-of-lifetime"><a class="header" href="#the-scope-of-lifetime">The scope of lifetime</a></h2>
+<ol>
+<li>🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Annotate the lifetime of `i` and `borrow2` */
+
+// Lifetimes are annotated below with lines denoting the creation
+// and destruction of each variable.
+// `i` has the longest lifetime because its scope entirely encloses 
+// both `borrow1` and `borrow2`. The duration of `borrow1` compared 
+// to `borrow2` is irrelevant since they are disjoint.
+fn main() {
+    let i = 3;                                             
+    {                                                    
+        let borrow1 = &amp;i; // `borrow1` lifetime starts. ──┐
+        //                                                │
+        println!("borrow1: {}", borrow1); //              │
+    } // `borrow1 ends. ──────────────────────────────────┘
+    {                                                    
+        let borrow2 = &amp;i; 
+                                                        
+        println!("borrow2: {}", borrow2);               
+    }                                                   
+}   </code></pre></pre>
+<ol start="2">
+<li>🌟🌟</li>
+</ol>
+<p><strong>Example</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>{
+    let x = 5;            // ----------+-- 'b
+                          //           |
+    let r = &amp;x;           // --+-- 'a  |
+                          //   |       |
+    println!("r: {}", r); //   |       |
+                          // --+       |
+}                         // ----------+
+<span class="boring">}</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Annotate `r` and `x` as above, and explain why this code fails to compile, in the lifetime aspect. */
+
+fn main() {  
+    {
+        let r;                // ---------+-- 'a
+                              //          |
+        {                     //          |
+            let x = 5;        // -+-- 'b  |
+            r = &amp;x;           //  |       |
+        }                     // -+       |
+                              //          |
+        println!("r: {}", r); //          |
+    }                         // ---------+
+}</code></pre></pre>
+<h2 id="lifetime-annotating"><a class="header" href="#lifetime-annotating">Lifetime annotating</a></h2>
+<p>The <strong>borrow checker uses explicit lifetime annotations</strong> to determine how long a reference should be valid.</p>
+<p>But for us users, in most cases, there is no need to annotate the lifetime, because there are several elision rules, before learning these rules, we need to know how to annotate lifetime manually.</p>
+<h4 id="function"><a class="header" href="#function">Function</a></h4>
+<p>Ignoring elision rules, lifetimes in function signatures have a few constraints:</p>
+<ul>
+<li>Any reference must have an annotated lifetime</li>
+<li>Any reference being returned must have the same lifetime as one of the inputs or be static</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">// One input reference with lifetime `'a` which must live
+// at least as long as the function.
+fn print_one&lt;'a&gt;(x: &amp;'a i32) {
+    println!("`print_one`: x is {}", x);
+}
+
+// Mutable references are possible with lifetimes as well.
+fn add_one&lt;'a&gt;(x: &amp;'a mut i32) {
+    *x += 1;
+}
+
+// Multiple elements with different lifetimes. In this case, it
+// would be fine for both to have the same lifetime `'a`, but
+// in more complex cases, different lifetimes may be required.
+fn print_multi&lt;'a, 'b&gt;(x: &amp;'a i32, y: &amp;'b i32) {
+    println!("`print_multi`: x is {}, y is {}", x, y);
+}
+
+// Returning references that have been passed in is acceptable.
+// However, the correct lifetime must be returned.
+fn pass_x&lt;'a, 'b&gt;(x: &amp;'a i32, _: &amp;'b i32) -&gt; &amp;'a i32 { x }
+
+fn main() {
+    let x = 7;
+    let y = 9;
+    
+    print_one(&amp;x);
+    print_multi(&amp;x, &amp;y);
+    
+    let z = pass_x(&amp;x, &amp;y);
+    print_one(z);
+
+    let mut t = 3;
+    add_one(&amp;mut t);
+    print_one(&amp;t);
+}</code></pre></pre>
+<ol start="3">
+<li>🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Make it work by adding proper lifetime annotation */
+fn longest(x: &amp;str, y: &amp;str) -&gt; &amp;str {
+    if x.len() &gt; y.len() {
+        x
+    } else {
+        y
+    }
+}
+
+fn main() {}</code></pre></pre>
+<ol start="4">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">// `'a` must live longer than the function.
+// Here, `&amp;String::from("foo")` would create a `String`, followed by a
+// reference. Then the data is dropped upon exiting the scope, leaving
+// a reference to invalid data to be returned.
+
+/* Fix the error in three ways  */
+fn invalid_output&lt;'a&gt;() -&gt; &amp;'a String { 
+    &amp;String::from("foo") 
+}
+
+fn main() {
+}</code></pre></pre>
+<ol start="5">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">// `print_refs` takes two references to `i32` which have different
+// lifetimes `'a` and `'b`. These two lifetimes must both be at
+// least as long as the function `print_refs`.
+fn print_refs&lt;'a, 'b&gt;(x: &amp;'a i32, y: &amp;'b i32) {
+    println!("x is {} and y is {}", x, y);
+}
+
+/* Make it work */
+// A function which takes no arguments, but has a lifetime parameter `'a`.
+fn failed_borrow&lt;'a&gt;() {
+    let _x = 12;
+
+    // ERROR: `_x` does not live long enough
+    let y: &amp;'a i32 = &amp;_x;
+    // Attempting to use the lifetime `'a` as an explicit type annotation 
+    // inside the function will fail because the lifetime of `&amp;_x` is shorter
+    // than `'a` . A short lifetime cannot be coerced into a longer one.
+}
+
+fn main() {
+    let (four, nine) = (4, 9);
+    
+    // Borrows (`&amp;`) of both variables are passed into the function.
+    print_refs(&amp;four, &amp;nine);
+    // Any input which is borrowed must outlive the borrower. 
+    // In other words, the lifetime of `four` and `nine` must 
+    // be longer than that of `print_refs`.
+    
+    failed_borrow();
+    // `failed_borrow` contains no references to force `'a` to be 
+    // longer than the lifetime of the function, but `'a` is longer.
+    // Because the lifetime is never constrained, it defaults to `'static`.
+}</code></pre></pre>
+<h4 id="structs"><a class="header" href="#structs">Structs</a></h4>
+<ol start="6">
+<li>🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Make it work by adding proper lifetime annotation */
+
+// A type `Borrowed` which houses a reference to an
+// `i32`. The reference to `i32` must outlive `Borrowed`.
+#[derive(Debug)]
+struct Borrowed(&amp;i32);
+
+// Similarly, both references here must outlive this structure.
+#[derive(Debug)]
+struct NamedBorrowed {
+    x: &amp;i32,
+    y: &amp;i32,
+}
+
+// An enum which is either an `i32` or a reference to one.
+#[derive(Debug)]
+enum Either {
+    Num(i32),
+    Ref(&amp;i32),
+}
+
+fn main() {
+    let x = 18;
+    let y = 15;
+
+    let single = Borrowed(&amp;x);
+    let double = NamedBorrowed { x: &amp;x, y: &amp;y };
+    let reference = Either::Ref(&amp;x);
+    let number    = Either::Num(y);
+
+    println!("x is borrowed in {:?}", single);
+    println!("x and y are borrowed in {:?}", double);
+    println!("x is borrowed in {:?}", reference);
+    println!("y is *not* borrowed in {:?}", number);
+}</code></pre></pre>
+<ol start="7">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Make it work */
+
+#[derive(Debug)]
+struct NoCopyType {}
+
+#[derive(Debug)]
+struct Example&lt;'a, 'b&gt; {
+    a: &amp;'a u32,
+    b: &amp;'b NoCopyType
+}
+
+fn main()
+{ 
+  /* 'a tied to fn-main stackframe */
+  let var_a = 35;
+  let example: Example;
+  
+  {
+    /* Lifetime 'b tied to new stackframe/scope */ 
+    let var_b = NoCopyType {};
+    
+    /* fixme */
+    example = Example { a: &amp;var_a, b: &amp;var_b };
+  }
+  
+  println!("(Success!) {:?}", example);
+}</code></pre></pre>
+<ol start="8">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+#[derive(Debug)]
+struct NoCopyType {}
+
+#[derive(Debug)]
+#[allow(dead_code)]
+struct Example&lt;'a, 'b&gt; {
+    a: &amp;'a u32,
+    b: &amp;'b NoCopyType
+}
+
+/* Fix function signature */
+fn fix_me(foo: &amp;Example) -&gt; &amp;NoCopyType
+{ foo.b }
+
+fn main()
+{
+    let no_copy = NoCopyType {};
+    let example = Example { a: &amp;1, b: &amp;no_copy };
+    fix_me(&amp;example);
+    println!("Success!")
+}</code></pre></pre>
+<h2 id="method"><a class="header" href="#method">Method</a></h2>
+<p>Methods are annotated similarly to functions.</p>
+<p><strong>Example</strong></p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">struct Owner(i32);
+
+impl Owner {
+    // Annotate lifetimes as in a standalone function.
+    fn add_one&lt;'a&gt;(&amp;'a mut self) { self.0 += 1; }
+    fn print&lt;'a&gt;(&amp;'a self) {
+        println!("`print`: {}", self.0);
+    }
+}
+
+fn main() {
+    let mut owner = Owner(18);
+
+    owner.add_one();
+    owner.print();
+}</code></pre></pre>
+<ol start="9">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Make it work by adding proper lifetime annotations */
+struct ImportantExcerpt {
+    part: &amp;str,
+}
+
+impl ImportantExcerpt {
+    fn level(&amp;'a self) -&gt; i32 {
+        3
+    }
+}
+
+fn main() {}</code></pre></pre>
+<h2 id="elision"><a class="header" href="#elision">Elision</a></h2>
+<p>Some lifetime patterns are so common that borrow checker will allow you to omit them to save typing and improve readability.</p>
+<p>This is known as <strong>Elision</strong>. Elision exist in Rust only because these patterns are common.</p>
+<p>For a more comprehensive understanding of elision, please see <a href="https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html#lifetime-elision">lifetime elision</a> in the official book.</p>
+<ol start="10">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">/* Remove all the lifetimes that can be elided */
+
+fn input&lt;'a&gt;(x: &amp;'a i32) {
+    println!("`annotated_input`: {}", x);
+}
+
+fn pass&lt;'a&gt;(x: &amp;'a i32) -&gt; &amp;'a i32 { x }
+
+fn longest&lt;'a, 'b&gt;(x: &amp;'a str, y: &amp;'b str) -&gt; &amp;'a str {
+    x
+}
+
+struct Owner(i32);
+
+impl Owner {
+    // Annotate lifetimes as in a standalone function.
+    fn add_one&lt;'a&gt;(&amp;'a mut self) { self.0 += 1; }
+    fn print&lt;'a&gt;(&amp;'a self) {
+        println!("`print`: {}", self.0);
+    }
+}
+
+struct Person&lt;'a&gt; {
+    age: u8,
+    name: &amp;'a str,
+}
+
+enum Either&lt;'a&gt; {
+    Num(i32),
+    Ref(&amp;'a i32),
+}
+
+fn main() {}</code></pre></pre>
+<blockquote>
+<p>You can find the solutions <a href="https://github.com/sunface/rust-by-practice/blob/master/solutions/lifetime/basic.md">here</a>(under the solutions path), but only use it when you need it :)</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../lifetime/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../lifetime/static.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../lifetime/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../lifetime/static.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom3.js"></script>
+        <script src="../assets/lang1.js"></script>
+
+
+    </div>
+    </body>
+</html>

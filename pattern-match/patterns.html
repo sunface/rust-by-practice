@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Patterns - Rust By Practice</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust By Practice</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice/edit/master/en/src/pattern-match/patterns.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="patterns"><a class="header" href="#patterns">Patterns</a></h1>
+<ol>
+<li>🌟🌟 Use <code>|</code> to match several values, use <code>..=</code> to match an inclusive range.</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+fn main() {}
+fn match_number(n: i32) {
+    match n {
+        // Match a single value
+        1 =&gt; println!("One!"),
+        // Fill in the blank with `|`, DON'T use `..` or `..=`
+        __ =&gt; println!("match 2 -&gt; 5"),
+        // Match an inclusive range
+        6..=10 =&gt; {
+            println!("match 6 -&gt; 10")
+        },
+        _ =&gt; {
+            println!("match -infinite -&gt; 0 or 11 -&gt; +infinite")
+        }
+    }
+}</code></pre></pre>
+<ol start="2">
+<li>🌟🌟🌟 The <code>@</code> operator lets us create a variable that holds a value, at the same time we are testing that value to see whether it matches a pattern.</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    // Fill in the blank to let p match the second arm
+    let p = Point { x: __, y: __ };
+
+    match p {
+        Point { x, y: 0 } =&gt; println!("On the x axis at {}", x),
+        // Second arm
+        Point { x: 0..=5, y: y@ (10 | 20 | 30) } =&gt; println!("On the y axis at {}", y),
+        Point { x, y } =&gt; println!("On neither axis: ({}, {})", x, y),
+    }
+}</code></pre></pre>
+<ol start="3">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Fix the errors
+enum Message {
+    Hello { id: i32 },
+}
+
+fn main() {
+    let msg = Message::Hello { id: 5 };
+
+    match msg {
+        Message::Hello {
+            id:  3..=7,
+        } =&gt; println!("Found an id in range [3, 7]: {}", id),
+        Message::Hello { id: newid@10 | 11 | 12 } =&gt; {
+            println!("Found an id in another range [10, 12]: {}", newid)
+        }
+        Message::Hello { id } =&gt; println!("Found some other id: {}", id),
+    }
+}</code></pre></pre>
+<ol start="4">
+<li>🌟🌟 A match guard is an additional if condition specified after the pattern in a match arm that must also match, along with the pattern matching, for that arm to be chosen.</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Fill in the blank to make the code work, `split` MUST be used
+fn main() {
+    let num = Some(4);
+    let split = 5;
+    match num {
+        Some(x) __ =&gt; assert!(x &lt; split),
+        Some(x) =&gt; assert!(x &gt;= split),
+        None =&gt; (),
+    }
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="5">
+<li>🌟🌟 Ignoring remaining parts of the value with <code>..</code></li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Fill the blank to make the code work
+fn main() {
+    let numbers = (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048);
+
+    match numbers {
+        __ =&gt; {
+           assert_eq!(first, 2);
+           assert_eq!(last, 2048);
+        }
+    }
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="6">
+<li>🌟🌟 Using pattern <code>&amp;mut V</code> to match a mutable reference requires you to be very careful, due to <code>V</code> being a value  after matching.</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// FIX the error with least changing
+// DON'T remove any code line
+fn main() {
+    let mut v = String::from("hello,");
+    let r = &amp;mut v;
+
+    match r {
+       &amp;mut value =&gt; value.push_str(" world!") 
+    }
+}</code></pre></pre>
+<blockquote>
+<p>You can find the solutions <a href="https://github.com/sunface/rust-by-practice/blob/master/solutions/pattern-match/patterns.md">here</a>(under the solutions path), but only use it when you need it</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../pattern-match/match-iflet.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../method.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../pattern-match/match-iflet.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../method.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom3.js"></script>
+        <script src="../assets/lang1.js"></script>
+
+
+    </div>
+    </body>
+</html>

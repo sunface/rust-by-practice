@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HashMap - Rust By Practice</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust By Practice</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice/edit/master/en/src/collections/hashmap.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hashmap"><a class="header" href="#hashmap">HashMap</a></h1>
+<p>Where vectors store values by an integer index, HashMaps store values by key. It is a hash map implemented with quadratic probing and SIMD lookup. By default, <code>HashMap</code> uses a hashing algorithm selected to provide resistance against HashDoS attacks.</p>
+<p>The default hashing algorithm is currently <code>SipHash 1-3</code>, though this is subject to change at any point in the future. While its performance is very competitive for medium sized keys, other hashing algorithms will outperform it for small keys such as integers as well as large keys such as long strings, though those algorithms will typically not protect against attacks such as HashDoS.</p>
+<p>The hash table implementation is a Rust port of Google’s <a href="https://abseil.io/blog/20180927-swisstables">SwissTable</a>. The original C++ version of SwissTable can be found <a href="https://github.com/abseil/abseil-cpp/blob/master/absl/container/internal/raw_hash_set.h">here</a>, and this <a href="https://www.youtube.com/watch?v=ncHmEUmJZf4">CppCon talk</a> gives an overview of how the algorithm works.</p>
+<h3 id="basic-operations"><a class="header" href="#basic-operations">Basic Operations</a></h3>
+<ol>
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// FILL in the blanks and FIX the errors
+use std::collections::HashMap;
+fn main() {
+    let mut scores = HashMap::new();
+    scores.insert("Sunface", 98);
+    scores.insert("Daniel", 95);
+    scores.insert("Ashley", 69.0);
+    scores.insert("Katie", "58");
+
+    // Get returns an Option&lt;&amp;V&gt;
+    let score = scores.get("Sunface");
+    assert_eq!(score, Some(98));
+
+    if scores.contains_key("Daniel") {
+        // Indexing returns a value V
+        let score = scores["Daniel"];
+        assert_eq!(score, __);
+        scores.remove("Daniel");
+    }
+
+    assert_eq!(scores.len(), __);
+
+    for (name, score) in scores {
+        println!("The score of {} is {}", name, score);
+    }
+}</code></pre></pre>
+<ol start="2">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+use std::collections::HashMap;
+fn main() {
+    let teams = [
+        ("Chinese Team", 100),
+        ("American Team", 10),
+        ("France Team", 50),
+    ];
+
+    let mut teams_map1 = HashMap::new();
+    for team in &amp;teams {
+        teams_map1.insert(team.0, team.1);
+    }
+
+    // IMPLEMENT team_map2 in two ways
+    // Tips: one of the approaches is to use `collect` method
+    let teams_map2...
+
+    assert_eq!(teams_map1, teams_map2);
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="3">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// FILL in the blanks
+use std::collections::HashMap;
+fn main() {
+    // Type inference lets us omit an explicit type signature (which
+    // would be `HashMap&lt;&amp;str, u8&gt;` in this example).
+    let mut player_stats = HashMap::new();
+
+    // Insert a key only if it doesn't already exist
+    player_stats.entry("health").or_insert(100);
+
+    assert_eq!(player_stats["health"], __);
+
+    // Insert a key using a function that provides a new value only if it
+    // doesn't already exist
+    player_stats.entry("health").or_insert_with(random_stat_buff);
+    assert_eq!(player_stats["health"], __);
+
+    // Ensures a value is in the entry by inserting the default if empty, and returns
+    // a mutable reference to the value in the entry.
+    let health = player_stats.entry("health").or_insert(50);
+    assert_eq!(health, __);
+    *health -= 50;
+    assert_eq!(*health, __);
+
+    println!("Success!");
+}
+
+fn random_stat_buff() -&gt; u8 {
+    // Could actually return some random value here - let's just return
+    // some fixed value for now
+    42
+}</code></pre></pre>
+<h3 id="requirements-of-hashmap-key"><a class="header" href="#requirements-of-hashmap-key">Requirements of HashMap key</a></h3>
+<p>Any type that implements the <code>Eq</code> and <code>Hash</code> traits can be a key in <code>HashMap</code>. This includes:</p>
+<ul>
+<li><code>bool</code> (though not very useful since there is only two possible keys)</li>
+<li><code>int</code>, <code>uint</code>, and all variations thereof</li>
+<li><code>String</code> and <code>&amp;str</code> (tips: you can have a <code>HashMap</code> keyed by <code>String</code> and call <code>.get()</code> with an <code>&amp;str</code>)</li>
+</ul>
+<p>Note that <code>f32</code> and <code>f64</code> do not implement <code>Hash</code>, likely because <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems">floating-point precision</a> errors would make using them as hashmap keys horribly error-prone.</p>
+<p>All collection classes implement <code>Eq</code> and <code>Hash</code> if their contained type also respectively implements <code>Eq</code> and <code>Hash</code>. For example, <code>Vec&lt;T&gt;</code> will implement <code>Hash</code> if <code>T</code>implements <code>Hash</code>.</p>
+<ol start="4">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// FIX the errors
+// Tips: `derive` is usually a good way to implement some common used traits
+use std::collections::HashMap;
+
+struct Viking {
+    name: String,
+    country: String,
+}
+
+impl Viking {
+    /// Creates a new Viking.
+    fn new(name: &amp;str, country: &amp;str) -&gt; Viking {
+        Viking {
+            name: name.to_string(),
+            country: country.to_string(),
+        }
+    }
+}
+
+fn main() {
+    // Use a HashMap to store the vikings' health points.
+    let vikings = HashMap::from([
+        (Viking::new("Einar", "Norway"), 25),
+        (Viking::new("Olaf", "Denmark"), 24),
+        (Viking::new("Harald", "Iceland"), 12),
+    ]);
+
+    // Use derived implementation to print the status of the vikings.
+    for (viking, health) in &amp;vikings {
+        println!("{:?} has {} hp", viking, health);
+    }
+}</code></pre></pre>
+<h3 id="capacity"><a class="header" href="#capacity">Capacity</a></h3>
+<p>Like vectors, HashMaps are growable, but HashMaps can also shrink themselves when they have excess space. You can create a <code>HashMap</code> with a certain starting capacity using <code>HashMap::with_capacity(uint)</code>, or use <code>HashMap::new()</code> to get a HashMap with a default initial capacity (recommended).</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+use std::collections::HashMap;
+fn main() {
+    let mut map: HashMap&lt;i32, i32&gt; = HashMap::with_capacity(100);
+    map.insert(1, 2);
+    map.insert(3, 4);
+    // Indeed ,the capacity of HashMap is not 100, so we can't compare the equality here.
+    assert!(map.capacity() &gt;= 100);
+
+    // Shrinks the capacity of the map with a lower limit. It will drop
+    // down no lower than the supplied limit while maintaining the internal rules
+    // and possibly leaving some space in accordance with the resize policy.
+
+    map.shrink_to(50);
+    assert!(map.capacity() &gt;= 50);
+
+    // Shrinks the capacity of the map as much as possible. It will drop
+    // down as much as possible while maintaining the internal rules
+    // and possibly leaving some space in accordance with the resize policy.
+    map.shrink_to_fit();
+    assert!(map.capacity() &gt;= 2);
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="ownership"><a class="header" href="#ownership">Ownership</a></h3>
+<p>For types that implement the <code>Copy</code> trait, like <code>i32</code> , the values are copied into <code>HashMap</code>. For owned values like <code>String</code>, the values will be moved and <code>HashMap</code> will be the owner of those values.</p>
+<ol start="5">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">// FIX the errors with least changes
+// DON'T remove any code line
+use std::collections::HashMap;
+fn main() {
+  let v1 = 10;
+  let mut m1 = HashMap::new();
+  m1.insert(v1, v1);
+  println!("v1 is still usable after inserting to hashmap : {}", v1);
+
+  let v2 = "hello".to_string();
+  let mut m2 = HashMap::new();
+  // Ownership moved here
+  m2.insert(v2, v1);
+    
+  assert_eq!(v2, "hello");
+
+  println!("Success!");
+}</code></pre></pre>
+<h3 id="third-party-hash-libs"><a class="header" href="#third-party-hash-libs">Third-party Hash libs</a></h3>
+<p>If the performance of <code>SipHash 1-3</code> doesn't meet your requirements, you can find replacements in crates.io or github.com.</p>
+<p>The usage of third-party hash looks like this:</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::hash::BuildHasherDefault;
+use std::collections::HashMap;
+// Introduce a third party hash function
+use twox_hash::XxHash64;
+
+
+let mut hash: HashMap&lt;_, _, BuildHasherDefault&lt;XxHash64&gt;&gt; = Default::default();
+hash.insert(42, "the answer");
+assert_eq!(hash.get(&amp;42), Some(&amp;"the answer"));
+<span class="boring">}</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../collections/vector.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../type-conversions/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../collections/vector.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../type-conversions/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom3.js"></script>
+        <script src="../assets/lang1.js"></script>
+
+
+    </div>
+    </body>
+</html>

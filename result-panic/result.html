@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Result and ? - Rust By Practice</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust By Practice</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice/edit/master/en/src/result-panic/result.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="result-and-"><a class="header" href="#result-and-">result and ?</a></h1>
+<p><code>Result&lt;T&gt;</code> is an enum to describe possible errors. It has two variants:</p>
+<ul>
+<li><code>Ok(T)</code>: A value T was found</li>
+<li><code>Err(e)</code>: An error was found with a value <code>e</code></li>
+</ul>
+<p>In short words, the expected outcome is <code>Ok</code>, while the unexpected outcome is <code>Err</code>.</p>
+<ol>
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// FILL in the blanks and FIX the errors
+use std::num::ParseIntError;
+
+fn multiply(n1_str: &amp;str, n2_str: &amp;str) -&gt; __ {
+    let n1 = n1_str.parse::&lt;i32&gt;();
+    let n2 = n2_str.parse::&lt;i32&gt;();
+    Ok(n1.unwrap() * n2.unwrap())
+}
+
+fn main() {
+    let result = multiply("10", "2");
+    assert_eq!(result, __);
+
+    let result = multiply("t", "2");
+    assert_eq!(result.__, 8);
+
+    println!("Success!");
+}</code></pre></pre>
+<h3 id=""><a class="header" href="#">?</a></h3>
+<p><code>?</code> is almost exactly equivalent to <code>unwrap</code>, but <code>?</code> returns instead of panic on <code>Err</code>.</p>
+<ol start="2">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+use std::num::ParseIntError;
+
+// IMPLEMENT multiply with ?
+// DON'T use unwrap here
+fn multiply(n1_str: &amp;str, n2_str: &amp;str) -&gt; __ {
+}
+
+fn main() {
+    assert_eq!(multiply("3", "4").unwrap(), 12);
+    println!("Success!");
+}</code></pre></pre>
+<ol start="3">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+use std::fs::File;
+use std::io::{self, Read};
+
+fn read_file1() -&gt; Result&lt;String, io::Error&gt; {
+    let f = File::open("hello.txt");
+    let mut f = match f {
+        Ok(file) =&gt; file,
+        Err(e) =&gt; return Err(e),
+    };
+
+    let mut s = String::new();
+    match f.read_to_string(&amp;mut s) {
+        Ok(_) =&gt; Ok(s),
+        Err(e) =&gt; Err(e),
+    }
+}
+
+// FILL in the blanks with one code line
+// DON'T change any code lines
+fn read_file2() -&gt; Result&lt;String, io::Error&gt; {
+    let mut s = String::new();
+
+    __;
+
+    Ok(s)
+}
+
+fn main() {
+    assert_eq!(read_file1().unwrap_err().to_string(), read_file2().unwrap_err().to_string());
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="map--and_then"><a class="header" href="#map--and_then">map &amp; and_then</a></h3>
+<p><a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html#method.map">map</a> and <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html#method.and_then">and_then</a> are two common combinators for <code>Result&lt;T, E&gt;</code> (also for <code>Option&lt;T&gt;</code>).</p>
+<ol start="4">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">use std::num::ParseIntError;
+
+// FILL in the blank in two ways: map, and then
+fn add_two(n_str: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+   n_str.parse::&lt;i32&gt;().__
+}
+
+fn main() {
+    assert_eq!(add_two("4").unwrap(), 6);
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="5">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">use std::num::ParseIntError;
+
+// With the return type rewritten, we use pattern matching without `unwrap()`.
+// But it's so Verbose...
+fn multiply(n1_str: &amp;str, n2_str: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+    match n1_str.parse::&lt;i32&gt;() {
+        Ok(n1)  =&gt; {
+            match n2_str.parse::&lt;i32&gt;() {
+                Ok(n2)  =&gt; {
+                    Ok(n1 * n2)
+                },
+                Err(e) =&gt; Err(e),
+            }
+        },
+        Err(e) =&gt; Err(e),
+    }
+}
+
+// Rewriting `multiply` to make it succinct
+// You should use BOTH of  `and_then` and `map` here.
+fn multiply1(n1_str: &amp;str, n2_str: &amp;str) -&gt; Result&lt;i32, ParseIntError&gt; {
+    // IMPLEMENT...
+}
+
+fn print(result: Result&lt;i32, ParseIntError&gt;) {
+    match result {
+        Ok(n)  =&gt; println!("n is {}", n),
+        Err(e) =&gt; println!("Error: {}", e),
+    }
+}
+
+fn main() {
+    // This still presents a reasonable answer.
+    let twenty = multiply1("10", "2");
+    print(twenty);
+
+    // The following now provides a much more helpful error message.
+    let tt = multiply("t", "2");
+    print(tt);
+
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="type-alias"><a class="header" href="#type-alias">Type alias</a></h3>
+<p>Using <code>std::result::Result&lt;T, ParseIntError&gt;</code> everywhere is verbose and tedious, we can use alias for this purpose.</p>
+<p>At a module level, creating aliases can be particularly helpful. Errors found in  a specific module often has the same <code>Err</code> type, so a single alias can succinctly defined all associated <code>Results</code>. This is so useful even the <code>std</code> library supplies one: <a href="https://doc.rust-lang.org/std/io/type.Result.html"><code>io::Result</code></a>.</p>
+<ol start="6">
+<li>🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">use std::num::ParseIntError;
+
+// FILL in the blank
+type __;
+
+// Use the above alias to refer to our specific `Result` type.
+fn multiply(first_number_str: &amp;str, second_number_str: &amp;str) -&gt; Res&lt;i32&gt; {
+    first_number_str.parse::&lt;i32&gt;().and_then(|first_number| {
+        second_number_str.parse::&lt;i32&gt;().map(|second_number| first_number * second_number)
+    })
+}
+
+// Here, the alias again allows us to save some space.
+fn print(result: Res&lt;i32&gt;) {
+    match result {
+        Ok(n)  =&gt; println!("n is {}", n),
+        Err(e) =&gt; println!("Error: {}", e),
+    }
+}
+
+fn main() {
+    print(multiply("10", "2"));
+    print(multiply("t", "2"));
+
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="using-result-in-fn-main"><a class="header" href="#using-result-in-fn-main">Using Result in <code>fn main</code></a></h3>
+<p>Typically <code>the</code> main function will look like this:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    println!("Hello World!");
+}</code></pre></pre>
+<p>However <code>main</code> is also able to have a return type of <code>Result</code>. If an error occurs within the <code>main</code> function it will return an error code and print a debug representation of the error( Debug trait ).</p>
+<p>The following example shows such a scenario:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+use std::num::ParseIntError;
+
+fn main() -&gt; Result&lt;(), ParseIntError&gt; {
+    let number_str = "10";
+    let number = match number_str.parse::&lt;i32&gt;() {
+        Ok(number)  =&gt; number,
+        Err(e) =&gt; return Err(e),
+    };
+    println!("{}", number);
+    Ok(())
+}</code></pre></pre>
+<blockquote>
+<p>You can find the solutions <a href="https://github.com/sunface/rust-by-practice/blob/master/solutions/result-panic/result.md">here</a>(under the solutions path), but only use it when you need it :)</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../result-panic/panic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../crate-module/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../result-panic/panic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../crate-module/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom3.js"></script>
+        <script src="../assets/lang1.js"></script>
+
+
+    </div>
+    </body>
+</html>

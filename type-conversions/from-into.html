@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>From/Into - Rust By Practice</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust By Practice</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice/edit/master/en/src/type-conversions/from-into.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="frominto"><a class="header" href="#frominto">From/Into</a></h1>
+<p>The <code>From</code> trait allows for a type to define how to create itself from another type, hence providing a very simple mechanism for converting between several types.</p>
+<p>The <code>From</code> and <code>Into</code> traits are inherently linked, and this is actually part of its implementation. It means if we write something like this: <code>impl From&lt;T&gt; for U</code>, then we can use
+<code>let u: U = U::from(T)</code> or <code>let u:U = T.into()</code>.</p>
+<p>The <code>Into</code> trait is simply the reciprocal of the <code>From</code> trait. That is, if you have implemented the <code>From</code> trait for your type, then the <code>Into</code> trait will be automatically implemented for the same type.</p>
+<p>Using the <code>Into</code> trait will typically require the type annotations as the compiler is unable to determine this most of the time.</p>
+<p>For example, we can easily convert <code>&amp;str</code> into <code>String</code> :</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    let my_str = "hello";
+
+    // three conversions below all depends on the fact: String implements From&lt;&amp;str&gt;:
+    let string1 = String::from(my_str);
+    let string2 = my_str.to_string();
+    // Explicit type annotation is required here
+    let string3: String = my_str.into();
+}</code></pre></pre>
+<p>Because the standard library has already implemented this for us : <code>impl From&lt;&amp;'_ str&gt; for String</code> .</p>
+<p>Some implementations of <code>From</code> trait can be found <a href="https://doc.rust-lang.org/stable/std/convert/trait.From.html#implementors">here</a>.</p>
+<ol>
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    // impl From&lt;bool&gt; for i32
+    let i1: i32 = false.into();
+    let i2: i32 = i32::from(false);
+    assert_eq!(i1, i2);
+    assert_eq!(i1, 0);
+
+    // FIX the error in two ways
+    /* 1. use a similar type which `impl From&lt;char&gt;`, maybe you
+    should check the docs mentioned above to find the answer */
+    // 2. a keyword from the last chapter
+    let i3: i32 = 'a'.into();
+
+    // FIX the error in two ways
+    let s: String = 'a' as String;
+
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="implement-from-for-custom-types"><a class="header" href="#implement-from-for-custom-types">Implement <code>From</code> for custom types</a></h3>
+<ol start="2">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">// From is now included in `std::prelude`, so there is no need to introduce it into the current scope
+// use std::convert::From;
+
+#[derive(Debug)]
+struct Number {
+    value: i32,
+}
+
+impl From&lt;i32&gt; for Number {
+    // IMPLEMENT `from` method
+}
+
+// FILL in the blanks
+fn main() {
+    let num = __(30);
+    assert_eq!(num.value, 30);
+
+    let num: Number = __;
+    assert_eq!(num.value, 30);
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="3">
+<li>🌟🌟🌟 When performing error handling it is often useful to implement <code>From</code> trait for our own error type. Then we can use <code>?</code> to automatically convert the underlying error type to our own error type.</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">use std::fs;
+use std::io;
+use std::num;
+
+enum CliError {
+    IoError(io::Error),
+    ParseError(num::ParseIntError),
+}
+
+impl From&lt;io::Error&gt; for CliError {
+    // IMPLEMENT from method
+}
+
+impl From&lt;num::ParseIntError&gt; for CliError {
+    // IMPLEMENT from method
+}
+
+fn open_and_parse_file(file_name: &amp;str) -&gt; Result&lt;i32, CliError&gt; {
+    // ? automatically converts io::Error to CliError
+    let contents = fs::read_to_string(&amp;file_name)?;
+    // num::ParseIntError -&gt; CliError
+    let num: i32 = contents.trim().parse()?;
+    Ok(num)
+}
+
+fn main() {
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="tryfromtryinto"><a class="header" href="#tryfromtryinto">TryFrom/TryInto</a></h3>
+<p>Similar to <code>From</code> and <code>Into</code>, <code>TryFrom</code> and <code>TryInto</code> are generic traits for converting between types.</p>
+<p>Unlike <code>From/Into</code>, <code>TryFrom</code> and <code>TryInto</code> are used for fallible conversions and return a <code>Result</code> instead of a plain value.</p>
+<ol start="4">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">// TryFrom and TryInto are included in `std::prelude`, so there is no need to introduce it into the current scope
+// use std::convert::TryInto;
+
+fn main() {
+    let n: i16 = 256;
+
+    // Into trait has a method `into`,
+    // hence TryInto has a method ?
+    let n: u8 = match n.__() {
+        Ok(n) =&gt; n,
+        Err(e) =&gt; {
+            println!("there is an error when converting: {:?}, but we catch it", e.to_string());
+            0
+        }
+    };
+
+    assert_eq!(n, __);
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="5">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">#[derive(Debug, PartialEq)]
+struct EvenNum(i32);
+
+impl TryFrom&lt;i32&gt; for EvenNum {
+    type Error = ();
+
+    // IMPLEMENT `try_from`
+    fn try_from(value: i32) -&gt; Result&lt;Self, Self::Error&gt; {
+        if value % 2 == 0 {
+            Ok(EvenNum(value))
+        } else {
+            Err(())
+        }
+    }
+}
+
+fn main() {
+    assert_eq!(EvenNum::try_from(8), Ok(EvenNum(8)));
+    assert_eq!(EvenNum::try_from(5), Err(()));
+
+    // FILL in the blanks
+    let result: Result&lt;EvenNum, ()&gt; = 8i32.try_into();
+    assert_eq!(result, __);
+    let result: Result&lt;EvenNum, ()&gt; = 5i32.try_into();
+    assert_eq!(result, __);
+
+    println!("Success!");
+}</code></pre></pre>
+<blockquote>
+<p>You can find the solutions <a href="https://github.com/sunface/rust-by-practice/blob/master/solutions/type-conversions/from-into.md">here</a>(under the solutions path), but only use it when you need it</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../type-conversions/as.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../type-conversions/others.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../type-conversions/as.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../type-conversions/others.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom3.js"></script>
+        <script src="../assets/lang1.js"></script>
+
+
+    </div>
+    </body>
+</html>

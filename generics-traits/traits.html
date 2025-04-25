@@ -1,0 +1,678 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Traits - Rust By Practice</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Learn Rust with Example, Exercise and real Practice, written with ❤️ by https://course.rs team">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style1.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust By Practice</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/sunface/rust-by-practice/edit/master/en/src/generics-traits/traits.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
+<p>A trait tells the Rust compiler about functionality a particular type has and can share with other types. We can use traits to define shared behavior in an abstract way. We can use trait bounds to specify that a generic type can be any type that has certain behavior.</p>
+<blockquote>
+<p>Note: Traits are similar to interfaces in other languages, although with some differences.</p>
+</blockquote>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+struct Sheep { naked: bool, name: String }
+
+trait Animal {
+    // Associated function signature; `Self` refers to the implementor type.
+    fn new(name: String) -&gt; Self;
+
+    // Method signatures; these will return a string.
+    fn name(&amp;self) -&gt; String;
+    
+    fn noise(&amp;self) -&gt; String;
+
+    // Traits can provide default method definitions.
+    fn talk(&amp;self) {
+        println!("{} says {}", self.name(), self.noise());
+    }
+}
+
+impl Sheep {
+    fn is_naked(&amp;self) -&gt; bool {
+        self.naked
+    }
+
+    fn shear(&amp;mut self) {
+        if self.is_naked() {
+            // Implementor methods can use the implementor's trait methods.
+            println!("{} is already naked...", self.name());
+        } else {
+            println!("{} gets a haircut!", self.name);
+
+            self.naked = true;
+        }
+    }
+}
+
+// Implement the `Animal` trait for `Sheep`.
+impl Animal for Sheep {
+    // `Self` is the implementor type: `Sheep`.
+    fn new(name: String) -&gt; Sheep {
+        Sheep { name: name, naked: false }
+    }
+
+    fn name(&amp;self) -&gt; String {
+        self.name.clone()
+    }
+
+    fn noise(&amp;self) -&gt; String {
+        if self.is_naked() {
+            "baaaaah?".to_string()
+        } else {
+            "baaaaah!".to_string()
+        }
+    }
+    
+    // Default trait methods can be overridden.
+    fn talk(&amp;self) {
+        // For example, we can add some quiet contemplation.
+        println!("{} pauses briefly... {}", self.name, self.noise());
+    }
+}
+
+fn main() {
+    // Type annotation is necessary in this case.
+    let mut dolly: Sheep = Animal::new("Dolly".to_string());
+    // TODO ^ Try removing the type annotations.
+
+    dolly.talk();
+    dolly.shear();
+    dolly.talk();
+}</code></pre></pre>
+<h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<ol>
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Fill in the two impl blocks to make the code work.
+// DON'T modify the code in `main`.
+trait Hello {
+    fn say_hi(&amp;self) -&gt; String {
+        String::from("hi")
+    }
+
+    fn say_something(&amp;self) -&gt; String;
+}
+
+struct Student {}
+impl Hello for Student {
+}
+struct Teacher {}
+impl Hello for Teacher {
+}
+
+fn main() {
+    let s = Student {};
+    assert_eq!(s.say_hi(), "hi");
+    assert_eq!(s.say_something(), "I'm a good student");
+
+    let t = Teacher {};
+    assert_eq!(t.say_hi(), "Hi, I'm your new teacher");
+    assert_eq!(t.say_something(), "I'm not a bad teacher");
+
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="derive"><a class="header" href="#derive">Derive</a></h3>
+<p>The compiler is capable of providing basic implementations for some traits via
+the <code>#[derive]</code> attribute. For more info, please visit <a href="https://doc.rust-lang.org/book/appendix-03-derivable-traits.html">here</a>.</p>
+<ol start="2">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// `Centimeters`, a tuple struct that can be compared
+#[derive(PartialEq, PartialOrd)]
+struct Centimeters(f64);
+
+// `Inches`, a tuple struct that can be printed
+#[derive(Debug)]
+struct Inches(i32);
+
+impl Inches {
+    fn to_centimeters(&amp;self) -&gt; Centimeters {
+        let &amp;Inches(inches) = self;
+
+        Centimeters(inches as f64 * 2.54)
+    }
+}
+
+// ADD some attributes to make the code work!
+// DON'T modify other code!
+struct Seconds(i32);
+
+fn main() {
+    let _one_second = Seconds(1);
+
+    println!("One second looks like: {:?}", _one_second);
+    let _this_is_true = (_one_second == _one_second);
+    let _this_is_false = (_one_second &gt; _one_second);
+
+    let foot = Inches(12);
+
+    println!("One foot equals {:?}", foot);
+
+    let meter = Centimeters(100.0);
+
+    let cmp =
+        if foot.to_centimeters() &lt; meter {
+            "smaller"
+        } else {
+            "bigger"
+        };
+
+    println!("One foot is {} than one meter.", cmp);
+}</code></pre></pre>
+<h3 id="operator"><a class="header" href="#operator">Operator</a></h3>
+<p>In Rust, many of the operators can be overloaded via traits. That is, some operators can be used to accomplish different tasks based on their input arguments. This is possible because operators are syntactic sugar for method calls. For example, the + operator in a + b calls the add method (as in a.add(b)). This add method is part of the Add trait. Hence, the + operator can be used by any implementor of the Add trait.</p>
+<ol start="3">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+use std::ops;
+
+// Implement fn multiply to make the code work.
+// As mentioned above, `+` needs `T` to implement `std::ops::Add` Trait.
+// So, what about `*`?  You can find the answer here: https://doc.rust-lang.org/core/ops/
+fn multiply
+
+fn main() {
+    assert_eq!(6, multiply(2u8, 3u8));
+    assert_eq!(5.0, multiply(1.0, 5.0));
+
+    println!("Success!");
+}</code></pre></pre>
+<ol start="4">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Fix the errors, DON'T modify the code in `main`.
+use std::ops;
+
+struct Foo;
+struct Bar;
+
+struct FooBar;
+
+struct BarFoo;
+
+// The `std::ops::Add` trait is used to specify the functionality of `+`.
+// Here, we make `Add&lt;Bar&gt;` - the trait for addition with a RHS of type `Bar`.
+// The following block implements the operation: Foo + Bar = FooBar
+impl ops::Add&lt;Bar&gt; for Foo {
+    type Output = FooBar;
+
+    fn add(self, _rhs: Bar) -&gt; FooBar {
+        FooBar
+    }
+}
+
+impl ops::Sub&lt;Foo&gt; for Bar {
+    type Output = BarFoo;
+
+    fn sub(self, _rhs: Foo) -&gt; BarFoo {
+        BarFoo
+    }
+}
+
+fn main() {
+    // DON'T modify the code below.
+    // You need to derive some trait for FooBar to make it comparable.
+    assert_eq!(Foo + Bar, FooBar);
+    assert_eq!(Foo - Bar, BarFoo);
+
+    println!("Success!");
+}</code></pre></pre>
+<h3 id="use-trait-as-function-parameters"><a class="header" href="#use-trait-as-function-parameters">Use trait as function parameters</a></h3>
+<p>Instead of a concrete type for the item parameter, we specify the impl keyword and the trait name. This parameter accepts any type that implements the specified trait.</p>
+<ol start="5">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Implement `fn summary` to make the code work.
+// Fix the errors without removing any code line
+trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+#[derive(Debug)]
+struct Post {
+    title: String,
+    author: String,
+    content: String,
+}
+
+impl Summary for Post {
+    fn summarize(&amp;self) -&gt; String {
+        format!("The author of post {} is {}", self.title, self.author)
+    }
+}
+
+#[derive(Debug)]
+struct Weibo {
+    username: String,
+    content: String,
+}
+
+impl Summary for Weibo {
+    fn summarize(&amp;self) -&gt; String {
+        format!("{} published a weibo {}", self.username, self.content)
+    }
+}
+
+fn main() {
+    let post = Post {
+        title: "Popular Rust".to_string(),
+        author: "Sunface".to_string(),
+        content: "Rust is awesome!".to_string(),
+    };
+    let weibo = Weibo {
+        username: "sunface".to_string(),
+        content: "Weibo seems to be worse than Tweet".to_string(),
+    };
+
+    summary(post);
+    summary(weibo);
+
+    println!("{:?}", post);
+    println!("{:?}", weibo);
+}
+
+// Implement `fn summary` below.
+</code></pre></pre>
+<h3 id="returning-types-that-implement-traits"><a class="header" href="#returning-types-that-implement-traits">Returning Types that Implement Traits</a></h3>
+<p>We can also use the impl Trait syntax in the return position to return a value of some type that implements a trait.</p>
+<p>However, you can only use impl Trait if you’re returning a single type, use Trait Objects instead when you really need to return several types.</p>
+<ol start="6">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+struct Sheep {}
+struct Cow {}
+
+trait Animal {
+    fn noise(&amp;self) -&gt; String;
+}
+
+impl Animal for Sheep {
+    fn noise(&amp;self) -&gt; String {
+        "baaaaah!".to_string()
+    }
+}
+
+impl Animal for Cow {
+    fn noise(&amp;self) -&gt; String {
+        "moooooo!".to_string()
+    }
+}
+
+// Returns some struct that implements Animal, but we don't know which one at compile time.
+// FIX the errors here, you can make a fake random, or you can use trait object.
+fn random_animal(random_number: f64) -&gt; impl Animal {
+    if random_number &lt; 0.5 {
+        Sheep {}
+    } else {
+        Cow {}
+    }
+}
+
+fn main() {
+    let random_number = 0.234;
+    let animal = random_animal(random_number);
+    println!("You've randomly chosen an animal, and it says {}", animal.noise());
+}</code></pre></pre>
+<h3 id="trait-bound"><a class="header" href="#trait-bound">Trait bound</a></h3>
+<p>The <code>impl Trait</code> syntax works for straightforward cases but is actually syntax sugar for a longer form, which is called a trait bound.</p>
+<p>When working with generics, the type parameters often must use traits as bounds to stipulate what functionality a type implements.</p>
+<ol start="7">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    assert_eq!(sum(1, 2), 3);
+}
+
+// Implement `fn sum` with trait bound in two ways.
+fn sum&lt;T&gt;(x: T, y: T) -&gt; T {
+    x + y
+}</code></pre></pre>
+<ol start="8">
+<li>🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// FIX the errors.
+struct Pair&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+impl&lt;T&gt; Pair&lt;T&gt; {
+    fn new(x: T, y: T) -&gt; Self {
+        Self {
+            x,
+            y,
+        }
+    }
+}
+
+impl&lt;T: std::fmt::Debug + PartialOrd&gt; Pair&lt;T&gt; {
+    fn cmp_display(&amp;self) {
+        if self.x &gt;= self.y {
+            println!("The largest member is x = {:?}", self.x);
+        } else {
+            println!("The largest member is y = {:?}", self.y);
+        }
+    }
+}
+
+struct Unit(i32);
+
+fn main() {
+    let pair = Pair{
+        x: Unit(1),
+        y: Unit(3)
+    };
+
+    pair.cmp_display();
+}</code></pre></pre>
+<ol start="9">
+<li>🌟🌟🌟</li>
+</ol>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+// Fill in the blanks to make it work
+fn example1() {
+    // `T: Trait` is the commonly used way.
+    // `T: Fn(u32) -&gt; u32` specifies that we can only pass a closure to `T`.
+    struct Cacher&lt;T: Fn(u32) -&gt; u32&gt; {
+        calculation: T,
+        value: Option&lt;u32&gt;,
+    }
+
+    impl&lt;T: Fn(u32) -&gt; u32&gt; Cacher&lt;T&gt; {
+        fn new(calculation: T) -&gt; Cacher&lt;T&gt; {
+            Cacher {
+                calculation,
+                value: None,
+            }
+        }
+
+        fn value(&amp;mut self, arg: u32) -&gt; u32 {
+            match self.value {
+                Some(v) =&gt; v,
+                None =&gt; {
+                    let v = (self.calculation)(arg);
+                    self.value = Some(v);
+                    v
+                },
+            }
+        }
+    }
+
+    let mut cacher = Cacher::new(|x| x+1);
+    assert_eq!(cacher.value(10), __);
+    assert_eq!(cacher.value(15), __);
+}
+
+
+fn example2() {
+    // We can also use `where` to construct `T`
+    struct Cacher&lt;T&gt;
+        where T: Fn(u32) -&gt; u32,
+    {
+        calculation: T,
+        value: Option&lt;u32&gt;,
+    }
+
+    impl&lt;T&gt; Cacher&lt;T&gt;
+        where T: Fn(u32) -&gt; u32,
+    {
+        fn new(calculation: T) -&gt; Cacher&lt;T&gt; {
+            Cacher {
+                calculation,
+                value: None,
+            }
+        }
+
+        fn value(&amp;mut self, arg: u32) -&gt; u32 {
+            match self.value {
+                Some(v) =&gt; v,
+                None =&gt; {
+                    let v = (self.calculation)(arg);
+                    self.value = Some(v);
+                    v
+                },
+            }
+        }
+    }
+
+    let mut cacher = Cacher::new(|x| x+1);
+    assert_eq!(cacher.value(20), __);
+    assert_eq!(cacher.value(25), __);
+}
+
+
+
+fn main() {
+    example1();
+    example2();
+
+    println!("Success!");
+}</code></pre></pre>
+<blockquote>
+<p>You can find the solutions <a href="https://github.com/sunface/rust-by-practice/blob/master/solutions/generics-traits/traits.md">here</a>(under the solutions path), but only use it when you need it :)</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../generics-traits/const-generics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../generics-traits/trait-object.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../generics-traits/const-generics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../generics-traits/trait-object.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom3.js"></script>
+        <script src="../assets/lang1.js"></script>
+
+
+    </div>
+    </body>
+</html>
