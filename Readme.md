@@ -22,7 +22,7 @@ This book was designed for easily diving into and getting skilled with Rust It's
 
 ## Reading online
 
-- [https://practice.rs](https://practice.rs)
+- [https://practice.course.rs](https://practice.course.rs)
 
 ## Features
 
