@@ -80,7 +80,7 @@ fn main() {
 ```
 
 ### Deref
-You can find all the examples and exercises of the `Deref` trait [here](https://practice.rs/smart-pointers/deref.html).
+You can find all the examples and exercises of the `Deref` trait [here](https://practice.course.rs/smart-pointers/deref.html).
 
 ### Transmute
 `std::mem::transmute` is a **unsafe function** can be used to reinterprets the bits of a value of one type as another type. Both of the original and the result types must have the same size and neither of them can be invalid.
