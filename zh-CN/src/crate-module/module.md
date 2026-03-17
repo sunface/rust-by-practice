@@ -135,32 +135,32 @@ pub mod back_of_house {
 ```rust,editable
 // in src/lib.rs
 
-// IMPLEMENT...
+// 待实现...
 ```
 
 ```rust,editable
 // in src/back_of_house.rs
 
-// IMPLEMENT...
+// 待实现...
 ```
 
 
 ```rust,editable
 // in src/front_of_house/mod.rs
 
-// IMPLEMENT...
+// 待实现...
 ```
 
 ```rust,editable
 // in src/front_of_house/hosting.rs
 
-// IMPLEMENT...
+// 待实现...
 ```
 
 ```rust,editable
 // in src/front_of_house/serving.rs
 
-// IMPLEMENT...
+// 待实现...
 ```
 
 ### 从二进制包中访问库包的代码
