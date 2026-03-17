@@ -80,10 +80,6 @@ fn main() {
     let v3 = Vec::__(s);
     assert_eq!(v2, v3);
 
-    // Iterators can be collected into vectors
-    let v4: Vec<i32> = [0; 10].into_iter().collect();
-    assert_eq!(v4, vec![0; 10]);
-
     println!("Success!");
  }
 ```
