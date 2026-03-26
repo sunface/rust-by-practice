@@ -58,9 +58,7 @@ fn main() {
      // consume();
 }
 
-fn take<T>(_v: T) {
-
-}
+fn take<T>(_v: T) {}
 ```
 
 ```rust
@@ -80,9 +78,7 @@ fn main() {
      consume();
 }
 
-fn take<T>(_v: &T) {
-
-}
+fn take<T>(_v: T) {}
 ```
 
 4. 
