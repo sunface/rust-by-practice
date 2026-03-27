@@ -54,7 +54,7 @@ fn main() {
 
 3. 🌟
 ```rust,editable
-
+// Make it work
 fn main() {
     let s = sum(1 , 2);
     assert_eq!(s, 3);
@@ -63,7 +63,7 @@ fn main() {
 }
 
 fn sum(x: i32, y: i32) -> i32 {
-    x + y
+    x + y;
 }
 ```
 
