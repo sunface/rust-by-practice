@@ -283,4 +283,4 @@ fn use_list(list: &List) {
 }
 ```
 
-> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/lifetime/advance.md)(under the solutions path), but only use it when you need it :)
+> You can find the solutions [here](https://github.com/sunface/rust-by-practice/blob/master/solutions/lifetime/advance.md) (under the solutions path), but only use it when you need it :)
