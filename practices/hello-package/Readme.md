@@ -1,5 +1,5 @@
 ## Hello Package
-A practice project used in [Crate and Module](https://practice.rs/crate-module/crate.html) chapter.
+A practice project used in [Crate and Module](https://practice.course.rs/crate-module/crate.html) chapter.
 
 This project will guide us to create a package with a binary crate and several library crates in it.
 

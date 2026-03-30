@@ -81,7 +81,7 @@ fn main() {
 ```
 
 ### Deref 特征
-Deref 特征在[智能指针 - Deref](https://practice.rs/smart-pointers/deref.html)章节中有更加详细的介绍。
+Deref 特征在[智能指针 - Deref](https://practice-zh.course.rs/smart-pointers/deref.html)章节中有更加详细的介绍。
 
 ### transmute
 `std::mem::transmute` 是一个 unsafe 函数，可以把一个类型按位解释为另一个类型，其中这两个类型必须有同样的位数( bits )。

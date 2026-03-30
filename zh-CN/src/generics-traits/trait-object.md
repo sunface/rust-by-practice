@@ -1,5 +1,5 @@
 # 特征对象
-在[特征练习中](https://practice.rs/generics-traits/traits.html#returning-types-that-implement-traits) 我们已经知道当函数返回多个类型时，`impl Trait` 是无法使用的。
+在[特征练习中](https://practice-zh.course.rs/generics-traits/traits.html#returning-types-that-implement-traits) 我们已经知道当函数返回多个类型时，`impl Trait` 是无法使用的。
 
 对于数组而言，其中一个限制就是无法存储不同类型的元素，但是通过之前的学习，大家应该知道枚举可以在部分场景解决这种问题，但是这种方法局限性较大。此时就需要我们的主角登场了。
 

@@ -15,8 +15,8 @@ This book was designed for easily diving into and getting skilled with Rust, and
 
 ## Reading online
 
-- [English](https://practice.rs)
-- [简体中文](https://zh.practice.rs)
+- [English](https://practice.course.rs)
+- [简体中文](https://practice-zh.course.rs/)
 
 
 ## Running locally
