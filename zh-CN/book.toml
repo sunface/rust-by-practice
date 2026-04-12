@@ -6,7 +6,6 @@ language = "en"
 
 [output.html.playpen]
 editable = true
-editor = "ace"
 
 [output.html.fold]
 enable = true
