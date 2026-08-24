@@ -8,7 +8,7 @@ Following questions come up weekly in online Rust discussions:
 
 The answers to these questions are always **Practice**: doing some exercises, and then reading some small and excellent Rust projects.
 
-This is precisely the goal of this book, so, collecting relative resourses and representing in _Rust By Practice_ seems not a bad idea.
+This is precisely the goal of this book, so, collecting relative resources and representing in _Rust By Practice_ seems not a bad idea.
 
 ### 1. Ripgrep
 
