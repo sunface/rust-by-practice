@@ -5,8 +5,10 @@ authors = ["sunface, https://im.dev"]
 language = "en"
 
 [output.html.playpen]
+# mdBook 0.5+ removed `editor`; use explicit flags instead
 editable = true
-editor = "ace"
+copyable = true
+runnable = true
 
 [output.html.fold]
 enable = true
