@@ -14,7 +14,7 @@ level = 1
 
 [output.html]
 additional-css = ["theme/style1.css"]
-additional-js = ["assets/custom3.js", "assets/lang1.js"]
+additional-js = ["assets/custom3.js", "assets/lang1.js","assets/shortcut-key.js"]
 git-repository-url = "https://github.com/sunface/rust-by-practice"
 edit-url-template = "https://github.com/sunface/rust-by-practice/edit/master/en/{path}"
 
