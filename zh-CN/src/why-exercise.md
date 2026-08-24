@@ -17,7 +17,7 @@
 
 ## 在线阅读
 
-- [https://zh.practice.rs](https://zh.practice.rs)
+- [https://practice-zh.course.rs/](https://practice-zh.course.rs/)
 
 ## 本地运行
 

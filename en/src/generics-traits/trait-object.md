@@ -1,5 +1,5 @@
 # Trait Object
-In [traits chapter](https://practice.rs/generics-traits/traits.html#returning-types-that-implement-traits) we have seen that we can't use `impl Trait` when returning multiple types.
+In [traits chapter](https://practice.course.rs/generics-traits/traits.html#returning-types-that-implement-traits) we have seen that we can't use `impl Trait` when returning multiple types.
 
 Another limitation of arrays is that they can only store elements of one type. Using enums is not a bad solution when we have a fixed set of types at compile time, but trait objects would be more flexible and powerful.
 
