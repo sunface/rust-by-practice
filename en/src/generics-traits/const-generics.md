@@ -117,15 +117,15 @@ fn main() {
 
 fn check_size<T>(val: T)
 where
-    Assert<{ core::mem::size_of::<T>() < 768 }>: IsTrue,
+    Assert<{ core::mem::size_of::<T>() == 768 }>: IsTrue,
 {
     //...
 }
 
 // Fix the errors in main.
 fn main() {
-    check_size([0u8; 767]); 
-    check_size([0i32; 191]);
+    check_size([0u8; 768]); 
+    check_size([0i32; 192]);
     check_size(["hello你好"; __]); // Size of &str ?
     check_size([(); __].map(|_| "hello你好".to_string()));  // Size of String?
     check_size(['中'; __]); // Size of char ?
