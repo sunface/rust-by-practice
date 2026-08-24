@@ -82,6 +82,9 @@ table {
 }
 
 /* 修复可编辑代码框顶部过窄的问题 */
-code.editable, .ace_scroller {
-    top: 10px;
+.hljs.ace_editor{
+    padding: 10px;
+}
+.ace_scroller{
+    position: static;
 }
